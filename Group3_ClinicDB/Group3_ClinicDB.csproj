@@ -46,11 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="View\MainDashboard.cs">
+    <Compile Include="View\AdminMainDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\MainDashboard.Designer.cs">
-      <DependentUpon>MainDashboard.cs</DependentUpon>
+    <Compile Include="View\AdminMainDashboard.Designer.cs">
+      <DependentUpon>AdminMainDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\NurseMainDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NurseMainDashboard.Designer.cs">
+      <DependentUpon>NurseMainDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="View\LoginForm.cs">
       <SubType>Form</SubType>
@@ -72,8 +78,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\MainDashboard.resx">
-      <DependentUpon>MainDashboard.cs</DependentUpon>
+    <EmbeddedResource Include="View\AdminMainDashboard.resx">
+      <DependentUpon>AdminMainDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\NurseMainDashboard.resx">
+      <DependentUpon>NurseMainDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -93,6 +102,7 @@
     <Folder Include="DAL\" />
     <Folder Include="Model\" />
     <Folder Include="Resources\" />
+    <Folder Include="UserControl\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
