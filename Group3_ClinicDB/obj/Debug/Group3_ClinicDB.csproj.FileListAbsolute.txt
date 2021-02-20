@@ -1,0 +1,10 @@
+C:\Users\Kyle\source\repos\CS6232-Group-Project\Group3_ClinicDB\bin\Debug\Group3_ClinicDB.exe.config
+C:\Users\Kyle\source\repos\CS6232-Group-Project\Group3_ClinicDB\bin\Debug\Group3_ClinicDB.exe
+C:\Users\Kyle\source\repos\CS6232-Group-Project\Group3_ClinicDB\bin\Debug\Group3_ClinicDB.pdb
+C:\Users\Kyle\source\repos\CS6232-Group-Project\Group3_ClinicDB\obj\Debug\Group3_ClinicDB.csprojAssemblyReference.cache
+C:\Users\Kyle\source\repos\CS6232-Group-Project\Group3_ClinicDB\obj\Debug\Group3_ClinicDB.LoginForm.resources
+C:\Users\Kyle\source\repos\CS6232-Group-Project\Group3_ClinicDB\obj\Debug\Group3_ClinicDB.Properties.Resources.resources
+C:\Users\Kyle\source\repos\CS6232-Group-Project\Group3_ClinicDB\obj\Debug\Group3_ClinicDB.csproj.GenerateResource.cache
+C:\Users\Kyle\source\repos\CS6232-Group-Project\Group3_ClinicDB\obj\Debug\Group3_ClinicDB.csproj.CoreCompileInputs.cache
+C:\Users\Kyle\source\repos\CS6232-Group-Project\Group3_ClinicDB\obj\Debug\Group3_ClinicDB.exe
+C:\Users\Kyle\source\repos\CS6232-Group-Project\Group3_ClinicDB\obj\Debug\Group3_ClinicDB.pdb
