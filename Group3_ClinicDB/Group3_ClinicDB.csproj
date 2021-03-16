@@ -60,6 +60,12 @@
     <Compile Include="UserControls\EditAppointmentUserControl.Designer.cs">
       <DependentUpon>EditAppointmentUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\RegisterPatientUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\RegisterPatientUserControl.Designer.cs">
+      <DependentUpon>RegisterPatientUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\AdminMainDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\EditAppointmentUserControl.resx">
       <DependentUpon>EditAppointmentUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\RegisterPatientUserControl.resx">
+      <DependentUpon>RegisterPatientUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
