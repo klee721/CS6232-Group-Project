@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Group3_ClinicDB.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,9 @@ namespace Group3_ClinicDB
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
+
+            Application.Run(new NurseMainDashboard());
+            //Application.Run(new LoginForm());
         }
     }
 }

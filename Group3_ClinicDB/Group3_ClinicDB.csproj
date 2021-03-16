@@ -54,6 +54,12 @@
     <Compile Include="UserControls\AppointmentBookingUserControl.Designer.cs">
       <DependentUpon>AppointmentBookingUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\EditAppointmentUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\EditAppointmentUserControl.Designer.cs">
+      <DependentUpon>EditAppointmentUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\AdminMainDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="UserControls\AppointmentBookingUserControl.resx">
+      <DependentUpon>AppointmentBookingUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\EditAppointmentUserControl.resx">
+      <DependentUpon>EditAppointmentUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>

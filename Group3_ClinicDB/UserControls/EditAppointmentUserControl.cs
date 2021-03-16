@@ -10,13 +10,11 @@ using System.Windows.Forms;
 
 namespace Group3_ClinicDB.UserControls
 {
-    public partial class AppointmentBookingUserControl : UserControl
+    public partial class EditAppointmentUserControl : UserControl
     {
-        public AppointmentBookingUserControl()
+        public EditAppointmentUserControl()
         {
             InitializeComponent();
         }
-
-       
     }
 }

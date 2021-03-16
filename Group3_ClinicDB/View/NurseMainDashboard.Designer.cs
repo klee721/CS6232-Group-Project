@@ -29,36 +29,38 @@ namespace Group3_ClinicDB.View
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.DashboardTabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.ScheduleApptTab = new System.Windows.Forms.TabPage();
+            this.appointmentBookingUserControl2 = new Group3_ClinicDB.UserControls.AppointmentBookingUserControl();
+            this.EditApptTab = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.tabControl1.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.label1 = new System.Windows.Forms.Label();
+            this.editAppointmentUserControl1 = new Group3_ClinicDB.UserControls.EditAppointmentUserControl();
+            this.DashboardTabControl.SuspendLayout();
+            this.ScheduleApptTab.SuspendLayout();
+            this.EditApptTab.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // DashboardTabControl
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Controls.Add(this.tabPage6);
-            this.tabControl1.Controls.Add(this.tabPage7);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tabControl1.Location = new System.Drawing.Point(0, 27);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1223, 641);
-            this.tabControl1.TabIndex = 0;
+            this.DashboardTabControl.Controls.Add(this.tabPage1);
+            this.DashboardTabControl.Controls.Add(this.ScheduleApptTab);
+            this.DashboardTabControl.Controls.Add(this.EditApptTab);
+            this.DashboardTabControl.Controls.Add(this.tabPage4);
+            this.DashboardTabControl.Controls.Add(this.tabPage5);
+            this.DashboardTabControl.Controls.Add(this.tabPage6);
+            this.DashboardTabControl.Controls.Add(this.tabPage7);
+            this.DashboardTabControl.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.DashboardTabControl.Location = new System.Drawing.Point(0, 312);
+            this.DashboardTabControl.Name = "DashboardTabControl";
+            this.DashboardTabControl.SelectedIndex = 0;
+            this.DashboardTabControl.Size = new System.Drawing.Size(1223, 641);
+            this.DashboardTabControl.TabIndex = 0;
             // 
             // tabPage1
             // 
@@ -70,48 +72,35 @@ namespace Group3_ClinicDB.View
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // ScheduleApptTab
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1215, 615);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.ScheduleApptTab.Controls.Add(this.appointmentBookingUserControl2);
+            this.ScheduleApptTab.Location = new System.Drawing.Point(4, 22);
+            this.ScheduleApptTab.Name = "ScheduleApptTab";
+            this.ScheduleApptTab.Padding = new System.Windows.Forms.Padding(3);
+            this.ScheduleApptTab.Size = new System.Drawing.Size(1215, 615);
+            this.ScheduleApptTab.TabIndex = 1;
+            this.ScheduleApptTab.Text = "Schedule Appointment";
+            this.ScheduleApptTab.UseVisualStyleBackColor = true;
             // 
-            // menuStrip1
+            // appointmentBookingUserControl2
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1223, 24);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
+            this.appointmentBookingUserControl2.Location = new System.Drawing.Point(0, 0);
+            this.appointmentBookingUserControl2.MaximumSize = new System.Drawing.Size(1215, 615);
+            this.appointmentBookingUserControl2.MinimumSize = new System.Drawing.Size(1215, 615);
+            this.appointmentBookingUserControl2.Name = "appointmentBookingUserControl2";
+            this.appointmentBookingUserControl2.Size = new System.Drawing.Size(1215, 615);
+            this.appointmentBookingUserControl2.TabIndex = 0;
             // 
-            // fileToolStripMenuItem
+            // EditApptTab
             // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.logoutToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
-            // 
-            // logoutToolStripMenuItem
-            // 
-            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.logoutToolStripMenuItem.Text = "Logout";
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1215, 615);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.EditApptTab.Controls.Add(this.editAppointmentUserControl1);
+            this.EditApptTab.Location = new System.Drawing.Point(4, 22);
+            this.EditApptTab.Name = "EditApptTab";
+            this.EditApptTab.Size = new System.Drawing.Size(1215, 615);
+            this.EditApptTab.TabIndex = 2;
+            this.EditApptTab.Text = "Edit Appointment";
+            this.EditApptTab.UseVisualStyleBackColor = true;
             // 
             // tabPage4
             // 
@@ -149,18 +138,46 @@ namespace Group3_ClinicDB.View
             this.tabPage7.Text = "tabPage7";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
-            // MainDashboard
+            // menuStrip1
+            // 
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1223, 24);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(31, 109);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(1168, 108);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "SEARCH PATIENT HERE";
+            // 
+            // editAppointmentUserControl1
+            // 
+            this.editAppointmentUserControl1.Location = new System.Drawing.Point(0, 0);
+            this.editAppointmentUserControl1.MaximumSize = new System.Drawing.Size(1215, 615);
+            this.editAppointmentUserControl1.MinimumSize = new System.Drawing.Size(1215, 615);
+            this.editAppointmentUserControl1.Name = "editAppointmentUserControl1";
+            this.editAppointmentUserControl1.Size = new System.Drawing.Size(1215, 615);
+            this.editAppointmentUserControl1.TabIndex = 0;
+            // 
+            // NurseMainDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1223, 668);
-            this.Controls.Add(this.tabControl1);
+            this.ClientSize = new System.Drawing.Size(1223, 953);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.DashboardTabControl);
             this.Controls.Add(this.menuStrip1);
-            this.Name = "MainDashboard";
+            this.Name = "NurseMainDashboard";
             this.Text = "Home";
-            this.tabControl1.ResumeLayout(false);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.DashboardTabControl.ResumeLayout(false);
+            this.ScheduleApptTab.ResumeLayout(false);
+            this.EditApptTab.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,16 +185,17 @@ namespace Group3_ClinicDB.View
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl DashboardTabControl;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage ScheduleApptTab;
+        private System.Windows.Forms.TabPage EditApptTab;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
+        private UserControls.AppointmentBookingUserControl appointmentBookingUserControl2;
+        private System.Windows.Forms.Label label1;
+        private UserControls.EditAppointmentUserControl editAppointmentUserControl1;
     }
 }
