@@ -13,7 +13,7 @@ namespace Group3_ClinicDB.DAL
         public static SqlConnection GetConnection()
         {
             string connectionString =
-                "Data Source=DC1WCBGRDEV03;Initial Catalog=cs6232-g3;" +
+                "Data Source=DESKTOP-5FCDEJC/MSSQLSERVER2019;Initial Catalog=cs6232-g3;" +
                 "Integrated Security=True";
 
 

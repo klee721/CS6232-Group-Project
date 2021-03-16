@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Group3_ClinicDB.Model
 {
-    class Visits
+   public class Visits
     {
 
 
