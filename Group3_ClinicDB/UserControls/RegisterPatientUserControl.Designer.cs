@@ -53,12 +53,13 @@ namespace Group3_ClinicDB.UserControls
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
             this.addressTextBox = new System.Windows.Forms.TextBox();
             this.address2TextBox = new System.Windows.Forms.TextBox();
+            this.registerPatientLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // registerButton
             // 
             this.registerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.registerButton.Location = new System.Drawing.Point(723, 516);
+            this.registerButton.Location = new System.Drawing.Point(720, 452);
             this.registerButton.Name = "registerButton";
             this.registerButton.Size = new System.Drawing.Size(180, 32);
             this.registerButton.TabIndex = 0;
@@ -68,7 +69,7 @@ namespace Group3_ClinicDB.UserControls
             // clearButton
             // 
             this.clearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearButton.Location = new System.Drawing.Point(932, 516);
+            this.clearButton.Location = new System.Drawing.Point(929, 452);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(180, 32);
             this.clearButton.TabIndex = 1;
@@ -79,7 +80,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             this.lastNameLabel.AutoSize = true;
             this.lastNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lastNameLabel.Location = new System.Drawing.Point(58, 61);
+            this.lastNameLabel.Location = new System.Drawing.Point(61, 111);
             this.lastNameLabel.Name = "lastNameLabel";
             this.lastNameLabel.Size = new System.Drawing.Size(84, 18);
             this.lastNameLabel.TabIndex = 2;
@@ -89,7 +90,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             this.firstNameLabel.AutoSize = true;
             this.firstNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.firstNameLabel.Location = new System.Drawing.Point(58, 109);
+            this.firstNameLabel.Location = new System.Drawing.Point(61, 159);
             this.firstNameLabel.Name = "firstNameLabel";
             this.firstNameLabel.Size = new System.Drawing.Size(85, 18);
             this.firstNameLabel.TabIndex = 3;
@@ -99,7 +100,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             this.dateOfBirthLabel.AutoSize = true;
             this.dateOfBirthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateOfBirthLabel.Location = new System.Drawing.Point(58, 157);
+            this.dateOfBirthLabel.Location = new System.Drawing.Point(61, 207);
             this.dateOfBirthLabel.Name = "dateOfBirthLabel";
             this.dateOfBirthLabel.Size = new System.Drawing.Size(94, 18);
             this.dateOfBirthLabel.TabIndex = 4;
@@ -109,7 +110,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             this.genderLabel.AutoSize = true;
             this.genderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.genderLabel.Location = new System.Drawing.Point(58, 199);
+            this.genderLabel.Location = new System.Drawing.Point(61, 249);
             this.genderLabel.Name = "genderLabel";
             this.genderLabel.Size = new System.Drawing.Size(61, 18);
             this.genderLabel.TabIndex = 5;
@@ -119,7 +120,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             this.ssnLabel.AutoSize = true;
             this.ssnLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ssnLabel.Location = new System.Drawing.Point(58, 240);
+            this.ssnLabel.Location = new System.Drawing.Point(61, 290);
             this.ssnLabel.Name = "ssnLabel";
             this.ssnLabel.Size = new System.Drawing.Size(43, 18);
             this.ssnLabel.TabIndex = 6;
@@ -129,7 +130,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             this.address1Label.AutoSize = true;
             this.address1Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.address1Label.Location = new System.Drawing.Point(589, 61);
+            this.address1Label.Location = new System.Drawing.Point(592, 111);
             this.address1Label.Name = "address1Label";
             this.address1Label.Size = new System.Drawing.Size(121, 18);
             this.address1Label.TabIndex = 7;
@@ -139,7 +140,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             this.address2Label.AutoSize = true;
             this.address2Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.address2Label.Location = new System.Drawing.Point(589, 109);
+            this.address2Label.Location = new System.Drawing.Point(592, 159);
             this.address2Label.Name = "address2Label";
             this.address2Label.Size = new System.Drawing.Size(121, 18);
             this.address2Label.TabIndex = 8;
@@ -149,7 +150,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             this.cityLabel.AutoSize = true;
             this.cityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cityLabel.Location = new System.Drawing.Point(589, 157);
+            this.cityLabel.Location = new System.Drawing.Point(592, 207);
             this.cityLabel.Name = "cityLabel";
             this.cityLabel.Size = new System.Drawing.Size(37, 18);
             this.cityLabel.TabIndex = 9;
@@ -159,7 +160,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             this.stateLabel.AutoSize = true;
             this.stateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stateLabel.Location = new System.Drawing.Point(1006, 158);
+            this.stateLabel.Location = new System.Drawing.Point(1009, 208);
             this.stateLabel.Name = "stateLabel";
             this.stateLabel.Size = new System.Drawing.Size(46, 18);
             this.stateLabel.TabIndex = 10;
@@ -169,7 +170,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             this.zipCodeLabel.AutoSize = true;
             this.zipCodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.zipCodeLabel.Location = new System.Drawing.Point(589, 199);
+            this.zipCodeLabel.Location = new System.Drawing.Point(592, 249);
             this.zipCodeLabel.Name = "zipCodeLabel";
             this.zipCodeLabel.Size = new System.Drawing.Size(72, 18);
             this.zipCodeLabel.TabIndex = 11;
@@ -179,7 +180,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             this.phoneNumberLabel.AutoSize = true;
             this.phoneNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phoneNumberLabel.Location = new System.Drawing.Point(592, 244);
+            this.phoneNumberLabel.Location = new System.Drawing.Point(595, 294);
             this.phoneNumberLabel.Name = "phoneNumberLabel";
             this.phoneNumberLabel.Size = new System.Drawing.Size(112, 18);
             this.phoneNumberLabel.TabIndex = 12;
@@ -187,7 +188,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             // dobDateTimePicker
             // 
-            this.dobDateTimePicker.Location = new System.Drawing.Point(175, 154);
+            this.dobDateTimePicker.Location = new System.Drawing.Point(178, 204);
             this.dobDateTimePicker.Name = "dobDateTimePicker";
             this.dobDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.dobDateTimePicker.TabIndex = 2;
@@ -196,80 +197,91 @@ namespace Group3_ClinicDB.UserControls
             // 
             this.genderComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.genderComboBox.FormattingEnabled = true;
-            this.genderComboBox.Location = new System.Drawing.Point(175, 196);
+            this.genderComboBox.Location = new System.Drawing.Point(178, 246);
             this.genderComboBox.Name = "genderComboBox";
-            this.genderComboBox.Size = new System.Drawing.Size(50, 21);
+            this.genderComboBox.Size = new System.Drawing.Size(103, 21);
             this.genderComboBox.TabIndex = 3;
             // 
             // stateComboBox
             // 
             this.stateComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.stateComboBox.FormattingEnabled = true;
-            this.stateComboBox.Location = new System.Drawing.Point(1058, 155);
+            this.stateComboBox.Location = new System.Drawing.Point(1061, 205);
             this.stateComboBox.Name = "stateComboBox";
             this.stateComboBox.Size = new System.Drawing.Size(75, 21);
             this.stateComboBox.TabIndex = 10;
             // 
             // cityTextBox
             // 
-            this.cityTextBox.Location = new System.Drawing.Point(717, 155);
+            this.cityTextBox.Location = new System.Drawing.Point(720, 205);
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(236, 20);
             this.cityTextBox.TabIndex = 7;
             // 
             // zipCodeTextBox
             // 
-            this.zipCodeTextBox.Location = new System.Drawing.Point(717, 196);
+            this.zipCodeTextBox.Location = new System.Drawing.Point(720, 246);
             this.zipCodeTextBox.Name = "zipCodeTextBox";
             this.zipCodeTextBox.Size = new System.Drawing.Size(130, 20);
             this.zipCodeTextBox.TabIndex = 8;
             // 
             // phoneNumberTextBox
             // 
-            this.phoneNumberTextBox.Location = new System.Drawing.Point(716, 241);
+            this.phoneNumberTextBox.Location = new System.Drawing.Point(719, 291);
             this.phoneNumberTextBox.Name = "phoneNumberTextBox";
             this.phoneNumberTextBox.Size = new System.Drawing.Size(181, 20);
             this.phoneNumberTextBox.TabIndex = 9;
             // 
             // ssnTextBox
             // 
-            this.ssnTextBox.Location = new System.Drawing.Point(175, 240);
+            this.ssnTextBox.Location = new System.Drawing.Point(178, 290);
             this.ssnTextBox.Name = "ssnTextBox";
             this.ssnTextBox.Size = new System.Drawing.Size(200, 20);
             this.ssnTextBox.TabIndex = 4;
             // 
             // firstNameTextBox
             // 
-            this.firstNameTextBox.Location = new System.Drawing.Point(175, 106);
+            this.firstNameTextBox.Location = new System.Drawing.Point(178, 156);
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(250, 20);
             this.firstNameTextBox.TabIndex = 1;
             // 
             // lastNameTextBox
             // 
-            this.lastNameTextBox.Location = new System.Drawing.Point(175, 58);
+            this.lastNameTextBox.Location = new System.Drawing.Point(178, 108);
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(250, 20);
             this.lastNameTextBox.TabIndex = 0;
             // 
             // addressTextBox
             // 
-            this.addressTextBox.Location = new System.Drawing.Point(716, 58);
+            this.addressTextBox.Location = new System.Drawing.Point(719, 108);
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(348, 20);
             this.addressTextBox.TabIndex = 5;
             // 
             // address2TextBox
             // 
-            this.address2TextBox.Location = new System.Drawing.Point(717, 106);
+            this.address2TextBox.Location = new System.Drawing.Point(720, 156);
             this.address2TextBox.Name = "address2TextBox";
             this.address2TextBox.Size = new System.Drawing.Size(347, 20);
             this.address2TextBox.TabIndex = 6;
+            // 
+            // registerPatientLabel
+            // 
+            this.registerPatientLabel.AutoSize = true;
+            this.registerPatientLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.registerPatientLabel.Location = new System.Drawing.Point(59, 35);
+            this.registerPatientLabel.Name = "registerPatientLabel";
+            this.registerPatientLabel.Size = new System.Drawing.Size(193, 29);
+            this.registerPatientLabel.TabIndex = 13;
+            this.registerPatientLabel.Text = "Register Patient";
             // 
             // RegisterPatientUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.registerPatientLabel);
             this.Controls.Add(this.address2TextBox);
             this.Controls.Add(this.addressTextBox);
             this.Controls.Add(this.lastNameTextBox);
@@ -329,5 +341,6 @@ namespace Group3_ClinicDB.UserControls
         private System.Windows.Forms.TextBox lastNameTextBox;
         private System.Windows.Forms.TextBox addressTextBox;
         private System.Windows.Forms.TextBox address2TextBox;
+        private System.Windows.Forms.Label registerPatientLabel;
     }
 }
