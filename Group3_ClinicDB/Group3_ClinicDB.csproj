@@ -46,7 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UserControl\Placeholder.cs" />
+    <Compile Include="DAL\DAL1.cs" />
+    <Compile Include="Model\Class1.cs" />
+    <Compile Include="UserControls\AppointmentBookingUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AppointmentBookingUserControl.Designer.cs">
+      <DependentUpon>AppointmentBookingUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\AdminMainDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,8 +107,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controller\" />
-    <Folder Include="DAL\" />
-    <Folder Include="Model\" />
     <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

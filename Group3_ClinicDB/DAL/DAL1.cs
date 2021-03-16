@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Group3_ClinicDB.UserControl
+namespace Group3_ClinicDB.DAL
 {
-    class Placeholder
+    class DAL1
     {
     }
 }
