@@ -1,0 +1,167 @@
+Msg 5133, Level 16, State 1, Line 4
+Directory lookup for the file "C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER2019\MSSQL\DATA\cs6232-g3.mdf" failed with the operating system error 3(The system cannot find the path specified.).
+Msg 1802, Level 16, State 1, Line 4
+CREATE DATABASE failed. Some file names listed could not be created. Check related errors.
+Msg 5011, Level 14, State 5, Line 12
+User does not have permission to alter database 'cs6232-g3', the database does not exist, or the database is not in a state that allows access checks.
+Msg 5069, Level 16, State 1, Line 12
+ALTER DATABASE statement failed.
+Msg 5011, Level 14, State 5, Line 19
+User does not have permission to alter database 'cs6232-g3', the database does not exist, or the database is not in a state that allows access checks.
+Msg 5069, Level 16, State 1, Line 19
+ALTER DATABASE statement failed.
+Msg 5011, Level 14, State 5, Line 21
+User does not have permission to alter database 'cs6232-g3', the database does not exist, or the database is not in a state that allows access checks.
+Msg 5069, Level 16, State 1, Line 21
+ALTER DATABASE statement failed.
+Msg 5011, Level 14, State 5, Line 23
+User does not have permission to alter database 'cs6232-g3', the database does not exist, or the database is not in a state that allows access checks.
+Msg 5069, Level 16, State 1, Line 23
+ALTER DATABASE statement failed.
+Msg 5011, Level 14, State 5, Line 25
+User does not have permission to alter database 'cs6232-g3', the database does not exist, or the database is not in a state that allows access checks.
+Msg 5069, Level 16, State 1, Line 25
+ALTER DATABASE statement failed.
+Msg 5011, Level 14, State 5, Line 27
+User does not have permission to alter database 'cs6232-g3', the database does not exist, or the database is not in a state that allows access checks.
+Msg 5069, Level 16, State 1, Line 27
+ALTER DATABASE statement failed.
+Msg 5011, Level 14, State 5, Line 29
+User does not have permission to alter database 'cs6232-g3', the database does not exist, or the database is not in a state that allows access checks.
+Msg 5069, Level 16, State 1, Line 29
+ALTER DATABASE statement failed.
+Msg 5011, Level 14, State 5, Line 31
+User does not have permission to alter database 'cs6232-g3', the database does not exist, or the database is not in a state that allows access checks.
+Msg 5069, Level 16, State 1, Line 31
+ALTER DATABASE statement failed.
+Msg 5011, Level 14, State 5, Line 33
+User does not have permission to alter database 'cs6232-g3', the database does not exist, or the database is not in a state that allows access checks.
+Msg 5069, Level 16, State 1, Line 33
+ALTER DATABASE statement failed.
+Msg 5011, Level 14, State 5, Line 35
+User does not have permission to alter database 'cs6232-g3', the database does not exist, or the database is not in a state that allows access checks.
+Msg 5069, Level 16, State 1, Line 35
+ALTER DATABASE statement failed.
+Msg 5011, Level 14, State 5, Line 37
+User does not have permission to alter database 'cs6232-g3', the database does not exist, or the database is not in a state that allows access checks.
+Msg 5069, Level 16, State 1, Line 37
+ALTER DATABASE statement failed.
+Msg 5011, Level 14, State 5, Line 39
+User does not have permission to alter database 'cs6232-g3', the database does not exist, or the database is not in a state that allows access checks.
+Msg 5069, Level 16, State 1, Line 39
+ALTER DATABASE statement failed.
+Msg 5011, Level 14, State 5, Line 41
+User does not have permission to alter database 'cs6232-g3', the database does not exist, or the database is not in a state that allows access checks.
+Msg 5069, Level 16, State 1, Line 41
+ALTER DATABASE statement failed.
+Msg 5011, Level 14, State 5, Line 43
+User does not have permission to alter database 'cs6232-g3', the database does not exist, or the database is not in a state that allows access checks.
+Msg 5069, Level 16, State 1, Line 43
+ALTER DATABASE statement failed.
+Msg 5011, Level 14, State 5, Line 45
+User does not have permission to alter database 'cs6232-g3', the database does not exist, or the database is not in a state that allows access checks.
+Msg 5069, Level 16, State 1, Line 45
+ALTER DATABASE statement failed.
+Msg 5011, Level 14, State 5, Line 47
+User does not have permission to alter database 'cs6232-g3', the database does not exist, or the database is not in a state that allows access checks.
+Msg 5069, Level 16, State 1, Line 47
+ALTER DATABASE statement failed.
+Msg 5011, Level 14, State 5, Line 49
+User does not have permission to alter database 'cs6232-g3', the database does not exist, or the database is not in a state that allows access checks.
+Msg 5069, Level 16, State 1, Line 49
+ALTER DATABASE statement failed.
+Msg 5011, Level 14, State 5, Line 51
+User does not have permission to alter database 'cs6232-g3', the database does not exist, or the database is not in a state that allows access checks.
+Msg 5069, Level 16, State 1, Line 51
+ALTER DATABASE statement failed.
+Msg 5011, Level 14, State 5, Line 53
+User does not have permission to alter database 'cs6232-g3', the database does not exist, or the database is not in a state that allows access checks.
+Msg 5069, Level 16, State 1, Line 53
+ALTER DATABASE statement failed.
+Msg 5011, Level 14, State 5, Line 55
+User does not have permission to alter database 'cs6232-g3', the database does not exist, or the database is not in a state that allows access checks.
+Msg 5069, Level 16, State 1, Line 55
+ALTER DATABASE statement failed.
+Msg 5011, Level 14, State 5, Line 57
+User does not have permission to alter database 'cs6232-g3', the database does not exist, or the database is not in a state that allows access checks.
+Msg 5069, Level 16, State 1, Line 57
+ALTER DATABASE statement failed.
+Msg 5011, Level 14, State 5, Line 59
+User does not have permission to alter database 'cs6232-g3', the database does not exist, or the database is not in a state that allows access checks.
+Msg 5069, Level 16, State 1, Line 59
+ALTER DATABASE statement failed.
+Msg 5011, Level 14, State 5, Line 61
+User does not have permission to alter database 'cs6232-g3', the database does not exist, or the database is not in a state that allows access checks.
+Msg 5069, Level 16, State 1, Line 61
+ALTER DATABASE statement failed.
+Msg 5011, Level 14, State 5, Line 63
+User does not have permission to alter database 'cs6232-g3', the database does not exist, or the database is not in a state that allows access checks.
+Msg 5069, Level 16, State 1, Line 63
+ALTER DATABASE statement failed.
+Msg 5011, Level 14, State 5, Line 65
+User does not have permission to alter database 'cs6232-g3', the database does not exist, or the database is not in a state that allows access checks.
+Msg 5069, Level 16, State 1, Line 65
+ALTER DATABASE statement failed.
+Msg 5011, Level 14, State 5, Line 67
+User does not have permission to alter database 'cs6232-g3', the database does not exist, or the database is not in a state that allows access checks.
+Msg 5069, Level 16, State 1, Line 67
+ALTER DATABASE statement failed.
+Msg 5011, Level 14, State 5, Line 69
+User does not have permission to alter database 'cs6232-g3', the database does not exist, or the database is not in a state that allows access checks.
+Msg 5069, Level 16, State 1, Line 69
+ALTER DATABASE statement failed.
+Msg 5011, Level 14, State 5, Line 71
+User does not have permission to alter database 'cs6232-g3', the database does not exist, or the database is not in a state that allows access checks.
+Msg 5069, Level 16, State 1, Line 71
+ALTER DATABASE statement failed.
+Msg 5011, Level 14, State 5, Line 73
+User does not have permission to alter database 'cs6232-g3', the database does not exist, or the database is not in a state that allows access checks.
+Msg 5069, Level 16, State 1, Line 73
+ALTER DATABASE statement failed.
+Msg 5011, Level 14, State 5, Line 75
+User does not have permission to alter database 'cs6232-g3', the database does not exist, or the database is not in a state that allows access checks.
+Msg 5069, Level 16, State 1, Line 75
+ALTER DATABASE statement failed.
+Msg 5011, Level 14, State 5, Line 77
+User does not have permission to alter database 'cs6232-g3', the database does not exist, or the database is not in a state that allows access checks.
+Msg 5069, Level 16, State 1, Line 77
+ALTER DATABASE statement failed.
+Msg 15010, Level 16, State 1, Procedure sys.sp_db_vardecimal_storage_format, Line 29 [Batch Start Line 78]
+The database 'cs6232-g3' does not exist. Supply a valid database name. To see available databases, use sys.databases.
+ 
+Msg 5011, Level 14, State 5, Line 81
+User does not have permission to alter database 'cs6232-g3', the database does not exist, or the database is not in a state that allows access checks.
+Msg 5069, Level 16, State 1, Line 81
+ALTER DATABASE statement failed.
+Msg 911, Level 16, State 1, Line 83
+Database 'cs6232-g3' does not exist. Make sure that the name is entered correctly.
+Msg 2714, Level 16, State 6, Line 90
+There is already an object named 'appointments' in the database.
+Msg 2714, Level 16, State 6, Line 114
+There is already an object named 'clinicadmins' in the database.
+Msg 2714, Level 16, State 6, Line 128
+There is already an object named 'doctors' in the database.
+Msg 2714, Level 16, State 6, Line 142
+There is already an object named 'doctorspecialities' in the database.
+Msg 2714, Level 16, State 6, Line 158
+There is already an object named 'labtests' in the database.
+Msg 2714, Level 16, State 6, Line 178
+There is already an object named 'login' in the database.
+Msg 2714, Level 16, State 6, Line 196
+There is already an object named 'nurses' in the database.
+Msg 2714, Level 16, State 6, Line 211
+There is already an object named 'patients' in the database.
+Msg 2714, Level 16, State 6, Line 225
+There is already an object named 'persons' in the database.
+Msg 2714, Level 16, State 6, Line 259
+There is already an object named 'state' in the database.
+Msg 2714, Level 16, State 6, Line 273
+There is already an object named 'tests' in the database.
+Msg 2714, Level 16, State 6, Line 288
+There is already an object named 'visits' in the database.
+Msg 5011, Level 14, State 5, Line 354
+User does not have permission to alter database 'cs6232-g3', the database does not exist, or the database is not in a state that allows access checks.
+Msg 5069, Level 16, State 1, Line 354
+ALTER DATABASE statement failed.
+
+Completion time: 2021-03-15T20:55:54.6090666-04:00
