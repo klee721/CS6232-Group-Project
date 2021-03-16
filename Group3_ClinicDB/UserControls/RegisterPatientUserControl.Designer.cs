@@ -42,6 +42,17 @@ namespace Group3_ClinicDB.UserControls
             this.stateLabel = new System.Windows.Forms.Label();
             this.zipCodeLabel = new System.Windows.Forms.Label();
             this.phoneNumberLabel = new System.Windows.Forms.Label();
+            this.dobDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.genderComboBox = new System.Windows.Forms.ComboBox();
+            this.stateComboBox = new System.Windows.Forms.ComboBox();
+            this.cityTextBox = new System.Windows.Forms.TextBox();
+            this.zipCodeTextBox = new System.Windows.Forms.TextBox();
+            this.phoneNumberTextBox = new System.Windows.Forms.TextBox();
+            this.ssnTextBox = new System.Windows.Forms.TextBox();
+            this.firstNameTextBox = new System.Windows.Forms.TextBox();
+            this.lastNameTextBox = new System.Windows.Forms.TextBox();
+            this.addressTextBox = new System.Windows.Forms.TextBox();
+            this.address2TextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // registerButton
@@ -110,15 +121,15 @@ namespace Group3_ClinicDB.UserControls
             this.ssnLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ssnLabel.Location = new System.Drawing.Point(58, 240);
             this.ssnLabel.Name = "ssnLabel";
-            this.ssnLabel.Size = new System.Drawing.Size(167, 18);
+            this.ssnLabel.Size = new System.Drawing.Size(43, 18);
             this.ssnLabel.TabIndex = 6;
-            this.ssnLabel.Text = "Social Security Number:";
+            this.ssnLabel.Text = "SSN:";
             // 
             // address1Label
             // 
             this.address1Label.AutoSize = true;
             this.address1Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.address1Label.Location = new System.Drawing.Point(649, 61);
+            this.address1Label.Location = new System.Drawing.Point(589, 61);
             this.address1Label.Name = "address1Label";
             this.address1Label.Size = new System.Drawing.Size(121, 18);
             this.address1Label.TabIndex = 7;
@@ -128,7 +139,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             this.address2Label.AutoSize = true;
             this.address2Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.address2Label.Location = new System.Drawing.Point(649, 109);
+            this.address2Label.Location = new System.Drawing.Point(589, 109);
             this.address2Label.Name = "address2Label";
             this.address2Label.Size = new System.Drawing.Size(121, 18);
             this.address2Label.TabIndex = 8;
@@ -138,7 +149,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             this.cityLabel.AutoSize = true;
             this.cityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cityLabel.Location = new System.Drawing.Point(649, 157);
+            this.cityLabel.Location = new System.Drawing.Point(589, 157);
             this.cityLabel.Name = "cityLabel";
             this.cityLabel.Size = new System.Drawing.Size(37, 18);
             this.cityLabel.TabIndex = 9;
@@ -148,7 +159,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             this.stateLabel.AutoSize = true;
             this.stateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stateLabel.Location = new System.Drawing.Point(984, 157);
+            this.stateLabel.Location = new System.Drawing.Point(1006, 158);
             this.stateLabel.Name = "stateLabel";
             this.stateLabel.Size = new System.Drawing.Size(46, 18);
             this.stateLabel.TabIndex = 10;
@@ -158,7 +169,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             this.zipCodeLabel.AutoSize = true;
             this.zipCodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.zipCodeLabel.Location = new System.Drawing.Point(649, 199);
+            this.zipCodeLabel.Location = new System.Drawing.Point(589, 199);
             this.zipCodeLabel.Name = "zipCodeLabel";
             this.zipCodeLabel.Size = new System.Drawing.Size(72, 18);
             this.zipCodeLabel.TabIndex = 11;
@@ -168,16 +179,108 @@ namespace Group3_ClinicDB.UserControls
             // 
             this.phoneNumberLabel.AutoSize = true;
             this.phoneNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phoneNumberLabel.Location = new System.Drawing.Point(652, 244);
+            this.phoneNumberLabel.Location = new System.Drawing.Point(592, 244);
             this.phoneNumberLabel.Name = "phoneNumberLabel";
             this.phoneNumberLabel.Size = new System.Drawing.Size(112, 18);
             this.phoneNumberLabel.TabIndex = 12;
             this.phoneNumberLabel.Text = "Phone Number:";
             // 
+            // dobDateTimePicker
+            // 
+            this.dobDateTimePicker.Location = new System.Drawing.Point(175, 154);
+            this.dobDateTimePicker.Name = "dobDateTimePicker";
+            this.dobDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.dobDateTimePicker.TabIndex = 2;
+            // 
+            // genderComboBox
+            // 
+            this.genderComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.genderComboBox.FormattingEnabled = true;
+            this.genderComboBox.Location = new System.Drawing.Point(175, 196);
+            this.genderComboBox.Name = "genderComboBox";
+            this.genderComboBox.Size = new System.Drawing.Size(50, 21);
+            this.genderComboBox.TabIndex = 3;
+            // 
+            // stateComboBox
+            // 
+            this.stateComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.stateComboBox.FormattingEnabled = true;
+            this.stateComboBox.Location = new System.Drawing.Point(1058, 155);
+            this.stateComboBox.Name = "stateComboBox";
+            this.stateComboBox.Size = new System.Drawing.Size(75, 21);
+            this.stateComboBox.TabIndex = 10;
+            // 
+            // cityTextBox
+            // 
+            this.cityTextBox.Location = new System.Drawing.Point(717, 155);
+            this.cityTextBox.Name = "cityTextBox";
+            this.cityTextBox.Size = new System.Drawing.Size(236, 20);
+            this.cityTextBox.TabIndex = 7;
+            // 
+            // zipCodeTextBox
+            // 
+            this.zipCodeTextBox.Location = new System.Drawing.Point(717, 196);
+            this.zipCodeTextBox.Name = "zipCodeTextBox";
+            this.zipCodeTextBox.Size = new System.Drawing.Size(130, 20);
+            this.zipCodeTextBox.TabIndex = 8;
+            // 
+            // phoneNumberTextBox
+            // 
+            this.phoneNumberTextBox.Location = new System.Drawing.Point(716, 241);
+            this.phoneNumberTextBox.Name = "phoneNumberTextBox";
+            this.phoneNumberTextBox.Size = new System.Drawing.Size(181, 20);
+            this.phoneNumberTextBox.TabIndex = 9;
+            // 
+            // ssnTextBox
+            // 
+            this.ssnTextBox.Location = new System.Drawing.Point(175, 240);
+            this.ssnTextBox.Name = "ssnTextBox";
+            this.ssnTextBox.Size = new System.Drawing.Size(200, 20);
+            this.ssnTextBox.TabIndex = 4;
+            // 
+            // firstNameTextBox
+            // 
+            this.firstNameTextBox.Location = new System.Drawing.Point(175, 106);
+            this.firstNameTextBox.Name = "firstNameTextBox";
+            this.firstNameTextBox.Size = new System.Drawing.Size(250, 20);
+            this.firstNameTextBox.TabIndex = 1;
+            // 
+            // lastNameTextBox
+            // 
+            this.lastNameTextBox.Location = new System.Drawing.Point(175, 58);
+            this.lastNameTextBox.Name = "lastNameTextBox";
+            this.lastNameTextBox.Size = new System.Drawing.Size(250, 20);
+            this.lastNameTextBox.TabIndex = 0;
+            // 
+            // addressTextBox
+            // 
+            this.addressTextBox.Location = new System.Drawing.Point(716, 58);
+            this.addressTextBox.Name = "addressTextBox";
+            this.addressTextBox.Size = new System.Drawing.Size(348, 20);
+            this.addressTextBox.TabIndex = 5;
+            // 
+            // address2TextBox
+            // 
+            this.address2TextBox.Location = new System.Drawing.Point(717, 106);
+            this.address2TextBox.Name = "address2TextBox";
+            this.address2TextBox.Size = new System.Drawing.Size(347, 20);
+            this.address2TextBox.TabIndex = 6;
+            // 
             // RegisterPatientUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.address2TextBox);
+            this.Controls.Add(this.addressTextBox);
+            this.Controls.Add(this.lastNameTextBox);
+            this.Controls.Add(this.firstNameTextBox);
+            this.Controls.Add(this.ssnTextBox);
+            this.Controls.Add(this.phoneNumberTextBox);
+            this.Controls.Add(this.zipCodeTextBox);
+            this.Controls.Add(this.cityTextBox);
+            this.Controls.Add(this.stateComboBox);
+            this.Controls.Add(this.genderComboBox);
+            this.Controls.Add(this.dobDateTimePicker);
             this.Controls.Add(this.phoneNumberLabel);
             this.Controls.Add(this.zipCodeLabel);
             this.Controls.Add(this.stateLabel);
@@ -215,5 +318,16 @@ namespace Group3_ClinicDB.UserControls
         private System.Windows.Forms.Label stateLabel;
         private System.Windows.Forms.Label zipCodeLabel;
         private System.Windows.Forms.Label phoneNumberLabel;
+        private System.Windows.Forms.DateTimePicker dobDateTimePicker;
+        private System.Windows.Forms.ComboBox genderComboBox;
+        private System.Windows.Forms.ComboBox stateComboBox;
+        private System.Windows.Forms.TextBox cityTextBox;
+        private System.Windows.Forms.TextBox zipCodeTextBox;
+        private System.Windows.Forms.TextBox phoneNumberTextBox;
+        private System.Windows.Forms.TextBox ssnTextBox;
+        private System.Windows.Forms.TextBox firstNameTextBox;
+        private System.Windows.Forms.TextBox lastNameTextBox;
+        private System.Windows.Forms.TextBox addressTextBox;
+        private System.Windows.Forms.TextBox address2TextBox;
     }
 }
