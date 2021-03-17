@@ -54,6 +54,14 @@ namespace Group3_ClinicDB.UserControls
             this.addressTextBox = new System.Windows.Forms.TextBox();
             this.address2TextBox = new System.Windows.Forms.TextBox();
             this.registerPatientLabel = new System.Windows.Forms.Label();
+            this.lastNameErrorLabel = new System.Windows.Forms.Label();
+            this.firstNameErrorLabel = new System.Windows.Forms.Label();
+            this.ssnErrorLabel = new System.Windows.Forms.Label();
+            this.address1ErrorLabel = new System.Windows.Forms.Label();
+            this.address2ErrorLabel = new System.Windows.Forms.Label();
+            this.cityErrorLabel = new System.Windows.Forms.Label();
+            this.zipCodeErrorLabel = new System.Windows.Forms.Label();
+            this.phoneNumberErrorLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // registerButton
@@ -277,10 +285,95 @@ namespace Group3_ClinicDB.UserControls
             this.registerPatientLabel.TabIndex = 13;
             this.registerPatientLabel.Text = "Register Patient";
             // 
+            // lastNameErrorLabel
+            // 
+            this.lastNameErrorLabel.AutoSize = true;
+            this.lastNameErrorLabel.Location = new System.Drawing.Point(178, 137);
+            this.lastNameErrorLabel.Name = "lastNameErrorLabel";
+            this.lastNameErrorLabel.Size = new System.Drawing.Size(147, 13);
+            this.lastNameErrorLabel.TabIndex = 14;
+            this.lastNameErrorLabel.Text = "Last name information missing";
+            this.lastNameErrorLabel.Visible = false;
+            // 
+            // firstNameErrorLabel
+            // 
+            this.firstNameErrorLabel.AutoSize = true;
+            this.firstNameErrorLabel.Location = new System.Drawing.Point(181, 185);
+            this.firstNameErrorLabel.Name = "firstNameErrorLabel";
+            this.firstNameErrorLabel.Size = new System.Drawing.Size(146, 13);
+            this.firstNameErrorLabel.TabIndex = 15;
+            this.firstNameErrorLabel.Text = "First name information missing";
+            this.firstNameErrorLabel.Visible = false;
+            // 
+            // ssnErrorLabel
+            // 
+            this.ssnErrorLabel.AutoSize = true;
+            this.ssnErrorLabel.Location = new System.Drawing.Point(181, 317);
+            this.ssnErrorLabel.Name = "ssnErrorLabel";
+            this.ssnErrorLabel.Size = new System.Drawing.Size(204, 13);
+            this.ssnErrorLabel.TabIndex = 16;
+            this.ssnErrorLabel.Text = "Social security number information missing";
+            this.ssnErrorLabel.Visible = false;
+            // 
+            // address1ErrorLabel
+            // 
+            this.address1ErrorLabel.AutoSize = true;
+            this.address1ErrorLabel.Location = new System.Drawing.Point(719, 136);
+            this.address1ErrorLabel.Name = "address1ErrorLabel";
+            this.address1ErrorLabel.Size = new System.Drawing.Size(175, 13);
+            this.address1ErrorLabel.TabIndex = 17;
+            this.address1ErrorLabel.Text = "Street address 1 information missing";
+            // 
+            // address2ErrorLabel
+            // 
+            this.address2ErrorLabel.AutoSize = true;
+            this.address2ErrorLabel.Location = new System.Drawing.Point(719, 184);
+            this.address2ErrorLabel.Name = "address2ErrorLabel";
+            this.address2ErrorLabel.Size = new System.Drawing.Size(175, 13);
+            this.address2ErrorLabel.TabIndex = 18;
+            this.address2ErrorLabel.Text = "Street address 2 information missing";
+            this.address2ErrorLabel.Visible = false;
+            // 
+            // cityErrorLabel
+            // 
+            this.cityErrorLabel.AutoSize = true;
+            this.cityErrorLabel.Location = new System.Drawing.Point(719, 228);
+            this.cityErrorLabel.Name = "cityErrorLabel";
+            this.cityErrorLabel.Size = new System.Drawing.Size(115, 13);
+            this.cityErrorLabel.TabIndex = 19;
+            this.cityErrorLabel.Text = "City information missing";
+            this.cityErrorLabel.Visible = false;
+            // 
+            // zipCodeErrorLabel
+            // 
+            this.zipCodeErrorLabel.AutoSize = true;
+            this.zipCodeErrorLabel.Location = new System.Drawing.Point(719, 272);
+            this.zipCodeErrorLabel.Name = "zipCodeErrorLabel";
+            this.zipCodeErrorLabel.Size = new System.Drawing.Size(141, 13);
+            this.zipCodeErrorLabel.TabIndex = 20;
+            this.zipCodeErrorLabel.Text = "Zip Code information missing";
+            // 
+            // phoneNumberErrorLabel
+            // 
+            this.phoneNumberErrorLabel.AutoSize = true;
+            this.phoneNumberErrorLabel.Location = new System.Drawing.Point(720, 316);
+            this.phoneNumberErrorLabel.Name = "phoneNumberErrorLabel";
+            this.phoneNumberErrorLabel.Size = new System.Drawing.Size(167, 13);
+            this.phoneNumberErrorLabel.TabIndex = 21;
+            this.phoneNumberErrorLabel.Text = "Phone number information missing";
+            // 
             // RegisterPatientUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.phoneNumberErrorLabel);
+            this.Controls.Add(this.zipCodeErrorLabel);
+            this.Controls.Add(this.cityErrorLabel);
+            this.Controls.Add(this.address2ErrorLabel);
+            this.Controls.Add(this.address1ErrorLabel);
+            this.Controls.Add(this.ssnErrorLabel);
+            this.Controls.Add(this.firstNameErrorLabel);
+            this.Controls.Add(this.lastNameErrorLabel);
             this.Controls.Add(this.registerPatientLabel);
             this.Controls.Add(this.address2TextBox);
             this.Controls.Add(this.addressTextBox);
@@ -342,5 +435,13 @@ namespace Group3_ClinicDB.UserControls
         private System.Windows.Forms.TextBox addressTextBox;
         private System.Windows.Forms.TextBox address2TextBox;
         private System.Windows.Forms.Label registerPatientLabel;
+        private System.Windows.Forms.Label lastNameErrorLabel;
+        private System.Windows.Forms.Label firstNameErrorLabel;
+        private System.Windows.Forms.Label ssnErrorLabel;
+        private System.Windows.Forms.Label address1ErrorLabel;
+        private System.Windows.Forms.Label address2ErrorLabel;
+        private System.Windows.Forms.Label cityErrorLabel;
+        private System.Windows.Forms.Label zipCodeErrorLabel;
+        private System.Windows.Forms.Label phoneNumberErrorLabel;
     }
 }
