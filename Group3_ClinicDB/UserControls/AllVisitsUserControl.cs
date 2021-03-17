@@ -30,7 +30,7 @@ namespace Group3_ClinicDB.UserControls
 
         private void AllVisitsUserControl_Load(object sender, EventArgs e)
         {
-            visitsDALDataGridView.DataSource = null;
+            //visitsDALDataGridView.DataSource = null;
             visitsDALDataGridView.DataSource = this.controller.GetVisits();
         }
     }

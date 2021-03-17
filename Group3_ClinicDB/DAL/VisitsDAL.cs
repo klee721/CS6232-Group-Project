@@ -28,11 +28,12 @@ namespace Group3_ClinicDB.DAL
 			
 			"SELECT Id,appointment_id,weight,height,bodyTemparature,pulse " +
       ",symptoms,nurseId,bloodPressureSystolic,bloodPressureDiastolic " +
-      ",initialDiagnose,finalDiagnose " +
-       " FROM dbo.visits ";
+      ",initialDiagnose,ISNULL(finalDiagnose, ' ') finalDiagnose " +
+      " FROM dbo.visits ";
 
+           
 
-	  int id;
+                        int id;
             int appointment_id;
             decimal weight;
             decimal height;
@@ -51,7 +52,7 @@ namespace Group3_ClinicDB.DAL
 
                 using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
                 {
-                    using (System.Data.SqlClient.SqlDataReader reader = selectCommand.ExecuteReader())
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
                         int idOrd = reader.GetOrdinal("Id");
                         int appointmentIdOrd = reader.GetOrdinal("appointment_id");
@@ -81,6 +82,7 @@ namespace Group3_ClinicDB.DAL
       bloodPressureDiastolic = reader.GetInt32(bloodPressureDiastolicOrd);
       initialDiagnose = reader.GetString(initialDiagnoseOrd);
       finalDiagnose = reader.GetString(finalDiagnoseOrd);
+
 	  
                             
                             Visits visit = new Visits();

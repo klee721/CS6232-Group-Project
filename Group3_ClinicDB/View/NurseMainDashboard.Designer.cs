@@ -32,15 +32,15 @@ namespace Group3_ClinicDB.View
             this.DashboardTabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.ScheduleApptTab = new System.Windows.Forms.TabPage();
-            this.appointmentBookingUserControl2 = new Group3_ClinicDB.UserControls.AppointmentBookingUserControl();
             this.EditApptTab = new System.Windows.Forms.TabPage();
-            this.editAppointmentUserControl1 = new Group3_ClinicDB.UserControls.EditAppointmentUserControl();
             this.visitsTabPage = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.label1 = new System.Windows.Forms.Label();
+            this.appointmentBookingUserControl2 = new Group3_ClinicDB.UserControls.AppointmentBookingUserControl();
+            this.editAppointmentUserControl1 = new Group3_ClinicDB.UserControls.EditAppointmentUserControl();
             this.allVisitsUserControl1 = new Group3_ClinicDB.UserControls.AllVisitsUserControl();
             this.DashboardTabControl.SuspendLayout();
             this.ScheduleApptTab.SuspendLayout();
@@ -88,16 +88,6 @@ namespace Group3_ClinicDB.View
             this.ScheduleApptTab.Text = "Schedule Appointment";
             this.ScheduleApptTab.UseVisualStyleBackColor = true;
             // 
-            // appointmentBookingUserControl2
-            // 
-            this.appointmentBookingUserControl2.Location = new System.Drawing.Point(0, 0);
-            this.appointmentBookingUserControl2.Margin = new System.Windows.Forms.Padding(5);
-            this.appointmentBookingUserControl2.MaximumSize = new System.Drawing.Size(1620, 757);
-            this.appointmentBookingUserControl2.MinimumSize = new System.Drawing.Size(1620, 757);
-            this.appointmentBookingUserControl2.Name = "appointmentBookingUserControl2";
-            this.appointmentBookingUserControl2.Size = new System.Drawing.Size(1620, 757);
-            this.appointmentBookingUserControl2.TabIndex = 0;
-            // 
             // EditApptTab
             // 
             this.EditApptTab.Controls.Add(this.editAppointmentUserControl1);
@@ -108,16 +98,6 @@ namespace Group3_ClinicDB.View
             this.EditApptTab.TabIndex = 2;
             this.EditApptTab.Text = "Edit Appointment";
             this.EditApptTab.UseVisualStyleBackColor = true;
-            // 
-            // editAppointmentUserControl1
-            // 
-            this.editAppointmentUserControl1.Location = new System.Drawing.Point(0, 0);
-            this.editAppointmentUserControl1.Margin = new System.Windows.Forms.Padding(5);
-            this.editAppointmentUserControl1.MaximumSize = new System.Drawing.Size(1620, 757);
-            this.editAppointmentUserControl1.MinimumSize = new System.Drawing.Size(1620, 757);
-            this.editAppointmentUserControl1.Name = "editAppointmentUserControl1";
-            this.editAppointmentUserControl1.Size = new System.Drawing.Size(1620, 757);
-            this.editAppointmentUserControl1.TabIndex = 0;
             // 
             // visitsTabPage
             // 
@@ -165,7 +145,7 @@ namespace Group3_ClinicDB.View
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1631, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1631, 30);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -174,13 +154,33 @@ namespace Group3_ClinicDB.View
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(0, 24);
+            this.label1.Location = new System.Drawing.Point(0, 30);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(421, 39);
             this.label1.TabIndex = 2;
             this.label1.Text = "SEARCH PATIENT HERE";
             this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // appointmentBookingUserControl2
+            // 
+            this.appointmentBookingUserControl2.Location = new System.Drawing.Point(0, 0);
+            this.appointmentBookingUserControl2.Margin = new System.Windows.Forms.Padding(5);
+            this.appointmentBookingUserControl2.MaximumSize = new System.Drawing.Size(1620, 757);
+            this.appointmentBookingUserControl2.MinimumSize = new System.Drawing.Size(1620, 757);
+            this.appointmentBookingUserControl2.Name = "appointmentBookingUserControl2";
+            this.appointmentBookingUserControl2.Size = new System.Drawing.Size(1620, 757);
+            this.appointmentBookingUserControl2.TabIndex = 0;
+            // 
+            // editAppointmentUserControl1
+            // 
+            this.editAppointmentUserControl1.Location = new System.Drawing.Point(0, 0);
+            this.editAppointmentUserControl1.Margin = new System.Windows.Forms.Padding(5);
+            this.editAppointmentUserControl1.MaximumSize = new System.Drawing.Size(1620, 757);
+            this.editAppointmentUserControl1.MinimumSize = new System.Drawing.Size(1620, 757);
+            this.editAppointmentUserControl1.Name = "editAppointmentUserControl1";
+            this.editAppointmentUserControl1.Size = new System.Drawing.Size(1620, 757);
+            this.editAppointmentUserControl1.TabIndex = 0;
             // 
             // allVisitsUserControl1
             // 
