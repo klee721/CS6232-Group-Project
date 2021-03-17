@@ -62,6 +62,7 @@ namespace Group3_ClinicDB.UserControls
             this.cityErrorLabel = new System.Windows.Forms.Label();
             this.zipCodeErrorLabel = new System.Windows.Forms.Label();
             this.phoneNumberErrorLabel = new System.Windows.Forms.Label();
+            this.registrationSuccessMessage = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // registerButton
@@ -323,6 +324,7 @@ namespace Group3_ClinicDB.UserControls
             this.address1ErrorLabel.Size = new System.Drawing.Size(175, 13);
             this.address1ErrorLabel.TabIndex = 17;
             this.address1ErrorLabel.Text = "Street address 1 information missing";
+            this.address1ErrorLabel.Visible = false;
             // 
             // address2ErrorLabel
             // 
@@ -352,6 +354,7 @@ namespace Group3_ClinicDB.UserControls
             this.zipCodeErrorLabel.Size = new System.Drawing.Size(141, 13);
             this.zipCodeErrorLabel.TabIndex = 20;
             this.zipCodeErrorLabel.Text = "Zip Code information missing";
+            this.zipCodeErrorLabel.Visible = false;
             // 
             // phoneNumberErrorLabel
             // 
@@ -361,11 +364,23 @@ namespace Group3_ClinicDB.UserControls
             this.phoneNumberErrorLabel.Size = new System.Drawing.Size(167, 13);
             this.phoneNumberErrorLabel.TabIndex = 21;
             this.phoneNumberErrorLabel.Text = "Phone number information missing";
+            this.phoneNumberErrorLabel.Visible = false;
+            // 
+            // registrationSuccessMessage
+            // 
+            this.registrationSuccessMessage.AutoSize = true;
+            this.registrationSuccessMessage.Location = new System.Drawing.Point(720, 433);
+            this.registrationSuccessMessage.Name = "registrationSuccessMessage";
+            this.registrationSuccessMessage.Size = new System.Drawing.Size(121, 13);
+            this.registrationSuccessMessage.TabIndex = 22;
+            this.registrationSuccessMessage.Text = "Registration Successful!";
+            this.registrationSuccessMessage.Visible = false;
             // 
             // RegisterPatientUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.registrationSuccessMessage);
             this.Controls.Add(this.phoneNumberErrorLabel);
             this.Controls.Add(this.zipCodeErrorLabel);
             this.Controls.Add(this.cityErrorLabel);
@@ -443,5 +458,6 @@ namespace Group3_ClinicDB.UserControls
         private System.Windows.Forms.Label cityErrorLabel;
         private System.Windows.Forms.Label zipCodeErrorLabel;
         private System.Windows.Forms.Label phoneNumberErrorLabel;
+        private System.Windows.Forms.Label registrationSuccessMessage;
     }
 }
