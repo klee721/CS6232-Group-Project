@@ -74,6 +74,7 @@ namespace Group3_ClinicDB.UserControls
             this.registerButton.TabIndex = 0;
             this.registerButton.Text = "Register";
             this.registerButton.UseVisualStyleBackColor = true;
+            this.registerButton.Click += new System.EventHandler(this.RegisterButtonClick);
             // 
             // clearButton
             // 
@@ -84,6 +85,7 @@ namespace Group3_ClinicDB.UserControls
             this.clearButton.TabIndex = 1;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.ClearButtonClick);
             // 
             // lastNameLabel
             // 
@@ -418,6 +420,7 @@ namespace Group3_ClinicDB.UserControls
             this.MinimumSize = new System.Drawing.Size(1215, 615);
             this.Name = "RegisterPatientUserControl";
             this.Size = new System.Drawing.Size(1215, 615);
+            this.Load += new System.EventHandler(this.RegisterPatientUserControl_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
