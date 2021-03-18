@@ -62,8 +62,6 @@ namespace Group3_ClinicDB.UserControls
             this.zipCodeErrorLabel = new System.Windows.Forms.Label();
             this.phoneNumberErrorLabel = new System.Windows.Forms.Label();
             this.registrationSuccessMessage = new System.Windows.Forms.Label();
-            this.genderErrorLabel = new System.Windows.Forms.Label();
-            this.stateErrorLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // registerButton
@@ -378,32 +376,10 @@ namespace Group3_ClinicDB.UserControls
             this.registrationSuccessMessage.Text = "Registration Successful!";
             this.registrationSuccessMessage.Visible = false;
             // 
-            // genderErrorLabel
-            // 
-            this.genderErrorLabel.AutoSize = true;
-            this.genderErrorLabel.Location = new System.Drawing.Point(178, 271);
-            this.genderErrorLabel.Name = "genderErrorLabel";
-            this.genderErrorLabel.Size = new System.Drawing.Size(116, 13);
-            this.genderErrorLabel.TabIndex = 23;
-            this.genderErrorLabel.Text = "Gender cannot be N/A";
-            this.genderErrorLabel.Visible = false;
-            // 
-            // stateErrorLabel
-            // 
-            this.stateErrorLabel.AutoSize = true;
-            this.stateErrorLabel.Location = new System.Drawing.Point(1061, 233);
-            this.stateErrorLabel.Name = "stateErrorLabel";
-            this.stateErrorLabel.Size = new System.Drawing.Size(106, 13);
-            this.stateErrorLabel.TabIndex = 24;
-            this.stateErrorLabel.Text = "State cannot be N/A";
-            this.stateErrorLabel.Visible = false;
-            // 
             // RegisterPatientUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.stateErrorLabel);
-            this.Controls.Add(this.genderErrorLabel);
             this.Controls.Add(this.registrationSuccessMessage);
             this.Controls.Add(this.phoneNumberErrorLabel);
             this.Controls.Add(this.zipCodeErrorLabel);
@@ -482,7 +458,5 @@ namespace Group3_ClinicDB.UserControls
         private System.Windows.Forms.Label zipCodeErrorLabel;
         private System.Windows.Forms.Label phoneNumberErrorLabel;
         private System.Windows.Forms.Label registrationSuccessMessage;
-        private System.Windows.Forms.Label genderErrorLabel;
-        private System.Windows.Forms.Label stateErrorLabel;
     }
 }

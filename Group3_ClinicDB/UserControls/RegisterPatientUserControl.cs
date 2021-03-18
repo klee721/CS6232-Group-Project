@@ -1,28 +1,36 @@
-﻿using System;
+﻿using Group3_ClinicDB.Controller;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
 namespace Group3_ClinicDB.UserControls
 {
+    /// <summary>
+    /// UserControl whose purpose is to register(add) a patient object to the DB
+    /// </summary>
     public partial class RegisterPatientUserControl : UserControl
     {
+        private StateController stateController;
+
+        /// <summary>
+        /// Loads the UserControl
+        /// </summary>
         public RegisterPatientUserControl()
         {
             InitializeComponent();
+            this.stateController = new StateController();
         }
 
         private void RegisterPatientUserControlLoad(object sender, EventArgs e)
         {
             this.genderComboBox.Items.Add("male");
             this.genderComboBox.Items.Add("female");
-            this.genderComboBox.Items.Add("N/A");
-            this.genderComboBox.SelectedIndex = this.genderComboBox.Items.Count - 1;
+            this.genderComboBox.SelectedIndex = 0;
 
             //datetimepicker??
-            //DAL for states table
-            //registration successful
-            this.stateComboBox.Items.Add("N/A");
-            this.stateComboBox.SelectedIndex = this.stateComboBox.Items.Count - 1;
+            this.stateComboBox.DataSource = this.stateController.GetStates();
+            this.stateComboBox.DisplayMember = "stateCode";
+            this.stateComboBox.SelectedIndex = 0;
         }
 
         private void Validations()
@@ -40,11 +48,6 @@ namespace Group3_ClinicDB.UserControls
                 this.firstNameErrorLabel.Visible = true;
                 this.firstNameErrorLabel.ForeColor = Color.Red;
             }
-            else if (this.genderComboBox.SelectedIndex == this.genderComboBox.Items.Count - 1)
-            {
-                this.genderErrorLabel.Visible = true;
-                this.genderErrorLabel.ForeColor = Color.Red;
-            }
             else if (this.ssnTextBox.Text.Equals(""))
             {
                 this.ssnErrorLabel.Visible = true;
@@ -60,11 +63,6 @@ namespace Group3_ClinicDB.UserControls
                 this.cityErrorLabel.Visible = true;
                 this.cityErrorLabel.ForeColor = Color.Red;
             }
-            else if (this.stateComboBox.SelectedIndex == this.stateComboBox.Items.Count - 1)
-            {
-                this.stateErrorLabel.Visible = true;
-                this.stateErrorLabel.ForeColor = Color.Red;
-            }
             else if (this.zipCodeTextBox.Text.Equals(""))
             {
                 this.zipCodeErrorLabel.Visible = true;
@@ -78,7 +76,6 @@ namespace Group3_ClinicDB.UserControls
             else
             {
                 this.registrationSuccessMessage.Visible = true;
-                //call to dal to add patient
             }
         }
 
@@ -91,22 +88,20 @@ namespace Group3_ClinicDB.UserControls
         {
             this.firstNameTextBox.Text = "";
             this.lastNameTextBox.Text = "";
-            this.genderComboBox.SelectedIndex = this.genderComboBox.Items.Count - 1;
+            this.genderComboBox.SelectedIndex = 0;
             this.ssnTextBox.Text = "";
             this.addressTextBox.Text = "";
             this.address2TextBox.Text = "";
             this.cityTextBox.Text = "";
-            this.stateComboBox.SelectedIndex = this.stateComboBox.Items.Count - 1;
+            this.stateComboBox.SelectedIndex = 0;
             this.zipCodeTextBox.Text = "";
             this.phoneNumberTextBox.Text = "";
 
             this.ResetLastNameError();
             this.ResetFirstNameError();
-            this.ResetGenderError();
             this.ResetSsnError();
             this.ResetAddress1Error();
             this.ResetCityError();
-            this.ResetStateError();
             this.ResetZipCodeError();
             this.ResetPhoneError();
         }
@@ -123,7 +118,7 @@ namespace Group3_ClinicDB.UserControls
 
         private void GenderComboBoxSelectedIndexChanged(object sender, EventArgs e)
         {
-            this.ResetGenderError();
+            this.registrationSuccessMessage.Visible = false;
         }
 
         private void SsnTextBoxTextChanged(object sender, EventArgs e)
@@ -143,7 +138,7 @@ namespace Group3_ClinicDB.UserControls
 
         private void StateComboBoxSelectedIndexChanged(object sender, EventArgs e)
         {
-            this.ResetStateError();
+            this.registrationSuccessMessage.Visible = false;
         }
 
         private void ZipCodeTextBoxTextChanged(object sender, EventArgs e)
@@ -170,13 +165,6 @@ namespace Group3_ClinicDB.UserControls
             this.registrationSuccessMessage.Visible = false;
         }
 
-        private void ResetGenderError() 
-        {
-            this.genderErrorLabel.Visible = false;
-            this.genderErrorLabel.ForeColor = Color.Black;
-            this.registrationSuccessMessage.Visible = false;
-        }
-
         private void ResetSsnError()
         {
             this.ssnErrorLabel.Visible = false;
@@ -195,13 +183,6 @@ namespace Group3_ClinicDB.UserControls
         {
             this.cityErrorLabel.Visible = false;
             this.cityErrorLabel.ForeColor = Color.Black;
-            this.registrationSuccessMessage.Visible = false;
-        }
-
-        private void ResetStateError()
-        {
-            this.stateErrorLabel.Visible = false;
-            this.stateErrorLabel.ForeColor = Color.Red;
             this.registrationSuccessMessage.Visible = false;
         }
 

@@ -46,11 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\StateController.cs" />
     <Compile Include="Controller\VisitsController.cs" />
     <Compile Include="DAL\ClinicDBConnection.cs" />
     <Compile Include="DAL\DAL1.cs" />
+    <Compile Include="DAL\StateDBDAL.cs" />
     <Compile Include="DAL\VisitsDAL.cs" />
     <Compile Include="Model\Class1.cs" />
+    <Compile Include="Model\State.cs" />
     <Compile Include="Model\Visits.cs" />
     <Compile Include="UserControls\AllVisitsUserControl.cs">
       <SubType>UserControl</SubType>
