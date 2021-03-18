@@ -48,7 +48,7 @@ namespace Group3_ClinicDB.UserControls
                 this.firstNameErrorLabel.Visible = true;
                 this.firstNameErrorLabel.ForeColor = Color.Red;
             }
-            else if (this.ssnTextBox.Text.Equals(""))
+            else if (this.ssnTextBox.Text.Length != 9)
             {
                 this.ssnErrorLabel.Visible = true;
                 this.ssnErrorLabel.ForeColor = Color.Red;
@@ -68,7 +68,7 @@ namespace Group3_ClinicDB.UserControls
                 this.zipCodeErrorLabel.Visible = true;
                 this.zipCodeErrorLabel.ForeColor = Color.Red;
             }
-            else if (this.phoneNumberTextBox.Text.Equals(""))
+            else if (this.phoneNumberTextBox.Text.Length != 10)
             {
                 this.phoneNumberErrorLabel.Visible = true;
                 this.phoneNumberErrorLabel.ForeColor = Color.Red;
