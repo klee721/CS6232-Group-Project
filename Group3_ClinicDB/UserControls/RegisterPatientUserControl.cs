@@ -18,6 +18,8 @@ namespace Group3_ClinicDB.UserControls
             this.genderComboBox.Items.Add("N/A");
             this.genderComboBox.SelectedIndex = this.genderComboBox.Items.Count - 1;
 
+            //DAL for states table
+            //DAL for adding patient
             this.stateComboBox.Items.Add("N/A");
             this.stateComboBox.SelectedIndex = this.stateComboBox.Items.Count - 1;
         }
