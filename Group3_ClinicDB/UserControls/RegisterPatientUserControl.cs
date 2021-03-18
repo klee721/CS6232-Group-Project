@@ -159,55 +159,64 @@ namespace Group3_ClinicDB.UserControls
         private void ResetLastNameError()
         {
             this.lastNameErrorLabel.Visible = false;
-            this.lastNameErrorLabel.ForeColor = Color.Black; 
+            this.lastNameErrorLabel.ForeColor = Color.Black;
+            this.registrationSuccessMessage.Visible = false;
         }
 
         private void ResetFirstNameError()
         {
             this.firstNameErrorLabel.Visible = false;
             this.firstNameErrorLabel.ForeColor = Color.Black;
+            this.registrationSuccessMessage.Visible = false;
         }
 
         private void ResetGenderError() 
         {
             this.genderErrorLabel.Visible = false;
             this.genderErrorLabel.ForeColor = Color.Black;
+            this.registrationSuccessMessage.Visible = false;
         }
 
         private void ResetSsnError()
         {
             this.ssnErrorLabel.Visible = false;
             this.ssnErrorLabel.ForeColor = Color.Black;
+            this.registrationSuccessMessage.Visible = false;
         }
 
         private void ResetAddress1Error()
         {
             this.address1ErrorLabel.Visible = false;
             this.address1ErrorLabel.ForeColor = Color.Black;
+            this.registrationSuccessMessage.Visible = false;
         }
 
         private void ResetCityError()
         {
             this.cityErrorLabel.Visible = false;
             this.cityErrorLabel.ForeColor = Color.Black;
+            this.registrationSuccessMessage.Visible = false;
         }
 
         private void ResetStateError()
         {
             this.stateErrorLabel.Visible = false;
             this.stateErrorLabel.ForeColor = Color.Red;
+            this.registrationSuccessMessage.Visible = false;
         }
 
         private void ResetZipCodeError()
         {
             this.zipCodeErrorLabel.Visible = false;
             this.zipCodeErrorLabel.ForeColor = Color.Red;
+            this.registrationSuccessMessage.Visible = false;
         }
 
         private void ResetPhoneError()
         {
             this.phoneNumberErrorLabel.Visible = false;
             this.phoneNumberErrorLabel.ForeColor = Color.Red;
+            this.registrationSuccessMessage.Visible = false;
         }
     }
 }
