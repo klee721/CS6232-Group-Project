@@ -18,14 +18,18 @@ namespace Group3_ClinicDB.UserControls
             this.genderComboBox.Items.Add("N/A");
             this.genderComboBox.SelectedIndex = this.genderComboBox.Items.Count - 1;
 
+            //datetimepicker??
             //DAL for states table
-            //DAL for adding patient
+            //registration successful
             this.stateComboBox.Items.Add("N/A");
             this.stateComboBox.SelectedIndex = this.stateComboBox.Items.Count - 1;
         }
 
         private void Validations()
         {
+            //parse snn and phone#
+            //check ssn is 9 digits
+            //check phone is 9 digits
             if (this.lastNameTextBox.Text.Equals(""))
             {
                 this.lastNameErrorLabel.Visible = true;
@@ -46,9 +50,35 @@ namespace Group3_ClinicDB.UserControls
                 this.ssnErrorLabel.Visible = true;
                 this.ssnErrorLabel.ForeColor = Color.Red;
             }
+            else if (this.addressTextBox.Text.Equals(""))
+            {
+                this.address1ErrorLabel.Visible = true;
+                this.address1ErrorLabel.ForeColor = Color.Red;
+            }
+            else if (this.cityTextBox.Text.Equals(""))
+            {
+                this.cityErrorLabel.Visible = true;
+                this.cityErrorLabel.ForeColor = Color.Red;
+            }
+            else if (this.stateComboBox.SelectedIndex == this.stateComboBox.Items.Count - 1)
+            {
+                this.stateErrorLabel.Visible = true;
+                this.stateErrorLabel.ForeColor = Color.Red;
+            }
+            else if (this.zipCodeTextBox.Text.Equals(""))
+            {
+                this.zipCodeErrorLabel.Visible = true;
+                this.zipCodeErrorLabel.ForeColor = Color.Red;
+            }
+            else if (this.phoneNumberTextBox.Text.Equals(""))
+            {
+                this.phoneNumberErrorLabel.Visible = true;
+                this.phoneNumberErrorLabel.ForeColor = Color.Red;
+            }
             else
             {
                 this.registrationSuccessMessage.Visible = true;
+                //call to dal to add patient
             }
         }
 
