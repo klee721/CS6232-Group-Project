@@ -321,9 +321,9 @@ namespace Group3_ClinicDB.UserControls
             this.ssnErrorLabel.AutoSize = true;
             this.ssnErrorLabel.Location = new System.Drawing.Point(175, 316);
             this.ssnErrorLabel.Name = "ssnErrorLabel";
-            this.ssnErrorLabel.Size = new System.Drawing.Size(189, 13);
+            this.ssnErrorLabel.Size = new System.Drawing.Size(262, 13);
             this.ssnErrorLabel.TabIndex = 16;
-            this.ssnErrorLabel.Text = "Social security number must be 9 digits";
+            this.ssnErrorLabel.Text = "Social security number must contain exactly nine digits";
             this.ssnErrorLabel.Visible = false;
             // 
             // address1ErrorLabel
@@ -361,9 +361,9 @@ namespace Group3_ClinicDB.UserControls
             this.phoneNumberErrorLabel.AutoSize = true;
             this.phoneNumberErrorLabel.Location = new System.Drawing.Point(720, 316);
             this.phoneNumberErrorLabel.Name = "phoneNumberErrorLabel";
-            this.phoneNumberErrorLabel.Size = new System.Drawing.Size(158, 13);
+            this.phoneNumberErrorLabel.Size = new System.Drawing.Size(220, 13);
             this.phoneNumberErrorLabel.TabIndex = 21;
-            this.phoneNumberErrorLabel.Text = "Phone number must be 10 digits";
+            this.phoneNumberErrorLabel.Text = "Phone number must contain exactly ten digits";
             this.phoneNumberErrorLabel.Visible = false;
             // 
             // registrationSuccessMessage

@@ -10,7 +10,7 @@ namespace Group3_ClinicDB.UserControls
     /// </summary>
     public partial class RegisterPatientUserControl : UserControl
     {
-        private StateController stateController;
+        private readonly StateController stateController;
 
         /// <summary>
         /// Loads the UserControl
@@ -35,47 +35,68 @@ namespace Group3_ClinicDB.UserControls
 
         private void Validations()
         {
-            //parse snn and phone#
-            //check ssn is 9 digits
-            //check phone is 9 digits
             if (this.lastNameTextBox.Text.Equals(""))
             {
                 this.lastNameErrorLabel.Visible = true;
                 this.lastNameErrorLabel.ForeColor = Color.Red;
             }
-            else if (this.firstNameTextBox.Text.Equals(""))
+            if (this.firstNameTextBox.Text.Equals(""))
             {
                 this.firstNameErrorLabel.Visible = true;
                 this.firstNameErrorLabel.ForeColor = Color.Red;
             }
-            else if (this.ssnTextBox.Text.Length != 9)
+            if (this.ssnTextBox.Text.Length != 9)
             {
                 this.ssnErrorLabel.Visible = true;
                 this.ssnErrorLabel.ForeColor = Color.Red;
             }
-            else if (this.addressTextBox.Text.Equals(""))
+            if (this.addressTextBox.Text.Equals(""))
             {
                 this.address1ErrorLabel.Visible = true;
                 this.address1ErrorLabel.ForeColor = Color.Red;
             }
-            else if (this.cityTextBox.Text.Equals(""))
+            if (this.cityTextBox.Text.Equals(""))
             {
                 this.cityErrorLabel.Visible = true;
                 this.cityErrorLabel.ForeColor = Color.Red;
             }
-            else if (this.zipCodeTextBox.Text.Equals(""))
+            if (this.zipCodeTextBox.Text.Equals(""))
             {
                 this.zipCodeErrorLabel.Visible = true;
                 this.zipCodeErrorLabel.ForeColor = Color.Red;
             }
-            else if (this.phoneNumberTextBox.Text.Length != 10)
+            if (this.phoneNumberTextBox.Text.Length != 10)
             {
                 this.phoneNumberErrorLabel.Visible = true;
                 this.phoneNumberErrorLabel.ForeColor = Color.Red;
             }
-            else
+            
+            if (!this.lastNameTextBox.Text.Equals("") && !this.firstNameTextBox.Text.Equals("") && this.ssnTextBox.Text.Length == 9 
+                && !this.addressTextBox.Text.Equals("") && !this.cityTextBox.Text.Equals("") && !this.zipCodeTextBox.Text.Equals("")
+                && this.phoneNumberTextBox.Text.Length == 10)
             {
-                this.registrationSuccessMessage.Visible = true;
+                try
+                {
+                    long ssn = Convert.ToInt64(this.ssnTextBox.Text);
+                    try
+                    {
+                        long phoneNumber = Convert.ToInt64(this.phoneNumberTextBox.Text);
+                        ///DAL add patient
+                        this.registrationSuccessMessage.Visible = true;
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Phone number can only contain whole numbers", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.phoneNumberErrorLabel.Visible = true;
+                        this.phoneNumberErrorLabel.ForeColor = Color.Red;
+                    } 
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Social security number can only contain whole numbers", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.ssnErrorLabel.Visible = true;
+                    this.ssnErrorLabel.ForeColor = Color.Red;
+                }
             }
         }
 
