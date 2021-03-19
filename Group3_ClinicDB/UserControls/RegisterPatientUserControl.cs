@@ -27,7 +27,10 @@ namespace Group3_ClinicDB.UserControls
             this.genderComboBox.Items.Add("female");
             this.genderComboBox.SelectedIndex = 0;
 
-            //datetimepicker??
+            this.dobDateTimePicker.Value = DateTime.Now.AddDays(-1);
+            this.dobDateTimePicker.MaxDate = DateTime.Now;
+            this.dobDateTimePicker.MinDate = DateTime.Now.AddYears(-150);
+
             this.stateComboBox.DataSource = this.stateController.GetStates();
             this.stateComboBox.DisplayMember = "stateCode";
             this.stateComboBox.SelectedIndex = 0;
@@ -109,6 +112,7 @@ namespace Group3_ClinicDB.UserControls
         {
             this.firstNameTextBox.Text = "";
             this.lastNameTextBox.Text = "";
+            this.dobDateTimePicker.Value = DateTime.Now.AddDays(-1);
             this.genderComboBox.SelectedIndex = 0;
             this.ssnTextBox.Text = "";
             this.addressTextBox.Text = "";
