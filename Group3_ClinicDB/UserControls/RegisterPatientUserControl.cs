@@ -36,6 +36,11 @@ namespace Group3_ClinicDB.UserControls
             this.stateComboBox.SelectedIndex = 0;
         }
 
+        private void AddPersonAsPatient()
+        {
+            
+        }
+
         private void Validations()
         {
             if (this.lastNameTextBox.Text.Equals(""))
@@ -84,7 +89,7 @@ namespace Group3_ClinicDB.UserControls
                     try
                     {
                         long phoneNumber = Convert.ToInt64(this.phoneNumberTextBox.Text);
-                        ///DAL add patient
+                        this.AddPersonAsPatient();
                         this.registrationSuccessMessage.Visible = true;
                     }
                     catch (Exception)
