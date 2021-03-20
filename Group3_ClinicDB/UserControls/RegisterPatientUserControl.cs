@@ -22,8 +22,6 @@ namespace Group3_ClinicDB.UserControls
             InitializeComponent();
             this.stateController = new StateController();
             this.personsController = new PersonsController();
-            //first name, last name, address 1 and 2, city length > 45
-            //ssn can be null
         }
 
         private void RegisterPatientUserControlLoad(object sender, EventArgs e)
@@ -45,11 +43,14 @@ namespace Group3_ClinicDB.UserControls
         {
             if (this.lastNameTextBox.Text.Equals(""))
             {
+                this.lastNameErrorLabel.Text = "Last name information missing";
                 this.lastNameErrorLabel.Visible = true;
                 this.lastNameErrorLabel.ForeColor = Color.Red;
             }
+
             if (this.firstNameTextBox.Text.Equals(""))
             {
+                this.firstNameErrorLabel.Text = "First name information missing";
                 this.firstNameErrorLabel.Visible = true;
                 this.firstNameErrorLabel.ForeColor = Color.Red;
             }
