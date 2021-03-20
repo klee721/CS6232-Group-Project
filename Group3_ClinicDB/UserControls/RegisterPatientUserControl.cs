@@ -11,6 +11,7 @@ namespace Group3_ClinicDB.UserControls
     public partial class RegisterPatientUserControl : UserControl
     {
         private readonly StateController stateController;
+        private readonly PersonsController personsController;
 
         /// <summary>
         /// Loads the UserControl
@@ -19,6 +20,7 @@ namespace Group3_ClinicDB.UserControls
         {
             InitializeComponent();
             this.stateController = new StateController();
+            this.personsController = new PersonsController();
         }
 
         private void RegisterPatientUserControlLoad(object sender, EventArgs e)
@@ -89,7 +91,20 @@ namespace Group3_ClinicDB.UserControls
                     try
                     {
                         long phoneNumber = Convert.ToInt64(this.phoneNumberTextBox.Text);
-                        this.AddPersonAsPatient();
+
+                        string firstName = this.firstNameTextBox.Text;
+                        string lastName = this.lastNameTextBox.Text;
+                        DateTime dob = this.dobDateTimePicker.Value;
+                        string gender = this.genderComboBox.SelectedItem.ToString();
+                        string address1 = this.addressTextBox.Text;
+                        string address2 = this.address2TextBox.Text;
+                        string city = this.cityTextBox.Text;
+                        string state = this.stateController.GetStates()[this.stateComboBox.SelectedIndex].StateCode;
+                        string zipCode = this.zipCodeTextBox.Text;
+
+                        Persons person = new Persons(firstName, lastName, dob, gender, ssn, 
+                                                    address1, address2, city, state, zipCode, phoneNumber);
+                        this.personsController.AddPerson(person);
                         this.registrationSuccessMessage.Visible = true;
                     }
                     catch (Exception)

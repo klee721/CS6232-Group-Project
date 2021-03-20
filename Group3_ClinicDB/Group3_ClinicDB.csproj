@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\PersonsController.cs" />
     <Compile Include="Controller\StateController.cs" />
     <Compile Include="Controller\VisitsController.cs" />
     <Compile Include="DAL\ClinicDBConnection.cs" />
