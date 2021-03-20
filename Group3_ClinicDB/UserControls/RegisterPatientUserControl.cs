@@ -1,4 +1,5 @@
 ﻿using Group3_ClinicDB.Controller;
+using Group3_ClinicDB.Model;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -21,6 +22,8 @@ namespace Group3_ClinicDB.UserControls
             InitializeComponent();
             this.stateController = new StateController();
             this.personsController = new PersonsController();
+            //first name, last name, address 1 and 2, city length > 45
+            //ssn can be null
         }
 
         private void RegisterPatientUserControlLoad(object sender, EventArgs e)
@@ -29,18 +32,13 @@ namespace Group3_ClinicDB.UserControls
             this.genderComboBox.Items.Add("female");
             this.genderComboBox.SelectedIndex = 0;
 
-            this.dobDateTimePicker.Value = DateTime.Now.AddDays(-1);
+            this.dobDateTimePicker.Value = DateTime.Now.AddDays(-2);
             this.dobDateTimePicker.MaxDate = DateTime.Now;
             this.dobDateTimePicker.MinDate = DateTime.Now.AddYears(-150);
 
             this.stateComboBox.DataSource = this.stateController.GetStates();
             this.stateComboBox.DisplayMember = "stateCode";
             this.stateComboBox.SelectedIndex = 0;
-        }
-
-        private void AddPersonAsPatient()
-        {
-            
         }
 
         private void Validations()
@@ -70,7 +68,7 @@ namespace Group3_ClinicDB.UserControls
                 this.cityErrorLabel.Visible = true;
                 this.cityErrorLabel.ForeColor = Color.Red;
             }
-            if (this.zipCodeTextBox.Text.Equals(""))
+            if (this.zipCodeTextBox.Text.Length != 5)
             {
                 this.zipCodeErrorLabel.Visible = true;
                 this.zipCodeErrorLabel.ForeColor = Color.Red;
@@ -81,38 +79,51 @@ namespace Group3_ClinicDB.UserControls
                 this.phoneNumberErrorLabel.ForeColor = Color.Red;
             }
             
-            if (!this.lastNameTextBox.Text.Equals("") && !this.firstNameTextBox.Text.Equals("") && this.ssnTextBox.Text.Length == 9 
-                && !this.addressTextBox.Text.Equals("") && !this.cityTextBox.Text.Equals("") && !this.zipCodeTextBox.Text.Equals("")
+            if (!this.lastNameTextBox.Text.Equals("") && !this.firstNameTextBox.Text.Equals("") 
+                && this.ssnTextBox.Text.Length == 9 && !this.addressTextBox.Text.Equals("") 
+                && !this.cityTextBox.Text.Equals("") && this.zipCodeTextBox.Text.Length == 5 
                 && this.phoneNumberTextBox.Text.Length == 10)
             {
                 try
                 {
-                    long ssn = Convert.ToInt64(this.ssnTextBox.Text);
+                    long ssnLong = Convert.ToInt64(this.ssnTextBox.Text);
                     try
                     {
-                        long phoneNumber = Convert.ToInt64(this.phoneNumberTextBox.Text);
+                        long zipCodeLong = Convert.ToInt64(this.zipCodeTextBox.Text);
+                        try
+                        {
+                            long phoneNumberLong = Convert.ToInt64(this.phoneNumberTextBox.Text);
 
-                        string firstName = this.firstNameTextBox.Text;
-                        string lastName = this.lastNameTextBox.Text;
-                        DateTime dob = this.dobDateTimePicker.Value;
-                        string gender = this.genderComboBox.SelectedItem.ToString();
-                        string address1 = this.addressTextBox.Text;
-                        string address2 = this.address2TextBox.Text;
-                        string city = this.cityTextBox.Text;
-                        string state = this.stateController.GetStates()[this.stateComboBox.SelectedIndex].StateCode;
-                        string zipCode = this.zipCodeTextBox.Text;
+                            string firstName = this.firstNameTextBox.Text;
+                            string lastName = this.lastNameTextBox.Text;
+                            DateTime dob = this.dobDateTimePicker.Value;
+                            string ssn = this.ssnTextBox.Text;
+                            string gender = this.genderComboBox.SelectedItem.ToString();
+                            string address1 = this.addressTextBox.Text;
+                            string address2 = this.address2TextBox.Text;
+                            string city = this.cityTextBox.Text;
+                            string state = this.stateController.GetStates()[this.stateComboBox.SelectedIndex].StateCode;
+                            string zipCode = this.zipCodeTextBox.Text;
+                            string phoneNumber = this.phoneNumberTextBox.Text;
 
-                        Persons person = new Persons(firstName, lastName, dob, gender, ssn, 
-                                                    address1, address2, city, state, zipCode, phoneNumber);
-                        this.personsController.AddPerson(person);
-                        this.registrationSuccessMessage.Visible = true;
+                            Persons person = new Persons(firstName, lastName, dob, gender, ssn,
+                                                        address1, address2, city, state, zipCode, phoneNumber);
+                            this.personsController.AddPerson(person);
+                            this.registrationSuccessMessage.Visible = true;
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Phone number can only contain whole numbers", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            this.phoneNumberErrorLabel.Visible = true;
+                            this.phoneNumberErrorLabel.ForeColor = Color.Red;
+                        }
                     }
                     catch (Exception)
                     {
-                        MessageBox.Show("Phone number can only contain whole numbers", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        this.phoneNumberErrorLabel.Visible = true;
-                        this.phoneNumberErrorLabel.ForeColor = Color.Red;
-                    } 
+                        MessageBox.Show("Zipcode can only contain whole numbers", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.zipCodeErrorLabel.Visible = true;
+                        this.zipCodeErrorLabel.ForeColor = Color.Red;
+                    }
                 }
                 catch (Exception)
                 {
@@ -132,7 +143,7 @@ namespace Group3_ClinicDB.UserControls
         {
             this.firstNameTextBox.Text = "";
             this.lastNameTextBox.Text = "";
-            this.dobDateTimePicker.Value = DateTime.Now.AddDays(-1);
+            this.dobDateTimePicker.Value = DateTime.Now.AddDays(-2);
             this.genderComboBox.SelectedIndex = 0;
             this.ssnTextBox.Text = "";
             this.addressTextBox.Text = "";

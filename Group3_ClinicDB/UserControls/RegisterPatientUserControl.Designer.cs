@@ -353,9 +353,9 @@ namespace Group3_ClinicDB.UserControls
             this.zipCodeErrorLabel.AutoSize = true;
             this.zipCodeErrorLabel.Location = new System.Drawing.Point(719, 272);
             this.zipCodeErrorLabel.Name = "zipCodeErrorLabel";
-            this.zipCodeErrorLabel.Size = new System.Drawing.Size(141, 13);
+            this.zipCodeErrorLabel.Size = new System.Drawing.Size(196, 13);
             this.zipCodeErrorLabel.TabIndex = 20;
-            this.zipCodeErrorLabel.Text = "Zip Code information missing";
+            this.zipCodeErrorLabel.Text = "Zip Code must contain exactly five digits";
             this.zipCodeErrorLabel.Visible = false;
             // 
             // phoneNumberErrorLabel
