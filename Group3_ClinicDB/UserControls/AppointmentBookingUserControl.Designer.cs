@@ -126,6 +126,7 @@ namespace Group3_ClinicDB.UserControls
             this.CreateApptButton.TabIndex = 10;
             this.CreateApptButton.Text = "Create Appointment";
             this.CreateApptButton.UseVisualStyleBackColor = true;
+            this.CreateApptButton.Click += new System.EventHandler(this.CreateApptButton_Click);
             // 
             // PatientApptListLabel
             // 
@@ -152,6 +153,7 @@ namespace Group3_ClinicDB.UserControls
             this.ApptTimePicker.Name = "ApptTimePicker";
             this.ApptTimePicker.Size = new System.Drawing.Size(107, 20);
             this.ApptTimePicker.TabIndex = 7;
+            this.ApptTimePicker.Value = new System.DateTime(2021, 3, 21, 19, 27, 0, 0);
             // 
             // TimeLabel
             // 
@@ -203,9 +205,11 @@ namespace Group3_ClinicDB.UserControls
             // ApptDatePicker
             // 
             this.ApptDatePicker.Location = new System.Drawing.Point(120, 55);
+            this.ApptDatePicker.MinDate = new System.DateTime(2021, 1, 1, 0, 0, 0, 0);
             this.ApptDatePicker.Name = "ApptDatePicker";
             this.ApptDatePicker.Size = new System.Drawing.Size(243, 20);
             this.ApptDatePicker.TabIndex = 1;
+            this.ApptDatePicker.Value = new System.DateTime(2021, 3, 21, 19, 39, 45, 0);
             // 
             // DateLabel
             // 
