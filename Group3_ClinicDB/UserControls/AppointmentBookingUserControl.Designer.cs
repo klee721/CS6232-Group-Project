@@ -147,9 +147,11 @@ namespace Group3_ClinicDB.UserControls
             // 
             // ApptTimePicker
             // 
-            this.ApptTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.ApptTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.ApptTimePicker.CustomFormat = "HH:mm tt";
             this.ApptTimePicker.Location = new System.Drawing.Point(120, 121);
             this.ApptTimePicker.Name = "ApptTimePicker";
+            this.ApptTimePicker.ShowUpDown = true;
             this.ApptTimePicker.Size = new System.Drawing.Size(107, 20);
             this.ApptTimePicker.TabIndex = 7;
             // 
