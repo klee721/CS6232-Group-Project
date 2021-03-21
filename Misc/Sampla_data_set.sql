@@ -68,7 +68,7 @@ insert into persons
    ('David', 'Harley','30-JUN-1982','Male','432443243','123 main rd',NULL, 'NEW York','NY','10001', '4318732434'),
    ('Lauren', 'Singleton','01-AUG-1987','Female','432432241','1234 7th street','APT 1244', 'NEW JERSEY','NY','10006', '1456432412'),
    ('Gary', 'Smith','10-APR-1991','Male','983434683','1801 Mc David st','20323', 'Los Angeles','LA','90001', '4322141225'),
-   ('Laura', 'Amber','24-JAN-1967','Female','342482325','818 Carrolton ave',NULL, 'ATLANTA','GA','30301', '3213215423');
+   ('Laura', 'Amber','24-JAN-1967','Female','342482325','818 Carrolton ave',NULL, 'ATLANTA','GA','30301', '3213215423'),
    ('Mitchell', 'Iyer','10-OCT-1991','Female','764434659','1000 arlington ave','APT 378', 'Los Angeles','LA','90001', '5424322141'),
    ('Sara', 'Haggins','21-JAN-1984','Female','342321323','123 Main ave',NULL, 'TAMPA','FL','32006', '3214514312');
    

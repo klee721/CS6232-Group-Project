@@ -46,8 +46,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\PersonsController.cs" />
+    <Compile Include="Controller\StateController.cs" />
+    <Compile Include="Controller\VisitsController.cs" />
+    <Compile Include="DAL\ClinicDBConnection.cs" />
     <Compile Include="DAL\DAL1.cs" />
+    <Compile Include="DAL\PersonsDBDAL.cs" />
+    <Compile Include="DAL\StateDBDAL.cs" />
+    <Compile Include="DAL\VisitsDAL.cs" />
     <Compile Include="Model\Class1.cs" />
+    <Compile Include="Model\Persons.cs" />
+    <Compile Include="Model\State.cs" />
+    <Compile Include="Model\Visits.cs" />
+    <Compile Include="UserControls\AddVisitUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AddVisitUserControl.Designer.cs">
+      <DependentUpon>AddVisitUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AllVisitsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AllVisitsUserControl.Designer.cs">
+      <DependentUpon>AllVisitsUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\AppointmentBookingUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -59,6 +81,18 @@
     </Compile>
     <Compile Include="UserControls\EditAppointmentUserControl.Designer.cs">
       <DependentUpon>EditAppointmentUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\EditPatientUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\EditPatientUserControl.Designer.cs">
+      <DependentUpon>EditPatientUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RegisterPatientUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\RegisterPatientUserControl.Designer.cs">
+      <DependentUpon>RegisterPatientUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="View\AdminMainDashboard.cs">
       <SubType>Form</SubType>
@@ -80,11 +114,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="UserControls\AddVisitUserControl.resx">
+      <DependentUpon>AddVisitUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\AllVisitsUserControl.resx">
+      <DependentUpon>AllVisitsUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AppointmentBookingUserControl.resx">
       <DependentUpon>AppointmentBookingUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\EditAppointmentUserControl.resx">
       <DependentUpon>EditAppointmentUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\EditPatientUserControl.resx">
+      <DependentUpon>EditPatientUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\RegisterPatientUserControl.resx">
+      <DependentUpon>RegisterPatientUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -118,7 +164,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controller\" />
     <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
