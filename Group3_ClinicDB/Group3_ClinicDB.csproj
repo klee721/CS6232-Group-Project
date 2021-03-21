@@ -46,8 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\PersonsController.cs" />
+    <Compile Include="Controller\StateController.cs" />
+    <Compile Include="Controller\VisitsController.cs" />
+    <Compile Include="DAL\ClinicDBConnection.cs" />
     <Compile Include="DAL\DAL1.cs" />
+    <Compile Include="DAL\PersonsDBDAL.cs" />
+    <Compile Include="DAL\StateDBDAL.cs" />
+    <Compile Include="DAL\VisitsDAL.cs" />
     <Compile Include="Model\Class1.cs" />
+    <Compile Include="Model\Persons.cs" />
+    <Compile Include="Model\State.cs" />
+    <Compile Include="Model\Visits.cs" />
+    <Compile Include="UserControls\AllVisitsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AllVisitsUserControl.Designer.cs">
+      <DependentUpon>AllVisitsUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\AppointmentBookingUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -92,6 +108,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="UserControls\AllVisitsUserControl.resx">
+      <DependentUpon>AllVisitsUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AppointmentBookingUserControl.resx">
       <DependentUpon>AppointmentBookingUserControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -136,7 +155,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controller\" />
     <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

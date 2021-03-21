@@ -54,6 +54,14 @@ namespace Group3_ClinicDB.UserControls
             this.addressTextBox = new System.Windows.Forms.TextBox();
             this.address2TextBox = new System.Windows.Forms.TextBox();
             this.registerPatientLabel = new System.Windows.Forms.Label();
+            this.lastNameErrorLabel = new System.Windows.Forms.Label();
+            this.firstNameErrorLabel = new System.Windows.Forms.Label();
+            this.ssnErrorLabel = new System.Windows.Forms.Label();
+            this.address1ErrorLabel = new System.Windows.Forms.Label();
+            this.cityErrorLabel = new System.Windows.Forms.Label();
+            this.zipCodeErrorLabel = new System.Windows.Forms.Label();
+            this.phoneNumberErrorLabel = new System.Windows.Forms.Label();
+            this.registrationSuccessMessage = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // registerButton
@@ -65,6 +73,7 @@ namespace Group3_ClinicDB.UserControls
             this.registerButton.TabIndex = 0;
             this.registerButton.Text = "Register";
             this.registerButton.UseVisualStyleBackColor = true;
+            this.registerButton.Click += new System.EventHandler(this.RegisterButtonClick);
             // 
             // clearButton
             // 
@@ -75,6 +84,7 @@ namespace Group3_ClinicDB.UserControls
             this.clearButton.TabIndex = 1;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.ClearButtonClick);
             // 
             // lastNameLabel
             // 
@@ -189,9 +199,11 @@ namespace Group3_ClinicDB.UserControls
             // dobDateTimePicker
             // 
             this.dobDateTimePicker.Location = new System.Drawing.Point(178, 204);
+            this.dobDateTimePicker.MaxDate = new System.DateTime(2021, 3, 18, 0, 0, 0, 0);
             this.dobDateTimePicker.Name = "dobDateTimePicker";
             this.dobDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.dobDateTimePicker.TabIndex = 2;
+            this.dobDateTimePicker.Value = new System.DateTime(2021, 3, 17, 0, 0, 0, 0);
             // 
             // genderComboBox
             // 
@@ -201,6 +213,7 @@ namespace Group3_ClinicDB.UserControls
             this.genderComboBox.Name = "genderComboBox";
             this.genderComboBox.Size = new System.Drawing.Size(103, 21);
             this.genderComboBox.TabIndex = 3;
+            this.genderComboBox.SelectedIndexChanged += new System.EventHandler(this.GenderComboBoxSelectedIndexChanged);
             // 
             // stateComboBox
             // 
@@ -210,6 +223,7 @@ namespace Group3_ClinicDB.UserControls
             this.stateComboBox.Name = "stateComboBox";
             this.stateComboBox.Size = new System.Drawing.Size(75, 21);
             this.stateComboBox.TabIndex = 10;
+            this.stateComboBox.SelectedIndexChanged += new System.EventHandler(this.StateComboBoxSelectedIndexChanged);
             // 
             // cityTextBox
             // 
@@ -217,6 +231,7 @@ namespace Group3_ClinicDB.UserControls
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(236, 20);
             this.cityTextBox.TabIndex = 7;
+            this.cityTextBox.TextChanged += new System.EventHandler(this.CityTextBoxTextChanged);
             // 
             // zipCodeTextBox
             // 
@@ -224,6 +239,7 @@ namespace Group3_ClinicDB.UserControls
             this.zipCodeTextBox.Name = "zipCodeTextBox";
             this.zipCodeTextBox.Size = new System.Drawing.Size(130, 20);
             this.zipCodeTextBox.TabIndex = 8;
+            this.zipCodeTextBox.TextChanged += new System.EventHandler(this.ZipCodeTextBoxTextChanged);
             // 
             // phoneNumberTextBox
             // 
@@ -231,6 +247,7 @@ namespace Group3_ClinicDB.UserControls
             this.phoneNumberTextBox.Name = "phoneNumberTextBox";
             this.phoneNumberTextBox.Size = new System.Drawing.Size(181, 20);
             this.phoneNumberTextBox.TabIndex = 9;
+            this.phoneNumberTextBox.TextChanged += new System.EventHandler(this.PhoneNumberTextBoxTextChanged);
             // 
             // ssnTextBox
             // 
@@ -238,6 +255,7 @@ namespace Group3_ClinicDB.UserControls
             this.ssnTextBox.Name = "ssnTextBox";
             this.ssnTextBox.Size = new System.Drawing.Size(200, 20);
             this.ssnTextBox.TabIndex = 4;
+            this.ssnTextBox.TextChanged += new System.EventHandler(this.SsnTextBoxTextChanged);
             // 
             // firstNameTextBox
             // 
@@ -245,6 +263,7 @@ namespace Group3_ClinicDB.UserControls
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(250, 20);
             this.firstNameTextBox.TabIndex = 1;
+            this.firstNameTextBox.TextChanged += new System.EventHandler(this.FirstNameTextBoxTextChanged);
             // 
             // lastNameTextBox
             // 
@@ -252,6 +271,7 @@ namespace Group3_ClinicDB.UserControls
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(250, 20);
             this.lastNameTextBox.TabIndex = 0;
+            this.lastNameTextBox.TextChanged += new System.EventHandler(this.LastNameTextBoxTextChanged);
             // 
             // addressTextBox
             // 
@@ -259,6 +279,7 @@ namespace Group3_ClinicDB.UserControls
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(348, 20);
             this.addressTextBox.TabIndex = 5;
+            this.addressTextBox.TextChanged += new System.EventHandler(this.AddressTextBoxTextChanged);
             // 
             // address2TextBox
             // 
@@ -277,10 +298,98 @@ namespace Group3_ClinicDB.UserControls
             this.registerPatientLabel.TabIndex = 13;
             this.registerPatientLabel.Text = "Register Patient";
             // 
+            // lastNameErrorLabel
+            // 
+            this.lastNameErrorLabel.AutoSize = true;
+            this.lastNameErrorLabel.Location = new System.Drawing.Point(178, 137);
+            this.lastNameErrorLabel.Name = "lastNameErrorLabel";
+            this.lastNameErrorLabel.Size = new System.Drawing.Size(147, 13);
+            this.lastNameErrorLabel.TabIndex = 14;
+            this.lastNameErrorLabel.Text = "Last name information missing";
+            this.lastNameErrorLabel.Visible = false;
+            // 
+            // firstNameErrorLabel
+            // 
+            this.firstNameErrorLabel.AutoSize = true;
+            this.firstNameErrorLabel.Location = new System.Drawing.Point(181, 185);
+            this.firstNameErrorLabel.Name = "firstNameErrorLabel";
+            this.firstNameErrorLabel.Size = new System.Drawing.Size(146, 13);
+            this.firstNameErrorLabel.TabIndex = 15;
+            this.firstNameErrorLabel.Text = "First name information missing";
+            this.firstNameErrorLabel.Visible = false;
+            // 
+            // ssnErrorLabel
+            // 
+            this.ssnErrorLabel.AutoSize = true;
+            this.ssnErrorLabel.Location = new System.Drawing.Point(175, 316);
+            this.ssnErrorLabel.Name = "ssnErrorLabel";
+            this.ssnErrorLabel.Size = new System.Drawing.Size(262, 13);
+            this.ssnErrorLabel.TabIndex = 16;
+            this.ssnErrorLabel.Text = "Social security number must contain exactly nine digits";
+            this.ssnErrorLabel.Visible = false;
+            // 
+            // address1ErrorLabel
+            // 
+            this.address1ErrorLabel.AutoSize = true;
+            this.address1ErrorLabel.Location = new System.Drawing.Point(719, 136);
+            this.address1ErrorLabel.Name = "address1ErrorLabel";
+            this.address1ErrorLabel.Size = new System.Drawing.Size(175, 13);
+            this.address1ErrorLabel.TabIndex = 17;
+            this.address1ErrorLabel.Text = "Street address 1 information missing";
+            this.address1ErrorLabel.Visible = false;
+            // 
+            // cityErrorLabel
+            // 
+            this.cityErrorLabel.AutoSize = true;
+            this.cityErrorLabel.Location = new System.Drawing.Point(719, 228);
+            this.cityErrorLabel.Name = "cityErrorLabel";
+            this.cityErrorLabel.Size = new System.Drawing.Size(115, 13);
+            this.cityErrorLabel.TabIndex = 19;
+            this.cityErrorLabel.Text = "City information missing";
+            this.cityErrorLabel.Visible = false;
+            // 
+            // zipCodeErrorLabel
+            // 
+            this.zipCodeErrorLabel.AutoSize = true;
+            this.zipCodeErrorLabel.Location = new System.Drawing.Point(719, 272);
+            this.zipCodeErrorLabel.Name = "zipCodeErrorLabel";
+            this.zipCodeErrorLabel.Size = new System.Drawing.Size(196, 13);
+            this.zipCodeErrorLabel.TabIndex = 20;
+            this.zipCodeErrorLabel.Text = "Zip Code must contain exactly five digits";
+            this.zipCodeErrorLabel.Visible = false;
+            // 
+            // phoneNumberErrorLabel
+            // 
+            this.phoneNumberErrorLabel.AutoSize = true;
+            this.phoneNumberErrorLabel.Location = new System.Drawing.Point(720, 316);
+            this.phoneNumberErrorLabel.Name = "phoneNumberErrorLabel";
+            this.phoneNumberErrorLabel.Size = new System.Drawing.Size(220, 13);
+            this.phoneNumberErrorLabel.TabIndex = 21;
+            this.phoneNumberErrorLabel.Text = "Phone number must contain exactly ten digits";
+            this.phoneNumberErrorLabel.Visible = false;
+            // 
+            // registrationSuccessMessage
+            // 
+            this.registrationSuccessMessage.AutoSize = true;
+            this.registrationSuccessMessage.Location = new System.Drawing.Point(720, 433);
+            this.registrationSuccessMessage.Name = "registrationSuccessMessage";
+            this.registrationSuccessMessage.Size = new System.Drawing.Size(121, 13);
+            this.registrationSuccessMessage.TabIndex = 22;
+            this.registrationSuccessMessage.Text = "Registration Successful!";
+            this.registrationSuccessMessage.Visible = false;
+            // 
             // RegisterPatientUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.registrationSuccessMessage);
+            this.Controls.Add(this.phoneNumberErrorLabel);
+            this.Controls.Add(this.zipCodeErrorLabel);
+            this.Controls.Add(this.cityErrorLabel);
+            this.Controls.Add(this.address1ErrorLabel);
+            this.Controls.Add(this.ssnErrorLabel);
+            this.Controls.Add(this.firstNameErrorLabel);
+            this.Controls.Add(this.lastNameErrorLabel);
             this.Controls.Add(this.registerPatientLabel);
             this.Controls.Add(this.address2TextBox);
             this.Controls.Add(this.addressTextBox);
@@ -310,6 +419,7 @@ namespace Group3_ClinicDB.UserControls
             this.MinimumSize = new System.Drawing.Size(1215, 615);
             this.Name = "RegisterPatientUserControl";
             this.Size = new System.Drawing.Size(1215, 615);
+            this.Load += new System.EventHandler(this.RegisterPatientUserControlLoad);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -342,5 +452,13 @@ namespace Group3_ClinicDB.UserControls
         private System.Windows.Forms.TextBox addressTextBox;
         private System.Windows.Forms.TextBox address2TextBox;
         private System.Windows.Forms.Label registerPatientLabel;
+        private System.Windows.Forms.Label lastNameErrorLabel;
+        private System.Windows.Forms.Label firstNameErrorLabel;
+        private System.Windows.Forms.Label ssnErrorLabel;
+        private System.Windows.Forms.Label address1ErrorLabel;
+        private System.Windows.Forms.Label cityErrorLabel;
+        private System.Windows.Forms.Label zipCodeErrorLabel;
+        private System.Windows.Forms.Label phoneNumberErrorLabel;
+        private System.Windows.Forms.Label registrationSuccessMessage;
     }
 }
