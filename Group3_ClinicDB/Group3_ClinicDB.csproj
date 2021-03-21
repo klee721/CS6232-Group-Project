@@ -58,6 +58,12 @@
     <Compile Include="Model\Persons.cs" />
     <Compile Include="Model\State.cs" />
     <Compile Include="Model\Visits.cs" />
+    <Compile Include="UserControls\AddVisitUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AddVisitUserControl.Designer.cs">
+      <DependentUpon>AddVisitUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\AllVisitsUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -108,6 +114,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="UserControls\AddVisitUserControl.resx">
+      <DependentUpon>AddVisitUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AllVisitsUserControl.resx">
       <DependentUpon>AllVisitsUserControl.cs</DependentUpon>
     </EmbeddedResource>
