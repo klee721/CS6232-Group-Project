@@ -14,26 +14,25 @@ namespace Group3_ClinicDB.DAL
     /// </summary>
     public class VisitsDAL
     {
-		/// <summary>
+        /// <summary>
         ///method to get incidents which are open
         /// </summary>
         /// <returns>a list of Incidents</returns>
-
 
         public List<Visits> GetVisits()
         {
             List<Visits> visitList = new List<Visits>();
 
             string selectStatement =
-			
-			"SELECT Id,appointment_id,weight,height,bodyTemparature,pulse " +
+
+            "SELECT Id,appointment_id,weight,height,bodyTemparature,pulse " +
       ",symptoms,nurseId,bloodPressureSystolic,bloodPressureDiastolic " +
       ",initialDiagnose,ISNULL(finalDiagnose, ' ') finalDiagnose " +
       " FROM dbo.visits ";
 
-           
 
-                        int id;
+
+            int id;
             int appointment_id;
             decimal weight;
             decimal height;
@@ -43,8 +42,8 @@ namespace Group3_ClinicDB.DAL
             int nurseId;
             int bloodPressureSystolic;
             int bloodPressureDiastolic;
-      string initialDiagnose;
-      string finalDiagnose;
+            string initialDiagnose;
+            string finalDiagnose;
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
             {
@@ -59,32 +58,32 @@ namespace Group3_ClinicDB.DAL
                         int weightOrd = reader.GetOrdinal("weight");
                         int heightOrd = reader.GetOrdinal("height");
                         int bodyTemparatureOrd = reader.GetOrdinal("bodyTemparature");
-						int pulseOrd = reader.GetOrdinal("pulse");
+                        int pulseOrd = reader.GetOrdinal("pulse");
                         int symptomsOrd = reader.GetOrdinal("symptoms");
                         int nurseIdOrd = reader.GetOrdinal("nurseId");
                         int bloodPressureSystolicOrd = reader.GetOrdinal("bloodPressureSystolic");
                         int bloodPressureDiastolicOrd = reader.GetOrdinal("bloodPressureDiastolic");
-						int initialDiagnoseOrd = reader.GetOrdinal("initialDiagnose");
+                        int initialDiagnoseOrd = reader.GetOrdinal("initialDiagnose");
                         int finalDiagnoseOrd = reader.GetOrdinal("finalDiagnose");
 
                         while (reader.Read())
                         {
-							
-							 id = reader.GetInt32(idOrd);
-      appointment_id = reader.GetInt32(appointmentIdOrd);
-      weight = reader.GetDecimal(weightOrd);
-      height = reader.GetDecimal(heightOrd);
-      bodyTemparature = reader.GetInt32(bodyTemparatureOrd);
-      pulse = reader.GetInt32(pulseOrd);
-      symptoms = reader.GetString(symptomsOrd);
-      nurseId = reader.GetInt32(nurseIdOrd);
-      bloodPressureSystolic = reader.GetInt32(bloodPressureSystolicOrd);
-      bloodPressureDiastolic = reader.GetInt32(bloodPressureDiastolicOrd);
-      initialDiagnose = reader.GetString(initialDiagnoseOrd);
-      finalDiagnose = reader.GetString(finalDiagnoseOrd);
 
-	  
-                            
+                            id = reader.GetInt32(idOrd);
+                            appointment_id = reader.GetInt32(appointmentIdOrd);
+                            weight = reader.GetDecimal(weightOrd);
+                            height = reader.GetDecimal(heightOrd);
+                            bodyTemparature = reader.GetInt32(bodyTemparatureOrd);
+                            pulse = reader.GetInt32(pulseOrd);
+                            symptoms = reader.GetString(symptomsOrd);
+                            nurseId = reader.GetInt32(nurseIdOrd);
+                            bloodPressureSystolic = reader.GetInt32(bloodPressureSystolicOrd);
+                            bloodPressureDiastolic = reader.GetInt32(bloodPressureDiastolicOrd);
+                            initialDiagnose = reader.GetString(initialDiagnoseOrd);
+                            finalDiagnose = reader.GetString(finalDiagnoseOrd);
+
+
+
                             Visits visit = new Visits();
                             visit.Id = id;
                             visit.appointment_id = appointment_id;
@@ -108,7 +107,175 @@ namespace Group3_ClinicDB.DAL
             return visitList;
         }
 
-	
+        /// <summary>
+        ///method to get incidents which are open
+        /// </summary>
+        /// <returns>a list of Incidents</returns>
+
+        public List<Visits> GetVisitsByPatient(int patient_Id)
+        {
+            List<Visits> visitList = new List<Visits>();
+
+            string selectStatement =
+            "SELECT visit.Id," +
+      " visit.appointment_id," +
+      " visit.weight," +
+      " visit.height," +
+      " visit.bodyTemparature," +
+      " visit.pulse" +
+      ",visit.symptoms" +
+	  ",visit.nurseId" +
+	  ",visit.bloodPressureSystolic" +
+	  ",visit.bloodPressureDiastolic" +
+      ",visit.initialDiagnose" +
+	  ",ISNULL(visit.finalDiagnose, ' ') finalDiagnose" +
+      " FROM dbo.visits visit JOIN dbo.appointments app on(app.Id = visit.appointment_id)" +
+      "where app.patientId = patient_Id";
+
+
+            int id;
+            int appointment_id;
+            decimal weight;
+            decimal height;
+            int bodyTemparature;
+            int pulse;
+            string symptoms;
+            int nurseId;
+            int bloodPressureSystolic;
+            int bloodPressureDiastolic;
+            string initialDiagnose;
+            string finalDiagnose;
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        int idOrd = reader.GetOrdinal("Id");
+                        int appointmentIdOrd = reader.GetOrdinal("appointment_id");
+                        int weightOrd = reader.GetOrdinal("weight");
+                        int heightOrd = reader.GetOrdinal("height");
+                        int bodyTemparatureOrd = reader.GetOrdinal("bodyTemparature");
+                        int pulseOrd = reader.GetOrdinal("pulse");
+                        int symptomsOrd = reader.GetOrdinal("symptoms");
+                        int nurseIdOrd = reader.GetOrdinal("nurseId");
+                        int bloodPressureSystolicOrd = reader.GetOrdinal("bloodPressureSystolic");
+                        int bloodPressureDiastolicOrd = reader.GetOrdinal("bloodPressureDiastolic");
+                        int initialDiagnoseOrd = reader.GetOrdinal("initialDiagnose");
+                        int finalDiagnoseOrd = reader.GetOrdinal("finalDiagnose");
+
+                        while (reader.Read())
+                        {
+
+                            id = reader.GetInt32(idOrd);
+                            appointment_id = reader.GetInt32(appointmentIdOrd);
+                            weight = reader.GetDecimal(weightOrd);
+                            height = reader.GetDecimal(heightOrd);
+                            bodyTemparature = reader.GetInt32(bodyTemparatureOrd);
+                            pulse = reader.GetInt32(pulseOrd);
+                            symptoms = reader.GetString(symptomsOrd);
+                            nurseId = reader.GetInt32(nurseIdOrd);
+                            bloodPressureSystolic = reader.GetInt32(bloodPressureSystolicOrd);
+                            bloodPressureDiastolic = reader.GetInt32(bloodPressureDiastolicOrd);
+                            initialDiagnose = reader.GetString(initialDiagnoseOrd);
+                            finalDiagnose = reader.GetString(finalDiagnoseOrd);
+
+
+
+                            Visits visit = new Visits();
+                            visit.Id = id;
+                            visit.appointment_id = appointment_id;
+                            visit.weight = weight;
+                            visit.height = height;
+                            visit.bodyTemparature = bodyTemparature;
+                            visit.pulse = pulse;
+                            visit.symptoms = symptoms;
+                            visit.nurseId = nurseId;
+                            visit.bloodPressureSystolic = bloodPressureSystolic;
+                            visit.bloodPressureDiastolic = bloodPressureDiastolic;
+                            visit.initialDiagnose = initialDiagnose;
+                            visit.finalDiagnose = finalDiagnose;
+                            visitList.Add(visit);
+                        }
+                    }
+                }
+
+
+            }
+            return visitList;
+        }
+
+
+        /// <summary>
+        ///Method to insert Visit 
+        ///
+        /// </summary>
+        /// <returns>none</returns>
+
+
+        public bool Add(Visits visit)
+        {
+
+
+            if (visit == null)
+            {
+                throw new ArgumentNullException("visit cannot be null");
+            }
+
+            string selectStatement = "insert into visits(appointment_id, weight, height, bodyTemparature, pulse " +
+      ", symptoms, nurseId, bloodPressureSystolic, bloodPressureDiastolic "+
+      ", initialDiagnose, finalDiagnose) values "+
+       " (@appointment_id, @weight, @height, @bodyTemparature, @pulse "+
+        ", @symptoms, @nurseId, @bloodPressureSystolic, @bloodPressureDiastolic "+
+        ", @initialDiagnose, @finalDiagnose) ";
+
+           
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    if (String.IsNullOrEmpty(visit.symptoms))
+                    {
+                        selectCommand.Parameters.AddWithValue("@symptoms", DBNull.Value);
+                    }
+                    else
+                        selectCommand.Parameters.AddWithValue("@symptoms", visit.symptoms);
+                    if (String.IsNullOrEmpty(visit.initialDiagnose))
+                    {
+                        selectCommand.Parameters.AddWithValue("@initialDiagnose", DBNull.Value);
+                    }
+                    else
+                        selectCommand.Parameters.AddWithValue("@initialDiagnose", visit.initialDiagnose);
+
+                    if (String.IsNullOrEmpty(visit.finalDiagnose))
+                    {
+                        selectCommand.Parameters.AddWithValue("@finalDiagnose", DBNull.Value);
+                    }
+                    else
+                        selectCommand.Parameters.AddWithValue("@finalDiagnose", visit.finalDiagnose);
+
+                    selectCommand.Parameters.AddWithValue("@appointment_id", visit.appointment_id);
+                    selectCommand.Parameters.AddWithValue("@weight", visit.weight);
+                    selectCommand.Parameters.AddWithValue("@height", visit.height);
+                    selectCommand.Parameters.AddWithValue("@bodyTemparature", visit.bodyTemparature);
+                    selectCommand.Parameters.AddWithValue("@pulse", visit.pulse);
+                    selectCommand.Parameters.AddWithValue("@nurseId", visit.nurseId);
+                    selectCommand.Parameters.AddWithValue("@bloodPressureSystolic", visit.bloodPressureSystolic);
+                    selectCommand.Parameters.AddWithValue("@bloodPressureDiastolic", visit.bloodPressureDiastolic); 
+                    selectCommand.ExecuteNonQuery();
+
+                }
+
+                return true;
+
+            }
+
+        }
     }
 }
-	

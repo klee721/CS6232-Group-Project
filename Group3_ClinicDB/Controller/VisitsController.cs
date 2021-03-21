@@ -36,8 +36,29 @@ namespace Group3_ClinicDB.Controller
             return this.visitsSource.GetVisits();
         }
 
-       
+        /// <summary>
+        /// GetVisitsByPatient method to list the visits of a patient
+        /// </summary>
+        public List<Visits> GetVisitsByPatient(int patient_id)
+        {
+            return this.visitsSource.GetVisitsByPatient(patient_id);
+        }
 
+
+        /// <summary>
+        /// Add method to add the visit to the database
+        /// </summary>
+        public bool AddVisit(Visits visit)
+        {
+
+            if (visit == null)
+            {
+                throw new ArgumentNullException("visit cannot be null");
+            }
+
+            return this.visitsSource.Add(visit);
+
+        }
 
     }
 }
