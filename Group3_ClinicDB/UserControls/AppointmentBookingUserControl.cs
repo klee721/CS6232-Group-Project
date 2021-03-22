@@ -22,17 +22,33 @@ namespace Group3_ClinicDB.UserControls
 
         private void CreateApptButton_Click(object sender, EventArgs e)
         {
-            Appointment appointment = new Appointment();
-            appointment.PatientID = 1;
-            appointment.DoctorID = Int32.Parse(this.DoctorComboBox.SelectedValue.ToString());
-            appointment.AppointmentDate = this.CombineDateAndTime();
-            appointment.Reason = this.ReasonRichText.Text;
-            appointment.Status = "A";
 
-            this.apptController.AddAppointment(appointment);
-            this.PatientApptList.DataSource = this.apptController.GetAppointmentsByPatient(1);  //TESTING THE DAL WITH PATIENT 1
-
-            this.ClearAll();
+            bool result = true;     //this.apptController.CheckAvailability();
+            if (result)
+            {
+                DialogResult dialogresult = MessageBox.Show("Dr. " + this.DoctorComboBox.Text + " is available, please click OK to schedule.", "Availability Found", MessageBoxButtons.OKCancel);
+                if (dialogresult == DialogResult.OK)
+                {
+                    Appointment appointment = new Appointment();
+                    appointment.PatientID = 1;
+                    appointment.DoctorID = Int32.Parse(this.DoctorComboBox.SelectedValue.ToString());
+                    appointment.AppointmentDate = this.CombineDateAndTime();
+                    appointment.Reason = this.ReasonRichText.Text;
+                    appointment.Status = "A";
+                    this.apptController.AddAppointment(appointment);
+                    this.PatientApptList.DataSource = this.apptController.GetAppointmentsByPatient(1);  //TESTING THE DAL WITH PATIENT 1
+                    this.ClearAll();
+                }
+                else
+                {
+                    return;
+                }
+                
+            }
+            else
+            {
+                MessageBox.Show("Dr. " + this.DoctorComboBox.Text + " is not available in that timeslot.");
+            }
 
         }
 
@@ -57,25 +73,6 @@ namespace Group3_ClinicDB.UserControls
             this.DoctorComboBox.ValueMember = "DoctorID";
         }
 
-        private void CheckAvailabilityButton_Click(object sender, EventArgs e)
-        {
-            bool result = false;     //this.apptController.CheckAvailability();
-            if (result)
-            {
-                MessageBox.Show("Dr. " + this.DoctorComboBox.Text + " is available, please click Create Appointment to schedule.");
-                this.CreateApptButton.Enabled = true;
-            }
-            else
-            {
-
-                MessageBox.Show("Dr. " + this.DoctorComboBox.Text + " is not available in that timeslot.");
-            }
-        }
-
-        private void DisableCreate(object sender, EventArgs e)
-        {
-            this.CreateApptButton.Enabled = false;
-        }
 
     }
 }

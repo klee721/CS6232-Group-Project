@@ -34,7 +34,6 @@ namespace Group3_ClinicDB.UserControls
             this.PatientIDLabel = new System.Windows.Forms.Label();
             this.PatientIDTextbox = new System.Windows.Forms.TextBox();
             this.ApptPanel = new System.Windows.Forms.Panel();
-            this.CheckAvailabilityButton = new System.Windows.Forms.Button();
             this.CreateApptButton = new System.Windows.Forms.Button();
             this.PatientApptListLabel = new System.Windows.Forms.Label();
             this.PatientApptList = new System.Windows.Forms.DataGridView();
@@ -90,7 +89,6 @@ namespace Group3_ClinicDB.UserControls
             // ApptPanel
             // 
             this.ApptPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ApptPanel.Controls.Add(this.CheckAvailabilityButton);
             this.ApptPanel.Controls.Add(this.CreateApptButton);
             this.ApptPanel.Controls.Add(this.PatientApptListLabel);
             this.ApptPanel.Controls.Add(this.PatientApptList);
@@ -107,21 +105,10 @@ namespace Group3_ClinicDB.UserControls
             this.ApptPanel.Size = new System.Drawing.Size(1168, 456);
             this.ApptPanel.TabIndex = 4;
             // 
-            // CheckAvailabilityButton
-            // 
-            this.CheckAvailabilityButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CheckAvailabilityButton.Location = new System.Drawing.Point(762, 356);
-            this.CheckAvailabilityButton.Name = "CheckAvailabilityButton";
-            this.CheckAvailabilityButton.Size = new System.Drawing.Size(173, 44);
-            this.CheckAvailabilityButton.TabIndex = 11;
-            this.CheckAvailabilityButton.Text = "Check Availability";
-            this.CheckAvailabilityButton.UseVisualStyleBackColor = true;
-            this.CheckAvailabilityButton.Click += new System.EventHandler(this.CheckAvailabilityButton_Click);
-            // 
             // CreateApptButton
             // 
             this.CreateApptButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CreateApptButton.Location = new System.Drawing.Point(962, 356);
+            this.CreateApptButton.Location = new System.Drawing.Point(903, 356);
             this.CreateApptButton.Name = "CreateApptButton";
             this.CreateApptButton.Size = new System.Drawing.Size(173, 44);
             this.CreateApptButton.TabIndex = 10;
@@ -156,7 +143,6 @@ namespace Group3_ClinicDB.UserControls
             this.ApptTimePicker.Size = new System.Drawing.Size(107, 20);
             this.ApptTimePicker.TabIndex = 7;
             this.ApptTimePicker.Value = new System.DateTime(2021, 3, 21, 19, 27, 0, 0);
-            this.ApptTimePicker.ValueChanged += new System.EventHandler(this.DisableCreate);
             // 
             // TimeLabel
             // 
@@ -175,7 +161,6 @@ namespace Group3_ClinicDB.UserControls
             this.ReasonRichText.Size = new System.Drawing.Size(573, 138);
             this.ReasonRichText.TabIndex = 5;
             this.ReasonRichText.Text = "";
-            this.ReasonRichText.TextChanged += new System.EventHandler(this.DisableCreate);
             // 
             // ReasonLabel
             // 
@@ -195,8 +180,7 @@ namespace Group3_ClinicDB.UserControls
             this.DoctorComboBox.Name = "DoctorComboBox";
             this.DoctorComboBox.Size = new System.Drawing.Size(243, 21);
             this.DoctorComboBox.TabIndex = 3;
-            this.DoctorComboBox.SelectedIndexChanged += new System.EventHandler(this.DisableCreate);
-            this.DoctorComboBox.SelectedValueChanged += new System.EventHandler(this.DisableCreate);
+          
             // 
             // DoctorNameLabel
             // 
@@ -216,7 +200,6 @@ namespace Group3_ClinicDB.UserControls
             this.ApptDatePicker.Size = new System.Drawing.Size(185, 20);
             this.ApptDatePicker.TabIndex = 1;
             this.ApptDatePicker.Value = new System.DateTime(2021, 3, 21, 19, 39, 45, 0);
-            this.ApptDatePicker.ValueChanged += new System.EventHandler(this.DisableCreate);
             // 
             // DateLabel
             // 
@@ -280,6 +263,5 @@ namespace Group3_ClinicDB.UserControls
         private System.Windows.Forms.DataGridView PatientApptList;
         private System.Windows.Forms.Label PatientApptListLabel;
         private System.Windows.Forms.Button CreateApptButton;
-        private System.Windows.Forms.Button CheckAvailabilityButton;
     }
 }
