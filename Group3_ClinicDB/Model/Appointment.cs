@@ -5,7 +5,7 @@ namespace Group3_ClinicDB.Model
     /// <summary>
     /// The model for an Appointment from the DB
     /// </summary>
-    class Appointment
+    public class Appointment
     {
         public int ID { get; set; }
 

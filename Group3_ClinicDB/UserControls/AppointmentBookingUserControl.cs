@@ -9,12 +9,15 @@ namespace Group3_ClinicDB.UserControls
     {
 
         private AppointmentController apptController;
+        private DoctorController doctorController;
 
         public AppointmentBookingUserControl()
         {
             InitializeComponent();
             this.apptController = new AppointmentController();
             this.PatientApptList.DataSource = this.apptController.GetAppointmentsByPatient(1);   //TESTING THE DAL WITH PATIENT 1
+            this.doctorController = new DoctorController();
+            this.InitializeDoctorComboBox();
         }
 
         private void CreateApptButton_Click(object sender, EventArgs e)
@@ -44,6 +47,13 @@ namespace Group3_ClinicDB.UserControls
         {
             this.ReasonRichText.Text = "";
            
+        }
+
+        private void InitializeDoctorComboBox()
+        {
+            this.DoctorComboBox.DataSource = this.doctorController.GetAllDoctors();
+            this.DoctorComboBox.DisplayMember ="LastName";
+            this.DoctorComboBox.ValueMember = "DoctorID";
         }
 
 
