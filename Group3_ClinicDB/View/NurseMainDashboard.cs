@@ -16,5 +16,6 @@ namespace Group3_ClinicDB.View
         {
             InitializeComponent();
         }
+
     }
 }
