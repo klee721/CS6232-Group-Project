@@ -123,6 +123,50 @@ namespace Group3_ClinicDB.DAL
                     return true;
         }
 
+        /// <summary>
+        /// Method to retrieve a List of Appointment objects by using a specific Doctor's ID number
+        /// </summary>
+        /// <param name="doctorID">ID number of the doctor whose appointments we wish to retrieve</param>
+        /// <returns>List of Appointment objects</returns>
+        public List<Appointment> GetAppointmentsByDoctor(int doctorID)
+        {
+            List<Appointment> appointments = new List<Appointment>();
+
+            string selectStatement = "SELECT Id, patientID, doctor_id, AppointmentDateTime, reasons, status FROM appointments "
+                + "WHERE doctor_id = @doctorID";
+
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+
+                    selectCommand.Parameters.AddWithValue("@doctorID", doctorID);
+
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Appointment appt = new Appointment();
+                            appt.ID = (int)reader["Id"];
+                            appt.PatientID = (int)reader["patientID"];
+                            appt.DoctorID = (int)reader["doctor_id"];
+                            appt.AppointmentDate = (DateTime)reader["AppointmentDateTime"];
+                            appt.Reason = reader["reasons"].ToString();
+                            appt.Status = reader["status"].ToString();
+                            appointments.Add(appt);
+                        }
+                    }
+                }
+            }
+            return appointments;
+
+
+        }
+
+
 
 
 

@@ -34,6 +34,8 @@ namespace Group3_ClinicDB.UserControls
             this.PatientIDLabel = new System.Windows.Forms.Label();
             this.PatientIDTextbox = new System.Windows.Forms.TextBox();
             this.ApptPanel = new System.Windows.Forms.Panel();
+            this.Minus30Button = new System.Windows.Forms.Button();
+            this.Plus30Button = new System.Windows.Forms.Button();
             this.CreateApptButton = new System.Windows.Forms.Button();
             this.PatientApptListLabel = new System.Windows.Forms.Label();
             this.PatientApptList = new System.Windows.Forms.DataGridView();
@@ -89,6 +91,8 @@ namespace Group3_ClinicDB.UserControls
             // ApptPanel
             // 
             this.ApptPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ApptPanel.Controls.Add(this.Minus30Button);
+            this.ApptPanel.Controls.Add(this.Plus30Button);
             this.ApptPanel.Controls.Add(this.CreateApptButton);
             this.ApptPanel.Controls.Add(this.PatientApptListLabel);
             this.ApptPanel.Controls.Add(this.PatientApptList);
@@ -104,6 +108,26 @@ namespace Group3_ClinicDB.UserControls
             this.ApptPanel.Name = "ApptPanel";
             this.ApptPanel.Size = new System.Drawing.Size(1168, 456);
             this.ApptPanel.TabIndex = 4;
+            // 
+            // Minus30Button
+            // 
+            this.Minus30Button.Location = new System.Drawing.Point(201, 132);
+            this.Minus30Button.Name = "Minus30Button";
+            this.Minus30Button.Size = new System.Drawing.Size(54, 23);
+            this.Minus30Button.TabIndex = 12;
+            this.Minus30Button.Text = "-30";
+            this.Minus30Button.UseVisualStyleBackColor = true;
+            this.Minus30Button.Click += new System.EventHandler(this.Minus30Button_Click);
+            // 
+            // Plus30Button
+            // 
+            this.Plus30Button.Location = new System.Drawing.Point(201, 103);
+            this.Plus30Button.Name = "Plus30Button";
+            this.Plus30Button.Size = new System.Drawing.Size(54, 23);
+            this.Plus30Button.TabIndex = 11;
+            this.Plus30Button.Text = "+30";
+            this.Plus30Button.UseVisualStyleBackColor = true;
+            this.Plus30Button.Click += new System.EventHandler(this.Plus30_Click);
             // 
             // CreateApptButton
             // 
@@ -137,12 +161,13 @@ namespace Group3_ClinicDB.UserControls
             // ApptTimePicker
             // 
             this.ApptTimePicker.CustomFormat = "hh:mm tt";
+            this.ApptTimePicker.Enabled = false;
             this.ApptTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.ApptTimePicker.Location = new System.Drawing.Point(120, 121);
             this.ApptTimePicker.Name = "ApptTimePicker";
-            this.ApptTimePicker.Size = new System.Drawing.Size(107, 20);
+            this.ApptTimePicker.Size = new System.Drawing.Size(75, 20);
             this.ApptTimePicker.TabIndex = 7;
-            this.ApptTimePicker.Value = new System.DateTime(2021, 3, 21, 19, 27, 0, 0);
+            this.ApptTimePicker.Value = new System.DateTime(2021, 3, 22, 12, 0, 0, 0);
             // 
             // TimeLabel
             // 
@@ -180,7 +205,6 @@ namespace Group3_ClinicDB.UserControls
             this.DoctorComboBox.Name = "DoctorComboBox";
             this.DoctorComboBox.Size = new System.Drawing.Size(243, 21);
             this.DoctorComboBox.TabIndex = 3;
-          
             // 
             // DoctorNameLabel
             // 
@@ -263,5 +287,7 @@ namespace Group3_ClinicDB.UserControls
         private System.Windows.Forms.DataGridView PatientApptList;
         private System.Windows.Forms.Label PatientApptListLabel;
         private System.Windows.Forms.Button CreateApptButton;
+        private System.Windows.Forms.Button Minus30Button;
+        private System.Windows.Forms.Button Plus30Button;
     }
 }
