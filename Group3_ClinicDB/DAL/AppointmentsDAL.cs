@@ -19,7 +19,8 @@ namespace Group3_ClinicDB.DAL
             List<Appointment> appointments = new List<Appointment>();
 
             string selectStatement = "SELECT Id, patientID, doctor_id, AppointmentDateTime, reasons, status FROM appointments "
-                + "WHERE patientid = @patientID";
+                + "WHERE patientid = @patientID "
+                + "AND status = 'A' ";
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
             {
@@ -133,7 +134,8 @@ namespace Group3_ClinicDB.DAL
             List<Appointment> appointments = new List<Appointment>();
 
             string selectStatement = "SELECT Id, patientID, doctor_id, AppointmentDateTime, reasons, status FROM appointments "
-                + "WHERE doctor_id = @doctorID";
+                + "WHERE doctor_id = @doctorID "
+                + "AND status = 'A' ";
 
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())

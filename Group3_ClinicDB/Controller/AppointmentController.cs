@@ -76,6 +76,16 @@ namespace Group3_ClinicDB.Controller
             return true;
         }
 
+        public bool CheckCancellation(Appointment appointment)
+        {
+          
+            if (appointment.AppointmentDate > DateTime.Now.AddHours(24))
+            {
+                return true;
+            }
+
+            return false;
+        }
 
 
     }
