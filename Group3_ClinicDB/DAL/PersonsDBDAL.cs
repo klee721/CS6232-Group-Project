@@ -13,7 +13,7 @@ namespace Group3_ClinicDB.DAL
         /// Uses Clinic DB to add Person
         /// </summary>
         /// <param name="person">the person to be added to the DB</param>
-        public void AddPerson(Persons person)
+        public void AddPerson(Person person)
         {
             string insertStatement =
                 "INSERT Persons " +

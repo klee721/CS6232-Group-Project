@@ -12,7 +12,7 @@ namespace Group3_ClinicDB.UserControls
     public partial class RegisterPatientUserControl : UserControl
     {
         private readonly StateController stateController;
-        private readonly PersonsController personsController;
+        private readonly PersonController personController;
 
         /// <summary>
         /// Loads the UserControl
@@ -21,7 +21,7 @@ namespace Group3_ClinicDB.UserControls
         {
             InitializeComponent();
             this.stateController = new StateController();
-            this.personsController = new PersonsController();
+            this.personController = new PersonController();
         }
 
         private void RegisterPatientUserControlLoad(object sender, EventArgs e)
@@ -29,11 +29,12 @@ namespace Group3_ClinicDB.UserControls
             this.genderComboBox.Items.Add("male");
             this.genderComboBox.Items.Add("female");
             this.genderComboBox.SelectedIndex = 0;
-
-            this.dobDateTimePicker.Value = DateTime.Now.AddDays(-2);
-            this.dobDateTimePicker.MaxDate = DateTime.Now;
-            this.dobDateTimePicker.MinDate = DateTime.Now.AddYears(-150);
-
+            
+            //this.dobDateTimePicker.Value = DateTime.Now.Date;
+            /*
+            this.dobDateTimePicker.MaxDate = DateTime.Now.Date;
+            this.dobDateTimePicker.MinDate = DateTime.Now.Date.AddYears(-150);
+            */
             this.stateComboBox.DataSource = this.stateController.GetStates();
             this.stateComboBox.DisplayMember = "stateCode";
             this.stateComboBox.SelectedIndex = 0;
@@ -97,7 +98,7 @@ namespace Group3_ClinicDB.UserControls
 
                             string firstName = this.firstNameTextBox.Text;
                             string lastName = this.lastNameTextBox.Text;
-                            DateTime dob = this.dobDateTimePicker.Value;
+                            DateTime dob = DateTime.Now.Date;
                             string ssn = this.ssnTextBox.Text;
                             string gender = this.genderComboBox.SelectedItem.ToString();
                             string address1 = this.addressTextBox.Text;
@@ -107,9 +108,9 @@ namespace Group3_ClinicDB.UserControls
                             string zipCode = this.zipCodeTextBox.Text;
                             string phoneNumber = this.phoneNumberTextBox.Text;
 
-                            Persons person = new Persons(firstName, lastName, dob, gender, ssn,
+                            Person person = new Person(firstName, lastName, dob, gender, ssn,
                                                         address1, address2, city, state, zipCode, phoneNumber);
-                            this.personsController.AddPerson(person);
+                            this.personController.AddPerson(person);
                             this.registrationSuccessMessage.Visible = true;
                         }
                         catch (Exception)
@@ -144,7 +145,7 @@ namespace Group3_ClinicDB.UserControls
         {
             this.firstNameTextBox.Text = "";
             this.lastNameTextBox.Text = "";
-            this.dobDateTimePicker.Value = DateTime.Now.AddDays(-2);
+            //this.dobDateTimePicker.Value = DateTime.Now.Date;
             this.genderComboBox.SelectedIndex = 0;
             this.ssnTextBox.Text = "";
             this.addressTextBox.Text = "";

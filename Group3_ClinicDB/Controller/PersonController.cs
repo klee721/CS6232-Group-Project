@@ -11,14 +11,14 @@ namespace Group3_ClinicDB.Controller
     /// <summary>
     /// Controller for handling the Persons table from the Clinic DB
     /// </summary>
-    public class PersonsController
+    public class PersonController
     {
         PersonsDBDAL personsDBSource;
 
         /// <summary>
         /// Loads the Persons controller
         /// </summary>
-        public PersonsController()
+        public PersonController()
         {
             this.personsDBSource = new PersonsDBDAL();
         }
@@ -26,7 +26,7 @@ namespace Group3_ClinicDB.Controller
         /// <summary>
         /// Adds a Persons object to the DB
         /// </summary>
-        public void AddPerson(Persons person)
+        public void AddPerson(Person person)
         {
             if (person == null)
             {
