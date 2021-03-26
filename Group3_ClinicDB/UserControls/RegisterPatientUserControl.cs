@@ -115,6 +115,8 @@ namespace Group3_ClinicDB.UserControls
                              //false
                             this.personController.AddPerson(person);
                             //add person as patient
+                            int personId = this.personController.GetPersonId(person);
+                            //this.patientController.AddPatient(personId);
                             this.registrationSuccessMessage.Visible = true;
                         }
                         catch (Exception)

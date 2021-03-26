@@ -13,14 +13,23 @@ namespace Group3_ClinicDB.Controller
     /// </summary>
     public class PersonController
     {
-        PersonsDBDAL personsDBSource;
+        PersonDBDAL personsDBSource;
 
         /// <summary>
         /// Loads the Persons controller
         /// </summary>
         public PersonController()
         {
-            this.personsDBSource = new PersonsDBDAL();
+            this.personsDBSource = new PersonDBDAL();
+        }
+
+        public int GetPersonId(Person person)
+        {
+            if (person == null)
+            {
+                throw new ArgumentException("person cannot be null");
+            }
+            return this.personsDBSource.GetPersonId(person);
         }
 
         /// <summary>
