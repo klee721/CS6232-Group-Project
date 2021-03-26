@@ -15,11 +15,8 @@ namespace Group3_ClinicDB
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-
-            
             User testUser = new User();
             testUser.userName = "Mr.TestUser";
-.
             //Application.Run(new NurseMainDashboard(testUser));  
             Application.Run(new LoginForm());
         }

@@ -23,6 +23,11 @@ namespace Group3_ClinicDB.Controller
             this.personsDBSource = new PersonDBDAL();
         }
 
+        /// <summary>
+        /// Uses Clinic DB to retrieve the id of a person
+        /// </summary>
+        /// <param name="person">The person whose ID will be retrieved from the DB</param>
+        /// <returns>The id of a person</returns>
         public int GetPersonId(Person person)
         {
             if (person == null)
