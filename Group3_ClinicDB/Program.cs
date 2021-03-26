@@ -1,5 +1,4 @@
-﻿using Group3_ClinicDB.View;
-using System;
+﻿using System;
 using Group3_ClinicDB.Model;
 using System.Windows.Forms;
 
@@ -20,7 +19,7 @@ namespace Group3_ClinicDB
             
             User testUser = new User();
             testUser.userName = "Mr.TestUser";
-
+.
             //Application.Run(new NurseMainDashboard(testUser));  
             Application.Run(new LoginForm());
         }

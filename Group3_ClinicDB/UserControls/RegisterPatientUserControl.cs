@@ -28,13 +28,12 @@ namespace Group3_ClinicDB.UserControls
         {
             this.genderComboBox.Items.Add("male");
             this.genderComboBox.Items.Add("female");
-            this.genderComboBox.SelectedIndex = 0;
+            this.genderComboBox.SelectedIndex = 0; 
             
-            //this.dobDateTimePicker.Value = DateTime.Now.Date;
-            /*
+            this.dobDateTimePicker.Value = DateTime.Now.Date;
             this.dobDateTimePicker.MaxDate = DateTime.Now.Date;
             this.dobDateTimePicker.MinDate = DateTime.Now.Date.AddYears(-150);
-            */
+            
             this.stateComboBox.DataSource = this.stateController.GetStates();
             this.stateComboBox.DisplayMember = "stateCode";
             this.stateComboBox.SelectedIndex = 0;
@@ -98,7 +97,7 @@ namespace Group3_ClinicDB.UserControls
 
                             string firstName = this.firstNameTextBox.Text;
                             string lastName = this.lastNameTextBox.Text;
-                            DateTime dob = DateTime.Now.Date;
+                            DateTime dob = this.dobDateTimePicker.Value;
                             string ssn = this.ssnTextBox.Text;
                             string gender = this.genderComboBox.SelectedItem.ToString();
                             string address1 = this.addressTextBox.Text;
@@ -110,7 +109,12 @@ namespace Group3_ClinicDB.UserControls
 
                             Person person = new Person(firstName, lastName, dob, gender, ssn,
                                                         address1, address2, city, state, zipCode, phoneNumber);
+
+                            //check if person exists
+                             //true -> add that person as a patient
+                             //false
                             this.personController.AddPerson(person);
+                            //add person as patient
                             this.registrationSuccessMessage.Visible = true;
                         }
                         catch (Exception)
@@ -145,7 +149,7 @@ namespace Group3_ClinicDB.UserControls
         {
             this.firstNameTextBox.Text = "";
             this.lastNameTextBox.Text = "";
-            //this.dobDateTimePicker.Value = DateTime.Now.Date;
+            this.dobDateTimePicker.Value = DateTime.Now.Date;
             this.genderComboBox.SelectedIndex = 0;
             this.ssnTextBox.Text = "";
             this.addressTextBox.Text = "";
