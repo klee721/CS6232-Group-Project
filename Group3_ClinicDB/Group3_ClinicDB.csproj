@@ -48,12 +48,14 @@
   <ItemGroup>
     <Compile Include="Controller\AppointmentController.cs" />
     <Compile Include="Controller\DoctorController.cs" />
+    <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Controller\PersonsController.cs" />
     <Compile Include="Controller\StateController.cs" />
     <Compile Include="Controller\VisitsController.cs" />
     <Compile Include="DAL\AppointmentsDAL.cs" />
     <Compile Include="DAL\ClinicDBConnection.cs" />
     <Compile Include="DAL\DoctorDAL.cs" />
+    <Compile Include="DAL\LoginDAL.cs" />
     <Compile Include="DAL\PersonsDBDAL.cs" />
     <Compile Include="DAL\StateDBDAL.cs" />
     <Compile Include="DAL\VisitsDAL.cs" />
@@ -61,6 +63,7 @@
     <Compile Include="Model\Doctor.cs" />
     <Compile Include="Model\Persons.cs" />
     <Compile Include="Model\State.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Model\Visits.cs" />
     <Compile Include="UserControls\AddVisitUserControl.cs">
       <SubType>UserControl</SubType>

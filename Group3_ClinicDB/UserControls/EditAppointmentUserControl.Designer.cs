@@ -142,6 +142,7 @@ namespace Group3_ClinicDB.UserControls
             this.Minus30Button.TabIndex = 20;
             this.Minus30Button.Text = "-30";
             this.Minus30Button.UseVisualStyleBackColor = true;
+            this.Minus30Button.Click += new System.EventHandler(this.Minus30Button_Click_1);
             // 
             // Plus30Button
             // 
@@ -151,6 +152,7 @@ namespace Group3_ClinicDB.UserControls
             this.Plus30Button.TabIndex = 19;
             this.Plus30Button.Text = "+30";
             this.Plus30Button.UseVisualStyleBackColor = true;
+            this.Plus30Button.Click += new System.EventHandler(this.Plus30Button_Click);
             // 
             // ApptTimePicker
             // 

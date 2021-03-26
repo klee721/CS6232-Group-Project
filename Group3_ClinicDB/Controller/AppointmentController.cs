@@ -23,9 +23,9 @@ namespace Group3_ClinicDB.Controller
         /// </summary>
         /// <param name="patientID">the patient ID of the patient whos appointments are being retrieved</param>
         /// <returns>a List of Appointment objects</returns>
-        public List<Appointment> GetAppointmentsByPatient(int patientID)
+        public List<Appointment> GetActiveAppointmentsByPatient(int patientID)
         {
-            return this.appointmentSource.GetAppointmentsByPatient(patientID);
+            return this.appointmentSource.GetActiveAppointmentsByPatient(patientID);
 
         }
 
@@ -75,7 +75,11 @@ namespace Group3_ClinicDB.Controller
 
             return true;
         }
-
+        /// <summary>
+        /// Method to check if an appointment is editable per the business rules, currently 24 hours or more is required to edit/cancel
+        /// </summary>
+        /// <param name="appointment">The appointment that the user is seeking to edit/cancel</param>
+        /// <returns>true if the appointment can be edited, false if not</returns>
         public bool CheckCancellation(Appointment appointment)
         {
           
@@ -86,6 +90,25 @@ namespace Group3_ClinicDB.Controller
 
             return false;
         }
+
+        public bool UpdateAppointment(Appointment editedAppointment)
+        {
+            return this.appointmentSource.UpdateAppointment(editedAppointment);
+        }
+
+        public bool CancelAppointment(Appointment cancelledAppointment)
+        {
+            return this.appointmentSource.CancelAppointment(cancelledAppointment);
+        }
+
+        public List<Appointment> GetAllAppointmentsByPatient(int patientID)
+        {
+            return this.appointmentSource.GetAllAppointmentsByPatient(patientID);
+
+        }
+
+
+
 
 
     }

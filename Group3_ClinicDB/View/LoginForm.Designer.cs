@@ -33,6 +33,7 @@ namespace Group3_ClinicDB
             this.PasswordLabel = new System.Windows.Forms.Label();
             this.UsernameTextBox = new System.Windows.Forms.TextBox();
             this.PasswordTextbox = new System.Windows.Forms.TextBox();
+            this.LoginButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // UsernameLabel
@@ -70,11 +71,23 @@ namespace Group3_ClinicDB
             this.PasswordTextbox.Size = new System.Drawing.Size(240, 20);
             this.PasswordTextbox.TabIndex = 3;
             // 
+            // LoginButton
+            // 
+            this.LoginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoginButton.Location = new System.Drawing.Point(177, 181);
+            this.LoginButton.Name = "LoginButton";
+            this.LoginButton.Size = new System.Drawing.Size(122, 40);
+            this.LoginButton.TabIndex = 4;
+            this.LoginButton.Text = "Login";
+            this.LoginButton.UseVisualStyleBackColor = true;
+            this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(461, 199);
+            this.ClientSize = new System.Drawing.Size(461, 233);
+            this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.PasswordTextbox);
             this.Controls.Add(this.UsernameTextBox);
             this.Controls.Add(this.PasswordLabel);
@@ -92,6 +105,7 @@ namespace Group3_ClinicDB
         private System.Windows.Forms.Label PasswordLabel;
         private System.Windows.Forms.TextBox UsernameTextBox;
         private System.Windows.Forms.TextBox PasswordTextbox;
+        private System.Windows.Forms.Button LoginButton;
     }
 }
 

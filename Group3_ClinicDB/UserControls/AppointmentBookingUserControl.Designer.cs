@@ -29,10 +29,6 @@ namespace Group3_ClinicDB.UserControls
         /// </summary>
         private void InitializeComponent()
         {
-            this.PatientNameLabel = new System.Windows.Forms.Label();
-            this.PatientNameTextbox = new System.Windows.Forms.TextBox();
-            this.PatientIDLabel = new System.Windows.Forms.Label();
-            this.PatientIDTextbox = new System.Windows.Forms.TextBox();
             this.ApptPanel = new System.Windows.Forms.Panel();
             this.Minus30Button = new System.Windows.Forms.Button();
             this.Plus30Button = new System.Windows.Forms.Button();
@@ -52,42 +48,6 @@ namespace Group3_ClinicDB.UserControls
             ((System.ComponentModel.ISupportInitialize)(this.PatientApptList)).BeginInit();
             this.SuspendLayout();
             // 
-            // PatientNameLabel
-            // 
-            this.PatientNameLabel.AutoSize = true;
-            this.PatientNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PatientNameLabel.Location = new System.Drawing.Point(19, 34);
-            this.PatientNameLabel.Name = "PatientNameLabel";
-            this.PatientNameLabel.Size = new System.Drawing.Size(101, 18);
-            this.PatientNameLabel.TabIndex = 0;
-            this.PatientNameLabel.Text = "Patient Name:";
-            // 
-            // PatientNameTextbox
-            // 
-            this.PatientNameTextbox.Location = new System.Drawing.Point(126, 32);
-            this.PatientNameTextbox.Name = "PatientNameTextbox";
-            this.PatientNameTextbox.ReadOnly = true;
-            this.PatientNameTextbox.Size = new System.Drawing.Size(333, 20);
-            this.PatientNameTextbox.TabIndex = 1;
-            // 
-            // PatientIDLabel
-            // 
-            this.PatientIDLabel.AutoSize = true;
-            this.PatientIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PatientIDLabel.Location = new System.Drawing.Point(19, 68);
-            this.PatientIDLabel.Name = "PatientIDLabel";
-            this.PatientIDLabel.Size = new System.Drawing.Size(79, 18);
-            this.PatientIDLabel.TabIndex = 2;
-            this.PatientIDLabel.Text = "Patient ID: ";
-            // 
-            // PatientIDTextbox
-            // 
-            this.PatientIDTextbox.Location = new System.Drawing.Point(126, 66);
-            this.PatientIDTextbox.Name = "PatientIDTextbox";
-            this.PatientIDTextbox.ReadOnly = true;
-            this.PatientIDTextbox.Size = new System.Drawing.Size(107, 20);
-            this.PatientIDTextbox.TabIndex = 3;
-            // 
             // ApptPanel
             // 
             this.ApptPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -104,7 +64,7 @@ namespace Group3_ClinicDB.UserControls
             this.ApptPanel.Controls.Add(this.DoctorNameLabel);
             this.ApptPanel.Controls.Add(this.ApptDatePicker);
             this.ApptPanel.Controls.Add(this.DateLabel);
-            this.ApptPanel.Location = new System.Drawing.Point(22, 138);
+            this.ApptPanel.Location = new System.Drawing.Point(21, 71);
             this.ApptPanel.Name = "ApptPanel";
             this.ApptPanel.Size = new System.Drawing.Size(1168, 456);
             this.ApptPanel.TabIndex = 4;
@@ -240,7 +200,7 @@ namespace Group3_ClinicDB.UserControls
             this.NewApptLabel.AutoSize = true;
             this.NewApptLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.NewApptLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NewApptLabel.Location = new System.Drawing.Point(37, 128);
+            this.NewApptLabel.Location = new System.Drawing.Point(36, 61);
             this.NewApptLabel.Name = "NewApptLabel";
             this.NewApptLabel.Size = new System.Drawing.Size(163, 26);
             this.NewApptLabel.TabIndex = 5;
@@ -252,10 +212,6 @@ namespace Group3_ClinicDB.UserControls
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.NewApptLabel);
             this.Controls.Add(this.ApptPanel);
-            this.Controls.Add(this.PatientIDTextbox);
-            this.Controls.Add(this.PatientIDLabel);
-            this.Controls.Add(this.PatientNameTextbox);
-            this.Controls.Add(this.PatientNameLabel);
             this.MaximumSize = new System.Drawing.Size(1215, 615);
             this.MinimumSize = new System.Drawing.Size(1215, 615);
             this.Name = "AppointmentBookingUserControl";
@@ -269,11 +225,6 @@ namespace Group3_ClinicDB.UserControls
         }
 
         #endregion
-
-        private System.Windows.Forms.Label PatientNameLabel;
-        private System.Windows.Forms.TextBox PatientNameTextbox;
-        private System.Windows.Forms.Label PatientIDLabel;
-        private System.Windows.Forms.TextBox PatientIDTextbox;
         private System.Windows.Forms.Panel ApptPanel;
         private System.Windows.Forms.RichTextBox ReasonRichText;
         private System.Windows.Forms.Label ReasonLabel;

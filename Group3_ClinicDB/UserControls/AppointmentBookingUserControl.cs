@@ -21,10 +21,11 @@ namespace Group3_ClinicDB.UserControls
         {
             InitializeComponent();
             this.apptController = new AppointmentController();
-            this.PatientApptList.DataSource = this.apptController.GetAppointmentsByPatient(1);   //TESTING THE DAL WITH PATIENT 1
+            this.PatientApptList.DataSource = this.apptController.GetAllAppointmentsByPatient(1);  //TESTING THE DAL WITH PATIENT 1
             this.doctorController = new DoctorController();
             this.InitializeDoctorComboBox();
             this.ApptDatePicker.Value = DateTime.Now.Date;
+            this.ApptDatePicker.MinDate = DateTime.Now.Date;
              
 
         }
@@ -35,6 +36,12 @@ namespace Group3_ClinicDB.UserControls
         /// <param name="e"></param>
         private void CreateApptButton_Click(object sender, EventArgs e)
         {
+            if (this.ReasonRichText.Text == "")
+            {
+                MessageBox.Show("Please enter a reason for the appointment", "Reason Required");
+                return;
+            }
+
             DateTime newAptTime = this.CombineDateAndTime();
             int doctorID = Int32.Parse(this.DoctorComboBox.SelectedValue.ToString());
             bool result = this.apptController.CheckAvailability(doctorID, newAptTime);
@@ -47,12 +54,11 @@ namespace Group3_ClinicDB.UserControls
                     Appointment appointment = new Appointment();
                     appointment.PatientID = 1;
                     appointment.DoctorID = Int32.Parse(this.DoctorComboBox.SelectedValue.ToString());
-                    appointment.AppointmentDate = this.CombineDateAndTime();
+                    appointment.AppointmentDate = newAptTime;
                     appointment.Reason = this.ReasonRichText.Text;
                     appointment.Status = "A";
                     this.apptController.AddAppointment(appointment);
-                    this.PatientApptList.DataSource = this.apptController.GetAppointmentsByPatient(1);  //TESTING THE DAL WITH PATIENT 1
-                    this.ClearAll();
+                    this.RefreshUI();
                 }
                 else
                 {
@@ -79,8 +85,9 @@ namespace Group3_ClinicDB.UserControls
             return newDateTime;
         }
 
-        private void ClearAll()
+        private void RefreshUI()
         {
+            this.PatientApptList.DataSource = this.apptController.GetAllAppointmentsByPatient(1);  //TESTING THE DAL WITH PATIENT 1
             this.ReasonRichText.Text = "";
            
         }
