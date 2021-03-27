@@ -38,6 +38,20 @@ namespace Group3_ClinicDB.Controller
         }
 
         /// <summary>
+        /// Uses Clinic DB to check if a ssn already exists
+        /// </summary>
+        /// <param name="person">The person whose ssn will be retrieved from the DB</param>
+        /// <returns>Where a ssn exists in the DB or not</returns>
+        public bool SsnExists(Person person)
+        {
+            if (person == null)
+            {
+                throw new ArgumentException("person cannot be null");
+            }
+            return this.personsDBSource.SsnExists(person);
+        }
+
+        /// <summary>
         /// Adds a Persons object to the DB
         /// </summary>
         public void AddPerson(Person person)

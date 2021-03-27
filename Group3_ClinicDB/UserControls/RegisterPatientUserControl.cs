@@ -49,7 +49,6 @@ namespace Group3_ClinicDB.UserControls
                 this.lastNameErrorLabel.Visible = true;
                 this.lastNameErrorLabel.ForeColor = Color.Red;
             }
-
             if (this.firstNameTextBox.Text.Equals(""))
             {
                 this.firstNameErrorLabel.Text = "First name information missing";
@@ -58,6 +57,7 @@ namespace Group3_ClinicDB.UserControls
             }
             if (this.ssnTextBox.Text.Length != 9)
             {
+                this.ssnErrorLabel.Text = "Social security number must contain exactly nine digits";
                 this.ssnErrorLabel.Visible = true;
                 this.ssnErrorLabel.ForeColor = Color.Red;
             }
@@ -90,7 +90,6 @@ namespace Group3_ClinicDB.UserControls
                 try
                 {
                     long ssnLong = Convert.ToInt64(this.ssnTextBox.Text);
-
                     try
                     {
                         long zipCodeLong = Convert.ToInt64(this.zipCodeTextBox.Text);
@@ -119,9 +118,17 @@ namespace Group3_ClinicDB.UserControls
                                 this.registrationSuccessMessage.Visible = true;
                             } else
                             {
-                                this.personController.AddPerson(person);
-                                this.patientController.AddPatient(this.personController.GetPersonId(person));                                
-                                this.registrationSuccessMessage.Visible = true;
+                                if (!this.personController.SsnExists(person))
+                                {
+                                    this.personController.AddPerson(person);
+                                    this.patientController.AddPatient(this.personController.GetPersonId(person));
+                                    this.registrationSuccessMessage.Visible = true;
+                                } else
+                                {
+                                    this.ssnErrorLabel.Text = "This social security number already exists";
+                                    this.ssnErrorLabel.Visible = true;
+                                    this.ssnErrorLabel.ForeColor = Color.Red;
+                                }
                             }  
                         }
                         catch (Exception)

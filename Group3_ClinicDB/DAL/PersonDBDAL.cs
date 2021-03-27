@@ -1,5 +1,6 @@
 ﻿using Group3_ClinicDB.Model;
 using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 
 namespace Group3_ClinicDB.DAL
@@ -62,6 +63,41 @@ namespace Group3_ClinicDB.DAL
             }
             return personID;
         }
+
+        /// <summary>
+        /// Uses Clinic DB to check if a ssn already exists
+        /// </summary>
+        /// <param name="person">The person whose ssn will be retrieved from the DB</param>
+        /// <returns>Where a ssn exists in the DB or not</returns>
+        public bool SsnExists(Person person)
+        {
+            string selectStatement =
+                  "SELECT count(id) " +
+                    "FROM persons " +
+                    "WHERE SSN = @ssn";
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@ssn", person.Ssn);
+
+                    int count = (int) selectCommand.ExecuteScalar();
+                    
+                    if (count > 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+
         /// <summary>
         /// Uses Clinic DB to add Person
         /// </summary>
