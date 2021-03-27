@@ -26,8 +26,6 @@ namespace Group3_ClinicDB.UserControls
         private readonly VisitsController controller;
 
  
-
-
         private void AllVisitsUserControl_Load(object sender, EventArgs e)
         {
             //visitsDALDataGridView.DataSource = null;
