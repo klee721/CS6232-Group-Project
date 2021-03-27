@@ -156,7 +156,7 @@ namespace Group3_ClinicDB.UserControls
         {
             this.firstNameTextBox.Text = "";
             this.lastNameTextBox.Text = "";
-            this.dobDateTimePicker.Value = DateTime.Now.Date;
+            this.dobDateTimePicker.Value = DateTime.Now.Date.AddDays(-2);
             this.genderComboBox.SelectedIndex = 0;
             this.ssnTextBox.Text = "";
             this.addressTextBox.Text = "";
