@@ -13,6 +13,7 @@ namespace Group3_ClinicDB.UserControls
     {
         private readonly StateController stateController;
         private readonly PersonController personController;
+        private readonly PatientController patientController;
 
         /// <summary>
         /// Loads the UserControl
@@ -22,6 +23,7 @@ namespace Group3_ClinicDB.UserControls
             InitializeComponent();
             this.stateController = new StateController();
             this.personController = new PersonController();
+            this.patientController = new PatientController();
         }
 
         private void RegisterPatientUserControlLoad(object sender, EventArgs e)
@@ -117,7 +119,7 @@ namespace Group3_ClinicDB.UserControls
                             //add person as patient
                             int personId = this.personController.GetPersonId(person);
                             Console.WriteLine(personId);
-                            //this.patientController.AddPatient(personId);
+                            this.patientController.AddPatient(personId);
                             this.registrationSuccessMessage.Visible = true;
                         }
                         catch (Exception)
