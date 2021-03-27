@@ -19,6 +19,100 @@ namespace Group3_ClinicDB.DAL
         /// </summary>
         /// <returns>a list of Incidents</returns>
 
+        public Visits GetVisitDetails(int visitID)
+        {
+            List<Visits> visitList = new List<Visits>();
+            Visits visit = new Visits();
+
+            string selectStatement =
+
+            "SELECT Id,appointment_id,weight,height,bodyTemparature,pulse " +
+      ",symptoms,nurseId,bloodPressureSystolic,bloodPressureDiastolic " +
+      ",initialDiagnose,ISNULL(finalDiagnose, ' ') finalDiagnose " +
+      " FROM dbo.visits Where ID = @ID";
+
+
+
+            int id;
+            int appointment_id;
+            decimal weight;
+            decimal height;
+            int bodyTemparature;
+            int pulse;
+            string symptoms;
+            int nurseId;
+            int bloodPressureSystolic;
+            int bloodPressureDiastolic;
+            string initialDiagnose;
+            string finalDiagnose;
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@ID", visitID);
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        int idOrd = reader.GetOrdinal("Id");
+                        int appointmentIdOrd = reader.GetOrdinal("appointment_id");
+                        int weightOrd = reader.GetOrdinal("weight");
+                        int heightOrd = reader.GetOrdinal("height");
+                        int bodyTemparatureOrd = reader.GetOrdinal("bodyTemparature");
+                        int pulseOrd = reader.GetOrdinal("pulse");
+                        int symptomsOrd = reader.GetOrdinal("symptoms");
+                        int nurseIdOrd = reader.GetOrdinal("nurseId");
+                        int bloodPressureSystolicOrd = reader.GetOrdinal("bloodPressureSystolic");
+                        int bloodPressureDiastolicOrd = reader.GetOrdinal("bloodPressureDiastolic");
+                        int initialDiagnoseOrd = reader.GetOrdinal("initialDiagnose");
+                        int finalDiagnoseOrd = reader.GetOrdinal("finalDiagnose");
+
+                        if (reader.Read())
+                        {
+
+                            id = reader.GetInt32(idOrd);
+                            appointment_id = reader.GetInt32(appointmentIdOrd);
+                            weight = reader.GetDecimal(weightOrd);
+                            height = reader.GetDecimal(heightOrd);
+                            bodyTemparature = reader.GetInt32(bodyTemparatureOrd);
+                            pulse = reader.GetInt32(pulseOrd);
+                            symptoms = reader.GetString(symptomsOrd);
+                            nurseId = reader.GetInt32(nurseIdOrd);
+                            bloodPressureSystolic = reader.GetInt32(bloodPressureSystolicOrd);
+                            bloodPressureDiastolic = reader.GetInt32(bloodPressureDiastolicOrd);
+                            initialDiagnose = reader.GetString(initialDiagnoseOrd);
+                            finalDiagnose = reader.GetString(finalDiagnoseOrd);
+
+
+
+                            visit.Id = id;
+                            visit.appointment_id = appointment_id;
+                            visit.weight = weight;
+                            visit.height = height;
+                            visit.bodyTemparature = bodyTemparature;
+                            visit.pulse = pulse;
+                            visit.symptoms = symptoms;
+                            visit.nurseId = nurseId;
+                            visit.bloodPressureSystolic = bloodPressureSystolic;
+                            visit.bloodPressureDiastolic = bloodPressureDiastolic;
+                            visit.initialDiagnose = initialDiagnose;
+                            visit.finalDiagnose = finalDiagnose;
+                           // visitList.Add(visit);
+                        }
+                    }
+                }
+
+
+            }
+            return visit;
+        }
+
+        /// <summary>
+        ///method to get incidents which are open
+        /// </summary>
+        /// <returns>a list of Incidents</returns>
+
         public List<Visits> GetVisits()
         {
             List<Visits> visitList = new List<Visits>();

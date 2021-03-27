@@ -44,6 +44,13 @@ namespace Group3_ClinicDB.Controller
             return this.visitsSource.GetVisitsByPatient(patient_id);
         }
 
+        /// <summary>
+        /// GetVisitsByID method to get the visit 
+        /// </summary>
+        public Visits GetVisitsByID(int visitID)
+        {
+            return this.visitsSource.GetVisitDetails(visitID);
+        }
 
         /// <summary>
         /// Add method to add the visit to the database
