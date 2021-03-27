@@ -46,17 +46,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\PersonsController.cs" />
+    <Compile Include="Controller\AppointmentController.cs" />
+    <Compile Include="Controller\DoctorController.cs" />
+    <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="Controller\PatientController.cs" />
+    <Compile Include="Controller\PersonController.cs" />
     <Compile Include="Controller\StateController.cs" />
     <Compile Include="Controller\VisitsController.cs" />
+    <Compile Include="DAL\AppointmentsDAL.cs" />
     <Compile Include="DAL\ClinicDBConnection.cs" />
-    <Compile Include="DAL\DAL1.cs" />
-    <Compile Include="DAL\PersonsDBDAL.cs" />
+    <Compile Include="DAL\DoctorDAL.cs" />
+    <Compile Include="DAL\LoginDAL.cs" />
+    <Compile Include="DAL\PatientDBDAL.cs" />
+    <Compile Include="DAL\PersonDBDAL.cs" />
     <Compile Include="DAL\StateDBDAL.cs" />
     <Compile Include="DAL\VisitsDAL.cs" />
-    <Compile Include="Model\Class1.cs" />
-    <Compile Include="Model\Persons.cs" />
+    <Compile Include="Model\Appointment.cs" />
+    <Compile Include="Model\Doctor.cs" />
+    <Compile Include="Model\Person.cs" />
     <Compile Include="Model\State.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Model\Visits.cs" />
     <Compile Include="UserControls\AddVisitUserControl.cs">
       <SubType>UserControl</SubType>

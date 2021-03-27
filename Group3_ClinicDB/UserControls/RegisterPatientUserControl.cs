@@ -12,7 +12,8 @@ namespace Group3_ClinicDB.UserControls
     public partial class RegisterPatientUserControl : UserControl
     {
         private readonly StateController stateController;
-        private readonly PersonsController personsController;
+        private readonly PersonController personController;
+        private readonly PatientController patientController;
 
         /// <summary>
         /// Loads the UserControl
@@ -21,19 +22,20 @@ namespace Group3_ClinicDB.UserControls
         {
             InitializeComponent();
             this.stateController = new StateController();
-            this.personsController = new PersonsController();
+            this.personController = new PersonController();
+            this.patientController = new PatientController();
         }
 
         private void RegisterPatientUserControlLoad(object sender, EventArgs e)
         {
             this.genderComboBox.Items.Add("male");
             this.genderComboBox.Items.Add("female");
-            this.genderComboBox.SelectedIndex = 0;
-
-            this.dobDateTimePicker.Value = DateTime.Now.AddDays(-2);
-            this.dobDateTimePicker.MaxDate = DateTime.Now;
-            this.dobDateTimePicker.MinDate = DateTime.Now.AddYears(-150);
-
+            this.genderComboBox.SelectedIndex = 0; 
+            
+            this.dobDateTimePicker.Value = DateTime.Now.Date;
+            this.dobDateTimePicker.MaxDate = DateTime.Now.Date;
+            this.dobDateTimePicker.MinDate = DateTime.Now.Date.AddYears(-150);
+            
             this.stateComboBox.DataSource = this.stateController.GetStates();
             this.stateComboBox.DisplayMember = "stateCode";
             this.stateComboBox.SelectedIndex = 0;
@@ -107,9 +109,17 @@ namespace Group3_ClinicDB.UserControls
                             string zipCode = this.zipCodeTextBox.Text;
                             string phoneNumber = this.phoneNumberTextBox.Text;
 
-                            Persons person = new Persons(firstName, lastName, dob, gender, ssn,
+                            Person person = new Person(firstName, lastName, dob, gender, ssn,
                                                         address1, address2, city, state, zipCode, phoneNumber);
-                            this.personsController.AddPerson(person);
+
+                            //check if person exists
+                             //true -> add that person as a patient
+                             //false
+                            this.personController.AddPerson(person);
+                            //add person as patient
+                            int personId = this.personController.GetPersonId(person);
+                            Console.WriteLine(personId);
+                            this.patientController.AddPatient(personId);
                             this.registrationSuccessMessage.Visible = true;
                         }
                         catch (Exception)
@@ -144,7 +154,7 @@ namespace Group3_ClinicDB.UserControls
         {
             this.firstNameTextBox.Text = "";
             this.lastNameTextBox.Text = "";
-            this.dobDateTimePicker.Value = DateTime.Now.AddDays(-2);
+            this.dobDateTimePicker.Value = DateTime.Now.Date;
             this.genderComboBox.SelectedIndex = 0;
             this.ssnTextBox.Text = "";
             this.addressTextBox.Text = "";

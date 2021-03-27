@@ -29,12 +29,9 @@ namespace Group3_ClinicDB.UserControls
         /// </summary>
         private void InitializeComponent()
         {
-            this.PatientNameLabel = new System.Windows.Forms.Label();
-            this.PatientNameTextbox = new System.Windows.Forms.TextBox();
-            this.PatientIDLabel = new System.Windows.Forms.Label();
-            this.PatientIDTextbox = new System.Windows.Forms.TextBox();
             this.ApptPanel = new System.Windows.Forms.Panel();
-            this.ClearButton = new System.Windows.Forms.Button();
+            this.Minus30Button = new System.Windows.Forms.Button();
+            this.Plus30Button = new System.Windows.Forms.Button();
             this.CreateApptButton = new System.Windows.Forms.Button();
             this.PatientApptListLabel = new System.Windows.Forms.Label();
             this.PatientApptList = new System.Windows.Forms.DataGridView();
@@ -51,46 +48,11 @@ namespace Group3_ClinicDB.UserControls
             ((System.ComponentModel.ISupportInitialize)(this.PatientApptList)).BeginInit();
             this.SuspendLayout();
             // 
-            // PatientNameLabel
-            // 
-            this.PatientNameLabel.AutoSize = true;
-            this.PatientNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PatientNameLabel.Location = new System.Drawing.Point(19, 34);
-            this.PatientNameLabel.Name = "PatientNameLabel";
-            this.PatientNameLabel.Size = new System.Drawing.Size(101, 18);
-            this.PatientNameLabel.TabIndex = 0;
-            this.PatientNameLabel.Text = "Patient Name:";
-            // 
-            // PatientNameTextbox
-            // 
-            this.PatientNameTextbox.Location = new System.Drawing.Point(126, 32);
-            this.PatientNameTextbox.Name = "PatientNameTextbox";
-            this.PatientNameTextbox.ReadOnly = true;
-            this.PatientNameTextbox.Size = new System.Drawing.Size(333, 20);
-            this.PatientNameTextbox.TabIndex = 1;
-            // 
-            // PatientIDLabel
-            // 
-            this.PatientIDLabel.AutoSize = true;
-            this.PatientIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PatientIDLabel.Location = new System.Drawing.Point(19, 68);
-            this.PatientIDLabel.Name = "PatientIDLabel";
-            this.PatientIDLabel.Size = new System.Drawing.Size(79, 18);
-            this.PatientIDLabel.TabIndex = 2;
-            this.PatientIDLabel.Text = "Patient ID: ";
-            // 
-            // PatientIDTextbox
-            // 
-            this.PatientIDTextbox.Location = new System.Drawing.Point(126, 66);
-            this.PatientIDTextbox.Name = "PatientIDTextbox";
-            this.PatientIDTextbox.ReadOnly = true;
-            this.PatientIDTextbox.Size = new System.Drawing.Size(107, 20);
-            this.PatientIDTextbox.TabIndex = 3;
-            // 
             // ApptPanel
             // 
             this.ApptPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ApptPanel.Controls.Add(this.ClearButton);
+            this.ApptPanel.Controls.Add(this.Minus30Button);
+            this.ApptPanel.Controls.Add(this.Plus30Button);
             this.ApptPanel.Controls.Add(this.CreateApptButton);
             this.ApptPanel.Controls.Add(this.PatientApptListLabel);
             this.ApptPanel.Controls.Add(this.PatientApptList);
@@ -102,30 +64,41 @@ namespace Group3_ClinicDB.UserControls
             this.ApptPanel.Controls.Add(this.DoctorNameLabel);
             this.ApptPanel.Controls.Add(this.ApptDatePicker);
             this.ApptPanel.Controls.Add(this.DateLabel);
-            this.ApptPanel.Location = new System.Drawing.Point(22, 138);
+            this.ApptPanel.Location = new System.Drawing.Point(21, 71);
             this.ApptPanel.Name = "ApptPanel";
             this.ApptPanel.Size = new System.Drawing.Size(1168, 456);
             this.ApptPanel.TabIndex = 4;
             // 
-            // ClearButton
+            // Minus30Button
             // 
-            this.ClearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClearButton.Location = new System.Drawing.Point(955, 368);
-            this.ClearButton.Name = "ClearButton";
-            this.ClearButton.Size = new System.Drawing.Size(180, 32);
-            this.ClearButton.TabIndex = 11;
-            this.ClearButton.Text = "Clear";
-            this.ClearButton.UseVisualStyleBackColor = true;
+            this.Minus30Button.Location = new System.Drawing.Point(201, 132);
+            this.Minus30Button.Name = "Minus30Button";
+            this.Minus30Button.Size = new System.Drawing.Size(54, 23);
+            this.Minus30Button.TabIndex = 12;
+            this.Minus30Button.Text = "-30";
+            this.Minus30Button.UseVisualStyleBackColor = true;
+            this.Minus30Button.Click += new System.EventHandler(this.Minus30Button_Click);
+            // 
+            // Plus30Button
+            // 
+            this.Plus30Button.Location = new System.Drawing.Point(201, 103);
+            this.Plus30Button.Name = "Plus30Button";
+            this.Plus30Button.Size = new System.Drawing.Size(54, 23);
+            this.Plus30Button.TabIndex = 11;
+            this.Plus30Button.Text = "+30";
+            this.Plus30Button.UseVisualStyleBackColor = true;
+            this.Plus30Button.Click += new System.EventHandler(this.Plus30_Click);
             // 
             // CreateApptButton
             // 
             this.CreateApptButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CreateApptButton.Location = new System.Drawing.Point(752, 368);
+            this.CreateApptButton.Location = new System.Drawing.Point(903, 356);
             this.CreateApptButton.Name = "CreateApptButton";
-            this.CreateApptButton.Size = new System.Drawing.Size(180, 32);
+            this.CreateApptButton.Size = new System.Drawing.Size(173, 44);
             this.CreateApptButton.TabIndex = 10;
             this.CreateApptButton.Text = "Create Appointment";
             this.CreateApptButton.UseVisualStyleBackColor = true;
+            this.CreateApptButton.Click += new System.EventHandler(this.CreateApptButton_Click);
             // 
             // PatientApptListLabel
             // 
@@ -147,11 +120,14 @@ namespace Group3_ClinicDB.UserControls
             // 
             // ApptTimePicker
             // 
-            this.ApptTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.ApptTimePicker.CustomFormat = "hh:mm tt";
+            this.ApptTimePicker.Enabled = false;
+            this.ApptTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.ApptTimePicker.Location = new System.Drawing.Point(120, 121);
             this.ApptTimePicker.Name = "ApptTimePicker";
-            this.ApptTimePicker.Size = new System.Drawing.Size(107, 20);
+            this.ApptTimePicker.Size = new System.Drawing.Size(75, 20);
             this.ApptTimePicker.TabIndex = 7;
+            this.ApptTimePicker.Value = new System.DateTime(2021, 3, 22, 12, 0, 0, 0);
             // 
             // TimeLabel
             // 
@@ -203,9 +179,11 @@ namespace Group3_ClinicDB.UserControls
             // ApptDatePicker
             // 
             this.ApptDatePicker.Location = new System.Drawing.Point(120, 55);
+            this.ApptDatePicker.MinDate = new System.DateTime(2021, 1, 1, 0, 0, 0, 0);
             this.ApptDatePicker.Name = "ApptDatePicker";
-            this.ApptDatePicker.Size = new System.Drawing.Size(243, 20);
+            this.ApptDatePicker.Size = new System.Drawing.Size(185, 20);
             this.ApptDatePicker.TabIndex = 1;
+            this.ApptDatePicker.Value = new System.DateTime(2021, 3, 21, 19, 39, 45, 0);
             // 
             // DateLabel
             // 
@@ -222,7 +200,7 @@ namespace Group3_ClinicDB.UserControls
             this.NewApptLabel.AutoSize = true;
             this.NewApptLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.NewApptLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NewApptLabel.Location = new System.Drawing.Point(37, 128);
+            this.NewApptLabel.Location = new System.Drawing.Point(36, 61);
             this.NewApptLabel.Name = "NewApptLabel";
             this.NewApptLabel.Size = new System.Drawing.Size(163, 26);
             this.NewApptLabel.TabIndex = 5;
@@ -234,10 +212,6 @@ namespace Group3_ClinicDB.UserControls
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.NewApptLabel);
             this.Controls.Add(this.ApptPanel);
-            this.Controls.Add(this.PatientIDTextbox);
-            this.Controls.Add(this.PatientIDLabel);
-            this.Controls.Add(this.PatientNameTextbox);
-            this.Controls.Add(this.PatientNameLabel);
             this.MaximumSize = new System.Drawing.Size(1215, 615);
             this.MinimumSize = new System.Drawing.Size(1215, 615);
             this.Name = "AppointmentBookingUserControl";
@@ -251,11 +225,6 @@ namespace Group3_ClinicDB.UserControls
         }
 
         #endregion
-
-        private System.Windows.Forms.Label PatientNameLabel;
-        private System.Windows.Forms.TextBox PatientNameTextbox;
-        private System.Windows.Forms.Label PatientIDLabel;
-        private System.Windows.Forms.TextBox PatientIDTextbox;
         private System.Windows.Forms.Panel ApptPanel;
         private System.Windows.Forms.RichTextBox ReasonRichText;
         private System.Windows.Forms.Label ReasonLabel;
@@ -268,7 +237,8 @@ namespace Group3_ClinicDB.UserControls
         private System.Windows.Forms.Label TimeLabel;
         private System.Windows.Forms.DataGridView PatientApptList;
         private System.Windows.Forms.Label PatientApptListLabel;
-        private System.Windows.Forms.Button ClearButton;
         private System.Windows.Forms.Button CreateApptButton;
+        private System.Windows.Forms.Button Minus30Button;
+        private System.Windows.Forms.Button Plus30Button;
     }
 }

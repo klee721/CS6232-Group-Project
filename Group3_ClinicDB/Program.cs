@@ -1,8 +1,5 @@
-﻿using Group3_ClinicDB.View;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System;
+using Group3_ClinicDB.Model;
 using System.Windows.Forms;
 
 namespace Group3_ClinicDB
@@ -18,8 +15,10 @@ namespace Group3_ClinicDB
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new NurseMainDashboard());
-            //Application.Run(new LoginForm());
+            User testUser = new User();
+            testUser.userName = "Mr.TestUser";
+            //Application.Run(new NurseMainDashboard(testUser));  
+            Application.Run(new LoginForm());
         }
     }
 }

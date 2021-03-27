@@ -29,63 +29,27 @@ namespace Group3_ClinicDB.UserControls
         /// </summary>
         private void InitializeComponent()
         {
-            this.PatientIDTextbox = new System.Windows.Forms.TextBox();
-            this.PatientIDLabel = new System.Windows.Forms.Label();
-            this.PatientNameTextbox = new System.Windows.Forms.TextBox();
-            this.PatientNameLabel = new System.Windows.Forms.Label();
             this.ApptSelectLabel = new System.Windows.Forms.Label();
             this.ApptSelectComboBox = new System.Windows.Forms.ComboBox();
             this.TimeLabel = new System.Windows.Forms.Label();
-            this.ApptTimePicker = new System.Windows.Forms.DateTimePicker();
             this.ReasonRichText = new System.Windows.Forms.RichTextBox();
             this.ReasonLabel = new System.Windows.Forms.Label();
             this.DoctorComboBox = new System.Windows.Forms.ComboBox();
             this.DoctorNameLabel = new System.Windows.Forms.Label();
             this.ConfirmButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
+            this.Minus30Button = new System.Windows.Forms.Button();
+            this.Plus30Button = new System.Windows.Forms.Button();
+            this.ApptTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.ApptDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.DateLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // PatientIDTextbox
-            // 
-            this.PatientIDTextbox.Location = new System.Drawing.Point(126, 55);
-            this.PatientIDTextbox.Name = "PatientIDTextbox";
-            this.PatientIDTextbox.ReadOnly = true;
-            this.PatientIDTextbox.Size = new System.Drawing.Size(107, 20);
-            this.PatientIDTextbox.TabIndex = 7;
-            // 
-            // PatientIDLabel
-            // 
-            this.PatientIDLabel.AutoSize = true;
-            this.PatientIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PatientIDLabel.Location = new System.Drawing.Point(19, 57);
-            this.PatientIDLabel.Name = "PatientIDLabel";
-            this.PatientIDLabel.Size = new System.Drawing.Size(79, 18);
-            this.PatientIDLabel.TabIndex = 6;
-            this.PatientIDLabel.Text = "Patient ID: ";
-            // 
-            // PatientNameTextbox
-            // 
-            this.PatientNameTextbox.Location = new System.Drawing.Point(126, 21);
-            this.PatientNameTextbox.Name = "PatientNameTextbox";
-            this.PatientNameTextbox.ReadOnly = true;
-            this.PatientNameTextbox.Size = new System.Drawing.Size(333, 20);
-            this.PatientNameTextbox.TabIndex = 5;
-            // 
-            // PatientNameLabel
-            // 
-            this.PatientNameLabel.AutoSize = true;
-            this.PatientNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PatientNameLabel.Location = new System.Drawing.Point(19, 23);
-            this.PatientNameLabel.Name = "PatientNameLabel";
-            this.PatientNameLabel.Size = new System.Drawing.Size(101, 18);
-            this.PatientNameLabel.TabIndex = 4;
-            this.PatientNameLabel.Text = "Patient Name:";
             // 
             // ApptSelectLabel
             // 
             this.ApptSelectLabel.AutoSize = true;
             this.ApptSelectLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ApptSelectLabel.Location = new System.Drawing.Point(19, 110);
+            this.ApptSelectLabel.Location = new System.Drawing.Point(19, 15);
             this.ApptSelectLabel.Name = "ApptSelectLabel";
             this.ApptSelectLabel.Size = new System.Drawing.Size(143, 18);
             this.ApptSelectLabel.TabIndex = 8;
@@ -95,10 +59,11 @@ namespace Group3_ClinicDB.UserControls
             // 
             this.ApptSelectComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ApptSelectComboBox.FormattingEnabled = true;
-            this.ApptSelectComboBox.Location = new System.Drawing.Point(22, 143);
+            this.ApptSelectComboBox.Location = new System.Drawing.Point(22, 48);
             this.ApptSelectComboBox.Name = "ApptSelectComboBox";
             this.ApptSelectComboBox.Size = new System.Drawing.Size(227, 21);
             this.ApptSelectComboBox.TabIndex = 9;
+            this.ApptSelectComboBox.SelectedIndexChanged += new System.EventHandler(this.ApptSelectComboBox_SelectedIndexChanged);
             // 
             // TimeLabel
             // 
@@ -109,14 +74,6 @@ namespace Group3_ClinicDB.UserControls
             this.TimeLabel.Size = new System.Drawing.Size(49, 18);
             this.TimeLabel.TabIndex = 10;
             this.TimeLabel.Text = "Time: ";
-            // 
-            // ApptTimePicker
-            // 
-            this.ApptTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.ApptTimePicker.Location = new System.Drawing.Point(99, 201);
-            this.ApptTimePicker.Name = "ApptTimePicker";
-            this.ApptTimePicker.Size = new System.Drawing.Size(107, 20);
-            this.ApptTimePicker.TabIndex = 11;
             // 
             // ReasonRichText
             // 
@@ -158,41 +115,93 @@ namespace Group3_ClinicDB.UserControls
             // ConfirmButton
             // 
             this.ConfirmButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConfirmButton.Location = new System.Drawing.Point(99, 544);
+            this.ConfirmButton.Location = new System.Drawing.Point(28, 530);
             this.ConfirmButton.Name = "ConfirmButton";
-            this.ConfirmButton.Size = new System.Drawing.Size(117, 45);
+            this.ConfirmButton.Size = new System.Drawing.Size(134, 59);
             this.ConfirmButton.TabIndex = 16;
-            this.ConfirmButton.Text = "Confirm";
+            this.ConfirmButton.Text = "Confirm Changes";
             this.ConfirmButton.UseVisualStyleBackColor = true;
+            this.ConfirmButton.Click += new System.EventHandler(this.ConfirmButton_Click);
             // 
             // CancelButton
             // 
             this.CancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CancelButton.Location = new System.Drawing.Point(298, 544);
+            this.CancelButton.Location = new System.Drawing.Point(225, 530);
             this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(117, 45);
+            this.CancelButton.Size = new System.Drawing.Size(117, 59);
             this.CancelButton.TabIndex = 17;
-            this.CancelButton.Text = "Cancel";
+            this.CancelButton.Text = "Cancel Appointment";
             this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
+            // 
+            // Minus30Button
+            // 
+            this.Minus30Button.Location = new System.Drawing.Point(180, 214);
+            this.Minus30Button.Name = "Minus30Button";
+            this.Minus30Button.Size = new System.Drawing.Size(54, 23);
+            this.Minus30Button.TabIndex = 20;
+            this.Minus30Button.Text = "-30";
+            this.Minus30Button.UseVisualStyleBackColor = true;
+            this.Minus30Button.Click += new System.EventHandler(this.Minus30Button_Click_1);
+            // 
+            // Plus30Button
+            // 
+            this.Plus30Button.Location = new System.Drawing.Point(180, 185);
+            this.Plus30Button.Name = "Plus30Button";
+            this.Plus30Button.Size = new System.Drawing.Size(54, 23);
+            this.Plus30Button.TabIndex = 19;
+            this.Plus30Button.Text = "+30";
+            this.Plus30Button.UseVisualStyleBackColor = true;
+            this.Plus30Button.Click += new System.EventHandler(this.Plus30Button_Click);
+            // 
+            // ApptTimePicker
+            // 
+            this.ApptTimePicker.CustomFormat = "hh:mm tt";
+            this.ApptTimePicker.Enabled = false;
+            this.ApptTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.ApptTimePicker.Location = new System.Drawing.Point(99, 203);
+            this.ApptTimePicker.Name = "ApptTimePicker";
+            this.ApptTimePicker.Size = new System.Drawing.Size(75, 20);
+            this.ApptTimePicker.TabIndex = 18;
+            this.ApptTimePicker.Value = new System.DateTime(2021, 3, 22, 0, 0, 0, 0);
+            // 
+            // ApptDatePicker
+            // 
+            this.ApptDatePicker.Location = new System.Drawing.Point(99, 126);
+            this.ApptDatePicker.MinDate = new System.DateTime(2021, 1, 1, 0, 0, 0, 0);
+            this.ApptDatePicker.Name = "ApptDatePicker";
+            this.ApptDatePicker.Size = new System.Drawing.Size(185, 20);
+            this.ApptDatePicker.TabIndex = 22;
+            this.ApptDatePicker.Value = new System.DateTime(2021, 3, 21, 19, 39, 45, 0);
+            // 
+            // DateLabel
+            // 
+            this.DateLabel.AutoSize = true;
+            this.DateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DateLabel.Location = new System.Drawing.Point(22, 128);
+            this.DateLabel.Name = "DateLabel";
+            this.DateLabel.Size = new System.Drawing.Size(43, 18);
+            this.DateLabel.TabIndex = 21;
+            this.DateLabel.Text = "Date:";
             // 
             // EditAppointmentUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ApptDatePicker);
+            this.Controls.Add(this.DateLabel);
+            this.Controls.Add(this.Minus30Button);
+            this.Controls.Add(this.Plus30Button);
+            this.Controls.Add(this.ApptTimePicker);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.ConfirmButton);
             this.Controls.Add(this.ReasonRichText);
             this.Controls.Add(this.ReasonLabel);
             this.Controls.Add(this.DoctorComboBox);
             this.Controls.Add(this.DoctorNameLabel);
-            this.Controls.Add(this.ApptTimePicker);
             this.Controls.Add(this.TimeLabel);
             this.Controls.Add(this.ApptSelectComboBox);
             this.Controls.Add(this.ApptSelectLabel);
-            this.Controls.Add(this.PatientIDTextbox);
-            this.Controls.Add(this.PatientIDLabel);
-            this.Controls.Add(this.PatientNameTextbox);
-            this.Controls.Add(this.PatientNameLabel);
             this.MaximumSize = new System.Drawing.Size(1215, 615);
             this.MinimumSize = new System.Drawing.Size(1215, 615);
             this.Name = "EditAppointmentUserControl";
@@ -203,20 +212,19 @@ namespace Group3_ClinicDB.UserControls
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox PatientIDTextbox;
-        private System.Windows.Forms.Label PatientIDLabel;
-        private System.Windows.Forms.TextBox PatientNameTextbox;
-        private System.Windows.Forms.Label PatientNameLabel;
         private System.Windows.Forms.Label ApptSelectLabel;
         private System.Windows.Forms.ComboBox ApptSelectComboBox;
         private System.Windows.Forms.Label TimeLabel;
-        private System.Windows.Forms.DateTimePicker ApptTimePicker;
         private System.Windows.Forms.RichTextBox ReasonRichText;
         private System.Windows.Forms.Label ReasonLabel;
         private System.Windows.Forms.ComboBox DoctorComboBox;
         private System.Windows.Forms.Label DoctorNameLabel;
         private System.Windows.Forms.Button ConfirmButton;
         private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.Button Minus30Button;
+        private System.Windows.Forms.Button Plus30Button;
+        private System.Windows.Forms.DateTimePicker ApptTimePicker;
+        private System.Windows.Forms.DateTimePicker ApptDatePicker;
+        private System.Windows.Forms.Label DateLabel;
     }
 }

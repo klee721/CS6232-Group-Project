@@ -5,7 +5,7 @@ namespace Group3_ClinicDB.Model
     /// <summary>
     /// The Persons model class
     /// </summary>
-    public class Persons
+    public class Person
     {
         public string FirstName { get; }
         public string LastName { get; }
@@ -19,7 +19,7 @@ namespace Group3_ClinicDB.Model
         public string ZipCode { get; }
         public string PhoneNumber { get; }
 
-        public Persons(string firstName, string lastName, DateTime dob, string gender, string ssn,
+        public Person(string firstName, string lastName, DateTime dob, string gender, string ssn,
                         string address1, string address2, string city, string state, string zipCode, string phoneNumber)
         {
             if (firstName.Length == 0)
