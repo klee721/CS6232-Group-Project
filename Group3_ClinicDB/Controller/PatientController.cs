@@ -25,15 +25,15 @@ namespace Group3_ClinicDB.Controller
         /// <summary>
         /// Adds a Patient to the table based on the Id
         /// </summary>
-        /// <param name="patientId"></param>
-        public void AddPatient(int patientId)
+        /// <param name="personId"></param>
+        public void AddPatient(int personId)
         {
-            if (patientId <= 0)
+            if (personId <= 0)
             {
                 throw new ArgumentException("Patient ID cannot be less than or equal to 0");
             }
 
-            this.patientDBSource.AddPatient(patientId);
+            this.patientDBSource.AddPatient(personId);
         }
 
 

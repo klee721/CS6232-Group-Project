@@ -32,8 +32,8 @@ namespace Group3_ClinicDB.UserControls
             this.genderComboBox.Items.Add("female");
             this.genderComboBox.SelectedIndex = 0; 
             
-            this.dobDateTimePicker.Value = DateTime.Now.Date;
-            this.dobDateTimePicker.MaxDate = DateTime.Now.Date;
+            this.dobDateTimePicker.Value = DateTime.Now.Date.AddDays(-2);
+            this.dobDateTimePicker.MaxDate = DateTime.Now.Date.AddDays(-1);
             this.dobDateTimePicker.MinDate = DateTime.Now.Date.AddYears(-150);
             
             this.stateComboBox.DataSource = this.stateController.GetStates();
@@ -90,6 +90,7 @@ namespace Group3_ClinicDB.UserControls
                 try
                 {
                     long ssnLong = Convert.ToInt64(this.ssnTextBox.Text);
+
                     try
                     {
                         long zipCodeLong = Convert.ToInt64(this.zipCodeTextBox.Text);
@@ -112,15 +113,16 @@ namespace Group3_ClinicDB.UserControls
                             Person person = new Person(firstName, lastName, dob, gender, ssn,
                                                         address1, address2, city, state, zipCode, phoneNumber);
 
-                            //check if person exists
-                             //true -> add that person as a patient
-                             //false
-                            this.personController.AddPerson(person);
-                            //add person as patient
-                            int personId = this.personController.GetPersonId(person);
-                            Console.WriteLine(personId);
-                            this.patientController.AddPatient(personId);
-                            this.registrationSuccessMessage.Visible = true;
+                            if (this.personController.GetPersonId(person) != 0)
+                            {
+                                this.patientController.AddPatient(this.personController.GetPersonId(person));
+                                this.registrationSuccessMessage.Visible = true;
+                            } else
+                            {
+                                this.personController.AddPerson(person);
+                                this.patientController.AddPatient(this.personController.GetPersonId(person));                                
+                                this.registrationSuccessMessage.Visible = true;
+                            }  
                         }
                         catch (Exception)
                         {

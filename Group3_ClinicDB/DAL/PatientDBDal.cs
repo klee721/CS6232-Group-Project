@@ -10,13 +10,13 @@ namespace Group3_ClinicDB.DAL
         /// <summary>
         /// Adds a Patient to the table based on the Id
         /// </summary>
-        /// <param name="patientId"></param>
-        public void AddPatient(int patientId)
+        /// <param name="personId"></param>
+        public void AddPatient(int personId)
         {
             string insertStatement =
-                "INSERT Patient " +
-                    "(id) " +
-                "VALUES (@patientId)";
+                "INSERT Patients " +
+                    "(persons_id) " +
+                "VALUES (@personId)";
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
             {
@@ -24,7 +24,7 @@ namespace Group3_ClinicDB.DAL
 
                 using (SqlCommand insertCommand = new SqlCommand(insertStatement, connection))
                 {
-                    insertCommand.Parameters.AddWithValue("@patientId", patientId);
+                    insertCommand.Parameters.AddWithValue("@personId", personId);
 
                     insertCommand.ExecuteNonQuery();
                 }
