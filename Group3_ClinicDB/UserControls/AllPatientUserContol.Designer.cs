@@ -29,8 +29,16 @@ namespace Group3_ClinicDB.UserControls
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // AllPatientUserContol
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Name = "AllPatientUserContol";
+            this.Size = new System.Drawing.Size(1215, 615);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

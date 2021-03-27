@@ -135,6 +135,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="UserControls\AllPatientUserContol.resx">
+      <DependentUpon>AllPatientUserContol.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UpdateVisitUserControl.resx">
       <DependentUpon>UpdateVisitUserControl.cs</DependentUpon>
     </EmbeddedResource>
