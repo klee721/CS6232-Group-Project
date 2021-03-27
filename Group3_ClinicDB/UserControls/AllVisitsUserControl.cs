@@ -31,5 +31,6 @@ namespace Group3_ClinicDB.UserControls
             //visitsDALDataGridView.DataSource = null;
             visitsDALDataGridView.DataSource = this.controller.GetVisits();
         }
+
     }
 }

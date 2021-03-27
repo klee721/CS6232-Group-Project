@@ -16,11 +16,50 @@ namespace Group3_ClinicDB.UserControls
     {
 
         private readonly VisitsController visitController;
+        private readonly AppointmentController appointmentController;
 
         public AddVisitUserControl()
         {
             InitializeComponent();
             this.visitController = new VisitsController();
+            this.appointmentController = new AppointmentController();
+        }
+
+        private void RefreshAppointments()
+        {
+            appointment_idComboBox.Items.Clear();
+            List<Appointment> appointments;
+
+
+            try
+            {
+                //instead of using the following line of code, which couples the 
+                //DAL with the view, we ask the controller to get the data for us 
+                //so that the view does not have to know where the data comes from
+                //(the line after the commented line)
+
+                appointments = this.appointmentController.GetAllAppointmentsByPatient(1); //Added patient_id 1
+                appointment_idComboBox.Refresh();
+                if (appointments.Count > 0)
+                {
+
+                    appointment_idComboBox.DisplayMember = "AppointmentDate";
+                    appointment_idComboBox.ValueMember = "ID";
+                    appointment_idComboBox.DataSource = appointments;
+
+                }
+                else
+                {
+                    MessageBox.Show("No appointments.");
+
+                }
+               
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+
+            }
         }
 
         private void AddButton_Click(object sender, EventArgs e)
@@ -115,5 +154,9 @@ namespace Group3_ClinicDB.UserControls
             }
         }
 
+        private void AddVisitUserControl_Load(object sender, EventArgs e)
+        {
+            this.RefreshAppointments();
+        }
     }
 }
