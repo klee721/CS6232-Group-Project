@@ -28,16 +28,27 @@ namespace Group3_ClinicDB.UserControls
 
         private void InitRegisterPatient()
         {
-            this.genderComboBox.Items.Add("male");
-            this.genderComboBox.Items.Add("female");
+            if(this.stateController.GetStates().Count == 0)
+            {
+                this.stateErrorLabel.Visible = true;
+                this.stateErrorLabel.ForeColor = Color.Red;
+                this.registerButton.Enabled = false;
+                this.clearButton.Enabled = false;
+            } else
+            {
+                this.stateErrorLabel.Visible = false;
+                this.registerButton.Enabled = true;
+                this.clearButton.Enabled = true;
 
-            this.stateComboBox.DataSource = this.stateController.GetStates();
-            this.stateComboBox.DisplayMember = "stateCode";
+                this.stateComboBox.DataSource = this.stateController.GetStates();
+                this.stateComboBox.DisplayMember = "stateCode";
 
-            this.dobDateTimePicker.MaxDate = DateTime.Now.Date.AddDays(-1);
-            this.dobDateTimePicker.MinDate = DateTime.Now.Date.AddYears(-150);
-
-            this.Clear();
+                this.genderComboBox.Items.Add("male");
+                this.genderComboBox.Items.Add("female");
+                this.dobDateTimePicker.MaxDate = DateTime.Now.Date.AddDays(-1);
+                this.dobDateTimePicker.MinDate = DateTime.Now.Date.AddYears(-150);
+                this.Clear();
+            }  
         }
 
         private void RegisterPatientUserControlLoad(object sender, EventArgs e)

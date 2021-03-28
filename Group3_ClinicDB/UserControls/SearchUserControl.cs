@@ -10,14 +10,24 @@ namespace Group3_ClinicDB.UserControls
             InitializeComponent();
         }
 
-        private void SearchUserControlLoad(object sender, EventArgs e)
+        private void InitSearches()
         {
             this.dobSearchRadioButton.Checked = true;
-            this.fnlnSearchRadioButton.Checked = false;
-            this.dobLastNameSearchRadioButton.Checked = false;
 
-            this.fnlnSearchButton.Enabled = false;
+            this.dobLastNameSearchRadioButton.Checked = false;
+            this.dobDoblnSearchDateTimePicker.Enabled = false;
+            this.lastNameDoblnSearchTextBox.ReadOnly = true;
             this.doblnSearchButton.Enabled = false;
+
+            this.fnlnSearchRadioButton.Checked = false;
+            this.firstNameFnlnSearchTextBox.ReadOnly = true;
+            this.lastNameFnlnSearchTextBox.ReadOnly = true;
+            this.fnlnSearchButton.Enabled = false;
+        }
+
+        private void SearchUserControlLoad(object sender, EventArgs e)
+        {
+            this.InitSearches();
         }
     }
 }

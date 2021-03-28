@@ -37,7 +37,7 @@ namespace Group3_ClinicDB.UserControls
             this.dobSearchDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.dobSearchButton = new System.Windows.Forms.Button();
             this.firstNameFnlnSearchLabel = new System.Windows.Forms.Label();
-            this.firstNameSearchFNLNTextBox = new System.Windows.Forms.TextBox();
+            this.firstNameFnlnSearchTextBox = new System.Windows.Forms.TextBox();
             this.lastNameFnlnSearchLabel = new System.Windows.Forms.Label();
             this.lastNameFnlnSearchTextBox = new System.Windows.Forms.TextBox();
             this.fnlnSearchButton = new System.Windows.Forms.Button();
@@ -124,12 +124,12 @@ namespace Group3_ClinicDB.UserControls
             this.firstNameFnlnSearchLabel.TabIndex = 7;
             this.firstNameFnlnSearchLabel.Text = "First Name:";
             // 
-            // firstNameSearchFNLNTextBox
+            // firstNameFnlnSearchTextBox
             // 
-            this.firstNameSearchFNLNTextBox.Location = new System.Drawing.Point(467, 49);
-            this.firstNameSearchFNLNTextBox.Name = "firstNameSearchFNLNTextBox";
-            this.firstNameSearchFNLNTextBox.Size = new System.Drawing.Size(162, 20);
-            this.firstNameSearchFNLNTextBox.TabIndex = 8;
+            this.firstNameFnlnSearchTextBox.Location = new System.Drawing.Point(467, 49);
+            this.firstNameFnlnSearchTextBox.Name = "firstNameFnlnSearchTextBox";
+            this.firstNameFnlnSearchTextBox.Size = new System.Drawing.Size(162, 20);
+            this.firstNameFnlnSearchTextBox.TabIndex = 8;
             // 
             // lastNameFnlnSearchLabel
             // 
@@ -209,7 +209,7 @@ namespace Group3_ClinicDB.UserControls
             this.Controls.Add(this.fnlnSearchButton);
             this.Controls.Add(this.lastNameFnlnSearchTextBox);
             this.Controls.Add(this.lastNameFnlnSearchLabel);
-            this.Controls.Add(this.firstNameSearchFNLNTextBox);
+            this.Controls.Add(this.firstNameFnlnSearchTextBox);
             this.Controls.Add(this.firstNameFnlnSearchLabel);
             this.Controls.Add(this.dobSearchButton);
             this.Controls.Add(this.dobSearchDateTimePicker);
@@ -236,7 +236,7 @@ namespace Group3_ClinicDB.UserControls
         private System.Windows.Forms.DateTimePicker dobSearchDateTimePicker;
         private System.Windows.Forms.Button dobSearchButton;
         private System.Windows.Forms.Label firstNameFnlnSearchLabel;
-        private System.Windows.Forms.TextBox firstNameSearchFNLNTextBox;
+        private System.Windows.Forms.TextBox firstNameFnlnSearchTextBox;
         private System.Windows.Forms.Label lastNameFnlnSearchLabel;
         private System.Windows.Forms.TextBox lastNameFnlnSearchTextBox;
         private System.Windows.Forms.Button fnlnSearchButton;

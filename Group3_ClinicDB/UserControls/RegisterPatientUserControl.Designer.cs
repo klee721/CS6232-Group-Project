@@ -62,6 +62,7 @@ namespace Group3_ClinicDB.UserControls
             this.zipCodeErrorLabel = new System.Windows.Forms.Label();
             this.phoneNumberErrorLabel = new System.Windows.Forms.Label();
             this.registrationSuccessMessage = new System.Windows.Forms.Label();
+            this.stateErrorLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // registerButton
@@ -378,10 +379,21 @@ namespace Group3_ClinicDB.UserControls
             this.registrationSuccessMessage.Text = "Registration Successful!";
             this.registrationSuccessMessage.Visible = false;
             // 
+            // stateErrorLabel
+            // 
+            this.stateErrorLabel.AutoSize = true;
+            this.stateErrorLabel.Location = new System.Drawing.Point(1012, 230);
+            this.stateErrorLabel.Name = "stateErrorLabel";
+            this.stateErrorLabel.Size = new System.Drawing.Size(121, 13);
+            this.stateErrorLabel.TabIndex = 23;
+            this.stateErrorLabel.Text = "No State Data Available";
+            this.stateErrorLabel.Visible = false;
+            // 
             // RegisterPatientUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.stateErrorLabel);
             this.Controls.Add(this.registrationSuccessMessage);
             this.Controls.Add(this.phoneNumberErrorLabel);
             this.Controls.Add(this.zipCodeErrorLabel);
@@ -461,5 +473,6 @@ namespace Group3_ClinicDB.UserControls
         private System.Windows.Forms.Label zipCodeErrorLabel;
         private System.Windows.Forms.Label phoneNumberErrorLabel;
         private System.Windows.Forms.Label registrationSuccessMessage;
+        private System.Windows.Forms.Label stateErrorLabel;
     }
 }
