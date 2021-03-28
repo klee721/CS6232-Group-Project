@@ -20,7 +20,7 @@ namespace Group3_ClinicDB.DAL
 
             string selectStatement = "SELECT Patients.id, Patients.persons_id, Persons.firstName, " +
                                         "Persons.lastName, Persons.dateOfBirth, Persons.gender, " +
-                                        "Persons.SSN, Persons.Address1, ISNULL(Persons.Address2,''), Persons.city, " +
+                                        "Persons.SSN, Persons.Address1, ISNULL(Persons.Address2,'') as Address2, Persons.city, " +
                                         "Persons.state, Persons.zipcode, Persons.phoneNumber " +
                                         "FROM Patients " +
                                         "JOIN Persons ON Patients.persons_id = Persons.id";
@@ -35,7 +35,7 @@ namespace Group3_ClinicDB.DAL
                     {
                         while (reader.Read())
                         {
-                            Patient patient = new Patient((int)reader["id"], (int)reader["person_id"], reader["firstname"].ToString(),
+                            Patient patient = new Patient((int)reader["id"], (int)reader["persons_id"], reader["firstName"].ToString(),
                                                         reader["lastName"].ToString(), (DateTime)reader["dateOfBirth"], reader["gender"].ToString(),
                                                         reader["SSN"].ToString(), reader["Address1"].ToString(), reader["Address2"].ToString(),
                                                         reader["city"].ToString(), reader["state"].ToString(), reader["zipcode"].ToString(), reader["phoneNumber"].ToString());
