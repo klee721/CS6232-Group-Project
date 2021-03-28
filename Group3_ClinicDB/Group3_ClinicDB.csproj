@@ -74,6 +74,12 @@
     <Compile Include="UserControls\AllPatientUserControl.Designer.cs">
       <DependentUpon>AllPatientUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\SearchUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\SearchUserControl.Designer.cs">
+      <DependentUpon>SearchUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UpdateVisitUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -138,6 +144,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="UserControls\AllPatientUserControl.resx">
       <DependentUpon>AllPatientUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\SearchUserControl.resx">
+      <DependentUpon>SearchUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UpdateVisitUserControl.resx">
       <DependentUpon>UpdateVisitUserControl.cs</DependentUpon>
