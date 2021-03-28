@@ -38,7 +38,7 @@ namespace Group3_ClinicDB.UserControls
         /// </summary>
         public void SetupAppointmentsComboBox()
         {
-            this.appointmentList = this.apptController.GetActiveAppointmentsByPatient(1); //TESTING DAL WITH PATIENT 1
+            this.appointmentList = this.apptController.GetActiveAppointmentsByPatient(99); //TESTING DAL WITH PATIENT 1
             this.ApptSelectComboBox.DataSource = appointmentList;  
             this.ApptSelectComboBox.DisplayMember = "AppointmentDate";
             this.ApptSelectComboBox.ValueMember = "ID";
@@ -53,17 +53,22 @@ namespace Group3_ClinicDB.UserControls
 
         private void FillOutForm()
         {
-   
-            int index = (int)this.ApptSelectComboBox.SelectedValue;
-            this.selectedAppointment = this.appointmentList.Find(apt => apt.ID == index);
 
-            this.ApptDatePicker.Value = selectedAppointment.AppointmentDate.Date;
-            this.ApptDatePicker.MinDate = DateTime.Now.Date;
-            this.ApptTimePicker.Value = DateTime.Now.Date;
-            this.ApptTimePicker.Value += selectedAppointment.AppointmentDate.TimeOfDay;
-            this.DoctorComboBox.SelectedValue = selectedAppointment.DoctorID;
-            this.ReasonRichText.Text = selectedAppointment.Reason;
-
+            if (appointmentList.Count > 0)
+            {
+                this.EnableModule();
+                this.selectedAppointment = this.appointmentList.Find(apt => apt.ID == (int)this.ApptSelectComboBox.SelectedValue);
+                this.ApptDatePicker.Value = selectedAppointment.AppointmentDate.Date;
+                this.ApptDatePicker.MinDate = DateTime.Now.Date;
+                this.ApptTimePicker.Value = DateTime.Now.Date;
+                this.ApptTimePicker.Value += selectedAppointment.AppointmentDate.TimeOfDay;
+                this.DoctorComboBox.SelectedValue = selectedAppointment.DoctorID;
+                this.ReasonRichText.Text = selectedAppointment.Reason;
+            }
+            else
+            {
+                this.LockModule();
+            }
 
         }
 
@@ -146,6 +151,30 @@ namespace Group3_ClinicDB.UserControls
             }
 
            
+        }
+
+        private void LockModule()
+        {
+            this.ApptDatePicker.Enabled = false;
+            this.ApptTimePicker.Enabled = false;
+            this.Plus30Button.Enabled = false;
+            this.Minus30Button.Enabled = false;
+            this.ReasonRichText.Enabled = false;
+            this.DoctorComboBox.Enabled = false;
+            this.CancelButton.Enabled = false;
+            this.ConfirmButton.Enabled = false;
+        }
+
+        private void EnableModule()
+        {
+            this.ApptDatePicker.Enabled = true;
+            this.ApptTimePicker.Enabled = true;
+            this.Plus30Button.Enabled = true;
+            this.Minus30Button.Enabled = true;
+            this.ReasonRichText.Enabled = true;
+            this.DoctorComboBox.Enabled = true;
+            this.CancelButton.Enabled = true;
+            this.ConfirmButton.Enabled = true;
         }
 
         private void Plus30Button_Click(object sender, EventArgs e)
