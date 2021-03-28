@@ -31,14 +31,27 @@ namespace Group3_ClinicDB.UserControls
         {
             this.dobSearchRadioButton = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.namesSearchRadioButton = new System.Windows.Forms.RadioButton();
+            this.fnlnSearchRadioButton = new System.Windows.Forms.RadioButton();
             this.dobLastNameSearchRadioButton = new System.Windows.Forms.RadioButton();
+            this.dobSearchLabel = new System.Windows.Forms.Label();
+            this.dobSearchDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.dobSearchButton = new System.Windows.Forms.Button();
+            this.firstNameFnlnSearchLabel = new System.Windows.Forms.Label();
+            this.firstNameSearchFNLNTextBox = new System.Windows.Forms.TextBox();
+            this.lastNameFnlnSearchLabel = new System.Windows.Forms.Label();
+            this.lastNameFnlnSearchTextBox = new System.Windows.Forms.TextBox();
+            this.fnlnSearchButton = new System.Windows.Forms.Button();
+            this.dobDoblnSearchLabel = new System.Windows.Forms.Label();
+            this.dobDoblnSearchDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.doblnSearchButton = new System.Windows.Forms.Button();
+            this.lastNameDoblnSearchLabel = new System.Windows.Forms.Label();
+            this.lastNameDoblnSearchTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // dobSearchRadioButton
             // 
             this.dobSearchRadioButton.AutoSize = true;
-            this.dobSearchRadioButton.Location = new System.Drawing.Point(105, 26);
+            this.dobSearchRadioButton.Location = new System.Drawing.Point(42, 26);
             this.dobSearchRadioButton.Name = "dobSearchRadioButton";
             this.dobSearchRadioButton.Size = new System.Drawing.Size(102, 17);
             this.dobSearchRadioButton.TabIndex = 0;
@@ -50,27 +63,27 @@ namespace Group3_ClinicDB.UserControls
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(51, 4);
+            this.label1.Location = new System.Drawing.Point(12, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(99, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Search  Criteria:";
             // 
-            // namesSearchRadioButton
+            // fnlnSearchRadioButton
             // 
-            this.namesSearchRadioButton.AutoSize = true;
-            this.namesSearchRadioButton.Location = new System.Drawing.Point(350, 26);
-            this.namesSearchRadioButton.Name = "namesSearchRadioButton";
-            this.namesSearchRadioButton.Size = new System.Drawing.Size(173, 17);
-            this.namesSearchRadioButton.TabIndex = 2;
-            this.namesSearchRadioButton.TabStop = true;
-            this.namesSearchRadioButton.Text = "Search by First and Last Name:";
-            this.namesSearchRadioButton.UseVisualStyleBackColor = true;
+            this.fnlnSearchRadioButton.AutoSize = true;
+            this.fnlnSearchRadioButton.Location = new System.Drawing.Point(404, 26);
+            this.fnlnSearchRadioButton.Name = "fnlnSearchRadioButton";
+            this.fnlnSearchRadioButton.Size = new System.Drawing.Size(173, 17);
+            this.fnlnSearchRadioButton.TabIndex = 2;
+            this.fnlnSearchRadioButton.TabStop = true;
+            this.fnlnSearchRadioButton.Text = "Search by First and Last Name:";
+            this.fnlnSearchRadioButton.UseVisualStyleBackColor = true;
             // 
             // dobLastNameSearchRadioButton
             // 
             this.dobLastNameSearchRadioButton.AutoSize = true;
-            this.dobLastNameSearchRadioButton.Location = new System.Drawing.Point(679, 26);
+            this.dobLastNameSearchRadioButton.Location = new System.Drawing.Point(703, 26);
             this.dobLastNameSearchRadioButton.Name = "dobLastNameSearchRadioButton";
             this.dobLastNameSearchRadioButton.Size = new System.Drawing.Size(177, 17);
             this.dobLastNameSearchRadioButton.TabIndex = 3;
@@ -78,12 +91,132 @@ namespace Group3_ClinicDB.UserControls
             this.dobLastNameSearchRadioButton.Text = "Search by DOB and Last Name:";
             this.dobLastNameSearchRadioButton.UseVisualStyleBackColor = true;
             // 
+            // dobSearchLabel
+            // 
+            this.dobSearchLabel.AutoSize = true;
+            this.dobSearchLabel.Location = new System.Drawing.Point(39, 66);
+            this.dobSearchLabel.Name = "dobSearchLabel";
+            this.dobSearchLabel.Size = new System.Drawing.Size(69, 13);
+            this.dobSearchLabel.TabIndex = 4;
+            this.dobSearchLabel.Text = "Date of Birth:";
+            // 
+            // dobSearchDateTimePicker
+            // 
+            this.dobSearchDateTimePicker.Location = new System.Drawing.Point(114, 66);
+            this.dobSearchDateTimePicker.Name = "dobSearchDateTimePicker";
+            this.dobSearchDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.dobSearchDateTimePicker.TabIndex = 5;
+            // 
+            // dobSearchButton
+            // 
+            this.dobSearchButton.Location = new System.Drawing.Point(42, 102);
+            this.dobSearchButton.Name = "dobSearchButton";
+            this.dobSearchButton.Size = new System.Drawing.Size(75, 23);
+            this.dobSearchButton.TabIndex = 6;
+            this.dobSearchButton.Text = "Search";
+            this.dobSearchButton.UseVisualStyleBackColor = true;
+            // 
+            // firstNameFnlnSearchLabel
+            // 
+            this.firstNameFnlnSearchLabel.AutoSize = true;
+            this.firstNameFnlnSearchLabel.Location = new System.Drawing.Point(401, 52);
+            this.firstNameFnlnSearchLabel.Name = "firstNameFnlnSearchLabel";
+            this.firstNameFnlnSearchLabel.Size = new System.Drawing.Size(60, 13);
+            this.firstNameFnlnSearchLabel.TabIndex = 7;
+            this.firstNameFnlnSearchLabel.Text = "First Name:";
+            // 
+            // firstNameSearchFNLNTextBox
+            // 
+            this.firstNameSearchFNLNTextBox.Location = new System.Drawing.Point(467, 49);
+            this.firstNameSearchFNLNTextBox.Name = "firstNameSearchFNLNTextBox";
+            this.firstNameSearchFNLNTextBox.Size = new System.Drawing.Size(162, 20);
+            this.firstNameSearchFNLNTextBox.TabIndex = 8;
+            // 
+            // lastNameFnlnSearchLabel
+            // 
+            this.lastNameFnlnSearchLabel.AutoSize = true;
+            this.lastNameFnlnSearchLabel.Location = new System.Drawing.Point(401, 79);
+            this.lastNameFnlnSearchLabel.Name = "lastNameFnlnSearchLabel";
+            this.lastNameFnlnSearchLabel.Size = new System.Drawing.Size(61, 13);
+            this.lastNameFnlnSearchLabel.TabIndex = 9;
+            this.lastNameFnlnSearchLabel.Text = "Last Name:";
+            // 
+            // lastNameFnlnSearchTextBox
+            // 
+            this.lastNameFnlnSearchTextBox.Location = new System.Drawing.Point(467, 79);
+            this.lastNameFnlnSearchTextBox.Name = "lastNameFnlnSearchTextBox";
+            this.lastNameFnlnSearchTextBox.Size = new System.Drawing.Size(161, 20);
+            this.lastNameFnlnSearchTextBox.TabIndex = 10;
+            // 
+            // fnlnSearchButton
+            // 
+            this.fnlnSearchButton.Location = new System.Drawing.Point(404, 102);
+            this.fnlnSearchButton.Name = "fnlnSearchButton";
+            this.fnlnSearchButton.Size = new System.Drawing.Size(75, 23);
+            this.fnlnSearchButton.TabIndex = 11;
+            this.fnlnSearchButton.Text = "Search";
+            this.fnlnSearchButton.UseVisualStyleBackColor = true;
+            // 
+            // dobDoblnSearchLabel
+            // 
+            this.dobDoblnSearchLabel.AutoSize = true;
+            this.dobDoblnSearchLabel.Location = new System.Drawing.Point(703, 49);
+            this.dobDoblnSearchLabel.Name = "dobDoblnSearchLabel";
+            this.dobDoblnSearchLabel.Size = new System.Drawing.Size(69, 13);
+            this.dobDoblnSearchLabel.TabIndex = 12;
+            this.dobDoblnSearchLabel.Text = "Date of Birth:";
+            // 
+            // dobDoblnSearchDateTimePicker
+            // 
+            this.dobDoblnSearchDateTimePicker.Location = new System.Drawing.Point(778, 49);
+            this.dobDoblnSearchDateTimePicker.Name = "dobDoblnSearchDateTimePicker";
+            this.dobDoblnSearchDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.dobDoblnSearchDateTimePicker.TabIndex = 13;
+            // 
+            // doblnSearchButton
+            // 
+            this.doblnSearchButton.Location = new System.Drawing.Point(706, 101);
+            this.doblnSearchButton.Name = "doblnSearchButton";
+            this.doblnSearchButton.Size = new System.Drawing.Size(75, 23);
+            this.doblnSearchButton.TabIndex = 14;
+            this.doblnSearchButton.Text = "Search";
+            this.doblnSearchButton.UseVisualStyleBackColor = true;
+            // 
+            // lastNameDoblnSearchLabel
+            // 
+            this.lastNameDoblnSearchLabel.AutoSize = true;
+            this.lastNameDoblnSearchLabel.Location = new System.Drawing.Point(703, 79);
+            this.lastNameDoblnSearchLabel.Name = "lastNameDoblnSearchLabel";
+            this.lastNameDoblnSearchLabel.Size = new System.Drawing.Size(61, 13);
+            this.lastNameDoblnSearchLabel.TabIndex = 15;
+            this.lastNameDoblnSearchLabel.Text = "Last Name:";
+            // 
+            // lastNameDoblnSearchTextBox
+            // 
+            this.lastNameDoblnSearchTextBox.Location = new System.Drawing.Point(778, 76);
+            this.lastNameDoblnSearchTextBox.Name = "lastNameDoblnSearchTextBox";
+            this.lastNameDoblnSearchTextBox.Size = new System.Drawing.Size(200, 20);
+            this.lastNameDoblnSearchTextBox.TabIndex = 16;
+            // 
             // SearchUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lastNameDoblnSearchTextBox);
+            this.Controls.Add(this.lastNameDoblnSearchLabel);
+            this.Controls.Add(this.doblnSearchButton);
+            this.Controls.Add(this.dobDoblnSearchDateTimePicker);
+            this.Controls.Add(this.dobDoblnSearchLabel);
+            this.Controls.Add(this.fnlnSearchButton);
+            this.Controls.Add(this.lastNameFnlnSearchTextBox);
+            this.Controls.Add(this.lastNameFnlnSearchLabel);
+            this.Controls.Add(this.firstNameSearchFNLNTextBox);
+            this.Controls.Add(this.firstNameFnlnSearchLabel);
+            this.Controls.Add(this.dobSearchButton);
+            this.Controls.Add(this.dobSearchDateTimePicker);
+            this.Controls.Add(this.dobSearchLabel);
             this.Controls.Add(this.dobLastNameSearchRadioButton);
-            this.Controls.Add(this.namesSearchRadioButton);
+            this.Controls.Add(this.fnlnSearchRadioButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dobSearchRadioButton);
             this.Name = "SearchUserControl";
@@ -97,7 +230,20 @@ namespace Group3_ClinicDB.UserControls
 
         private System.Windows.Forms.RadioButton dobSearchRadioButton;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RadioButton namesSearchRadioButton;
+        private System.Windows.Forms.RadioButton fnlnSearchRadioButton;
         private System.Windows.Forms.RadioButton dobLastNameSearchRadioButton;
+        private System.Windows.Forms.Label dobSearchLabel;
+        private System.Windows.Forms.DateTimePicker dobSearchDateTimePicker;
+        private System.Windows.Forms.Button dobSearchButton;
+        private System.Windows.Forms.Label firstNameFnlnSearchLabel;
+        private System.Windows.Forms.TextBox firstNameSearchFNLNTextBox;
+        private System.Windows.Forms.Label lastNameFnlnSearchLabel;
+        private System.Windows.Forms.TextBox lastNameFnlnSearchTextBox;
+        private System.Windows.Forms.Button fnlnSearchButton;
+        private System.Windows.Forms.Label dobDoblnSearchLabel;
+        private System.Windows.Forms.DateTimePicker dobDoblnSearchDateTimePicker;
+        private System.Windows.Forms.Button doblnSearchButton;
+        private System.Windows.Forms.Label lastNameDoblnSearchLabel;
+        private System.Windows.Forms.TextBox lastNameDoblnSearchTextBox;
     }
 }
