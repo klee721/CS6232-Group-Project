@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Collections.Generic;
 using Group3_ClinicDB.Controller;
 using Group3_ClinicDB.Model;
 
@@ -94,9 +95,19 @@ namespace Group3_ClinicDB.UserControls
 
         private void InitializeDoctorComboBox()
         {
-            this.DoctorComboBox.DataSource = this.doctorController.GetAllDoctors();
-            this.DoctorComboBox.DisplayMember ="LastName";
-            this.DoctorComboBox.ValueMember = "DoctorID";
+            List<Doctor> doctorList = this.doctorController.GetAllDoctors();
+            if (doctorList.Count <= 0)
+            {
+                this.Enabled = false;
+                MessageBox.Show("There are no doctors. Please register a doctor to the database.");
+            }
+            else
+            {
+                this.Enabled = true;
+                this.DoctorComboBox.DataSource = doctorList;
+                this.DoctorComboBox.DisplayMember = "LastName";
+                this.DoctorComboBox.ValueMember = "DoctorID";
+            }
         }
 
         private void Plus30_Click(object sender, EventArgs e)
@@ -115,5 +126,6 @@ namespace Group3_ClinicDB.UserControls
 
             this.ApptTimePicker.Value = tempTime;
         }
+
     }
 }
