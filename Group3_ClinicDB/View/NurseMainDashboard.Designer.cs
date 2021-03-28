@@ -51,6 +51,7 @@ namespace Group3_ClinicDB.View
             this.SelectedPatientLabel = new System.Windows.Forms.Label();
             this.SelectedPatientTextBox = new System.Windows.Forms.TextBox();
             this.LogoutLink = new System.Windows.Forms.LinkLabel();
+            this.searchUserControl1 = new Group3_ClinicDB.UserControls.SearchUserControl();
             this.DashboardTabControl.SuspendLayout();
             this.registerPatientTab.SuspendLayout();
             this.ScheduleApptTab.SuspendLayout();
@@ -64,12 +65,12 @@ namespace Group3_ClinicDB.View
             // DashboardTabControl
             // 
             this.DashboardTabControl.Controls.Add(this.registerPatientTab);
+            this.DashboardTabControl.Controls.Add(this.allPatientsTab);
             this.DashboardTabControl.Controls.Add(this.ScheduleApptTab);
             this.DashboardTabControl.Controls.Add(this.EditApptTab);
             this.DashboardTabControl.Controls.Add(this.visitsTabPage);
             this.DashboardTabControl.Controls.Add(this.addVisitTabPage);
             this.DashboardTabControl.Controls.Add(this.tabPage6);
-            this.DashboardTabControl.Controls.Add(this.allPatientsTab);
             this.DashboardTabControl.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.DashboardTabControl.Location = new System.Drawing.Point(0, 49);
             this.DashboardTabControl.Name = "DashboardTabControl";
@@ -197,6 +198,7 @@ namespace Group3_ClinicDB.View
             // 
             // allPatientsTab
             // 
+            this.allPatientsTab.Controls.Add(this.searchUserControl1);
             this.allPatientsTab.Controls.Add(this.allPatientUserControl1);
             this.allPatientsTab.Location = new System.Drawing.Point(4, 22);
             this.allPatientsTab.Name = "allPatientsTab";
@@ -279,6 +281,14 @@ namespace Group3_ClinicDB.View
             this.LogoutLink.TabStop = true;
             this.LogoutLink.Text = "Logout";
             // 
+            // searchUserControl1
+            // 
+            this.searchUserControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.searchUserControl1.Location = new System.Drawing.Point(0, 0);
+            this.searchUserControl1.Name = "searchUserControl1";
+            this.searchUserControl1.Size = new System.Drawing.Size(1215, 133);
+            this.searchUserControl1.TabIndex = 1;
+            // 
             // NurseMainDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -332,5 +342,6 @@ namespace Group3_ClinicDB.View
         private UserControls.RegisterPatientUserControl registerPatientUserControl1;
         private UserControls.UpdateVisitUserControl updateVisitUserControl1;
         private UserControls.AllPatientUserControl allPatientUserControl1;
+        private UserControls.SearchUserControl searchUserControl1;
     }
 }

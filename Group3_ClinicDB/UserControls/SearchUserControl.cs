@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Group3_ClinicDB.UserControls
@@ -15,6 +8,16 @@ namespace Group3_ClinicDB.UserControls
         public SearchUserControl()
         {
             InitializeComponent();
+        }
+
+        private void SearchUserControlLoad(object sender, EventArgs e)
+        {
+            this.dobSearchRadioButton.Checked = true;
+            this.fnlnSearchRadioButton.Checked = false;
+            this.dobLastNameSearchRadioButton.Checked = false;
+
+            this.fnlnSearchButton.Enabled = false;
+            this.fnlnSearchButton.Enabled = false;
         }
     }
 }

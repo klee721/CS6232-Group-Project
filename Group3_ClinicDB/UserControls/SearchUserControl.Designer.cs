@@ -55,7 +55,6 @@ namespace Group3_ClinicDB.UserControls
             this.dobSearchRadioButton.Name = "dobSearchRadioButton";
             this.dobSearchRadioButton.Size = new System.Drawing.Size(102, 17);
             this.dobSearchRadioButton.TabIndex = 0;
-            this.dobSearchRadioButton.TabStop = true;
             this.dobSearchRadioButton.Text = "Search by DOB:";
             this.dobSearchRadioButton.UseVisualStyleBackColor = true;
             // 
@@ -221,6 +220,7 @@ namespace Group3_ClinicDB.UserControls
             this.Controls.Add(this.dobSearchRadioButton);
             this.Name = "SearchUserControl";
             this.Size = new System.Drawing.Size(1025, 133);
+            this.Load += new System.EventHandler(this.SearchUserControlLoad);
             this.ResumeLayout(false);
             this.PerformLayout();
 
