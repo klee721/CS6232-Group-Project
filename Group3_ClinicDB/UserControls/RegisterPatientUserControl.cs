@@ -26,19 +26,23 @@ namespace Group3_ClinicDB.UserControls
             this.patientController = new PatientController();
         }
 
-        private void RegisterPatientUserControlLoad(object sender, EventArgs e)
+        private void InitRegisterPatient()
         {
             this.genderComboBox.Items.Add("male");
             this.genderComboBox.Items.Add("female");
-            this.genderComboBox.SelectedIndex = 0; 
-            
-            this.dobDateTimePicker.Value = DateTime.Now.Date.AddDays(-2);
-            this.dobDateTimePicker.MaxDate = DateTime.Now.Date.AddDays(-1);
-            this.dobDateTimePicker.MinDate = DateTime.Now.Date.AddYears(-150);
-            
+
             this.stateComboBox.DataSource = this.stateController.GetStates();
             this.stateComboBox.DisplayMember = "stateCode";
-            this.stateComboBox.SelectedIndex = 0;
+
+            this.dobDateTimePicker.MaxDate = DateTime.Now.Date.AddDays(-1);
+            this.dobDateTimePicker.MinDate = DateTime.Now.Date.AddYears(-150);
+
+            this.Clear();
+        }
+
+        private void RegisterPatientUserControlLoad(object sender, EventArgs e)
+        {
+            this.InitRegisterPatient();
         }
 
         private void Validations()
@@ -159,7 +163,7 @@ namespace Group3_ClinicDB.UserControls
             this.Validations();
         }
 
-        private void ClearButtonClick(object sender, EventArgs e)
+        private void Clear()
         {
             this.firstNameTextBox.Text = "";
             this.lastNameTextBox.Text = "";
@@ -180,6 +184,11 @@ namespace Group3_ClinicDB.UserControls
             this.ResetCityError();
             this.ResetZipCodeError();
             this.ResetPhoneError();
+        }
+
+        private void ClearButtonClick(object sender, EventArgs e)
+        {
+            this.Clear();
         }
 
         private void LastNameTextBoxTextChanged(object sender, EventArgs e)
@@ -274,6 +283,11 @@ namespace Group3_ClinicDB.UserControls
             this.phoneNumberErrorLabel.Visible = false;
             this.phoneNumberErrorLabel.ForeColor = Color.Red;
             this.registrationSuccessMessage.Visible = false;
+        }
+
+        private void RegisterPatientUserControlVisibleChanged(object sender, EventArgs e)
+        {
+            this.InitRegisterPatient();
         }
     }
 }

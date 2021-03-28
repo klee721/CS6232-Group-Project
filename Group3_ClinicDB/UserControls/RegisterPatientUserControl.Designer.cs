@@ -420,6 +420,7 @@ namespace Group3_ClinicDB.UserControls
             this.Name = "RegisterPatientUserControl";
             this.Size = new System.Drawing.Size(1215, 615);
             this.Load += new System.EventHandler(this.RegisterPatientUserControlLoad);
+            this.VisibleChanged += new System.EventHandler(this.RegisterPatientUserControlVisibleChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 

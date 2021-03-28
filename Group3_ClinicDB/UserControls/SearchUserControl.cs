@@ -17,7 +17,7 @@ namespace Group3_ClinicDB.UserControls
             this.dobLastNameSearchRadioButton.Checked = false;
 
             this.fnlnSearchButton.Enabled = false;
-            this.fnlnSearchButton.Enabled = false;
+            this.doblnSearchButton.Enabled = false;
         }
     }
 }
