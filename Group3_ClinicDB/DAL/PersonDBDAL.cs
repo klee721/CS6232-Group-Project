@@ -1,6 +1,5 @@
 ﻿using Group3_ClinicDB.Model;
 using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
 
 namespace Group3_ClinicDB.DAL

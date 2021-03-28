@@ -1,10 +1,6 @@
 ﻿using Group3_ClinicDB.DAL;
 using Group3_ClinicDB.Model;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Group3_ClinicDB.Controller
 {

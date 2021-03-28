@@ -1,9 +1,7 @@
 ﻿using Group3_ClinicDB.DAL;
+using Group3_ClinicDB.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Group3_ClinicDB.Controller
 {
@@ -20,6 +18,15 @@ namespace Group3_ClinicDB.Controller
         public PatientController()
         {
             this.patientDBSource = new PatientDBDAL();
+        }
+
+        /// <summary>
+        /// Retrieves all patients from the DB
+        /// </summary>
+        /// <returns>Returns a list of all Patients from the DB</returns>
+        public List<Patient> GetAllPatients()
+        {
+            return this.patientDBSource.GetAllPatients();
         }
 
         /// <summary>

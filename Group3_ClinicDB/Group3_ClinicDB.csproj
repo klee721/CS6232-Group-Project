@@ -63,15 +63,16 @@
     <Compile Include="DAL\VisitsDAL.cs" />
     <Compile Include="Model\Appointment.cs" />
     <Compile Include="Model\Doctor.cs" />
+    <Compile Include="Model\Patient.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\State.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\Visits.cs" />
-    <Compile Include="UserControls\AllPatientUserContol.cs">
+    <Compile Include="UserControls\AllPatientUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\AllPatientUserContol.Designer.cs">
-      <DependentUpon>AllPatientUserContol.cs</DependentUpon>
+    <Compile Include="UserControls\AllPatientUserControl.Designer.cs">
+      <DependentUpon>AllPatientUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UpdateVisitUserControl.cs">
       <SubType>UserControl</SubType>
@@ -135,8 +136,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="UserControls\AllPatientUserContol.resx">
-      <DependentUpon>AllPatientUserContol.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\AllPatientUserControl.resx">
+      <DependentUpon>AllPatientUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UpdateVisitUserControl.resx">
       <DependentUpon>UpdateVisitUserControl.cs</DependentUpon>
