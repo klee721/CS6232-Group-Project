@@ -57,6 +57,7 @@ namespace Group3_ClinicDB.UserControls
             this.dobSearchRadioButton.TabIndex = 0;
             this.dobSearchRadioButton.Text = "Search by DOB:";
             this.dobSearchRadioButton.UseVisualStyleBackColor = true;
+            this.dobSearchRadioButton.CheckedChanged += new System.EventHandler(this.DobSearchRadioButtonCheckedChanged);
             // 
             // label1
             // 
@@ -78,6 +79,7 @@ namespace Group3_ClinicDB.UserControls
             this.fnlnSearchRadioButton.TabStop = true;
             this.fnlnSearchRadioButton.Text = "Search by First and Last Name:";
             this.fnlnSearchRadioButton.UseVisualStyleBackColor = true;
+            this.fnlnSearchRadioButton.CheckedChanged += new System.EventHandler(this.FnlnSearchRadioButtonCheckedChanged);
             // 
             // dobLastNameSearchRadioButton
             // 
@@ -89,6 +91,7 @@ namespace Group3_ClinicDB.UserControls
             this.dobLastNameSearchRadioButton.TabStop = true;
             this.dobLastNameSearchRadioButton.Text = "Search by DOB and Last Name:";
             this.dobLastNameSearchRadioButton.UseVisualStyleBackColor = true;
+            this.dobLastNameSearchRadioButton.CheckedChanged += new System.EventHandler(this.DobLastNameSearchRadioButtonCheckedChanged);
             // 
             // dobSearchLabel
             // 
@@ -221,6 +224,7 @@ namespace Group3_ClinicDB.UserControls
             this.Name = "SearchUserControl";
             this.Size = new System.Drawing.Size(1025, 133);
             this.Load += new System.EventHandler(this.SearchUserControlLoad);
+            this.VisibleChanged += new System.EventHandler(this.SearchUserControlVisibleChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 

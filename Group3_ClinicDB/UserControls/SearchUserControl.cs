@@ -13,11 +13,14 @@ namespace Group3_ClinicDB.UserControls
         private void InitSearches()
         {
             this.dobSearchRadioButton.Checked = true;
-            this.DisableFirstNameLastNameSearch(true);
-            this.DisableDobLastNameSearch(true);
         }
 
         private void SearchUserControlLoad(object sender, EventArgs e)
+        {
+            this.InitSearches();
+        }
+
+        private void SearchUserControlVisibleChanged(object sender, EventArgs e)
         {
             this.InitSearches();
         }
@@ -46,6 +49,8 @@ namespace Group3_ClinicDB.UserControls
                 this.firstNameFnlnSearchTextBox.ReadOnly = true;
                 this.lastNameFnlnSearchTextBox.ReadOnly = true;
                 this.fnlnSearchButton.Enabled = false;
+                this.firstNameFnlnSearchTextBox.Text = "";
+                this.lastNameFnlnSearchTextBox.Text = "";
             } else
             {
                 this.fnlnSearchRadioButton.Checked = true;
@@ -63,12 +68,54 @@ namespace Group3_ClinicDB.UserControls
                 this.dobDoblnSearchDateTimePicker.Enabled = false;
                 this.lastNameDoblnSearchTextBox.ReadOnly = true;
                 this.doblnSearchButton.Enabled = false;
+                this.lastNameDoblnSearchTextBox.Text = "";
             } else
             {
                 this.dobLastNameSearchRadioButton.Checked = true;
                 this.dobDoblnSearchDateTimePicker.Enabled = false;
                 this.lastNameDoblnSearchTextBox.ReadOnly = false;
                 this.doblnSearchButton.Enabled = true;
+            }
+        }
+
+        private void DobSearchRadioButtonCheckedChanged(object sender, EventArgs e)
+        {
+            if (this.dobSearchRadioButton.Checked)
+            {
+                this.DisableDobSearch(false);
+                this.DisableFirstNameLastNameSearch(true);
+                this.DisableDobLastNameSearch(true);
+            } else
+            {
+                this.DisableDobSearch(true);
+            }
+        }
+
+        private void FnlnSearchRadioButtonCheckedChanged(object sender, EventArgs e)
+        {
+            if (this.fnlnSearchRadioButton.Checked)
+            {
+                this.DisableDobSearch(true);
+                this.DisableFirstNameLastNameSearch(false);
+                this.DisableDobLastNameSearch(true);
+            }
+            else
+            {
+                this.DisableFirstNameLastNameSearch(true);
+            }
+        }
+
+        private void DobLastNameSearchRadioButtonCheckedChanged(object sender, EventArgs e)
+        {
+            if (this.dobLastNameSearchRadioButton.Checked)
+            {
+                this.DisableDobSearch(true);
+                this.DisableFirstNameLastNameSearch(true);
+                this.DisableDobLastNameSearch(false);
+            }
+            else
+            {
+                this.DisableDobLastNameSearch(true);
             }
         }
     }
