@@ -136,6 +136,7 @@ namespace Group3_ClinicDB.UserControls
             this.firstNameFnlnSearchTextBox.Name = "firstNameFnlnSearchTextBox";
             this.firstNameFnlnSearchTextBox.Size = new System.Drawing.Size(162, 20);
             this.firstNameFnlnSearchTextBox.TabIndex = 8;
+            this.firstNameFnlnSearchTextBox.TextChanged += new System.EventHandler(this.FirstNameFnlnSearchTextBoxTextChanged);
             // 
             // lastNameFnlnSearchLabel
             // 
@@ -152,6 +153,7 @@ namespace Group3_ClinicDB.UserControls
             this.lastNameFnlnSearchTextBox.Name = "lastNameFnlnSearchTextBox";
             this.lastNameFnlnSearchTextBox.Size = new System.Drawing.Size(161, 20);
             this.lastNameFnlnSearchTextBox.TabIndex = 10;
+            this.lastNameFnlnSearchTextBox.TextChanged += new System.EventHandler(this.LastNameFnlnSearchTextBoxTextChanged);
             // 
             // fnlnSearchButton
             // 
@@ -187,6 +189,7 @@ namespace Group3_ClinicDB.UserControls
             this.doblnSearchButton.TabIndex = 14;
             this.doblnSearchButton.Text = "Search";
             this.doblnSearchButton.UseVisualStyleBackColor = true;
+            this.doblnSearchButton.Click += new System.EventHandler(this.DoblnSearchButtonClick);
             // 
             // lastNameDoblnSearchLabel
             // 
@@ -203,6 +206,7 @@ namespace Group3_ClinicDB.UserControls
             this.lastNameDoblnSearchTextBox.Name = "lastNameDoblnSearchTextBox";
             this.lastNameDoblnSearchTextBox.Size = new System.Drawing.Size(200, 20);
             this.lastNameDoblnSearchTextBox.TabIndex = 16;
+            this.lastNameDoblnSearchTextBox.TextChanged += new System.EventHandler(this.LastNameDoblnSearchTextBoxTextChanged);
             // 
             // firstNameFnlnErrorLabel
             // 
@@ -212,6 +216,7 @@ namespace Group3_ClinicDB.UserControls
             this.firstNameFnlnErrorLabel.Size = new System.Drawing.Size(139, 13);
             this.firstNameFnlnErrorLabel.TabIndex = 17;
             this.firstNameFnlnErrorLabel.Text = "First Name cannot be empty";
+            this.firstNameFnlnErrorLabel.Visible = false;
             // 
             // lastNameFnlnErrorLabel
             // 
@@ -221,6 +226,7 @@ namespace Group3_ClinicDB.UserControls
             this.lastNameFnlnErrorLabel.Size = new System.Drawing.Size(140, 13);
             this.lastNameFnlnErrorLabel.TabIndex = 18;
             this.lastNameFnlnErrorLabel.Text = "Last Name cannot be empty";
+            this.lastNameFnlnErrorLabel.Visible = false;
             // 
             // lastNameDoblnErrorLabel
             // 
@@ -230,6 +236,7 @@ namespace Group3_ClinicDB.UserControls
             this.lastNameDoblnErrorLabel.Size = new System.Drawing.Size(140, 13);
             this.lastNameDoblnErrorLabel.TabIndex = 19;
             this.lastNameDoblnErrorLabel.Text = "Last Name cannot be empty";
+            this.lastNameDoblnErrorLabel.Visible = false;
             // 
             // SearchUserControl
             // 
@@ -256,7 +263,7 @@ namespace Group3_ClinicDB.UserControls
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dobSearchRadioButton);
             this.Name = "SearchUserControl";
-            this.Size = new System.Drawing.Size(1025, 164);
+            this.Size = new System.Drawing.Size(1025, 156);
             this.Load += new System.EventHandler(this.SearchUserControlLoad);
             this.VisibleChanged += new System.EventHandler(this.SearchUserControlVisibleChanged);
             this.ResumeLayout(false);

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Group3_ClinicDB.UserControls
@@ -123,14 +124,57 @@ namespace Group3_ClinicDB.UserControls
             }
         }
 
-        private void Validate()
+        private void HideFirstNameFnlnErrorLabel(bool hide)
+        {
+            if (hide)
+            {
+                this.firstNameFnlnErrorLabel.Visible = false;
+                this.firstNameFnlnErrorLabel.ForeColor = Color.Black;
+            } else
+            {
+                this.firstNameFnlnErrorLabel.Visible = true;
+                this.firstNameFnlnErrorLabel.ForeColor = Color.Red;
+            }
+        }
+
+        private void HideLastNameFnlnErrorLabel(bool hide)
+        {
+            if (hide)
+            {
+                this.lastNameFnlnErrorLabel.Visible = false;
+                this.lastNameFnlnErrorLabel.ForeColor = Color.Black;
+            } else
+            {
+                this.lastNameFnlnErrorLabel.Visible = true;
+                this.lastNameFnlnErrorLabel.ForeColor = Color.Red;
+            }
+        }
+
+        private void HideLastNameDoblbErrorLabel(bool hide)
+        {
+            if (hide)
+            {
+                this.lastNameDoblnErrorLabel.Visible = false;
+                this.lastNameDoblnErrorLabel.ForeColor = Color.Black;
+            }
+            else
+            {
+                this.lastNameDoblnErrorLabel.Visible = true;
+                this.lastNameDoblnErrorLabel.ForeColor = Color.Red;
+            }
+        }
+
+        private void ValidateFnln()
         {
             if (this.firstNameFnlnSearchTextBox.Text.Equals(""))
             {
-
-            }
-
-            if (this.lastNameFnlnSearchTextBox.Text.Equals(""))
+                this.HideFirstNameFnlnErrorLabel(false);
+            } 
+            else if (this.lastNameFnlnSearchTextBox.Text.Equals(""))
+            {
+                this.HideLastNameFnlnErrorLabel(false);
+            } 
+            else
             {
 
             }
@@ -138,7 +182,39 @@ namespace Group3_ClinicDB.UserControls
 
         private void FnlnSearchButtonClick(object sender, EventArgs e)
         {
+            this.ValidateFnln();
+        }
 
+        private void FirstNameFnlnSearchTextBoxTextChanged(object sender, EventArgs e)
+        {
+            this.HideFirstNameFnlnErrorLabel(true);
+        }
+
+        private void LastNameFnlnSearchTextBoxTextChanged(object sender, EventArgs e)
+        {
+            this.HideLastNameFnlnErrorLabel(true);
+        }
+
+        private void ValidateDobln()
+        {
+            if (this.lastNameDoblnSearchTextBox.Text.Equals(""))
+            {
+                this.HideLastNameDoblbErrorLabel(false);
+            }
+            else
+            {
+
+            }
+        }
+
+        private void DoblnSearchButtonClick(object sender, EventArgs e)
+        {
+            this.ValidateDobln();
+        }
+
+        private void LastNameDoblnSearchTextBoxTextChanged(object sender, EventArgs e)
+        {
+            this.HideLastNameDoblbErrorLabel(true);
         }
     }
 }
