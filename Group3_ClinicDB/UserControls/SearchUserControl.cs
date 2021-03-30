@@ -122,5 +122,23 @@ namespace Group3_ClinicDB.UserControls
                 this.DisableDobLastNameSearch(true);
             }
         }
+
+        private void Validate()
+        {
+            if (this.firstNameFnlnSearchTextBox.Text.Equals(""))
+            {
+
+            }
+
+            if (this.lastNameFnlnSearchTextBox.Text.Equals(""))
+            {
+
+            }
+        }
+
+        private void FnlnSearchButtonClick(object sender, EventArgs e)
+        {
+
+        }
     }
 }
