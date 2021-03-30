@@ -13,6 +13,10 @@ namespace Group3_ClinicDB.UserControls
         private void InitSearches()
         {
             this.dobSearchRadioButton.Checked = true;
+            this.dobSearchDateTimePicker.MaxDate = DateTime.Now.Date.AddDays(-1);
+            this.dobSearchDateTimePicker.MinDate = DateTime.Now.Date.AddYears(-150);
+            this.dobDoblnSearchDateTimePicker.MaxDate = DateTime.Now.Date.AddDays(-1);
+            this.dobDoblnSearchDateTimePicker.MinDate = DateTime.Now.Date.AddYears(-150);
         }
 
         private void SearchUserControlLoad(object sender, EventArgs e)
@@ -72,7 +76,7 @@ namespace Group3_ClinicDB.UserControls
             } else
             {
                 this.dobLastNameSearchRadioButton.Checked = true;
-                this.dobDoblnSearchDateTimePicker.Enabled = false;
+                this.dobDoblnSearchDateTimePicker.Enabled = true;
                 this.lastNameDoblnSearchTextBox.ReadOnly = false;
                 this.doblnSearchButton.Enabled = true;
             }
