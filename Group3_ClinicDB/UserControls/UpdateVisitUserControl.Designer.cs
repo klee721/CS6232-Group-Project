@@ -50,8 +50,8 @@ namespace Group3_ClinicDB.UserControls
             this.pulseTextBox = new System.Windows.Forms.TextBox();
             this.symptomsTextBox = new System.Windows.Forms.TextBox();
             this.weightTextBox = new System.Windows.Forms.TextBox();
-            this.submitButton = new System.Windows.Forms.Button();
-            this.cancelButton = new System.Windows.Forms.Button();
+            this.updateButton = new System.Windows.Forms.Button();
+            this.clearButton = new System.Windows.Forms.Button();
             this.confirmLabel = new System.Windows.Forms.Label();
             this.visitTextBox = new System.Windows.Forms.TextBox();
             this.getVisitButton = new System.Windows.Forms.Button();
@@ -107,7 +107,7 @@ namespace Group3_ClinicDB.UserControls
             // finalDiagnoseLabel
             // 
             finalDiagnoseLabel.AutoSize = true;
-            finalDiagnoseLabel.Location = new System.Drawing.Point(80, 532);
+            finalDiagnoseLabel.Location = new System.Drawing.Point(80, 560);
             finalDiagnoseLabel.Name = "finalDiagnoseLabel";
             finalDiagnoseLabel.Size = new System.Drawing.Size(114, 20);
             finalDiagnoseLabel.TabIndex = 9;
@@ -125,7 +125,7 @@ namespace Group3_ClinicDB.UserControls
             // initialDiagnoseLabel
             // 
             initialDiagnoseLabel.AutoSize = true;
-            initialDiagnoseLabel.Location = new System.Drawing.Point(80, 405);
+            initialDiagnoseLabel.Location = new System.Drawing.Point(80, 433);
             initialDiagnoseLabel.Name = "initialDiagnoseLabel";
             initialDiagnoseLabel.Size = new System.Drawing.Size(120, 20);
             initialDiagnoseLabel.TabIndex = 15;
@@ -134,7 +134,7 @@ namespace Group3_ClinicDB.UserControls
             // nurseIdLabel
             // 
             nurseIdLabel.AutoSize = true;
-            nurseIdLabel.Location = new System.Drawing.Point(80, 369);
+            nurseIdLabel.Location = new System.Drawing.Point(80, 337);
             nurseIdLabel.Name = "nurseIdLabel";
             nurseIdLabel.Size = new System.Drawing.Size(71, 20);
             nurseIdLabel.TabIndex = 17;
@@ -152,7 +152,7 @@ namespace Group3_ClinicDB.UserControls
             // symptomsLabel
             // 
             symptomsLabel.AutoSize = true;
-            symptomsLabel.Location = new System.Drawing.Point(80, 335);
+            symptomsLabel.Location = new System.Drawing.Point(80, 372);
             symptomsLabel.Name = "symptomsLabel";
             symptomsLabel.Size = new System.Drawing.Size(85, 20);
             symptomsLabel.TabIndex = 21;
@@ -193,7 +193,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             // finalDiagnoseTextBox
             // 
-            this.finalDiagnoseTextBox.Location = new System.Drawing.Point(273, 517);
+            this.finalDiagnoseTextBox.Location = new System.Drawing.Point(273, 545);
             this.finalDiagnoseTextBox.Multiline = true;
             this.finalDiagnoseTextBox.Name = "finalDiagnoseTextBox";
             this.finalDiagnoseTextBox.Size = new System.Drawing.Size(463, 93);
@@ -209,7 +209,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             // initialDiagnoseTextBox
             // 
-            this.initialDiagnoseTextBox.Location = new System.Drawing.Point(273, 402);
+            this.initialDiagnoseTextBox.Location = new System.Drawing.Point(273, 430);
             this.initialDiagnoseTextBox.Multiline = true;
             this.initialDiagnoseTextBox.Name = "initialDiagnoseTextBox";
             this.initialDiagnoseTextBox.ReadOnly = true;
@@ -218,7 +218,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             // nurseIdTextBox
             // 
-            this.nurseIdTextBox.Location = new System.Drawing.Point(273, 366);
+            this.nurseIdTextBox.Location = new System.Drawing.Point(273, 331);
             this.nurseIdTextBox.Name = "nurseIdTextBox";
             this.nurseIdTextBox.ReadOnly = true;
             this.nurseIdTextBox.Size = new System.Drawing.Size(112, 26);
@@ -234,10 +234,11 @@ namespace Group3_ClinicDB.UserControls
             // 
             // symptomsTextBox
             // 
-            this.symptomsTextBox.Location = new System.Drawing.Point(273, 331);
+            this.symptomsTextBox.Location = new System.Drawing.Point(273, 369);
+            this.symptomsTextBox.Multiline = true;
             this.symptomsTextBox.Name = "symptomsTextBox";
             this.symptomsTextBox.ReadOnly = true;
-            this.symptomsTextBox.Size = new System.Drawing.Size(112, 26);
+            this.symptomsTextBox.Size = new System.Drawing.Size(463, 55);
             this.symptomsTextBox.TabIndex = 22;
             // 
             // weightTextBox
@@ -248,24 +249,25 @@ namespace Group3_ClinicDB.UserControls
             this.weightTextBox.Size = new System.Drawing.Size(112, 26);
             this.weightTextBox.TabIndex = 24;
             // 
-            // submitButton
+            // updateButton
             // 
-            this.submitButton.Location = new System.Drawing.Point(117, 692);
-            this.submitButton.Name = "submitButton";
-            this.submitButton.Size = new System.Drawing.Size(84, 29);
-            this.submitButton.TabIndex = 25;
-            this.submitButton.Text = "Submit";
-            this.submitButton.UseVisualStyleBackColor = true;
-            this.submitButton.Click += new System.EventHandler(this.AddButton_Click);
+            this.updateButton.Location = new System.Drawing.Point(117, 656);
+            this.updateButton.Name = "updateButton";
+            this.updateButton.Size = new System.Drawing.Size(84, 29);
+            this.updateButton.TabIndex = 25;
+            this.updateButton.Text = "Update";
+            this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             // 
-            // cancelButton
+            // clearButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(300, 692);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(84, 29);
-            this.cancelButton.TabIndex = 26;
-            this.cancelButton.Text = "Cancel";
-            this.cancelButton.UseVisualStyleBackColor = true;
+            this.clearButton.Location = new System.Drawing.Point(300, 656);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(84, 29);
+            this.clearButton.TabIndex = 26;
+            this.clearButton.Text = "Clear";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
             // confirmLabel
             // 
@@ -299,8 +301,8 @@ namespace Group3_ClinicDB.UserControls
             this.Controls.Add(this.getVisitButton);
             this.Controls.Add(this.visitTextBox);
             this.Controls.Add(this.confirmLabel);
-            this.Controls.Add(this.cancelButton);
-            this.Controls.Add(this.submitButton);
+            this.Controls.Add(this.clearButton);
+            this.Controls.Add(this.updateButton);
             this.Controls.Add(visitLabel);
             this.Controls.Add(bloodPressureDiastolicLabel);
             this.Controls.Add(this.bloodPressureDiastolicTextBox);
@@ -323,7 +325,7 @@ namespace Group3_ClinicDB.UserControls
             this.Controls.Add(weightLabel);
             this.Controls.Add(this.weightTextBox);
             this.Name = "UpdateVisitUserControl";
-            this.Size = new System.Drawing.Size(1041, 742);
+            this.Size = new System.Drawing.Size(836, 698);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -340,8 +342,8 @@ namespace Group3_ClinicDB.UserControls
         private System.Windows.Forms.TextBox pulseTextBox;
         private System.Windows.Forms.TextBox symptomsTextBox;
         private System.Windows.Forms.TextBox weightTextBox;
-        private System.Windows.Forms.Button submitButton;
-        private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.Button updateButton;
+        private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.Label confirmLabel;
         private System.Windows.Forms.TextBox visitTextBox;
         private System.Windows.Forms.Button getVisitButton;

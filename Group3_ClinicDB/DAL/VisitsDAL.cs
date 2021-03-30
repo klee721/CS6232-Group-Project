@@ -371,5 +371,84 @@ namespace Group3_ClinicDB.DAL
             }
 
         }
+
+        /// <summary>
+        ///Method to update Visit 
+        ///
+        /// </summary>
+        /// <returns>none</returns>
+
+        public bool UpdateVisit(Visits oldVisit, Visits newVisit)
+        {
+            string updateStatement = "";
+            
+            updateStatement = "Update Visits set finalDiagnose = @NewFinalDiagnose, initialDiagnose = @NewInitialDiagnose " +
+             "where ID = @OldVisitID and finalDiagnose = @OldFinalDiagnose and initialDiagnose = @OldInitialDiagnose";
+
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(updateStatement, connection))
+                {
+                    if (newVisit.initialDiagnose == "")
+                    {
+                        selectCommand.Parameters.AddWithValue("@NewInitialDiagnose", DBNull.Value);
+                    }
+                    else
+                    {
+                        selectCommand.Parameters.AddWithValue("@NewInitialDiagnose", newVisit.initialDiagnose);
+                    }
+
+                    if (newVisit.finalDiagnose == "")
+                    {
+                        selectCommand.Parameters.AddWithValue("@NewFinalDiagnose", DBNull.Value);
+                    }
+                    else
+                    {
+                        selectCommand.Parameters.AddWithValue("@NewFinalDiagnose", newVisit.finalDiagnose);
+                    }
+
+                    if (oldVisit.finalDiagnose == "")
+                    {
+                        selectCommand.Parameters.AddWithValue("@OldFinalDiagnose", DBNull.Value);
+                    }
+                    else
+                    {
+                        selectCommand.Parameters.AddWithValue("@OldFinalDiagnose", oldVisit.finalDiagnose);
+                    }
+
+                    if (oldVisit.initialDiagnose == "")
+                    {
+                        selectCommand.Parameters.AddWithValue("@OldInitialDiagnose", DBNull.Value);
+                    }
+                    else
+                    {
+                        selectCommand.Parameters.AddWithValue("@OldInitialDiagnose", oldVisit.initialDiagnose);
+                    }
+
+                    
+                    selectCommand.Parameters.AddWithValue("@OldVisitID", oldVisit.Id);
+                    
+                    int count = selectCommand.ExecuteNonQuery();
+                    if (count > 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
+
+                }
+
+
+
+            }
+
+        }
     }
 }

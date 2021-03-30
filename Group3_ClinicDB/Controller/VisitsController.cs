@@ -67,5 +67,26 @@ namespace Group3_ClinicDB.Controller
 
         }
 
+        /// <summary>
+        /// Add method to add the visit to the database
+        /// </summary>
+
+        public bool UpdateVisit(Visits oldVisit, Visits newVisit)
+        {
+
+            if (oldVisit == null)
+            {
+                throw new ArgumentNullException("Old visit cannot be null");
+            }
+
+            if (newVisit == null)
+            {
+                throw new ArgumentNullException("New visit cannot be null");
+            }
+
+            return this.visitsSource.UpdateVisit(oldVisit, newVisit);
+
+        }
+
     }
 }

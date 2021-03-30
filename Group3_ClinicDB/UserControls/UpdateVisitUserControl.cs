@@ -27,7 +27,7 @@ namespace Group3_ClinicDB.UserControls
         }
 
         
-        private void AddButton_Click(object sender, EventArgs e)
+        private void UpdateButton_Click(object sender, EventArgs e)
         {
            // var appointment_id = this.appointment_idComboBox.SelectedValue;
             var nurseId = 1;
@@ -173,5 +173,26 @@ namespace Group3_ClinicDB.UserControls
             }
         }
 
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            this.visit = new Visits();
+            this.weightTextBox.Text = "";
+            this.heightTextBox.Text = "";
+            this.bodyTemparatureTextBox.Text = "";
+            this.pulseTextBox.Text = "";
+            this.symptomsTextBox.Text = "";
+            this.nurseIdTextBox.Text = "";
+            this.bloodPressureSystolicTextBox.Text = "";
+            this.bloodPressureDiastolicTextBox.Text = "";
+            this.initialDiagnoseTextBox.Text = "";
+            this.finalDiagnoseTextBox.Text = "";
+            this.visitTextBox.Text = "";
+            this.updateButton.Enabled = false;
+            this.clearButton.Enabled = false;
+            this.getVisitButton.Enabled = true;
+            this.visitTextBox.Enabled = true;
+
+
+        }
     }
 }
