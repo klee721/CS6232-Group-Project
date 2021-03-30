@@ -251,7 +251,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             // updateButton
             // 
-            this.updateButton.Location = new System.Drawing.Point(117, 656);
+            this.updateButton.Location = new System.Drawing.Point(117, 670);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(84, 29);
             this.updateButton.TabIndex = 25;
@@ -261,7 +261,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(300, 656);
+            this.clearButton.Location = new System.Drawing.Point(300, 670);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(84, 29);
             this.clearButton.TabIndex = 26;

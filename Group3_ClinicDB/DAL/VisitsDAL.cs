@@ -382,8 +382,16 @@ namespace Group3_ClinicDB.DAL
         {
             string updateStatement = "";
             
-            updateStatement = "Update Visits set finalDiagnose = @NewFinalDiagnose, initialDiagnose = @NewInitialDiagnose " +
-             "where ID = @OldVisitID and finalDiagnose = @OldFinalDiagnose and initialDiagnose = @OldInitialDiagnose";
+            if (String.IsNullOrEmpty(oldVisit.finalDiagnose))
+            {
+                updateStatement = "Update Visits set finalDiagnose = @NewFinalDiagnose " +
+             "where ID = @OldVisitID and finalDiagnose is null";
+            } else
+            {
+                updateStatement = "Update Visits set finalDiagnose = @NewFinalDiagnose " +
+             "where ID = @OldVisitID and ISNULL(finalDiagnose,'') = @OldFinalDiagnose";
+
+            }
 
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
@@ -393,14 +401,7 @@ namespace Group3_ClinicDB.DAL
 
                 using (SqlCommand selectCommand = new SqlCommand(updateStatement, connection))
                 {
-                    if (newVisit.initialDiagnose == "")
-                    {
-                        selectCommand.Parameters.AddWithValue("@NewInitialDiagnose", DBNull.Value);
-                    }
-                    else
-                    {
-                        selectCommand.Parameters.AddWithValue("@NewInitialDiagnose", newVisit.initialDiagnose);
-                    }
+                    
 
                     if (newVisit.finalDiagnose == "")
                     {
@@ -420,15 +421,7 @@ namespace Group3_ClinicDB.DAL
                         selectCommand.Parameters.AddWithValue("@OldFinalDiagnose", oldVisit.finalDiagnose);
                     }
 
-                    if (oldVisit.initialDiagnose == "")
-                    {
-                        selectCommand.Parameters.AddWithValue("@OldInitialDiagnose", DBNull.Value);
-                    }
-                    else
-                    {
-                        selectCommand.Parameters.AddWithValue("@OldInitialDiagnose", oldVisit.initialDiagnose);
-                    }
-
+                    
                     
                     selectCommand.Parameters.AddWithValue("@OldVisitID", oldVisit.Id);
                     
