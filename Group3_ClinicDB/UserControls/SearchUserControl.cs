@@ -43,6 +43,15 @@ namespace Group3_ClinicDB.UserControls
             this.InitSearches();
         }
 
+        /// <summary>
+        /// Retireves the patient object from the search specified
+        /// </summary>
+        /// <returns>patient object from the search specified</returns>
+        public Patient GetPatient()
+        {
+            return patient;
+        }
+
         private void DisableDobSearch(bool disable)
         {
             if (disable)
@@ -177,17 +186,93 @@ namespace Group3_ClinicDB.UserControls
             }
         }
 
-        private Patient GetPatient()
+        private void HideSearchDobErrorLabel(bool hide, bool successful)
         {
-            return patient;
+            if (hide)
+            {
+                this.searchDobErrorLabel.Text = "";
+                this.searchDobErrorLabel.Visible = false;
+                this.searchDobErrorLabel.ForeColor = Color.Black;
+            }
+            else if (!hide && successful)
+            {
+                this.searchDobErrorLabel.Text = "Search Successful!";
+                this.searchDobErrorLabel.Visible = true;
+                this.searchDobErrorLabel.ForeColor = Color.Black;
+            }
+            else
+            {
+                this.searchDobErrorLabel.Text = "No Patient Found";
+                this.searchDobErrorLabel.Visible = true;
+                this.searchDobErrorLabel.ForeColor = Color.Red;
+            }
+        }
+
+        private void HideSearchFnlnErrorLabel(bool hide, bool successful)
+        {
+            if (hide)
+            {
+                this.searchFnlnErrorLabel.Text = "";
+                this.searchFnlnErrorLabel.Visible = false;
+                this.searchFnlnErrorLabel.ForeColor = Color.Black;
+            }
+            else if (!hide && successful)
+            {
+                this.searchFnlnErrorLabel.Text = "Search Successful!";
+                this.searchFnlnErrorLabel.Visible = true;
+                this.searchFnlnErrorLabel.ForeColor = Color.Black;
+            }
+            else
+            {
+                this.searchFnlnErrorLabel.Text = "No Patient Found";
+                this.searchFnlnErrorLabel.Visible = true;
+                this.searchFnlnErrorLabel.ForeColor = Color.Red;
+            }
+        }
+
+        private void HideSearchDoblnErrorLabel(bool hide, bool successful)
+        {
+            if (hide && !successful)
+            {
+                this.searchDoblnErrorLabel.Text = "";
+                this.searchDoblnErrorLabel.Visible = false;
+                this.searchDoblnErrorLabel.ForeColor = Color.Black;
+            }
+            else if (!hide && successful)
+            {
+                this.searchDoblnErrorLabel.Text = "Search Successful!";
+                this.searchDoblnErrorLabel.Visible = true;
+                this.searchDoblnErrorLabel.ForeColor = Color.Black;
+            }
+            else
+            {
+                this.searchDoblnErrorLabel.Text = "No Patient Found";
+                this.searchDoblnErrorLabel.Visible = true;
+                this.searchDoblnErrorLabel.ForeColor = Color.Red;
+            }
         }
 
         private void DobSearchButtonClick(object sender, EventArgs e)
         {
             this.patient = this.patientController.GetPatientByDob(this.dobSearchDateTimePicker.Value);
-            this.GetPatient();
-            //if not search returns show error message
-            //if search returns show confirmation message
+            
+            if (this.patient == null)
+            {
+                if (MessageBox.Show("No Patients match the given information.",
+                    "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                {
+                    this.HideSearchDobErrorLabel(false, false);
+                }
+            } 
+            else
+            {
+                this.HideSearchDobErrorLabel(false, true);
+            }
+        }
+
+        private void DobSearchDateTimePickerValueChanged(object sender, EventArgs e)
+        {
+            this.HideSearchDobErrorLabel(true, false);
         }
 
         private void ValidateFnln()
@@ -214,11 +299,13 @@ namespace Group3_ClinicDB.UserControls
         private void FirstNameFnlnSearchTextBoxTextChanged(object sender, EventArgs e)
         {
             this.HideFirstNameFnlnErrorLabel(true);
+            this.HideSearchFnlnErrorLabel(true, false);
         }
 
         private void LastNameFnlnSearchTextBoxTextChanged(object sender, EventArgs e)
         {
             this.HideLastNameFnlnErrorLabel(true);
+            this.HideSearchFnlnErrorLabel(true, false);
         }
 
         private void ValidateDobln()
@@ -241,7 +328,7 @@ namespace Group3_ClinicDB.UserControls
         private void LastNameDoblnSearchTextBoxTextChanged(object sender, EventArgs e)
         {
             this.HideLastNameDoblnErrorLabel(true);
+            this.HideSearchDoblnErrorLabel(true, false);
         }
-
     }
 }
