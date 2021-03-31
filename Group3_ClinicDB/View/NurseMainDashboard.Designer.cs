@@ -52,6 +52,7 @@ namespace Group3_ClinicDB.View
             this.SelectedPatientLabel = new System.Windows.Forms.Label();
             this.SelectedPatientTextBox = new System.Windows.Forms.TextBox();
             this.LogoutLink = new System.Windows.Forms.LinkLabel();
+            this.editPatientTab = new System.Windows.Forms.TabPage();
             this.DashboardTabControl.SuspendLayout();
             this.registerPatientTab.SuspendLayout();
             this.allPatientsTab.SuspendLayout();
@@ -66,6 +67,7 @@ namespace Group3_ClinicDB.View
             // 
             this.DashboardTabControl.Controls.Add(this.registerPatientTab);
             this.DashboardTabControl.Controls.Add(this.allPatientsTab);
+            this.DashboardTabControl.Controls.Add(this.editPatientTab);
             this.DashboardTabControl.Controls.Add(this.ScheduleApptTab);
             this.DashboardTabControl.Controls.Add(this.EditApptTab);
             this.DashboardTabControl.Controls.Add(this.visitsTabPage);
@@ -290,6 +292,15 @@ namespace Group3_ClinicDB.View
             this.LogoutLink.TabStop = true;
             this.LogoutLink.Text = "Logout";
             // 
+            // editPatientTab
+            // 
+            this.editPatientTab.Location = new System.Drawing.Point(4, 22);
+            this.editPatientTab.Name = "editPatientTab";
+            this.editPatientTab.Size = new System.Drawing.Size(1215, 615);
+            this.editPatientTab.TabIndex = 7;
+            this.editPatientTab.Text = "Edit Patient";
+            this.editPatientTab.UseVisualStyleBackColor = true;
+            // 
             // NurseMainDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -344,5 +355,6 @@ namespace Group3_ClinicDB.View
         private UserControls.UpdateVisitUserControl updateVisitUserControl1;
         private UserControls.AllPatientUserControl allPatientUserControl1;
         private UserControls.SearchUserControl searchUserControl1;
+        private System.Windows.Forms.TabPage editPatientTab;
     }
 }
