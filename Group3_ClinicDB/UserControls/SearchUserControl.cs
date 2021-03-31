@@ -329,7 +329,7 @@ namespace Group3_ClinicDB.UserControls
             }
             else
             {
-                //this.patient = this.patientController.GetPatientByDobln(this.dobDoblnSearchDateTimePicker.Value, this.lastNameDoblnSearchTextBox);
+                this.patient = this.patientController.GetPatientByDobln(this.dobDoblnSearchDateTimePicker.Value, this.lastNameDoblnSearchTextBox.Text);
 
                 if (this.patient == null)
                 {

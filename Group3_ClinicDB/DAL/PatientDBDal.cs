@@ -131,6 +131,48 @@ namespace Group3_ClinicDB.DAL
         }
 
         /// <summary>
+        /// Retrieves the patient with the date of birth and last name specified
+        /// </summary>
+        /// <param name="dateOfBirth">The date of birth for the patient</param>
+        /// <param name="lastName">The last name for the patient</param>
+        /// <returns>The patient with the date of birth and last name specified</returns>
+        public Patient GetPatientByDobln(DateTime dateOfBirth, string lastName)
+        {
+            Patient patient = null;
+
+            string selectStatement = "SELECT Patients.id, Patients.persons_id, Persons.firstName, " +
+                                        "Persons.lastName, Persons.dateOfBirth, Persons.gender, " +
+                                        "Persons.SSN, Persons.Address1, ISNULL(Persons.Address2,'') as Address2, Persons.city, " +
+                                        "Persons.state, Persons.zipcode, Persons.phoneNumber " +
+                                        "FROM Patients " +
+                                        "JOIN Persons ON Patients.persons_id = Persons.id " +
+                                        "WHERE Persons.dateOfBirth = @dateOfBirth AND Persons.lastName = @lastName";
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@dateOfBirth", dateOfBirth.ToShortDateString());
+                    selectCommand.Parameters.AddWithValue("@lastName", lastName);
+
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            patient = new Patient((int)reader["id"], (int)reader["persons_id"], reader["firstName"].ToString(),
+                                                        reader["lastName"].ToString(), (DateTime)reader["dateOfBirth"], reader["gender"].ToString(),
+                                                        reader["SSN"].ToString(), reader["Address1"].ToString(), reader["Address2"].ToString(),
+                                                        reader["city"].ToString(), reader["state"].ToString(), reader["zipcode"].ToString(), reader["phoneNumber"].ToString());
+                        }
+                    }
+                }
+            }
+            return patient;
+        }
+
+        /// <summary>
         /// Adds a Patient to the table based on the Id
         /// </summary>
         /// <param name="personId"></param>

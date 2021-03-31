@@ -66,6 +66,27 @@ namespace Group3_ClinicDB.Controller
         }
 
         /// <summary>
+        /// Retrieves the patient with the date of birth and last name specified
+        /// </summary>
+        /// <param name="dateOfBirth">The date of birth for the patient</param>
+        /// <param name="lastName">The last name for the patient</param>
+        /// <returns>The patient with the date of birth and last name specified</returns>
+        public Patient GetPatientByDobln(DateTime dateOfBirth, string lastName)
+        {
+            if (dateOfBirth == null)
+            {
+                throw new Exception("Date of birth cannot be null");
+            }
+
+            if (lastName.Length == 0)
+            {
+                throw new Exception("Last Name cannot be null");
+            }
+
+            return this.patientDBSource.GetPatientByDobln(dateOfBirth, lastName);
+        }
+
+        /// <summary>
         /// Adds a Patient to the table based on the Id
         /// </summary>
         /// <param name="personId"></param>
