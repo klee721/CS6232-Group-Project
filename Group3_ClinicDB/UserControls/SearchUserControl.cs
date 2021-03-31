@@ -287,7 +287,7 @@ namespace Group3_ClinicDB.UserControls
             } 
             else
             {
-                this.patient = this.patientController.GetPatientByFnln(this.firstNameFnlnSearchTextBox, this.lastNameDoblnSearchTextBox);
+                this.patient = this.patientController.GetPatientByFnln(this.firstNameFnlnSearchTextBox.Text, this.lastNameFnlnSearchTextBox.Text);
 
                 if (this.patient == null)
                 {

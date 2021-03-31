@@ -30,7 +30,7 @@ namespace Group3_ClinicDB.Controller
         }
 
         /// <summary>
-        /// Retrieves the patient id with the date of birth specified
+        /// Retrieves the patient with the date of birth specified
         /// </summary>
         /// <param name="dateOfBirth">The date of birth for the patient</param>
         /// <returns>The patient with the date of birth specified</returns>
@@ -42,6 +42,27 @@ namespace Group3_ClinicDB.Controller
             }
 
             return this.patientDBSource.GetPatientByDob(dateOfBirth);
+        }
+
+        /// <summary>
+        /// Retrieves the patient with the first and last name specified
+        /// </summary>
+        /// <param name="firstName">The first name for the patient</param>
+        /// <param name="lastName">The last name for the patient</param>
+        /// <returns>The patient with the first and last name specified</returns>
+        public Patient GetPatientByFnln(string firstName, string lastName)
+        {
+            if (firstName.Length == 0)
+            {
+                throw new Exception("First Name cannot be null");
+            }
+
+            if (lastName.Length == 0)
+            {
+                throw new Exception("Last Name cannot be null");
+            }
+
+            return this.patientDBSource.GetPatientByFnln(firstName, lastName);
         }
 
         /// <summary>
