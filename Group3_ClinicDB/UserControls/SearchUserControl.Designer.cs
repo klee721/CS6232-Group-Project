@@ -120,6 +120,7 @@ namespace Group3_ClinicDB.UserControls
             this.dobSearchButton.TabIndex = 6;
             this.dobSearchButton.Text = "Search";
             this.dobSearchButton.UseVisualStyleBackColor = true;
+            this.dobSearchButton.Click += new System.EventHandler(this.DobSearchButtonClick);
             // 
             // firstNameFnlnSearchLabel
             // 

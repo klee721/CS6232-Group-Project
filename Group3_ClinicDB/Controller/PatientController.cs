@@ -30,6 +30,21 @@ namespace Group3_ClinicDB.Controller
         }
 
         /// <summary>
+        /// Retrieves the patient id with the date of birth specified
+        /// </summary>
+        /// <param name="dateOfBirth">The date of birth for the patient</param>
+        /// <returns>The patient with the date of birth specified</returns>
+        public Patient GetPatientByDob(DateTime dateOfBirth)
+        {
+            if (dateOfBirth == null)
+            {
+                throw new Exception("Date of birth cannot be null");
+            }
+
+            return this.patientDBSource.GetPatientByDob(dateOfBirth);
+        }
+
+        /// <summary>
         /// Adds a Patient to the table based on the Id
         /// </summary>
         /// <param name="personId"></param>

@@ -1,14 +1,27 @@
-﻿using System;
+﻿using Group3_ClinicDB.Controller;
+using Group3_ClinicDB.Model;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
 namespace Group3_ClinicDB.UserControls
 {
+    /// <summary>
+    /// UserControl whose purpose is to search for patients in the DB
+    /// </summary>
     public partial class SearchUserControl : UserControl
     {
+        private readonly PatientController patientController;
+        private Patient patient;
+
+        /// <summary>
+        /// Loads the UserControl
+        /// </summary>
         public SearchUserControl()
         {
             InitializeComponent();
+            this.patientController = new PatientController();
+            this.patient = null;
         }
 
         private void InitSearches()
@@ -150,7 +163,7 @@ namespace Group3_ClinicDB.UserControls
             }
         }
 
-        private void HideLastNameDoblbErrorLabel(bool hide)
+        private void HideLastNameDoblnErrorLabel(bool hide)
         {
             if (hide)
             {
@@ -162,6 +175,19 @@ namespace Group3_ClinicDB.UserControls
                 this.lastNameDoblnErrorLabel.Visible = true;
                 this.lastNameDoblnErrorLabel.ForeColor = Color.Red;
             }
+        }
+
+        private Patient GetPatient()
+        {
+            return patient;
+        }
+
+        private void DobSearchButtonClick(object sender, EventArgs e)
+        {
+            this.patient = this.patientController.GetPatientByDob(this.dobSearchDateTimePicker.Value);
+            this.GetPatient();
+            //if not search returns show error message
+            //if search returns show confirmation message
         }
 
         private void ValidateFnln()
@@ -176,7 +202,7 @@ namespace Group3_ClinicDB.UserControls
             } 
             else
             {
-
+                //this.patientController.GetPatientByFnln();
             }
         }
 
@@ -199,11 +225,11 @@ namespace Group3_ClinicDB.UserControls
         {
             if (this.lastNameDoblnSearchTextBox.Text.Equals(""))
             {
-                this.HideLastNameDoblbErrorLabel(false);
+                this.HideLastNameDoblnErrorLabel(false);
             }
             else
             {
-
+                //this.patientController.GetPatientByDobln();
             }
         }
 
@@ -214,7 +240,8 @@ namespace Group3_ClinicDB.UserControls
 
         private void LastNameDoblnSearchTextBoxTextChanged(object sender, EventArgs e)
         {
-            this.HideLastNameDoblbErrorLabel(true);
+            this.HideLastNameDoblnErrorLabel(true);
         }
+
     }
 }
