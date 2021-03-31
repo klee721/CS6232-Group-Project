@@ -258,7 +258,7 @@ namespace Group3_ClinicDB.UserControls
             
             if (this.patient == null)
             {
-                if (MessageBox.Show("No Patients match the given information.",
+                if (MessageBox.Show("No Patients match the date of birth.",
                     "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                 {
                     this.HideSearchDobErrorLabel(false, false);
@@ -287,7 +287,20 @@ namespace Group3_ClinicDB.UserControls
             } 
             else
             {
-                //this.patientController.GetPatientByFnln();
+                this.patient = this.patientController.GetPatientByFnln(this.firstNameFnlnSearchTextBox, this.lastNameDoblnSearchTextBox);
+
+                if (this.patient == null)
+                {
+                    if (MessageBox.Show("No Patients match the first and last name.",
+                        "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                    {
+                        this.HideSearchFnlnErrorLabel(false, false);
+                    }
+                }
+                else
+                {
+                    this.HideSearchFnlnErrorLabel(false, true);
+                }
             }
         }
 
@@ -316,7 +329,20 @@ namespace Group3_ClinicDB.UserControls
             }
             else
             {
-                //this.patientController.GetPatientByDobln();
+                //this.patient = this.patientController.GetPatientByDobln(this.dobDoblnSearchDateTimePicker.Value, this.lastNameDoblnSearchTextBox);
+
+                if (this.patient == null)
+                {
+                    if (MessageBox.Show("No Patients match the date of birth and last name.",
+                        "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                    {
+                        this.HideSearchDoblnErrorLabel(false, false);
+                    }
+                }
+                else
+                {
+                    this.HideSearchDoblnErrorLabel(false, true);
+                }
             }
         }
 
