@@ -193,10 +193,10 @@ namespace Group3_ClinicDB.UserControls
             // 
             // finalDiagnoseTextBox
             // 
-            this.finalDiagnoseTextBox.Location = new System.Drawing.Point(273, 545);
+            this.finalDiagnoseTextBox.Location = new System.Drawing.Point(272, 526);
             this.finalDiagnoseTextBox.Multiline = true;
             this.finalDiagnoseTextBox.Name = "finalDiagnoseTextBox";
-            this.finalDiagnoseTextBox.Size = new System.Drawing.Size(463, 93);
+            this.finalDiagnoseTextBox.Size = new System.Drawing.Size(463, 83);
             this.finalDiagnoseTextBox.TabIndex = 10;
             // 
             // heightTextBox
@@ -213,7 +213,7 @@ namespace Group3_ClinicDB.UserControls
             this.initialDiagnoseTextBox.Multiline = true;
             this.initialDiagnoseTextBox.Name = "initialDiagnoseTextBox";
             this.initialDiagnoseTextBox.ReadOnly = true;
-            this.initialDiagnoseTextBox.Size = new System.Drawing.Size(463, 107);
+            this.initialDiagnoseTextBox.Size = new System.Drawing.Size(463, 90);
             this.initialDiagnoseTextBox.TabIndex = 16;
             // 
             // nurseIdTextBox
@@ -251,9 +251,9 @@ namespace Group3_ClinicDB.UserControls
             // 
             // updateButton
             // 
-            this.updateButton.Location = new System.Drawing.Point(117, 670);
+            this.updateButton.Location = new System.Drawing.Point(117, 663);
             this.updateButton.Name = "updateButton";
-            this.updateButton.Size = new System.Drawing.Size(84, 29);
+            this.updateButton.Size = new System.Drawing.Size(83, 36);
             this.updateButton.TabIndex = 25;
             this.updateButton.Text = "Update";
             this.updateButton.UseVisualStyleBackColor = true;
@@ -261,9 +261,9 @@ namespace Group3_ClinicDB.UserControls
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(300, 670);
+            this.clearButton.Location = new System.Drawing.Point(300, 663);
             this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(84, 29);
+            this.clearButton.Size = new System.Drawing.Size(85, 36);
             this.clearButton.TabIndex = 26;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = true;
@@ -272,7 +272,7 @@ namespace Group3_ClinicDB.UserControls
             // confirmLabel
             // 
             this.confirmLabel.AutoSize = true;
-            this.confirmLabel.Location = new System.Drawing.Point(141, 640);
+            this.confirmLabel.Location = new System.Drawing.Point(141, 630);
             this.confirmLabel.Name = "confirmLabel";
             this.confirmLabel.Size = new System.Drawing.Size(0, 20);
             this.confirmLabel.TabIndex = 29;
