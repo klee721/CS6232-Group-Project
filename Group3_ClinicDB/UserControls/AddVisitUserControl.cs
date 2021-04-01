@@ -18,11 +18,16 @@ namespace Group3_ClinicDB.UserControls
         private readonly VisitsController visitController;
         private readonly AppointmentController appointmentController;
 
+        private readonly NurseController nurseController;
+
+        private List<Nurse> nurses;
+
         public AddVisitUserControl()
         {
             InitializeComponent();
             this.visitController = new VisitsController();
             this.appointmentController = new AppointmentController();
+            this.nurseController = new NurseController();
         }
 
         private void RefreshAppointments()
@@ -62,10 +67,47 @@ namespace Group3_ClinicDB.UserControls
             }
         }
 
+        private void RefreshNurses()
+        {
+            nurseComboBox.Items.Clear();
+            List<Nurse> nurses;
+
+
+            try
+            {
+                //instead of using the following line of code, which couples the 
+                //DAL with the view, we ask the controller to get the data for us 
+                //so that the view does not have to know where the data comes from
+                //(the line after the commented line)
+
+                nurses = this.nurseController.GetAllNurses();
+                nurseComboBox.Refresh();
+                if (nurses.Count > 0)
+                {
+
+                    nurseComboBox.DisplayMember = "FirstName";
+                    nurseComboBox.ValueMember = "NurseID";
+                    nurseComboBox.DataSource = nurses;
+
+                }
+                else
+                {
+                    MessageBox.Show("No Nurses.");
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+
+            }
+        }
+
         private void AddButton_Click(object sender, EventArgs e)
         {
             var appointment_id = this.appointment_idComboBox.SelectedValue;
-            var nurseId = 1;
+            var nurseId = this.nurseComboBox.SelectedValue;
 
             if (string.IsNullOrEmpty(this.weightTextBox.Text.ToString()))
             {
@@ -127,7 +169,7 @@ namespace Group3_ClinicDB.UserControls
                 visit.finalDiagnose = finalDiagnose;
                 visit.height = height;
                 visit.initialDiagnose = initialDiagnose;
-                visit.nurseId = nurseId;
+                visit.nurseId = (int)nurseId;
                 visit.pulse = pulse;
                 visit.symptoms = symptoms;
                 visit.weight = weight;
@@ -157,6 +199,12 @@ namespace Group3_ClinicDB.UserControls
         private void AddVisitUserControl_Load(object sender, EventArgs e)
         {
             this.RefreshAppointments();
+            this.RefreshNurses();
+
+
         }
+
+        
+      
     }
 }
