@@ -56,6 +56,11 @@ namespace Group3_ClinicDB.UserControls
             this.InitRegisterPatient();
         }
 
+        private void RegisterPatientUserControlVisibleChanged(object sender, EventArgs e)
+        {
+            this.InitRegisterPatient();
+        }
+
         private void Validations()
         {
             if (this.lastNameTextBox.Text.Equals(""))
@@ -294,11 +299,6 @@ namespace Group3_ClinicDB.UserControls
             this.phoneNumberErrorLabel.Visible = false;
             this.phoneNumberErrorLabel.ForeColor = Color.Red;
             this.registrationSuccessMessage.Visible = false;
-        }
-
-        private void RegisterPatientUserControlVisibleChanged(object sender, EventArgs e)
-        {
-            this.InitRegisterPatient();
         }
     }
 }

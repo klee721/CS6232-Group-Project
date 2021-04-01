@@ -171,7 +171,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             this.stateLabel.AutoSize = true;
             this.stateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stateLabel.Location = new System.Drawing.Point(1009, 208);
+            this.stateLabel.Location = new System.Drawing.Point(979, 207);
             this.stateLabel.Name = "stateLabel";
             this.stateLabel.Size = new System.Drawing.Size(46, 18);
             this.stateLabel.TabIndex = 10;
@@ -181,7 +181,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             this.zipCodeLabel.AutoSize = true;
             this.zipCodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.zipCodeLabel.Location = new System.Drawing.Point(592, 249);
+            this.zipCodeLabel.Location = new System.Drawing.Point(592, 261);
             this.zipCodeLabel.Name = "zipCodeLabel";
             this.zipCodeLabel.Size = new System.Drawing.Size(72, 18);
             this.zipCodeLabel.TabIndex = 11;
@@ -191,7 +191,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             this.phoneNumberLabel.AutoSize = true;
             this.phoneNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phoneNumberLabel.Location = new System.Drawing.Point(595, 294);
+            this.phoneNumberLabel.Location = new System.Drawing.Point(592, 311);
             this.phoneNumberLabel.Name = "phoneNumberLabel";
             this.phoneNumberLabel.Size = new System.Drawing.Size(112, 18);
             this.phoneNumberLabel.TabIndex = 12;
@@ -220,7 +220,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             this.stateComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.stateComboBox.FormattingEnabled = true;
-            this.stateComboBox.Location = new System.Drawing.Point(1061, 205);
+            this.stateComboBox.Location = new System.Drawing.Point(1031, 204);
             this.stateComboBox.Name = "stateComboBox";
             this.stateComboBox.Size = new System.Drawing.Size(75, 21);
             this.stateComboBox.TabIndex = 10;
@@ -236,7 +236,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             // zipCodeTextBox
             // 
-            this.zipCodeTextBox.Location = new System.Drawing.Point(720, 246);
+            this.zipCodeTextBox.Location = new System.Drawing.Point(720, 258);
             this.zipCodeTextBox.Name = "zipCodeTextBox";
             this.zipCodeTextBox.Size = new System.Drawing.Size(130, 20);
             this.zipCodeTextBox.TabIndex = 8;
@@ -244,7 +244,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             // phoneNumberTextBox
             // 
-            this.phoneNumberTextBox.Location = new System.Drawing.Point(719, 291);
+            this.phoneNumberTextBox.Location = new System.Drawing.Point(719, 309);
             this.phoneNumberTextBox.Name = "phoneNumberTextBox";
             this.phoneNumberTextBox.Size = new System.Drawing.Size(181, 20);
             this.phoneNumberTextBox.TabIndex = 9;
@@ -352,7 +352,7 @@ namespace Group3_ClinicDB.UserControls
             // zipCodeErrorLabel
             // 
             this.zipCodeErrorLabel.AutoSize = true;
-            this.zipCodeErrorLabel.Location = new System.Drawing.Point(719, 272);
+            this.zipCodeErrorLabel.Location = new System.Drawing.Point(718, 281);
             this.zipCodeErrorLabel.Name = "zipCodeErrorLabel";
             this.zipCodeErrorLabel.Size = new System.Drawing.Size(196, 13);
             this.zipCodeErrorLabel.TabIndex = 20;
@@ -362,7 +362,7 @@ namespace Group3_ClinicDB.UserControls
             // phoneNumberErrorLabel
             // 
             this.phoneNumberErrorLabel.AutoSize = true;
-            this.phoneNumberErrorLabel.Location = new System.Drawing.Point(720, 316);
+            this.phoneNumberErrorLabel.Location = new System.Drawing.Point(716, 332);
             this.phoneNumberErrorLabel.Name = "phoneNumberErrorLabel";
             this.phoneNumberErrorLabel.Size = new System.Drawing.Size(220, 13);
             this.phoneNumberErrorLabel.TabIndex = 21;
@@ -382,7 +382,7 @@ namespace Group3_ClinicDB.UserControls
             // stateErrorLabel
             // 
             this.stateErrorLabel.AutoSize = true;
-            this.stateErrorLabel.Location = new System.Drawing.Point(1012, 230);
+            this.stateErrorLabel.Location = new System.Drawing.Point(982, 229);
             this.stateErrorLabel.Name = "stateErrorLabel";
             this.stateErrorLabel.Size = new System.Drawing.Size(121, 13);
             this.stateErrorLabel.TabIndex = 23;
