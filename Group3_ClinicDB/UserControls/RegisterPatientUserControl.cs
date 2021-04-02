@@ -43,6 +43,7 @@ namespace Group3_ClinicDB.UserControls
                 this.stateComboBox.DataSource = this.stateController.GetStates();
                 this.stateComboBox.DisplayMember = "stateCode";
 
+                this.genderComboBox.Items.Clear();
                 this.genderComboBox.Items.Add("Male");
                 this.genderComboBox.Items.Add("Female");
                 this.dobDateTimePicker.MaxDate = DateTime.Now.Date.AddDays(-1);

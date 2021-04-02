@@ -67,8 +67,10 @@ namespace Group3_ClinicDB.UserControls
                 this.stateComboBox.DataSource = this.stateController.GetStates();
                 this.stateComboBox.DisplayMember = "stateCode";
 
+                this.genderComboBox.Items.Clear();
                 this.genderComboBox.Items.Add("Male");
                 this.genderComboBox.Items.Add("Female");
+
                 this.dobDateTimePicker.MaxDate = DateTime.Now.Date.AddDays(-1);
                 this.dobDateTimePicker.MinDate = DateTime.Now.Date.AddYears(-150);
 
@@ -84,8 +86,8 @@ namespace Group3_ClinicDB.UserControls
 
         private void PopulateFields()
         {
-            this.genderIndex = genderComboBox.Items.IndexOf(this.oldPatient.Gender);
-            this.stateIndex = genderComboBox.Items.IndexOf(this.oldPatient.Gender);
+            this.genderIndex = genderComboBox.Items.IndexOf("female");
+            this.stateIndex = genderComboBox.Items.IndexOf("NY");
 
             this.lastNameTextBox.Text = this.oldPatient.LastName;
             this.firstNameTextBox.Text = this.oldPatient.FirstName;

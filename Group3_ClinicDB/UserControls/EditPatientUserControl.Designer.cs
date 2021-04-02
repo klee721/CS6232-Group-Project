@@ -50,7 +50,7 @@ namespace Group3_ClinicDB.UserControls
             this.phoneNumberTextBox = new System.Windows.Forms.TextBox();
             this.updateButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
-            this.editAppointmentLabel = new System.Windows.Forms.Label();
+            this.editPatientLabel = new System.Windows.Forms.Label();
             this.genderComboBox = new System.Windows.Forms.ComboBox();
             this.stateComboBox = new System.Windows.Forms.ComboBox();
             this.dobDateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -261,15 +261,15 @@ namespace Group3_ClinicDB.UserControls
             this.clearButton.UseVisualStyleBackColor = true;
             this.clearButton.Click += new System.EventHandler(this.ClearButtonClick);
             // 
-            // editAppointmentLabel
+            // editPatientLabel
             // 
-            this.editAppointmentLabel.AutoSize = true;
-            this.editAppointmentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editAppointmentLabel.Location = new System.Drawing.Point(74, 28);
-            this.editAppointmentLabel.Name = "editAppointmentLabel";
-            this.editAppointmentLabel.Size = new System.Drawing.Size(207, 29);
-            this.editAppointmentLabel.TabIndex = 24;
-            this.editAppointmentLabel.Text = "Edit Appointment";
+            this.editPatientLabel.AutoSize = true;
+            this.editPatientLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editPatientLabel.Location = new System.Drawing.Point(74, 28);
+            this.editPatientLabel.Name = "editPatientLabel";
+            this.editPatientLabel.Size = new System.Drawing.Size(143, 29);
+            this.editPatientLabel.TabIndex = 24;
+            this.editPatientLabel.Text = "Edit Patient";
             // 
             // genderComboBox
             // 
@@ -404,7 +404,7 @@ namespace Group3_ClinicDB.UserControls
             this.Controls.Add(this.dobDateTimePicker);
             this.Controls.Add(this.stateComboBox);
             this.Controls.Add(this.genderComboBox);
-            this.Controls.Add(this.editAppointmentLabel);
+            this.Controls.Add(this.editPatientLabel);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.updateButton);
             this.Controls.Add(this.phoneNumberTextBox);
@@ -460,7 +460,7 @@ namespace Group3_ClinicDB.UserControls
         private System.Windows.Forms.TextBox phoneNumberTextBox;
         private System.Windows.Forms.Button updateButton;
         private System.Windows.Forms.Button clearButton;
-        private System.Windows.Forms.Label editAppointmentLabel;
+        private System.Windows.Forms.Label editPatientLabel;
         private System.Windows.Forms.ComboBox genderComboBox;
         private System.Windows.Forms.ComboBox stateComboBox;
         private System.Windows.Forms.DateTimePicker dobDateTimePicker;
