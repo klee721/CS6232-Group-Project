@@ -14,6 +14,7 @@ namespace Group3_ClinicDB.UserControls
 
         private AppointmentController apptController;
         private DoctorController doctorController;
+        public Patient patient;
 
         /// <summary>
         /// Constructor. Initializes instance variables and some UI elements
@@ -22,13 +23,12 @@ namespace Group3_ClinicDB.UserControls
         {
             InitializeComponent();
             this.apptController = new AppointmentController();
-            this.PatientApptList.DataSource = this.apptController.GetAllAppointmentsByPatient(1);  //TESTING THE DAL WITH PATIENT 1
             this.doctorController = new DoctorController();
             this.InitializeDoctorComboBox();
             this.ApptDatePicker.Value = DateTime.Now.Date;
             this.ApptDatePicker.MinDate = DateTime.Now.Date;
+            this.Enabled = false;
              
-
         }
         /// <summary>
         /// Event when a user clicks Create. First verifies that the selected doctor is available for the selected date and time. If so, the user can confirm or back out.
@@ -53,7 +53,7 @@ namespace Group3_ClinicDB.UserControls
                 if (dialogresult == DialogResult.OK)
                 {
                     Appointment appointment = new Appointment();
-                    appointment.PatientID = 1;
+                    appointment.PatientID = this.patient.Id;
                     appointment.DoctorID = Int32.Parse(this.DoctorComboBox.SelectedValue.ToString());
                     appointment.AppointmentDate = newAptTime;
                     appointment.Reason = this.ReasonRichText.Text;
@@ -88,7 +88,7 @@ namespace Group3_ClinicDB.UserControls
 
         private void RefreshUI()
         {
-            this.PatientApptList.DataSource = this.apptController.GetAllAppointmentsByPatient(1);  //TESTING THE DAL WITH PATIENT 1
+            this.PatientApptList.DataSource = this.apptController.GetAllAppointmentsByPatient(this.patient.Id);
             this.ReasonRichText.Text = "";
            
         }
@@ -127,5 +127,21 @@ namespace Group3_ClinicDB.UserControls
             this.ApptTimePicker.Value = tempTime;
         }
 
+        /// <summary>
+        /// Method to retrieve a patient object from the parent form. This enables the module and loads the patient data
+        /// </summary>
+        /// <param name="selectedPatient">a Patient object to use in appointment booking</param>
+        public void GetPatient(Patient selectedPatient)
+        {
+            this.patient = selectedPatient;
+            this.Enabled = true;
+            this.PatientApptList.DataSource = this.apptController.GetAllAppointmentsByPatient(this.patient.Id);
+        }
+
+        private void ClearApptList(object sender, EventArgs e)
+        {
+            this.PatientApptList.DataSource = null;
+           
+        }
     }
 }

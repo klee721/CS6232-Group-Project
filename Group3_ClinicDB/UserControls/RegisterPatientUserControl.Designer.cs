@@ -200,7 +200,7 @@ namespace Group3_ClinicDB.UserControls
             // dobDateTimePicker
             // 
             this.dobDateTimePicker.Location = new System.Drawing.Point(178, 204);
-            this.dobDateTimePicker.MaxDate = new System.DateTime(2021, 3, 26, 0, 0, 0, 0);
+            this.dobDateTimePicker.MaxDate = new System.DateTime(2099, 1, 1, 0, 0, 0, 0);
             this.dobDateTimePicker.Name = "dobDateTimePicker";
             this.dobDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.dobDateTimePicker.TabIndex = 2;

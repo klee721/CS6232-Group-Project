@@ -35,9 +35,14 @@ namespace Group3_ClinicDB
                 User newUser = this.userList.Find(user => user.userName == enteredUser);
                 if (this.nurseMainDashboard == null)
                 {
-                    Console.WriteLine(newUser.userName);
-                    this.nurseMainDashboard = new NurseMainDashboard(newUser);
+                    this.nurseMainDashboard = new NurseMainDashboard(newUser, this);
                     nurseMainDashboard.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    this.nurseMainDashboard.ChangeUser(newUser);
+                    this.nurseMainDashboard.Show();
                     this.Hide();
                 }
             }

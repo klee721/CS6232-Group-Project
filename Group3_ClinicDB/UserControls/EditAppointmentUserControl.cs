@@ -13,6 +13,7 @@ namespace Group3_ClinicDB.UserControls
         private DoctorController doctorController;
         private Appointment selectedAppointment;
         private List<Appointment> appointmentList;
+        public Patient patient;
 
         public EditAppointmentUserControl()
         {
@@ -20,17 +21,29 @@ namespace Group3_ClinicDB.UserControls
             this.apptController = new AppointmentController();
             this.doctorController = new DoctorController(); 
             this.selectedAppointment = new Appointment();
+            this.appointmentList = new List<Appointment>();
+          
 
-           
-            this.SetupAppointmentsComboBox();
-            this.SetupDoctorsComboBox();
-            this.FillOutForm();
+            this.Enabled = false;
+
+          
+            
         }
 
 
         private void ApptSelectComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.FillOutForm();
+            if (this.ApptSelectComboBox.SelectedIndex < 0)
+            {
+                return;
+            }
+            if (appointmentList.Count > 0)
+            {
+
+                this.FillOutForm();
+            }
+        
+          
         }
 
         /// <summary>
@@ -38,10 +51,13 @@ namespace Group3_ClinicDB.UserControls
         /// </summary>
         public void SetupAppointmentsComboBox()
         {
-            this.appointmentList = this.apptController.GetActiveAppointmentsByPatient(99); //TESTING DAL WITH PATIENT 1
-            this.ApptSelectComboBox.DataSource = appointmentList;  
-            this.ApptSelectComboBox.DisplayMember = "AppointmentDate";
-            this.ApptSelectComboBox.ValueMember = "ID";
+            if (this.patient != null)
+            {
+                this.appointmentList = this.apptController.GetActiveAppointmentsByPatient(this.patient.Id);
+                this.ApptSelectComboBox.DataSource = appointmentList;
+                this.ApptSelectComboBox.DisplayMember = "AppointmentDate";
+                this.ApptSelectComboBox.ValueMember = "ID";
+            }
         }
 
         private void SetupDoctorsComboBox()
@@ -53,21 +69,25 @@ namespace Group3_ClinicDB.UserControls
 
         private void FillOutForm()
         {
-
             if (appointmentList.Count > 0)
             {
-                this.EnableModule();
-                this.selectedAppointment = this.appointmentList.Find(apt => apt.ID == (int)this.ApptSelectComboBox.SelectedValue);
-                this.ApptDatePicker.Value = selectedAppointment.AppointmentDate.Date;
-                this.ApptDatePicker.MinDate = DateTime.Now.Date;
-                this.ApptTimePicker.Value = DateTime.Now.Date;
-                this.ApptTimePicker.Value += selectedAppointment.AppointmentDate.TimeOfDay;
-                this.DoctorComboBox.SelectedValue = selectedAppointment.DoctorID;
-                this.ReasonRichText.Text = selectedAppointment.Reason;
+                if (this.ApptSelectComboBox.SelectedValue != null)
+                {
+                    this.EnableModule();
+                    int aptNumber = int.Parse(this.ApptSelectComboBox.SelectedValue.ToString());
+                    this.selectedAppointment = this.appointmentList.Find(apt => apt.ID == aptNumber);
+                    this.ApptDatePicker.Value = selectedAppointment.AppointmentDate.Date;
+                    this.ApptDatePicker.MinDate = DateTime.Now.Date;
+                    this.ApptTimePicker.Value = DateTime.Now.Date;
+                    this.ApptTimePicker.Value += selectedAppointment.AppointmentDate.TimeOfDay;
+                    this.DoctorComboBox.SelectedValue = selectedAppointment.DoctorID;
+                    this.ReasonRichText.Text = selectedAppointment.Reason;
+                }
             }
             else
             {
                 this.LockModule();
+                MessageBox.Show("Patient has no appointments.");
             }
 
         }
@@ -82,7 +102,7 @@ namespace Group3_ClinicDB.UserControls
 
             DateTime newAptTime = this.CombineDateAndTime();
             int doctorID = Int32.Parse(this.DoctorComboBox.SelectedValue.ToString());
-            bool result = this.apptController.CheckAvailability(doctorID, newAptTime);
+            bool result = this.apptController.CheckUpdateAvailability(doctorID, this.selectedAppointment.AppointmentDate, newAptTime);
 
             if (result)
             {
@@ -91,7 +111,7 @@ namespace Group3_ClinicDB.UserControls
                 {
                     Appointment appointment = new Appointment();
                     appointment.ID = selectedAppointment.ID;
-                    appointment.PatientID = 1;   //TESTING DAL WITH PATIENT 1
+                    appointment.PatientID = this.patient.Id;
                     appointment.DoctorID = Int32.Parse(this.DoctorComboBox.SelectedValue.ToString());
                     appointment.AppointmentDate = newAptTime;
                     appointment.Reason = this.ReasonRichText.Text;
@@ -191,6 +211,26 @@ namespace Group3_ClinicDB.UserControls
             tempTime = tempTime.AddMinutes(-30);
 
             this.ApptTimePicker.Value = tempTime;
+        }
+
+        /// <summary>
+        /// Method to retrieve a pateint object from the parent form
+        /// </summary>
+        /// <param name="selectedPatient">a Patient object to be used in appointment editing</param>
+        public void GetPatient(Patient selectedPatient)
+        {
+            this.patient = selectedPatient;
+            this.Enabled = true;
+
+            this.SetupAppointmentsComboBox();
+            this.SetupDoctorsComboBox();
+            
+           
+        }
+
+        private void RefreshList(object sender, EventArgs e)
+        {
+            this.SetupAppointmentsComboBox();
         }
     }
 }

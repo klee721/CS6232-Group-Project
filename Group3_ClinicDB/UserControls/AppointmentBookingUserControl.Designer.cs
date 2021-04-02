@@ -216,6 +216,7 @@ namespace Group3_ClinicDB.UserControls
             this.MinimumSize = new System.Drawing.Size(1215, 615);
             this.Name = "AppointmentBookingUserControl";
             this.Size = new System.Drawing.Size(1215, 615);
+            this.EnabledChanged += new System.EventHandler(this.ClearApptList);
             this.ApptPanel.ResumeLayout(false);
             this.ApptPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PatientApptList)).EndInit();

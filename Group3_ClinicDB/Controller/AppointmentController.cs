@@ -75,6 +75,31 @@ namespace Group3_ClinicDB.Controller
 
             return true;
         }
+
+        public bool CheckUpdateAvailability(int doctorID, DateTime scheduledTime, DateTime newAptTime)
+        {
+            if (newAptTime == scheduledTime)
+            {
+                return true;
+            }
+
+            List<Appointment> appointments = this.appointmentSource.GetAppointmentsByDoctor(doctorID);
+
+            foreach (Appointment apt in appointments)
+            {
+                if (apt.AppointmentDate == newAptTime)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+
+
+
+
         /// <summary>
         /// Method to check if an appointment is editable per the business rules, currently 24 hours or more is required to edit/cancel
         /// </summary>
