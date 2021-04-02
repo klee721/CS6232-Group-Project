@@ -39,10 +39,10 @@ namespace Group3_ClinicDB.UserControls
             this.patientDataGridView.AllowUserToDeleteRows = false;
             this.patientDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.patientDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.patientDataGridView.Location = new System.Drawing.Point(0, 156);
+            this.patientDataGridView.Location = new System.Drawing.Point(0, 58);
             this.patientDataGridView.Name = "patientDataGridView";
             this.patientDataGridView.ReadOnly = true;
-            this.patientDataGridView.Size = new System.Drawing.Size(1215, 459);
+            this.patientDataGridView.Size = new System.Drawing.Size(1215, 557);
             this.patientDataGridView.TabIndex = 0;
             // 
             // AllPatientUserControl
