@@ -45,7 +45,7 @@ namespace Group3_ClinicDB.UserControls
         
           
         }
-
+         
         /// <summary>
         /// This function refreshes the Appointments stored in this combo box to account for New Appointments being created in other tabs
         /// </summary>

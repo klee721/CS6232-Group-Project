@@ -28,6 +28,7 @@ namespace Group3_ClinicDB.View
 
                 this.appointmentBookingUserControl2.GetPatient(this.patient);
                 this.editAppointmentUserControl1.GetPatient(this.patient);
+                this.editPatientUserControl1.GetPatient(this.patient);
                 //PUT ANY UC PATIENT GETS HERE
             }
             else

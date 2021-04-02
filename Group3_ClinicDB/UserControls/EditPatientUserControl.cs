@@ -14,8 +14,10 @@ namespace Group3_ClinicDB.UserControls
         private readonly StateController stateController;
         private readonly PersonController personController;
         private readonly PatientController patientController;
-        Patient oldPatient;
-        Patient newPatient;
+        private Patient oldPatient;
+        private Patient newPatient;
+        private int genderIndex;
+        private int stateIndex;
 
         /// <summary>
         /// Loads the UserControl
@@ -28,6 +30,23 @@ namespace Group3_ClinicDB.UserControls
             this.patientController = new PatientController();
             this.oldPatient = null;
             this.newPatient = null;
+        }
+
+        /// <summary>
+        /// Retrieves the patient that has been searched
+        /// </summary>
+        /// <param name="searchedPatient">The patient that has been searched</param>
+        /// <returns>The patient that has been searched</returns>
+        public Patient GetPatient(Patient searchedPatient)
+        {
+            this.oldPatient = new Patient(searchedPatient.Id, searchedPatient.PersonsId, searchedPatient.FirstName,
+                                            searchedPatient.LastName, searchedPatient.DateOfBirth, searchedPatient.Gender,
+                                            searchedPatient.SSN, searchedPatient.Address1, searchedPatient.Address2, 
+                                            searchedPatient.City, searchedPatient.State, searchedPatient.ZipCode, 
+                                            searchedPatient.PhoneNumber);
+            this.InitEditPatient();
+
+            return this.oldPatient;
         }
 
         private void InitEditPatient()
@@ -53,11 +72,35 @@ namespace Group3_ClinicDB.UserControls
                 this.dobDateTimePicker.MaxDate = DateTime.Now.Date.AddDays(-1);
                 this.dobDateTimePicker.MinDate = DateTime.Now.Date.AddYears(-150);
 
-                this.Clear();
+                if (this.oldPatient != null)
+                {
+                    this.PopulateFields();
+                } else
+                {
+                    this.Clear();
+                }
             }
         }
 
-        private void EditPatientUserControlLoad(object sender, System.EventArgs e)
+        private void PopulateFields()
+        {
+            this.genderIndex = genderComboBox.Items.IndexOf(this.oldPatient.Gender);
+            this.stateIndex = genderComboBox.Items.IndexOf(this.oldPatient.Gender);
+
+            this.lastNameTextBox.Text = this.oldPatient.LastName;
+            this.firstNameTextBox.Text = this.oldPatient.FirstName;
+            this.dobDateTimePicker.Value = this.oldPatient.DateOfBirth;
+            this.genderComboBox.SelectedIndex = this.genderIndex;
+            this.ssnTextBox.Text = this.oldPatient.SSN;
+            this.addressTextBox.Text = this.oldPatient.Address1;
+            this.address2TextBox.Text = this.oldPatient.Address2;
+            this.cityTextBox.Text = this.oldPatient.City;
+            this.stateComboBox.SelectedIndex = this.stateIndex;
+            this.zipCodeTextBox.Text = this.oldPatient.ZipCode;
+            this.phoneNumberTextBox.Text = this.oldPatient.PhoneNumber;
+        }
+
+        private void EditPatientUserControlLoad(object sender, EventArgs e)
         {
             this.InitEditPatient();
         }

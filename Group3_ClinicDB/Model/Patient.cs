@@ -23,7 +23,7 @@ namespace Group3_ClinicDB.Model
         public string City { get; }
         public string State { get; }
         public string ZipCode { get; }
-        public string PhoneNumber { get; }
+        public string PhoneNumber { get;}
 
         public Patient(int id, int personID, string firstName, string lastName, DateTime dateOfBirth, 
                         string gender, string ssn, string address1, string address2, string city, 
