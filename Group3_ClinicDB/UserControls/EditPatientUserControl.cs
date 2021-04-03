@@ -49,6 +49,16 @@ namespace Group3_ClinicDB.UserControls
             return this.oldPatient;
         }
 
+        private void EditPatientUserControlLoad(object sender, EventArgs e)
+        {
+            this.InitEditPatient();
+        }
+
+        private void EditPatientUserControlVisibleChanged(object sender, EventArgs e)
+        {
+            this.InitEditPatient();
+        }
+
         private void InitEditPatient()
         {
             if (this.stateController.GetStates().Count == 0)
@@ -61,8 +71,6 @@ namespace Group3_ClinicDB.UserControls
             else
             {
                 this.stateErrorLabel.Visible = false;
-                this.updateButton.Enabled = true;
-                this.clearButton.Enabled = true;
 
                 this.stateComboBox.DataSource = this.stateController.GetStates();
                 this.stateComboBox.DisplayMember = "stateCode";
@@ -77,9 +85,12 @@ namespace Group3_ClinicDB.UserControls
                 if (this.oldPatient != null)
                 {
                     this.PopulateFields();
-                } else
+                    this.DisableAll(false);
+                }
+                else
                 {
                     this.Clear();
+                    this.DisableAll(true);
                 }
             }
         }
@@ -102,14 +113,33 @@ namespace Group3_ClinicDB.UserControls
             this.phoneNumberTextBox.Text = this.oldPatient.PhoneNumber;
         }
 
-        private void EditPatientUserControlLoad(object sender, EventArgs e)
+        private void DisableAll(bool disable)
         {
-            this.InitEditPatient();
-        }
-
-        private void EditPatientUserControlVisibleChanged(object sender, EventArgs e)
-        {
-            this.InitEditPatient();
+            if (disable)
+            {
+                this.lastNameTextBox.ReadOnly = true;
+                this.firstNameTextBox.ReadOnly = true;
+                this.ssnTextBox.ReadOnly = true;
+                this.addressTextBox.ReadOnly = true;
+                this.address2TextBox.ReadOnly = true;
+                this.cityTextBox.ReadOnly = true;
+                this.zipCodeTextBox.ReadOnly = true;
+                this.phoneNumberTextBox.ReadOnly = true;
+                this.updateButton.Enabled = false;
+                this.clearButton.Enabled = false;
+            } else
+            {
+                this.lastNameTextBox.ReadOnly = false;
+                this.firstNameTextBox.ReadOnly = false;
+                this.ssnTextBox.ReadOnly = false;
+                this.addressTextBox.ReadOnly = false;
+                this.address2TextBox.ReadOnly = false;
+                this.cityTextBox.ReadOnly = false;
+                this.zipCodeTextBox.ReadOnly = false;
+                this.phoneNumberTextBox.ReadOnly = false;
+                this.updateButton.Enabled = true;
+                this.clearButton.Enabled = true;
+            }
         }
 
         private void Validations()
@@ -158,6 +188,7 @@ namespace Group3_ClinicDB.UserControls
         {
             this.Validations();
         }
+
         private void Clear()
         {
             this.firstNameTextBox.Text = "";

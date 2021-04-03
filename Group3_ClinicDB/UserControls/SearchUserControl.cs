@@ -112,9 +112,15 @@ namespace Group3_ClinicDB.UserControls
                 this.DisableDobSearch(false);
                 this.DisableFirstNameLastNameSearch(true);
                 this.DisableDobLastNameSearch(true);
+                this.HideSearchDobErrorLabel(true, false);
+                this.HideSearchFnlnErrorLabel(true, false);
+                this.HideSearchDoblnErrorLabel(true, false);
             } else
             {
                 this.DisableDobSearch(true);
+                this.HideSearchDobErrorLabel(true, false);
+                this.HideSearchFnlnErrorLabel(true, false);
+                this.HideSearchDoblnErrorLabel(true, false);
             }
         }
 
@@ -125,10 +131,16 @@ namespace Group3_ClinicDB.UserControls
                 this.DisableDobSearch(true);
                 this.DisableFirstNameLastNameSearch(false);
                 this.DisableDobLastNameSearch(true);
+                this.HideSearchDobErrorLabel(true, false);
+                this.HideSearchFnlnErrorLabel(true, false);
+                this.HideSearchDoblnErrorLabel(true, false);
             }
             else
             {
                 this.DisableFirstNameLastNameSearch(true);
+                this.HideSearchDobErrorLabel(true, false);
+                this.HideSearchFnlnErrorLabel(true, false);
+                this.HideSearchDoblnErrorLabel(true, false);
             }
         }
 
@@ -139,10 +151,16 @@ namespace Group3_ClinicDB.UserControls
                 this.DisableDobSearch(true);
                 this.DisableFirstNameLastNameSearch(true);
                 this.DisableDobLastNameSearch(false);
+                this.HideSearchDobErrorLabel(true, false);
+                this.HideSearchFnlnErrorLabel(true, false);
+                this.HideSearchDoblnErrorLabel(true, false);
             }
             else
             {
                 this.DisableDobLastNameSearch(true);
+                this.HideSearchDobErrorLabel(true, false);
+                this.HideSearchFnlnErrorLabel(true, false);
+                this.HideSearchDoblnErrorLabel(true, false);
             }
         }
 
