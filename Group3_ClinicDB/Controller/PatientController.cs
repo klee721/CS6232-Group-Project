@@ -92,7 +92,7 @@ namespace Group3_ClinicDB.Controller
         /// <param name="personId"></param>
         public void AddPatient(int personId)
         {
-            if (personId <= 0)
+            if (personId < 0)
             {
                 throw new ArgumentException("Patient ID cannot be less than or equal to 0");
             }

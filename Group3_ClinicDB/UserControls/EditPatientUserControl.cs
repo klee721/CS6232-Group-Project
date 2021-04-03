@@ -86,8 +86,8 @@ namespace Group3_ClinicDB.UserControls
 
         private void PopulateFields()
         {
-            this.genderIndex = genderComboBox.Items.IndexOf("female");
-            this.stateIndex = genderComboBox.Items.IndexOf("NY");
+            this.genderIndex = genderComboBox.Items.IndexOf(this.oldPatient.Gender);
+            this.stateIndex = genderComboBox.Items.IndexOf(this.oldPatient.State);
 
             this.lastNameTextBox.Text = this.oldPatient.LastName;
             this.firstNameTextBox.Text = this.oldPatient.FirstName;
@@ -97,7 +97,7 @@ namespace Group3_ClinicDB.UserControls
             this.addressTextBox.Text = this.oldPatient.Address1;
             this.address2TextBox.Text = this.oldPatient.Address2;
             this.cityTextBox.Text = this.oldPatient.City;
-            this.stateComboBox.SelectedIndex = this.stateIndex;
+            this.stateComboBox.SelectedItem = this.stateIndex;
             this.zipCodeTextBox.Text = this.oldPatient.ZipCode;
             this.phoneNumberTextBox.Text = this.oldPatient.PhoneNumber;
         }

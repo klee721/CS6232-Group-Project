@@ -46,6 +46,7 @@ namespace Group3_ClinicDB.UserControls
                 this.genderComboBox.Items.Clear();
                 this.genderComboBox.Items.Add("Male");
                 this.genderComboBox.Items.Add("Female");
+                
                 this.dobDateTimePicker.MaxDate = DateTime.Now.Date.AddDays(-1);
                 this.dobDateTimePicker.MinDate = DateTime.Now.Date.AddYears(-150);
                 this.Clear();
@@ -132,17 +133,20 @@ namespace Group3_ClinicDB.UserControls
 
                             Person person = new Person(firstName, lastName, dob, gender, ssn,
                                                         address1, address2, city, state, zipCode, phoneNumber);
-
+                            this.personController.GetPersonId(person);
                             if (this.personController.GetPersonId(person) != 0)
                             {
-                                this.patientController.AddPatient(this.personController.GetPersonId(person));
+                                int personId = this.personController.GetPersonId(person);
+                                this.patientController.AddPatient(personId);
                                 this.registrationSuccessMessage.Visible = true;
                             } else
                             {
                                 if (!this.personController.SsnExists(person))
                                 {
                                     this.personController.AddPerson(person);
-                                    this.patientController.AddPatient(this.personController.GetPersonId(person));
+                                    int personId = this.personController.GetPersonId(person);
+                                    Console.WriteLine(personId);
+                                    this.patientController.AddPatient(personId);
                                     this.registrationSuccessMessage.Visible = true;
                                 } else
                                 {

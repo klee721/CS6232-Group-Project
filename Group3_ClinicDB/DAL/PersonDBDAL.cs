@@ -115,7 +115,7 @@ namespace Group3_ClinicDB.DAL
                 using (SqlCommand insertCommand = new SqlCommand(insertStatement, connection))
                 {
                     insertCommand.Parameters.AddWithValue("@firstName", person.FirstName);
-                    insertCommand.Parameters.AddWithValue("@lastName", person.FirstName);
+                    insertCommand.Parameters.AddWithValue("@lastName", person.LastName);
                     insertCommand.Parameters.AddWithValue("@dateOfBirth", person.DateOfBirth.ToShortDateString());
                     insertCommand.Parameters.AddWithValue("@gender", person.Gender);
                     insertCommand.Parameters.AddWithValue("@ssn", person.Ssn);
