@@ -96,6 +96,9 @@ namespace Group3_ClinicDB.UserControls
             }
         }
 
+        /// <summary>
+        /// Disables all fields. Public for use on log out
+        /// </summary>
         private void PopulateFields()
         {
             this.genderIndex = genderComboBox.Items.IndexOf(this.oldPatient.Gender);
@@ -114,7 +117,7 @@ namespace Group3_ClinicDB.UserControls
             this.phoneNumberTextBox.Text = this.oldPatient.PhoneNumber;
         }
 
-        private void DisableAll(bool disable)
+        public void DisableAll(bool disable)
         {
             if (disable)
             {
@@ -229,7 +232,9 @@ namespace Group3_ClinicDB.UserControls
 
                                if (this.personController.UpdatePerson(this.oldPatient, this.newPatient))
                                {
-                                    this.updateSuccessMessage.Text = "Patient Updated";
+                                    this.Clear();
+                                    this.DisableAll(true);
+                                    this.updateSuccessMessage.Text = "Patient Updated!";
                                     this.updateSuccessMessage.Visible = true;
                                     this.updateSuccessMessage.ForeColor = Color.Black;
                                }
@@ -285,6 +290,7 @@ namespace Group3_ClinicDB.UserControls
             this.stateComboBox.SelectedIndex = 0;
             this.zipCodeTextBox.Text = "";
             this.phoneNumberTextBox.Text = "";
+            this.updateSuccessMessage.Visible = false;
 
             this.ResetLastNameError();
             this.ResetFirstNameError();

@@ -151,7 +151,7 @@ namespace Group3_ClinicDB.DAL
                 "UPDATE Persons " +
                     "SET firstName = @newFirstName, lastName = @newLastName, dateOfBirth = @newDateOfBirth, " +
                     "gender = @newGender, ssn = @newSsn, address1 = @newAddress1, address2 = @newAddress2, " +
-                    "city = @newCity, state = @newState, zipcode = @newZipCode, @phoneNumber = @newPhoneNumber " +
+                    "city = @newCity, state = @newState, zipcode = @newZipCode, phoneNumber = @newPhoneNumber " +
                 "WHERE id = @oldID " +
                 "AND firstName = @oldFirstName " +
                 "AND lastName = @oldLastName " +
@@ -173,8 +173,9 @@ namespace Group3_ClinicDB.DAL
                 {
                     updateCommand.Parameters.AddWithValue("@newFirstName", newPatient.FirstName);
                     updateCommand.Parameters.AddWithValue("@newLastName", newPatient.LastName);
-                    updateCommand.Parameters.AddWithValue("@newDateOfBirth", newPatient.DateOfBirth);
+                    updateCommand.Parameters.AddWithValue("@newDateOfBirth", newPatient.DateOfBirth.ToShortDateString());
                     updateCommand.Parameters.AddWithValue("@newGender", newPatient.Gender);
+                    updateCommand.Parameters.AddWithValue("@newSsn", newPatient.SSN);
                     updateCommand.Parameters.AddWithValue("@newAddress1", newPatient.Address1);
 
                     if (newPatient.Address2.Equals(""))
@@ -194,8 +195,9 @@ namespace Group3_ClinicDB.DAL
                     updateCommand.Parameters.AddWithValue("@oldID", oldPatient.PersonsId);
                     updateCommand.Parameters.AddWithValue("@oldFirstName", oldPatient.FirstName);
                     updateCommand.Parameters.AddWithValue("@oldLastName", oldPatient.LastName);
-                    updateCommand.Parameters.AddWithValue("@oldDateOfBirth", oldPatient.DateOfBirth);
+                    updateCommand.Parameters.AddWithValue("@oldDateOfBirth", oldPatient.DateOfBirth.ToShortDateString());
                     updateCommand.Parameters.AddWithValue("@oldGender", oldPatient.Gender);
+                    updateCommand.Parameters.AddWithValue("@oldSsn", oldPatient.SSN);
                     updateCommand.Parameters.AddWithValue("@oldAddress1", oldPatient.Address1);
                     updateCommand.Parameters.AddWithValue("@oldAddress2", oldPatient.Address2);
                     updateCommand.Parameters.AddWithValue("@oldCity", oldPatient.City);
