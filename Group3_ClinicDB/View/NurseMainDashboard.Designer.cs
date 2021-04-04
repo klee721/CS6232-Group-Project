@@ -289,7 +289,7 @@ namespace Group3_ClinicDB.View
             // 
             // SelectPatientButton
             // 
-            this.SelectPatientButton.Location = new System.Drawing.Point(771, 183);
+            this.SelectPatientButton.Location = new System.Drawing.Point(782, 215);
             this.SelectPatientButton.Name = "SelectPatientButton";
             this.SelectPatientButton.Size = new System.Drawing.Size(203, 54);
             this.SelectPatientButton.TabIndex = 9;
@@ -319,7 +319,7 @@ namespace Group3_ClinicDB.View
             // 
             this.searchUserControl2.Location = new System.Drawing.Point(0, 0);
             this.searchUserControl2.Name = "searchUserControl2";
-            this.searchUserControl2.Size = new System.Drawing.Size(1025, 177);
+            this.searchUserControl2.Size = new System.Drawing.Size(1025, 209);
             this.searchUserControl2.TabIndex = 8;
             // 
             // NurseMainDashboard

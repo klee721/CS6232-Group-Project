@@ -116,7 +116,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             // dobSearchButton
             // 
-            this.dobSearchButton.Location = new System.Drawing.Point(42, 183);
+            this.dobSearchButton.Location = new System.Drawing.Point(42, 164);
             this.dobSearchButton.Name = "dobSearchButton";
             this.dobSearchButton.Size = new System.Drawing.Size(75, 23);
             this.dobSearchButton.TabIndex = 2;
@@ -160,7 +160,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             // fnlnSearchButton
             // 
-            this.fnlnSearchButton.Location = new System.Drawing.Point(379, 183);
+            this.fnlnSearchButton.Location = new System.Drawing.Point(378, 164);
             this.fnlnSearchButton.Name = "fnlnSearchButton";
             this.fnlnSearchButton.Size = new System.Drawing.Size(75, 23);
             this.fnlnSearchButton.TabIndex = 6;
@@ -186,7 +186,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             // doblnSearchButton
             // 
-            this.doblnSearchButton.Location = new System.Drawing.Point(703, 183);
+            this.doblnSearchButton.Location = new System.Drawing.Point(703, 164);
             this.doblnSearchButton.Name = "doblnSearchButton";
             this.doblnSearchButton.Size = new System.Drawing.Size(75, 23);
             this.doblnSearchButton.TabIndex = 10;
@@ -244,7 +244,7 @@ namespace Group3_ClinicDB.UserControls
             // searchDobErrorLabel
             // 
             this.searchDobErrorLabel.AutoSize = true;
-            this.searchDobErrorLabel.Location = new System.Drawing.Point(39, 167);
+            this.searchDobErrorLabel.Location = new System.Drawing.Point(39, 190);
             this.searchDobErrorLabel.Name = "searchDobErrorLabel";
             this.searchDobErrorLabel.Size = new System.Drawing.Size(0, 13);
             this.searchDobErrorLabel.TabIndex = 20;
@@ -253,7 +253,7 @@ namespace Group3_ClinicDB.UserControls
             // searchFnlnErrorLabel
             // 
             this.searchFnlnErrorLabel.AutoSize = true;
-            this.searchFnlnErrorLabel.Location = new System.Drawing.Point(376, 167);
+            this.searchFnlnErrorLabel.Location = new System.Drawing.Point(376, 190);
             this.searchFnlnErrorLabel.Name = "searchFnlnErrorLabel";
             this.searchFnlnErrorLabel.Size = new System.Drawing.Size(0, 13);
             this.searchFnlnErrorLabel.TabIndex = 21;
@@ -262,7 +262,7 @@ namespace Group3_ClinicDB.UserControls
             // searchDoblnErrorLabel
             // 
             this.searchDoblnErrorLabel.AutoSize = true;
-            this.searchDoblnErrorLabel.Location = new System.Drawing.Point(700, 167);
+            this.searchDoblnErrorLabel.Location = new System.Drawing.Point(700, 190);
             this.searchDoblnErrorLabel.Name = "searchDoblnErrorLabel";
             this.searchDoblnErrorLabel.Size = new System.Drawing.Size(0, 13);
             this.searchDoblnErrorLabel.TabIndex = 22;
@@ -271,7 +271,7 @@ namespace Group3_ClinicDB.UserControls
             // ssnDobSearchLabel
             // 
             this.ssnDobSearchLabel.AutoSize = true;
-            this.ssnDobSearchLabel.Location = new System.Drawing.Point(39, 125);
+            this.ssnDobSearchLabel.Location = new System.Drawing.Point(39, 106);
             this.ssnDobSearchLabel.Name = "ssnDobSearchLabel";
             this.ssnDobSearchLabel.Size = new System.Drawing.Size(32, 13);
             this.ssnDobSearchLabel.TabIndex = 23;
@@ -316,7 +316,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             // ssnDobSearchTextBox
             // 
-            this.ssnDobSearchTextBox.Location = new System.Drawing.Point(114, 124);
+            this.ssnDobSearchTextBox.Location = new System.Drawing.Point(114, 105);
             this.ssnDobSearchTextBox.Name = "ssnDobSearchTextBox";
             this.ssnDobSearchTextBox.Size = new System.Drawing.Size(200, 20);
             this.ssnDobSearchTextBox.TabIndex = 29;
@@ -325,7 +325,7 @@ namespace Group3_ClinicDB.UserControls
             // ssnDobErrorLabel
             // 
             this.ssnDobErrorLabel.AutoSize = true;
-            this.ssnDobErrorLabel.Location = new System.Drawing.Point(96, 148);
+            this.ssnDobErrorLabel.Location = new System.Drawing.Point(96, 129);
             this.ssnDobErrorLabel.Name = "ssnDobErrorLabel";
             this.ssnDobErrorLabel.Size = new System.Drawing.Size(262, 13);
             this.ssnDobErrorLabel.TabIndex = 30;
