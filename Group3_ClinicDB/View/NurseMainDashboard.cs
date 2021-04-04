@@ -29,6 +29,7 @@ namespace Group3_ClinicDB.View
                 this.appointmentBookingUserControl2.GetPatient(this.patient);
                 this.editAppointmentUserControl1.GetPatient(this.patient);
                 this.editPatientUserControl1.GetPatient(this.patient);
+                this.allPatientUserControl1.GetPatient(this.patient);
                 //PUT ANY UC PATIENT GETS HERE
             }
             else
@@ -53,6 +54,7 @@ namespace Group3_ClinicDB.View
             this.editAppointmentUserControl1.Enabled = false;
             this.editPatientUserControl1.Clear();
             this.editPatientUserControl1.DisableAll(true);
+            this.allPatientUserControl1.InitPatients();
             //DISABLE YOUR MODULES ON LOGOUT HERE
         }
 

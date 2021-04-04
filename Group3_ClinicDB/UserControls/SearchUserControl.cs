@@ -1,6 +1,7 @@
 ﻿using Group3_ClinicDB.Controller;
 using Group3_ClinicDB.Model;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -12,6 +13,7 @@ namespace Group3_ClinicDB.UserControls
     public partial class SearchUserControl : UserControl
     {
         private readonly PatientController patientController;
+        private List<Patient> patients;
         private Patient patient;
 
         /// <summary>
@@ -21,6 +23,7 @@ namespace Group3_ClinicDB.UserControls
         {
             InitializeComponent();
             this.patientController = new PatientController();
+            this.patients = new List<Patient>();
             this.patient = null;
         }
 
@@ -44,12 +47,12 @@ namespace Group3_ClinicDB.UserControls
         }
 
         /// <summary>
-        /// Retireves the patient object from the search specified
+        /// Retireve the patient from the search specified
         /// </summary>
         /// <returns>patient object from the search specified</returns>
         public Patient GetPatient()
         {
-            return patient;
+            return this.patient;
         }
 
         private void DisableDobSearch(bool disable)
@@ -272,18 +275,23 @@ namespace Group3_ClinicDB.UserControls
 
         private void DobSearchButtonClick(object sender, EventArgs e)
         {
-            this.patient = this.patientController.GetPatientByDob(this.dobSearchDateTimePicker.Value);
+            this.patients = this.patientController.GetPatientsByDob(this.dobSearchDateTimePicker.Value);
             
-            if (this.patient == null)
+            if (this.patients.Count == 0)
             {
                 if (MessageBox.Show("No Patients match the date of birth.",
                     "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                 {
                     this.HideSearchDobErrorLabel(false, false);
                 }
-            } 
+            }  
+            else if (this.patients.Count > 1)
+            {
+
+            }
             else
             {
+                this.patient = this.patients[0];
                 this.HideSearchDobErrorLabel(false, true);
             }
         }
@@ -305,9 +313,9 @@ namespace Group3_ClinicDB.UserControls
             } 
             else
             {
-                this.patient = this.patientController.GetPatientByFnln(this.firstNameFnlnSearchTextBox.Text, this.lastNameFnlnSearchTextBox.Text);
+                this.patients = this.patientController.GetPatientsByFnln(this.firstNameFnlnSearchTextBox.Text, this.lastNameFnlnSearchTextBox.Text);
 
-                if (this.patient == null)
+                if (this.patients.Count == 0)
                 {
                     if (MessageBox.Show("No Patients match the first and last name.",
                         "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
@@ -315,8 +323,13 @@ namespace Group3_ClinicDB.UserControls
                         this.HideSearchFnlnErrorLabel(false, false);
                     }
                 }
+                else if (this.patients.Count > 1)
+                {
+
+                }
                 else
                 {
+                    this.patient = this.patients[0];
                     this.HideSearchFnlnErrorLabel(false, true);
                 }
             }
@@ -347,9 +360,9 @@ namespace Group3_ClinicDB.UserControls
             }
             else
             {
-                this.patient = this.patientController.GetPatientByDobln(this.dobDoblnSearchDateTimePicker.Value, this.lastNameDoblnSearchTextBox.Text);
+                this.patients = this.patientController.GetPatientsByDobln(this.dobDoblnSearchDateTimePicker.Value, this.lastNameDoblnSearchTextBox.Text);
 
-                if (this.patient == null)
+                if (this.patients.Count == 0)
                 {
                     if (MessageBox.Show("No Patients match the date of birth and last name.",
                         "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
@@ -357,8 +370,13 @@ namespace Group3_ClinicDB.UserControls
                         this.HideSearchDoblnErrorLabel(false, false);
                     }
                 }
+                else if (this.patients.Count > 1)
+                {
+
+                }
                 else
                 {
+                    this.patient = this.patients[0];
                     this.HideSearchDoblnErrorLabel(false, true);
                 }
             }

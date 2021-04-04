@@ -30,27 +30,27 @@ namespace Group3_ClinicDB.Controller
         }
 
         /// <summary>
-        /// Retrieves the patient with the date of birth specified
+        /// Retrieves the patients with the date of birth specified
         /// </summary>
-        /// <param name="dateOfBirth">The date of birth for the patient</param>
-        /// <returns>The patient with the date of birth specified</returns>
-        public Patient GetPatientByDob(DateTime dateOfBirth)
+        /// <param name="dateOfBirth">The date of birth for the patients</param>
+        /// <returns>The patients with the date of birth specified</returns>
+        public List<Patient> GetPatientsByDob(DateTime dateOfBirth)
         {
             if (dateOfBirth == null)
             {
                 throw new Exception("Date of birth cannot be null");
             }
 
-            return this.patientDBSource.GetPatientByDob(dateOfBirth);
+            return this.patientDBSource.GetPatientsByDob(dateOfBirth);
         }
 
         /// <summary>
-        /// Retrieves the patient with the first and last name specified
+        /// Retrieves the patients with the first and last name specified
         /// </summary>
-        /// <param name="firstName">The first name for the patient</param>
-        /// <param name="lastName">The last name for the patient</param>
-        /// <returns>The patient with the first and last name specified</returns>
-        public Patient GetPatientByFnln(string firstName, string lastName)
+        /// <param name="firstName">The first name for the patients</param>
+        /// <param name="lastName">The last name for the patients</param>
+        /// <returns>The patients with the first and last name specified</returns>
+        public List<Patient> GetPatientsByFnln(string firstName, string lastName)
         {
             if (firstName.Length == 0)
             {
@@ -62,16 +62,16 @@ namespace Group3_ClinicDB.Controller
                 throw new Exception("Last Name cannot be null");
             }
 
-            return this.patientDBSource.GetPatientByFnln(firstName, lastName);
+            return this.patientDBSource.GetPatientsByFnln(firstName, lastName);
         }
 
         /// <summary>
-        /// Retrieves the patient with the date of birth and last name specified
+        /// Retrieves the patients with the date of birth and last name specified
         /// </summary>
-        /// <param name="dateOfBirth">The date of birth for the patient</param>
-        /// <param name="lastName">The last name for the patient</param>
-        /// <returns>The patient with the date of birth and last name specified</returns>
-        public Patient GetPatientByDobln(DateTime dateOfBirth, string lastName)
+        /// <param name="dateOfBirth">The date of birth for the patients</param>
+        /// <param name="lastName">The last name for the patients</param>
+        /// <returns>The patients with the date of birth and last name specified</returns>
+        public List<Patient> GetPatientsByDobln(DateTime dateOfBirth, string lastName)
         {
             if (dateOfBirth == null)
             {
@@ -83,7 +83,7 @@ namespace Group3_ClinicDB.Controller
                 throw new Exception("Last Name cannot be null");
             }
 
-            return this.patientDBSource.GetPatientByDobln(dateOfBirth, lastName);
+            return this.patientDBSource.GetPatientsByDobln(dateOfBirth, lastName);
         }
 
         /// <summary>

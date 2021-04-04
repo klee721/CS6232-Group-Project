@@ -1,4 +1,5 @@
 ﻿using Group3_ClinicDB.Controller;
+using Group3_ClinicDB.Model;
 using System;
 using System.Windows.Forms;
 
@@ -14,7 +15,10 @@ namespace Group3_ClinicDB.UserControls
             this.patientController = new PatientController();
         }
 
-        private void InitPatients()
+        /// <summary>
+        /// Resets the Patient DataGridView source to all patients
+        /// </summary>
+        public void InitPatients()
         {
             this.patientDataGridView.DataSource = this.patientController.GetAllPatients();
         }
@@ -27,6 +31,14 @@ namespace Group3_ClinicDB.UserControls
         private void AllPatientUserControlVisibleChanged(object sender, EventArgs e)
         {
             this.InitPatients();
+        }
+
+        /// <summary>
+        /// Changes the data source to a single patient
+        /// </summary>
+        public void GetPatient(Patient patient)
+        {
+            //this.patientDataGridView.DataSource = this.patientController.GetPatient(patient);
         }
     }
 }

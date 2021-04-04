@@ -49,13 +49,13 @@ namespace Group3_ClinicDB.DAL
         }
 
         /// <summary>
-        /// Retrieves the patient id with the date of birth specified
+        /// Retrieves the patients id with the date of birth specified
         /// </summary>
-        /// <param name="dateOfBirth">The date of birth for the patient</param>
-        /// <returns>The patient with the date of birth specified</returns>
-        public Patient GetPatientByDob(DateTime dateOfBirth)
+        /// <param name="dateOfBirth">The date of birth for the patients</param>
+        /// <returns>The patients with the date of birth specified</returns>
+        public List<Patient> GetPatientsByDob(DateTime dateOfBirth)
         {
-            Patient patient = null;
+            List<Patient> patientsList = new List<Patient>();
 
             string selectStatement = "SELECT Patients.id, Patients.persons_id, Persons.firstName, " +
                                         "Persons.lastName, Persons.dateOfBirth, Persons.gender, " +
@@ -77,26 +77,27 @@ namespace Group3_ClinicDB.DAL
                     {
                         while (reader.Read())
                         {
-                            patient = new Patient((int)reader["id"], (int)reader["persons_id"], reader["firstName"].ToString(),
+                            Patient patient = new Patient((int)reader["id"], (int)reader["persons_id"], reader["firstName"].ToString(),
                                                         reader["lastName"].ToString(), (DateTime)reader["dateOfBirth"], reader["gender"].ToString(),
                                                         reader["SSN"].ToString(), reader["Address1"].ToString(), reader["Address2"].ToString(),
                                                         reader["city"].ToString(), reader["state"].ToString(), reader["zipcode"].ToString(), reader["phoneNumber"].ToString());
+                            patientsList.Add(patient);
                         }
                     }
                 }
             }
-            return patient;
+            return patientsList;
         }
 
         /// <summary>
-        /// Retrieves the patient with the first and last name specified
+        /// Retrieves the patients with the first and last name specified
         /// </summary>
-        /// <param name="firstName">The first name for the patient</param>
-        /// <param name="lastName">The last name for the patient</param>
-        /// <returns>The patient with the first and last name specified</returns>
-        public Patient GetPatientByFnln(string firstName, string lastName)
+        /// <param name="firstName">The first name for the patients</param>
+        /// <param name="lastName">The last name for the patients</param>
+        /// <returns>The patients with the first and last name specified</returns>
+        public List<Patient> GetPatientsByFnln(string firstName, string lastName)
         {
-            Patient patient = null;
+            List<Patient> patientsList = new List<Patient>();
 
             string selectStatement = "SELECT Patients.id, Patients.persons_id, Persons.firstName, " +
                                         "Persons.lastName, Persons.dateOfBirth, Persons.gender, " +
@@ -119,26 +120,27 @@ namespace Group3_ClinicDB.DAL
                     {
                         while (reader.Read())
                         {
-                            patient = new Patient((int)reader["id"], (int)reader["persons_id"], reader["firstName"].ToString(),
+                            Patient patient = new Patient((int)reader["id"], (int)reader["persons_id"], reader["firstName"].ToString(),
                                                         reader["lastName"].ToString(), (DateTime)reader["dateOfBirth"], reader["gender"].ToString(),
                                                         reader["SSN"].ToString(), reader["Address1"].ToString(), reader["Address2"].ToString(),
                                                         reader["city"].ToString(), reader["state"].ToString(), reader["zipcode"].ToString(), reader["phoneNumber"].ToString());
+                            patientsList.Add(patient);
                         }
                     }
                 }
             }
-            return patient;
+            return patientsList;
         }
 
         /// <summary>
-        /// Retrieves the patient with the date of birth and last name specified
+        /// Retrieves the patients with the date of birth and last name specified
         /// </summary>
-        /// <param name="dateOfBirth">The date of birth for the patient</param>
-        /// <param name="lastName">The last name for the patient</param>
-        /// <returns>The patient with the date of birth and last name specified</returns>
-        public Patient GetPatientByDobln(DateTime dateOfBirth, string lastName)
+        /// <param name="dateOfBirth">The date of birth for the patients</param>
+        /// <param name="lastName">The last name for the patients</param>
+        /// <returns>The patients with the date of birth and last name specified</returns>
+        public List<Patient> GetPatientsByDobln(DateTime dateOfBirth, string lastName)
         {
-            Patient patient = null;
+            List<Patient> patientsList = new List<Patient>();
 
             string selectStatement = "SELECT Patients.id, Patients.persons_id, Persons.firstName, " +
                                         "Persons.lastName, Persons.dateOfBirth, Persons.gender, " +
@@ -161,15 +163,16 @@ namespace Group3_ClinicDB.DAL
                     {
                         while (reader.Read())
                         {
-                            patient = new Patient((int)reader["id"], (int)reader["persons_id"], reader["firstName"].ToString(),
+                            Patient patient = new Patient((int)reader["id"], (int)reader["persons_id"], reader["firstName"].ToString(),
                                                         reader["lastName"].ToString(), (DateTime)reader["dateOfBirth"], reader["gender"].ToString(),
                                                         reader["SSN"].ToString(), reader["Address1"].ToString(), reader["Address2"].ToString(),
                                                         reader["city"].ToString(), reader["state"].ToString(), reader["zipcode"].ToString(), reader["phoneNumber"].ToString());
+                            patientsList.Add(patient);
                         }
                     }
                 }
             }
-            return patient;
+            return patientsList;
         }
 
         /// <summary>
