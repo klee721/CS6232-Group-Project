@@ -74,7 +74,7 @@ namespace Group3_ClinicDB.UserControls
             this.Minus30Button.Location = new System.Drawing.Point(201, 132);
             this.Minus30Button.Name = "Minus30Button";
             this.Minus30Button.Size = new System.Drawing.Size(54, 23);
-            this.Minus30Button.TabIndex = 12;
+            this.Minus30Button.TabIndex = 3;
             this.Minus30Button.Text = "-30";
             this.Minus30Button.UseVisualStyleBackColor = true;
             this.Minus30Button.Click += new System.EventHandler(this.Minus30Button_Click);
@@ -84,7 +84,7 @@ namespace Group3_ClinicDB.UserControls
             this.Plus30Button.Location = new System.Drawing.Point(201, 103);
             this.Plus30Button.Name = "Plus30Button";
             this.Plus30Button.Size = new System.Drawing.Size(54, 23);
-            this.Plus30Button.TabIndex = 11;
+            this.Plus30Button.TabIndex = 2;
             this.Plus30Button.Text = "+30";
             this.Plus30Button.UseVisualStyleBackColor = true;
             this.Plus30Button.Click += new System.EventHandler(this.Plus30_Click);
@@ -95,7 +95,7 @@ namespace Group3_ClinicDB.UserControls
             this.CreateApptButton.Location = new System.Drawing.Point(903, 356);
             this.CreateApptButton.Name = "CreateApptButton";
             this.CreateApptButton.Size = new System.Drawing.Size(173, 44);
-            this.CreateApptButton.TabIndex = 10;
+            this.CreateApptButton.TabIndex = 6;
             this.CreateApptButton.Text = "Create Appointment";
             this.CreateApptButton.UseVisualStyleBackColor = true;
             this.CreateApptButton.Click += new System.EventHandler(this.CreateApptButton_Click);
@@ -164,7 +164,7 @@ namespace Group3_ClinicDB.UserControls
             this.DoctorComboBox.Location = new System.Drawing.Point(120, 190);
             this.DoctorComboBox.Name = "DoctorComboBox";
             this.DoctorComboBox.Size = new System.Drawing.Size(243, 21);
-            this.DoctorComboBox.TabIndex = 3;
+            this.DoctorComboBox.TabIndex = 4;
             // 
             // DoctorNameLabel
             // 

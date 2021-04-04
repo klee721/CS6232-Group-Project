@@ -62,7 +62,7 @@ namespace Group3_ClinicDB.UserControls
             this.ApptSelectComboBox.Location = new System.Drawing.Point(22, 48);
             this.ApptSelectComboBox.Name = "ApptSelectComboBox";
             this.ApptSelectComboBox.Size = new System.Drawing.Size(227, 21);
-            this.ApptSelectComboBox.TabIndex = 9;
+            this.ApptSelectComboBox.TabIndex = 1;
             this.ApptSelectComboBox.SelectedIndexChanged += new System.EventHandler(this.ApptSelectComboBox_SelectedIndexChanged);
             this.ApptSelectComboBox.Click += new System.EventHandler(this.RefreshList);
             // 
@@ -81,7 +81,7 @@ namespace Group3_ClinicDB.UserControls
             this.ReasonRichText.Location = new System.Drawing.Point(99, 337);
             this.ReasonRichText.Name = "ReasonRichText";
             this.ReasonRichText.Size = new System.Drawing.Size(316, 164);
-            this.ReasonRichText.TabIndex = 15;
+            this.ReasonRichText.TabIndex = 6;
             this.ReasonRichText.Text = "";
             // 
             // ReasonLabel
@@ -101,7 +101,7 @@ namespace Group3_ClinicDB.UserControls
             this.DoctorComboBox.Location = new System.Drawing.Point(99, 265);
             this.DoctorComboBox.Name = "DoctorComboBox";
             this.DoctorComboBox.Size = new System.Drawing.Size(243, 21);
-            this.DoctorComboBox.TabIndex = 13;
+            this.DoctorComboBox.TabIndex = 5;
             // 
             // DoctorNameLabel
             // 
@@ -119,7 +119,7 @@ namespace Group3_ClinicDB.UserControls
             this.ConfirmButton.Location = new System.Drawing.Point(28, 530);
             this.ConfirmButton.Name = "ConfirmButton";
             this.ConfirmButton.Size = new System.Drawing.Size(134, 59);
-            this.ConfirmButton.TabIndex = 16;
+            this.ConfirmButton.TabIndex = 7;
             this.ConfirmButton.Text = "Confirm Changes";
             this.ConfirmButton.UseVisualStyleBackColor = true;
             this.ConfirmButton.Click += new System.EventHandler(this.ConfirmButton_Click);
@@ -130,7 +130,7 @@ namespace Group3_ClinicDB.UserControls
             this.CancelButton.Location = new System.Drawing.Point(225, 530);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(117, 59);
-            this.CancelButton.TabIndex = 17;
+            this.CancelButton.TabIndex = 8;
             this.CancelButton.Text = "Cancel Appointment";
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
@@ -140,7 +140,7 @@ namespace Group3_ClinicDB.UserControls
             this.Minus30Button.Location = new System.Drawing.Point(180, 214);
             this.Minus30Button.Name = "Minus30Button";
             this.Minus30Button.Size = new System.Drawing.Size(54, 23);
-            this.Minus30Button.TabIndex = 20;
+            this.Minus30Button.TabIndex = 4;
             this.Minus30Button.Text = "-30";
             this.Minus30Button.UseVisualStyleBackColor = true;
             this.Minus30Button.Click += new System.EventHandler(this.Minus30Button_Click_1);
@@ -150,7 +150,7 @@ namespace Group3_ClinicDB.UserControls
             this.Plus30Button.Location = new System.Drawing.Point(180, 185);
             this.Plus30Button.Name = "Plus30Button";
             this.Plus30Button.Size = new System.Drawing.Size(54, 23);
-            this.Plus30Button.TabIndex = 19;
+            this.Plus30Button.TabIndex = 3;
             this.Plus30Button.Text = "+30";
             this.Plus30Button.UseVisualStyleBackColor = true;
             this.Plus30Button.Click += new System.EventHandler(this.Plus30Button_Click);
@@ -172,7 +172,7 @@ namespace Group3_ClinicDB.UserControls
             this.ApptDatePicker.MinDate = new System.DateTime(2021, 1, 1, 0, 0, 0, 0);
             this.ApptDatePicker.Name = "ApptDatePicker";
             this.ApptDatePicker.Size = new System.Drawing.Size(185, 20);
-            this.ApptDatePicker.TabIndex = 22;
+            this.ApptDatePicker.TabIndex = 2;
             this.ApptDatePicker.Value = new System.DateTime(2021, 3, 21, 19, 39, 45, 0);
             // 
             // DateLabel

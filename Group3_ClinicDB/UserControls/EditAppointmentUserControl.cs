@@ -94,44 +94,51 @@ namespace Group3_ClinicDB.UserControls
 
         private void ConfirmButton_Click(object sender, EventArgs e)
         {
-            if (this.ReasonRichText.Text == "")
+            bool updateResult = this.apptController.CheckCancellation(selectedAppointment);
+            if (updateResult)
             {
-                MessageBox.Show("Please enter a reason for the appointment", "Reason Required");
-                return;
-            }
-
-            DateTime newAptTime = this.CombineDateAndTime();
-            int doctorID = Int32.Parse(this.DoctorComboBox.SelectedValue.ToString());
-            bool result = this.apptController.CheckUpdateAvailability(doctorID, this.selectedAppointment.AppointmentDate, newAptTime);
-
-            if (result)
-            {
-                DialogResult dialogresult = MessageBox.Show("Dr. " + this.DoctorComboBox.Text + " is available, please click OK to schedule.", "Availability Found", MessageBoxButtons.OKCancel);
-                if (dialogresult == DialogResult.OK)
+                if (this.ReasonRichText.Text == "")
                 {
-                    Appointment appointment = new Appointment();
-                    appointment.ID = selectedAppointment.ID;
-                    appointment.PatientID = this.patient.Id;
-                    appointment.DoctorID = Int32.Parse(this.DoctorComboBox.SelectedValue.ToString());
-                    appointment.AppointmentDate = newAptTime;
-                    appointment.Reason = this.ReasonRichText.Text;
-                    this.apptController.UpdateAppointment(appointment);
+                    MessageBox.Show("Please enter a reason for the appointment", "Reason Required");
+                    return;
+                }
 
-                    MessageBox.Show("Appointment on " + appointment.AppointmentDate + " has been successfully edited.");
-                    this.SetupAppointmentsComboBox();
+                DateTime newAptTime = this.CombineDateAndTime();
+                int doctorID = Int32.Parse(this.DoctorComboBox.SelectedValue.ToString());
+                bool result = this.apptController.CheckUpdateAvailability(doctorID, this.selectedAppointment.AppointmentDate, newAptTime);
+
+                if (result)
+                {
+                    DialogResult dialogresult = MessageBox.Show("Dr. " + this.DoctorComboBox.Text + " is available, please click OK to schedule.", "Availability Found", MessageBoxButtons.OKCancel);
+                    if (dialogresult == DialogResult.OK)
+                    {
+                        Appointment appointment = new Appointment();
+                        appointment.ID = selectedAppointment.ID;
+                        appointment.PatientID = this.patient.Id;
+                        appointment.DoctorID = Int32.Parse(this.DoctorComboBox.SelectedValue.ToString());
+                        appointment.AppointmentDate = newAptTime;
+                        appointment.Reason = this.ReasonRichText.Text;
+                        this.apptController.UpdateAppointment(appointment);
+
+                        MessageBox.Show("Appointment on " + appointment.AppointmentDate + " has been successfully edited.");
+                        this.SetupAppointmentsComboBox();
+
+                    }
+                    else
+                    {
+                        return;
+                    }
 
                 }
                 else
                 {
-                    return;
+                    MessageBox.Show("Dr. " + this.DoctorComboBox.Text + " is not available in that timeslot.");
                 }
-
             }
             else
             {
-                MessageBox.Show("Dr. " + this.DoctorComboBox.Text + " is not available in that timeslot.");
+                MessageBox.Show("You cannot edit an appointment less than 24 hours away.");
             }
-
 
         }
 
