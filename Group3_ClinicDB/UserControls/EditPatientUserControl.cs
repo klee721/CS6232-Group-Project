@@ -70,8 +70,11 @@ namespace Group3_ClinicDB.UserControls
             {
                 this.stateErrorLabel.Visible = false; 
 
-                this.stateComboBox.DataSource = this.stateController.GetStates();
-                this.stateComboBox.DisplayMember = "stateCode";
+                foreach(State state in this.stateController.GetStates())
+                {
+                    this.stateComboBox.Items.Add(state.StateCode);
+                }
+                this.stateComboBox.SelectedIndex = 0;
 
                 this.genderComboBox.Items.Clear();
                 this.genderComboBox.Items.Add("Male");
@@ -96,8 +99,7 @@ namespace Group3_ClinicDB.UserControls
         private void PopulateFields()
         {
             this.genderIndex = genderComboBox.Items.IndexOf(this.oldPatient.Gender);
-            this.stateIndex = stateComboBox.Items.IndexOf("Georgia");
-            Console.WriteLine(this.stateIndex);
+            this.stateIndex = stateComboBox.Items.IndexOf(this.oldPatient.State);
 
             this.lastNameTextBox.Text = this.oldPatient.LastName;
             this.firstNameTextBox.Text = this.oldPatient.FirstName;
@@ -191,18 +193,60 @@ namespace Group3_ClinicDB.UserControls
                     this.dobDateTimePicker.Value == this.oldPatient.DateOfBirth && this.genderComboBox.SelectedIndex == this.genderIndex &&
                     this.ssnTextBox.Text.Equals(this.oldPatient.SSN) && this.addressTextBox.Text.Equals(this.oldPatient.Address1) &&
                     this.address2TextBox.Text.Equals(this.oldPatient.Address2) && this.cityTextBox.Text.Equals(this.oldPatient.City) &&
-                    this.stateComboBox.SelectedIndex == this.stateIndex 
-                    //&& this.zipCodeTextBox.Text.Equals(this.oldPatient.ZipCode) &&
-                    //this.phoneNumberTextBox.Text.Equals(this.oldPatient.PhoneNumber)
-                    )
+                    this.stateComboBox.SelectedIndex == this.stateIndex && this.zipCodeTextBox.Text.Equals(this.oldPatient.ZipCode) &&
+                    this.phoneNumberTextBox.Text.Equals(this.oldPatient.PhoneNumber))
                 {
-                    Console.WriteLine("passed");
+                    MessageBox.Show("Update Failed. You have not edited any information", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.updateSuccessMessage.Text = "No information edited";
+                    this.updateSuccessMessage.Visible = true;
+                    this.updateSuccessMessage.ForeColor = Color.Red;
                 } else
                 {
-                    //check for ints
-                    //check ssn exists 
-                    //create new patient object
-                    //update patient
+                    try
+                    {
+                        long ssnLong = Convert.ToInt64(this.ssnTextBox.Text);
+                        try
+                        {
+                            long zipCodeLong = Convert.ToInt64(this.zipCodeTextBox.Text);
+                            try
+                            {
+                                long phoneNumberLong = Convert.ToInt64(this.phoneNumberTextBox.Text);
+
+                                string firstName = this.firstNameTextBox.Text;
+                                string lastName = this.lastNameTextBox.Text;
+                                DateTime dob = this.dobDateTimePicker.Value;
+                                string ssn = this.ssnTextBox.Text;
+                                string gender = this.genderComboBox.SelectedItem.ToString();
+                                string address1 = this.addressTextBox.Text;
+                                string address2 = this.address2TextBox.Text;
+                                string city = this.cityTextBox.Text;
+                                string state = this.stateController.GetStates()[this.stateComboBox.SelectedIndex].StateCode;
+                                string zipCode = this.zipCodeTextBox.Text;
+                                string phoneNumber = this.phoneNumberTextBox.Text;
+
+                                this.newPatient = new Patient(this.oldPatient.Id, this.oldPatient.PersonsId, firstName, lastName, dob, gender, ssn,
+                                                            address1, address2, city, state, zipCode, phoneNumber);
+                            }
+                            catch (Exception)
+                            {
+                                MessageBox.Show("Phone number can only contain whole numbers", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                this.phoneNumberErrorLabel.Visible = true;
+                                this.phoneNumberErrorLabel.ForeColor = Color.Red;
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Zipcode can only contain whole numbers", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            this.zipCodeErrorLabel.Visible = true;
+                            this.zipCodeErrorLabel.ForeColor = Color.Red;
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Social security number can only contain whole numbers", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.ssnErrorLabel.Visible = true;
+                        this.ssnErrorLabel.ForeColor = Color.Red;
+                    }
                 }
             }
         }
@@ -341,7 +385,5 @@ namespace Group3_ClinicDB.UserControls
             this.phoneNumberErrorLabel.ForeColor = Color.Red;
             this.updateSuccessMessage.Visible = false;
         }
-
-
     }
 }
