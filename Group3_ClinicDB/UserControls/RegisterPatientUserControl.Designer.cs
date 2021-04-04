@@ -288,6 +288,7 @@ namespace Group3_ClinicDB.UserControls
             this.address2TextBox.Name = "address2TextBox";
             this.address2TextBox.Size = new System.Drawing.Size(347, 20);
             this.address2TextBox.TabIndex = 6;
+            this.address2TextBox.TextChanged += new System.EventHandler(this.Address2TextBoxTextChanged);
             // 
             // registerPatientLabel
             // 

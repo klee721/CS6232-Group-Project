@@ -12,7 +12,6 @@ namespace Group3_ClinicDB.UserControls
     public partial class EditPatientUserControl : UserControl
     {
         private readonly StateController stateController;
-        private readonly PersonController personController;
         private readonly PatientController patientController;
         private Patient oldPatient;
         private Patient newPatient;
@@ -26,7 +25,6 @@ namespace Group3_ClinicDB.UserControls
         {
             InitializeComponent();
             this.stateController = new StateController();
-            this.personController = new PersonController();
             this.patientController = new PatientController();
             this.oldPatient = null;
             this.newPatient = null;
@@ -70,7 +68,7 @@ namespace Group3_ClinicDB.UserControls
             }
             else
             {
-                this.stateErrorLabel.Visible = false;
+                this.stateErrorLabel.Visible = false; 
 
                 this.stateComboBox.DataSource = this.stateController.GetStates();
                 this.stateComboBox.DisplayMember = "stateCode";
@@ -98,7 +96,8 @@ namespace Group3_ClinicDB.UserControls
         private void PopulateFields()
         {
             this.genderIndex = genderComboBox.Items.IndexOf(this.oldPatient.Gender);
-            this.stateIndex = genderComboBox.Items.IndexOf(this.oldPatient.State);
+            this.stateIndex = stateComboBox.Items.IndexOf("Georgia");
+            Console.WriteLine(this.stateIndex);
 
             this.lastNameTextBox.Text = this.oldPatient.LastName;
             this.firstNameTextBox.Text = this.oldPatient.FirstName;
@@ -108,7 +107,7 @@ namespace Group3_ClinicDB.UserControls
             this.addressTextBox.Text = this.oldPatient.Address1;
             this.address2TextBox.Text = this.oldPatient.Address2;
             this.cityTextBox.Text = this.oldPatient.City;
-            this.stateComboBox.SelectedItem = this.stateIndex;
+            this.stateComboBox.SelectedIndex = this.stateIndex;
             this.zipCodeTextBox.Text = this.oldPatient.ZipCode;
             this.phoneNumberTextBox.Text = this.oldPatient.PhoneNumber;
         }
@@ -182,6 +181,30 @@ namespace Group3_ClinicDB.UserControls
                 this.phoneNumberErrorLabel.Visible = true;
                 this.phoneNumberErrorLabel.ForeColor = Color.Red;
             }
+
+            if (!this.lastNameTextBox.Text.Equals("") && !this.firstNameTextBox.Text.Equals("")
+                    && this.ssnTextBox.Text.Length == 9 && !this.addressTextBox.Text.Equals("")
+                    && !this.cityTextBox.Text.Equals("") && this.zipCodeTextBox.Text.Length == 5
+                    && this.phoneNumberTextBox.Text.Length == 10)
+            {
+                if (this.firstNameTextBox.Text.Equals(this.oldPatient.FirstName) && this.lastNameTextBox.Text.Equals(this.oldPatient.LastName) &&
+                    this.dobDateTimePicker.Value == this.oldPatient.DateOfBirth && this.genderComboBox.SelectedIndex == this.genderIndex &&
+                    this.ssnTextBox.Text.Equals(this.oldPatient.SSN) && this.addressTextBox.Text.Equals(this.oldPatient.Address1) &&
+                    this.address2TextBox.Text.Equals(this.oldPatient.Address2) && this.cityTextBox.Text.Equals(this.oldPatient.City) &&
+                    this.stateComboBox.SelectedIndex == this.stateIndex 
+                    //&& this.zipCodeTextBox.Text.Equals(this.oldPatient.ZipCode) &&
+                    //this.phoneNumberTextBox.Text.Equals(this.oldPatient.PhoneNumber)
+                    )
+                {
+                    Console.WriteLine("passed");
+                } else
+                {
+                    //check for ints
+                    //check ssn exists 
+                    //create new patient object
+                    //update patient
+                }
+            }
         }
 
         private void UpdateButtonClick(object sender, EventArgs e)
@@ -189,7 +212,10 @@ namespace Group3_ClinicDB.UserControls
             this.Validations();
         }
 
-        private void Clear()
+        /// <summary>
+        /// Clears patient edit on logout
+        /// </summary>
+        public void Clear()
         {
             this.firstNameTextBox.Text = "";
             this.lastNameTextBox.Text = "";
@@ -240,6 +266,11 @@ namespace Group3_ClinicDB.UserControls
         private void AddressTextBoxTextChanged(object sender, EventArgs e)
         {
             this.ResetAddress1Error();
+        }
+
+        private void Address2TextBoxTextChanged(object sender, EventArgs e)
+        {
+            this.updateSuccessMessage.Visible = false;
         }
 
         private void CityTextBoxTextChanged(object sender, EventArgs e)
@@ -310,5 +341,7 @@ namespace Group3_ClinicDB.UserControls
             this.phoneNumberErrorLabel.ForeColor = Color.Red;
             this.updateSuccessMessage.Visible = false;
         }
+
+
     }
 }

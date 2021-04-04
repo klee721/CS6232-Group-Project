@@ -51,8 +51,8 @@ namespace Group3_ClinicDB.View
         {
             this.appointmentBookingUserControl2.Enabled = false;
             this.editAppointmentUserControl1.Enabled = false;
+            this.editPatientUserControl1.Clear();
             //DISABLE YOUR MODULES ON LOGOUT HERE
-
         }
 
         /// <summary>

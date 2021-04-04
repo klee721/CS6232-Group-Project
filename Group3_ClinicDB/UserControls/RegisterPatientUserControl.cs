@@ -133,7 +133,7 @@ namespace Group3_ClinicDB.UserControls
 
                             Person person = new Person(firstName, lastName, dob, gender, ssn,
                                                         address1, address2, city, state, zipCode, phoneNumber);
-                            this.personController.GetPersonId(person);
+
                             if (this.personController.GetPersonId(person) != 0)
                             {
                                 int personId = this.personController.GetPersonId(person);
@@ -145,8 +145,8 @@ namespace Group3_ClinicDB.UserControls
                                 {
                                     this.personController.AddPerson(person);
                                     int personId = this.personController.GetPersonId(person);
-                                    Console.WriteLine(personId);
                                     this.patientController.AddPatient(personId);
+                                    this.Clear();
                                     this.registrationSuccessMessage.Visible = true;
                                 } else
                                 {
@@ -235,6 +235,11 @@ namespace Group3_ClinicDB.UserControls
         private void AddressTextBoxTextChanged(object sender, EventArgs e)
         {
             this.ResetAddress1Error();
+        }
+
+        private void Address2TextBoxTextChanged(object sender, EventArgs e)
+        {
+            this.registrationSuccessMessage.Visible = false;
         }
 
         private void CityTextBoxTextChanged(object sender, EventArgs e)
