@@ -99,7 +99,5 @@ namespace Group3_ClinicDB.Controller
 
             this.patientDBSource.AddPatient(personId);
         }
-
-
     }
 }

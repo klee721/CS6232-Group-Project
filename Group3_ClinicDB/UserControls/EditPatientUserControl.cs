@@ -12,7 +12,7 @@ namespace Group3_ClinicDB.UserControls
     public partial class EditPatientUserControl : UserControl
     {
         private readonly StateController stateController;
-        private readonly PatientController patientController;
+        private readonly PersonController personController;
         private Patient oldPatient;
         private Patient newPatient;
         private int genderIndex;
@@ -25,7 +25,7 @@ namespace Group3_ClinicDB.UserControls
         {
             InitializeComponent();
             this.stateController = new StateController();
-            this.patientController = new PatientController();
+            this.personController = new PersonController();
             this.oldPatient = null;
             this.newPatient = null;
         }
@@ -226,6 +226,19 @@ namespace Group3_ClinicDB.UserControls
 
                                 this.newPatient = new Patient(this.oldPatient.Id, this.oldPatient.PersonsId, firstName, lastName, dob, gender, ssn,
                                                             address1, address2, city, state, zipCode, phoneNumber);
+
+                               if (this.personController.UpdatePerson(this.oldPatient, this.newPatient))
+                               {
+                                    this.updateSuccessMessage.Text = "Patient Updated";
+                                    this.updateSuccessMessage.Visible = true;
+                                    this.updateSuccessMessage.ForeColor = Color.Black;
+                               }
+                               else
+                               {
+                                   this.updateSuccessMessage.Text = "Patient update not changed. Someone has changed the patient before you";
+                                   this.updateSuccessMessage.Visible = true;
+                                   this.updateSuccessMessage.ForeColor = Color.Red;
+                               }
                             }
                             catch (Exception)
                             {

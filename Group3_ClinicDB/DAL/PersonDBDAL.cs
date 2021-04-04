@@ -138,5 +138,82 @@ namespace Group3_ClinicDB.DAL
                 }
             }
         }
+
+        /// <summary>
+        /// Updates new patient information to the table on the old patient information
+        /// </summary>
+        /// <param name="oldPatient">The old patient</param>
+        /// <param name="newPatient">The new patient</param>
+        /// <returns>Whether or not the update completes</returns>
+        public bool UpdatePerson(Patient oldPatient, Patient newPatient)
+        {
+            string updateStatement =
+                "UPDATE Persons " +
+                    "SET firstName = @newFirstName, lastName = @newLastName, dateOfBirth = @newDateOfBirth, " +
+                    "gender = @newGender, ssn = @newSsn, address1 = @newAddress1, address2 = @newAddress2, " +
+                    "city = @newCity, state = @newState, zipcode = @newZipCode, @phoneNumber = @newPhoneNumber " +
+                "WHERE id = @oldID " +
+                "AND firstName = @oldFirstName " +
+                "AND lastName = @oldLastName " +
+                "AND dateOfBirth = @oldDateOfBirth " +
+                "AND gender = @oldGender " +
+                "AND ssn = @oldSsn " +
+                "AND address1 = @oldAddress1 " +
+                "AND ISNULL(address2,'') = @oldAddress2 " +
+                "AND city = @oldCity " +
+                "AND state = @oldState " +
+                "AND zipcode = @oldZipCode " +
+                "AND phoneNumber = @oldPhoneNumber";
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand updateCommand = new SqlCommand(updateStatement, connection))
+                {
+                    updateCommand.Parameters.AddWithValue("@newFirstName", newPatient.FirstName);
+                    updateCommand.Parameters.AddWithValue("@newLastName", newPatient.LastName);
+                    updateCommand.Parameters.AddWithValue("@newDateOfBirth", newPatient.DateOfBirth);
+                    updateCommand.Parameters.AddWithValue("@newGender", newPatient.Gender);
+                    updateCommand.Parameters.AddWithValue("@newAddress1", newPatient.Address1);
+
+                    if (newPatient.Address2.Equals(""))
+                    {
+                        updateCommand.Parameters.AddWithValue("@newAddress2", DBNull.Value);
+                    }
+                    else
+                    {
+                        updateCommand.Parameters.AddWithValue("@newAddress2", newPatient.Address2);
+                    }
+                    
+                    updateCommand.Parameters.AddWithValue("@newCity", newPatient.City);
+                    updateCommand.Parameters.AddWithValue("@newState", newPatient.State);
+                    updateCommand.Parameters.AddWithValue("@newZipCode", newPatient.ZipCode);
+                    updateCommand.Parameters.AddWithValue("@newPhoneNumber", newPatient.PhoneNumber);
+
+                    updateCommand.Parameters.AddWithValue("@oldID", oldPatient.PersonsId);
+                    updateCommand.Parameters.AddWithValue("@oldFirstName", oldPatient.FirstName);
+                    updateCommand.Parameters.AddWithValue("@oldLastName", oldPatient.LastName);
+                    updateCommand.Parameters.AddWithValue("@oldDateOfBirth", oldPatient.DateOfBirth);
+                    updateCommand.Parameters.AddWithValue("@oldGender", oldPatient.Gender);
+                    updateCommand.Parameters.AddWithValue("@oldAddress1", oldPatient.Address1);
+                    updateCommand.Parameters.AddWithValue("@oldAddress2", oldPatient.Address2);
+                    updateCommand.Parameters.AddWithValue("@oldCity", oldPatient.City);
+                    updateCommand.Parameters.AddWithValue("@oldState", oldPatient.State);
+                    updateCommand.Parameters.AddWithValue("@oldZipCode", oldPatient.ZipCode);
+                    updateCommand.Parameters.AddWithValue("@oldPhoneNumber", oldPatient.PhoneNumber);
+
+                    int count = updateCommand.ExecuteNonQuery();
+                    if (count > 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
     }
 }

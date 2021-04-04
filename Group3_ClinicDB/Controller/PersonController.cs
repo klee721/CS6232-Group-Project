@@ -58,5 +58,21 @@ namespace Group3_ClinicDB.Controller
             }
             this.personsDBSource.AddPerson(person);
         }
+
+
+        /// <summary>
+        /// Updates personal info portion of an already existing patient
+        /// </summary>
+        /// <param name="oldPatient">The old patient</param>
+        /// <param name="newPatient">The new patient</param>
+        public bool UpdatePerson(Patient oldPatient, Patient newPatient)
+        {
+            if (oldPatient == null || newPatient == null)
+            {
+                throw new ArgumentException("a patient cannot be null");
+            }
+
+            return this.personsDBSource.UpdatePerson(oldPatient, newPatient);
+        }
     }
 }

@@ -194,6 +194,6 @@ namespace Group3_ClinicDB.DAL
                     insertCommand.ExecuteNonQuery();
                 }
             }
-        }
+        } 
     }
 }
