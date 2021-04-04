@@ -94,6 +94,7 @@ namespace Group3_ClinicDB
             this.Controls.Add(this.UsernameLabel);
             this.Name = "LoginForm";
             this.Text = "Login";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Exit);
             this.ResumeLayout(false);
             this.PerformLayout();
 

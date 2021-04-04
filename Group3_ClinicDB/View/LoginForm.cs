@@ -50,7 +50,16 @@ namespace Group3_ClinicDB
             {
                 MessageBox.Show("Username or Password is incorrect", "Login Failed");
             }
+
+
             
         }
+
+        private void Exit(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+
     }
 }

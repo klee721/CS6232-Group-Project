@@ -64,5 +64,10 @@ namespace Group3_ClinicDB.View
             this.user = newUser;
             this.LoggedInTextBox.Text = user.userName;
         }
+
+        private void Exit(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
