@@ -30,7 +30,6 @@ namespace Group3_ClinicDB.UserControls
         private void InitializeComponent()
         {
             this.dobSearchRadioButton = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
             this.fnlnSearchRadioButton = new System.Windows.Forms.RadioButton();
             this.dobLastNameSearchRadioButton = new System.Windows.Forms.RadioButton();
             this.dobSearchLabel = new System.Windows.Forms.Label();
@@ -52,6 +51,15 @@ namespace Group3_ClinicDB.UserControls
             this.searchDobErrorLabel = new System.Windows.Forms.Label();
             this.searchFnlnErrorLabel = new System.Windows.Forms.Label();
             this.searchDoblnErrorLabel = new System.Windows.Forms.Label();
+            this.ssnDobSearchLabel = new System.Windows.Forms.Label();
+            this.ssnFnlnSearchTextBox = new System.Windows.Forms.TextBox();
+            this.ssnFnlnSearchLabel = new System.Windows.Forms.Label();
+            this.ssnDoblnSearchTextBox = new System.Windows.Forms.TextBox();
+            this.ssnDoblnSearchLabel = new System.Windows.Forms.Label();
+            this.ssnDobSearchTextBox = new System.Windows.Forms.TextBox();
+            this.ssnDobErrorLabel = new System.Windows.Forms.Label();
+            this.ssnFnlnErrorLabel = new System.Windows.Forms.Label();
+            this.ssnDoblnErrorLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // dobSearchRadioButton
@@ -65,20 +73,10 @@ namespace Group3_ClinicDB.UserControls
             this.dobSearchRadioButton.UseVisualStyleBackColor = true;
             this.dobSearchRadioButton.CheckedChanged += new System.EventHandler(this.DobSearchRadioButtonCheckedChanged);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Search  Criteria:";
-            // 
             // fnlnSearchRadioButton
             // 
             this.fnlnSearchRadioButton.AutoSize = true;
-            this.fnlnSearchRadioButton.Location = new System.Drawing.Point(404, 26);
+            this.fnlnSearchRadioButton.Location = new System.Drawing.Point(379, 26);
             this.fnlnSearchRadioButton.Name = "fnlnSearchRadioButton";
             this.fnlnSearchRadioButton.Size = new System.Drawing.Size(173, 17);
             this.fnlnSearchRadioButton.TabIndex = 3;
@@ -118,7 +116,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             // dobSearchButton
             // 
-            this.dobSearchButton.Location = new System.Drawing.Point(42, 127);
+            this.dobSearchButton.Location = new System.Drawing.Point(42, 183);
             this.dobSearchButton.Name = "dobSearchButton";
             this.dobSearchButton.Size = new System.Drawing.Size(75, 23);
             this.dobSearchButton.TabIndex = 2;
@@ -129,7 +127,7 @@ namespace Group3_ClinicDB.UserControls
             // firstNameFnlnSearchLabel
             // 
             this.firstNameFnlnSearchLabel.AutoSize = true;
-            this.firstNameFnlnSearchLabel.Location = new System.Drawing.Point(401, 52);
+            this.firstNameFnlnSearchLabel.Location = new System.Drawing.Point(376, 52);
             this.firstNameFnlnSearchLabel.Name = "firstNameFnlnSearchLabel";
             this.firstNameFnlnSearchLabel.Size = new System.Drawing.Size(60, 13);
             this.firstNameFnlnSearchLabel.TabIndex = 7;
@@ -137,16 +135,16 @@ namespace Group3_ClinicDB.UserControls
             // 
             // firstNameFnlnSearchTextBox
             // 
-            this.firstNameFnlnSearchTextBox.Location = new System.Drawing.Point(467, 49);
+            this.firstNameFnlnSearchTextBox.Location = new System.Drawing.Point(442, 49);
             this.firstNameFnlnSearchTextBox.Name = "firstNameFnlnSearchTextBox";
-            this.firstNameFnlnSearchTextBox.Size = new System.Drawing.Size(162, 20);
+            this.firstNameFnlnSearchTextBox.Size = new System.Drawing.Size(200, 20);
             this.firstNameFnlnSearchTextBox.TabIndex = 4;
             this.firstNameFnlnSearchTextBox.TextChanged += new System.EventHandler(this.FirstNameFnlnSearchTextBoxTextChanged);
             // 
             // lastNameFnlnSearchLabel
             // 
             this.lastNameFnlnSearchLabel.AutoSize = true;
-            this.lastNameFnlnSearchLabel.Location = new System.Drawing.Point(400, 89);
+            this.lastNameFnlnSearchLabel.Location = new System.Drawing.Point(375, 89);
             this.lastNameFnlnSearchLabel.Name = "lastNameFnlnSearchLabel";
             this.lastNameFnlnSearchLabel.Size = new System.Drawing.Size(61, 13);
             this.lastNameFnlnSearchLabel.TabIndex = 9;
@@ -154,15 +152,15 @@ namespace Group3_ClinicDB.UserControls
             // 
             // lastNameFnlnSearchTextBox
             // 
-            this.lastNameFnlnSearchTextBox.Location = new System.Drawing.Point(467, 86);
+            this.lastNameFnlnSearchTextBox.Location = new System.Drawing.Point(442, 86);
             this.lastNameFnlnSearchTextBox.Name = "lastNameFnlnSearchTextBox";
-            this.lastNameFnlnSearchTextBox.Size = new System.Drawing.Size(161, 20);
+            this.lastNameFnlnSearchTextBox.Size = new System.Drawing.Size(200, 20);
             this.lastNameFnlnSearchTextBox.TabIndex = 5;
             this.lastNameFnlnSearchTextBox.TextChanged += new System.EventHandler(this.LastNameFnlnSearchTextBoxTextChanged);
             // 
             // fnlnSearchButton
             // 
-            this.fnlnSearchButton.Location = new System.Drawing.Point(403, 127);
+            this.fnlnSearchButton.Location = new System.Drawing.Point(379, 183);
             this.fnlnSearchButton.Name = "fnlnSearchButton";
             this.fnlnSearchButton.Size = new System.Drawing.Size(75, 23);
             this.fnlnSearchButton.TabIndex = 6;
@@ -188,7 +186,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             // doblnSearchButton
             // 
-            this.doblnSearchButton.Location = new System.Drawing.Point(703, 127);
+            this.doblnSearchButton.Location = new System.Drawing.Point(703, 183);
             this.doblnSearchButton.Name = "doblnSearchButton";
             this.doblnSearchButton.Size = new System.Drawing.Size(75, 23);
             this.doblnSearchButton.TabIndex = 10;
@@ -216,7 +214,7 @@ namespace Group3_ClinicDB.UserControls
             // firstNameFnlnErrorLabel
             // 
             this.firstNameFnlnErrorLabel.AutoSize = true;
-            this.firstNameFnlnErrorLabel.Location = new System.Drawing.Point(475, 70);
+            this.firstNameFnlnErrorLabel.Location = new System.Drawing.Point(450, 70);
             this.firstNameFnlnErrorLabel.Name = "firstNameFnlnErrorLabel";
             this.firstNameFnlnErrorLabel.Size = new System.Drawing.Size(139, 13);
             this.firstNameFnlnErrorLabel.TabIndex = 17;
@@ -226,7 +224,7 @@ namespace Group3_ClinicDB.UserControls
             // lastNameFnlnErrorLabel
             // 
             this.lastNameFnlnErrorLabel.AutoSize = true;
-            this.lastNameFnlnErrorLabel.Location = new System.Drawing.Point(478, 108);
+            this.lastNameFnlnErrorLabel.Location = new System.Drawing.Point(453, 108);
             this.lastNameFnlnErrorLabel.Name = "lastNameFnlnErrorLabel";
             this.lastNameFnlnErrorLabel.Size = new System.Drawing.Size(140, 13);
             this.lastNameFnlnErrorLabel.TabIndex = 18;
@@ -246,7 +244,7 @@ namespace Group3_ClinicDB.UserControls
             // searchDobErrorLabel
             // 
             this.searchDobErrorLabel.AutoSize = true;
-            this.searchDobErrorLabel.Location = new System.Drawing.Point(49, 156);
+            this.searchDobErrorLabel.Location = new System.Drawing.Point(39, 167);
             this.searchDobErrorLabel.Name = "searchDobErrorLabel";
             this.searchDobErrorLabel.Size = new System.Drawing.Size(0, 13);
             this.searchDobErrorLabel.TabIndex = 20;
@@ -255,7 +253,7 @@ namespace Group3_ClinicDB.UserControls
             // searchFnlnErrorLabel
             // 
             this.searchFnlnErrorLabel.AutoSize = true;
-            this.searchFnlnErrorLabel.Location = new System.Drawing.Point(404, 156);
+            this.searchFnlnErrorLabel.Location = new System.Drawing.Point(376, 167);
             this.searchFnlnErrorLabel.Name = "searchFnlnErrorLabel";
             this.searchFnlnErrorLabel.Size = new System.Drawing.Size(0, 13);
             this.searchFnlnErrorLabel.TabIndex = 21;
@@ -264,16 +262,109 @@ namespace Group3_ClinicDB.UserControls
             // searchDoblnErrorLabel
             // 
             this.searchDoblnErrorLabel.AutoSize = true;
-            this.searchDoblnErrorLabel.Location = new System.Drawing.Point(703, 156);
+            this.searchDoblnErrorLabel.Location = new System.Drawing.Point(700, 167);
             this.searchDoblnErrorLabel.Name = "searchDoblnErrorLabel";
             this.searchDoblnErrorLabel.Size = new System.Drawing.Size(0, 13);
             this.searchDoblnErrorLabel.TabIndex = 22;
             this.searchDoblnErrorLabel.Visible = false;
             // 
+            // ssnDobSearchLabel
+            // 
+            this.ssnDobSearchLabel.AutoSize = true;
+            this.ssnDobSearchLabel.Location = new System.Drawing.Point(39, 125);
+            this.ssnDobSearchLabel.Name = "ssnDobSearchLabel";
+            this.ssnDobSearchLabel.Size = new System.Drawing.Size(32, 13);
+            this.ssnDobSearchLabel.TabIndex = 23;
+            this.ssnDobSearchLabel.Text = "SSN:";
+            this.ssnDobSearchLabel.Visible = false;
+            // 
+            // ssnFnlnSearchTextBox
+            // 
+            this.ssnFnlnSearchTextBox.Location = new System.Drawing.Point(442, 125);
+            this.ssnFnlnSearchTextBox.Name = "ssnFnlnSearchTextBox";
+            this.ssnFnlnSearchTextBox.Size = new System.Drawing.Size(200, 20);
+            this.ssnFnlnSearchTextBox.TabIndex = 25;
+            this.ssnFnlnSearchTextBox.Visible = false;
+            // 
+            // ssnFnlnSearchLabel
+            // 
+            this.ssnFnlnSearchLabel.AutoSize = true;
+            this.ssnFnlnSearchLabel.Location = new System.Drawing.Point(375, 125);
+            this.ssnFnlnSearchLabel.Name = "ssnFnlnSearchLabel";
+            this.ssnFnlnSearchLabel.Size = new System.Drawing.Size(32, 13);
+            this.ssnFnlnSearchLabel.TabIndex = 26;
+            this.ssnFnlnSearchLabel.Text = "SSN:";
+            this.ssnFnlnSearchLabel.Visible = false;
+            // 
+            // ssnDoblnSearchTextBox
+            // 
+            this.ssnDoblnSearchTextBox.Location = new System.Drawing.Point(775, 125);
+            this.ssnDoblnSearchTextBox.Name = "ssnDoblnSearchTextBox";
+            this.ssnDoblnSearchTextBox.Size = new System.Drawing.Size(200, 20);
+            this.ssnDoblnSearchTextBox.TabIndex = 27;
+            this.ssnDoblnSearchTextBox.Visible = false;
+            // 
+            // ssnDoblnSearchLabel
+            // 
+            this.ssnDoblnSearchLabel.AutoSize = true;
+            this.ssnDoblnSearchLabel.Location = new System.Drawing.Point(700, 125);
+            this.ssnDoblnSearchLabel.Name = "ssnDoblnSearchLabel";
+            this.ssnDoblnSearchLabel.Size = new System.Drawing.Size(32, 13);
+            this.ssnDoblnSearchLabel.TabIndex = 28;
+            this.ssnDoblnSearchLabel.Text = "SSN:";
+            this.ssnDoblnSearchLabel.Visible = false;
+            // 
+            // ssnDobSearchTextBox
+            // 
+            this.ssnDobSearchTextBox.Location = new System.Drawing.Point(114, 124);
+            this.ssnDobSearchTextBox.Name = "ssnDobSearchTextBox";
+            this.ssnDobSearchTextBox.Size = new System.Drawing.Size(200, 20);
+            this.ssnDobSearchTextBox.TabIndex = 29;
+            this.ssnDobSearchTextBox.Visible = false;
+            // 
+            // ssnDobErrorLabel
+            // 
+            this.ssnDobErrorLabel.AutoSize = true;
+            this.ssnDobErrorLabel.Location = new System.Drawing.Point(96, 148);
+            this.ssnDobErrorLabel.Name = "ssnDobErrorLabel";
+            this.ssnDobErrorLabel.Size = new System.Drawing.Size(262, 13);
+            this.ssnDobErrorLabel.TabIndex = 30;
+            this.ssnDobErrorLabel.Text = "Social security number must contain exactly nine digits";
+            this.ssnDobErrorLabel.Visible = false;
+            // 
+            // ssnFnlnErrorLabel
+            // 
+            this.ssnFnlnErrorLabel.AutoSize = true;
+            this.ssnFnlnErrorLabel.Location = new System.Drawing.Point(412, 148);
+            this.ssnFnlnErrorLabel.Name = "ssnFnlnErrorLabel";
+            this.ssnFnlnErrorLabel.Size = new System.Drawing.Size(262, 13);
+            this.ssnFnlnErrorLabel.TabIndex = 31;
+            this.ssnFnlnErrorLabel.Text = "Social security number must contain exactly nine digits";
+            this.ssnFnlnErrorLabel.Visible = false;
+            // 
+            // ssnDoblnErrorLabel
+            // 
+            this.ssnDoblnErrorLabel.AutoSize = true;
+            this.ssnDoblnErrorLabel.Location = new System.Drawing.Point(742, 148);
+            this.ssnDoblnErrorLabel.Name = "ssnDoblnErrorLabel";
+            this.ssnDoblnErrorLabel.Size = new System.Drawing.Size(262, 13);
+            this.ssnDoblnErrorLabel.TabIndex = 32;
+            this.ssnDoblnErrorLabel.Text = "Social security number must contain exactly nine digits";
+            this.ssnDoblnErrorLabel.Visible = false;
+            // 
             // SearchUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ssnDoblnErrorLabel);
+            this.Controls.Add(this.ssnFnlnErrorLabel);
+            this.Controls.Add(this.ssnDobErrorLabel);
+            this.Controls.Add(this.ssnDobSearchTextBox);
+            this.Controls.Add(this.ssnDoblnSearchLabel);
+            this.Controls.Add(this.ssnDoblnSearchTextBox);
+            this.Controls.Add(this.ssnFnlnSearchLabel);
+            this.Controls.Add(this.ssnFnlnSearchTextBox);
+            this.Controls.Add(this.ssnDobSearchLabel);
             this.Controls.Add(this.searchDoblnErrorLabel);
             this.Controls.Add(this.searchFnlnErrorLabel);
             this.Controls.Add(this.searchDobErrorLabel);
@@ -295,10 +386,9 @@ namespace Group3_ClinicDB.UserControls
             this.Controls.Add(this.dobSearchLabel);
             this.Controls.Add(this.dobLastNameSearchRadioButton);
             this.Controls.Add(this.fnlnSearchRadioButton);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.dobSearchRadioButton);
             this.Name = "SearchUserControl";
-            this.Size = new System.Drawing.Size(1025, 177);
+            this.Size = new System.Drawing.Size(1025, 229);
             this.Load += new System.EventHandler(this.SearchUserControlLoad);
             this.VisibleChanged += new System.EventHandler(this.SearchUserControlVisibleChanged);
             this.ResumeLayout(false);
@@ -309,7 +399,6 @@ namespace Group3_ClinicDB.UserControls
         #endregion
 
         private System.Windows.Forms.RadioButton dobSearchRadioButton;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton fnlnSearchRadioButton;
         private System.Windows.Forms.RadioButton dobLastNameSearchRadioButton;
         private System.Windows.Forms.Label dobSearchLabel;
@@ -331,5 +420,14 @@ namespace Group3_ClinicDB.UserControls
         private System.Windows.Forms.Label searchDobErrorLabel;
         private System.Windows.Forms.Label searchFnlnErrorLabel;
         private System.Windows.Forms.Label searchDoblnErrorLabel;
+        private System.Windows.Forms.Label ssnDobSearchLabel;
+        private System.Windows.Forms.TextBox ssnFnlnSearchTextBox;
+        private System.Windows.Forms.Label ssnFnlnSearchLabel;
+        private System.Windows.Forms.TextBox ssnDoblnSearchTextBox;
+        private System.Windows.Forms.Label ssnDoblnSearchLabel;
+        private System.Windows.Forms.TextBox ssnDobSearchTextBox;
+        private System.Windows.Forms.Label ssnDobErrorLabel;
+        private System.Windows.Forms.Label ssnFnlnErrorLabel;
+        private System.Windows.Forms.Label ssnDoblnErrorLabel;
     }
 }

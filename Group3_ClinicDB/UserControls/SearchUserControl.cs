@@ -287,7 +287,15 @@ namespace Group3_ClinicDB.UserControls
             }  
             else if (this.patients.Count > 1)
             {
-
+                if (MessageBox.Show("More than one patient found. Please find the specific patient by searching their Social Security Number.",
+                    "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                {
+                    //this.HideSearchDobErrorLabel(false, false);
+                    //enable ssn
+                    //check only long
+                    //check ssn exists
+                    //find with ssn
+                }
             }
             else
             {
