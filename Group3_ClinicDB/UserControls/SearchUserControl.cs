@@ -118,12 +118,14 @@ namespace Group3_ClinicDB.UserControls
                 this.HideSearchDobErrorLabel(true, false);
                 this.HideSearchFnlnErrorLabel(true, false);
                 this.HideSearchDoblnErrorLabel(true, false);
+                this.HideAllSsnSearch();
             } else
             {
                 this.DisableDobSearch(true);
                 this.HideSearchDobErrorLabel(true, false);
                 this.HideSearchFnlnErrorLabel(true, false);
                 this.HideSearchDoblnErrorLabel(true, false);
+                this.HideAllSsnSearch();
             }
         }
 
@@ -137,6 +139,7 @@ namespace Group3_ClinicDB.UserControls
                 this.HideSearchDobErrorLabel(true, false);
                 this.HideSearchFnlnErrorLabel(true, false);
                 this.HideSearchDoblnErrorLabel(true, false);
+                this.HideAllSsnSearch();
             }
             else
             {
@@ -144,6 +147,7 @@ namespace Group3_ClinicDB.UserControls
                 this.HideSearchDobErrorLabel(true, false);
                 this.HideSearchFnlnErrorLabel(true, false);
                 this.HideSearchDoblnErrorLabel(true, false);
+                this.HideAllSsnSearch();
             }
         }
 
@@ -157,6 +161,7 @@ namespace Group3_ClinicDB.UserControls
                 this.HideSearchDobErrorLabel(true, false);
                 this.HideSearchFnlnErrorLabel(true, false);
                 this.HideSearchDoblnErrorLabel(true, false);
+                this.HideAllSsnSearch();
             }
             else
             {
@@ -164,6 +169,7 @@ namespace Group3_ClinicDB.UserControls
                 this.HideSearchDobErrorLabel(true, false);
                 this.HideSearchFnlnErrorLabel(true, false);
                 this.HideSearchDoblnErrorLabel(true, false);
+                this.HideAllSsnSearch();
             }
         }
 
@@ -273,6 +279,67 @@ namespace Group3_ClinicDB.UserControls
             }
         }
 
+        private void HideSsnDobSearch(bool hide)
+        {
+            if (hide)
+            {
+                this.ssnDobSearchLabel.Visible = false;
+                this.ssnDobSearchTextBox.Visible = false;
+                this.ssnDobErrorLabel.Visible = false;
+                this.ssnDobErrorLabel.ForeColor = Color.Black;
+            }
+            else
+            {
+                this.ssnDobSearchLabel.Visible = true;
+                this.ssnDobSearchTextBox.Visible = true;
+                this.ssnDobErrorLabel.Visible = true;
+                this.ssnDobErrorLabel.ForeColor = Color.Red;
+            }
+        }
+
+        private void HideSsnFnlnSearch(bool hide)
+        {
+            if (hide)
+            {
+                this.ssnFnlnSearchLabel.Visible = false;
+                this.ssnFnlnSearchTextBox.Visible = false;
+                this.ssnFnlnErrorLabel.Visible = false;
+                this.ssnFnlnErrorLabel.ForeColor = Color.Black;
+            }
+            else
+            {
+                this.ssnFnlnSearchLabel.Visible = true;
+                this.ssnFnlnSearchTextBox.Visible = true;
+                this.ssnFnlnErrorLabel.Visible = true;
+                this.ssnFnlnErrorLabel.ForeColor = Color.Red;
+            }
+        }
+
+        private void HideSsnDoblnSearch(bool hide)
+        {
+            if (hide)
+            {
+                this.ssnDoblnSearchLabel.Visible = false;
+                this.ssnDoblnSearchTextBox.Visible = false;
+                this.ssnDoblnErrorLabel.Visible = false;
+                this.ssnDoblnErrorLabel.ForeColor = Color.Black;
+            }
+            else
+            {
+                this.ssnDoblnSearchLabel.Visible = true;
+                this.ssnDoblnSearchTextBox.Visible = true;
+                this.ssnDoblnErrorLabel.Visible = true;
+                this.ssnDoblnErrorLabel.ForeColor = Color.Red;
+            }
+        }
+
+        private void HideAllSsnSearch()
+        {
+            this.HideSsnDobSearch(true);
+            this.HideSsnFnlnSearch(true);
+            this.HideSsnDoblnSearch(true);
+        }
+
         private void DobSearchButtonClick(object sender, EventArgs e)
         {
             this.patients = this.patientController.GetPatientsByDob(this.dobSearchDateTimePicker.Value);
@@ -290,8 +357,9 @@ namespace Group3_ClinicDB.UserControls
                 if (MessageBox.Show("More than one patient found. Please find the specific patient by searching their Social Security Number.",
                     "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                 {
-                    //this.HideSearchDobErrorLabel(false, false);
                     //enable ssn
+                    this.HideSsnDobSearch(false);
+                    this.ssnDobErrorLabel.Visible = false;
                     //check only long
                     //check ssn exists
                     //find with ssn
@@ -307,6 +375,7 @@ namespace Group3_ClinicDB.UserControls
         private void DobSearchDateTimePickerValueChanged(object sender, EventArgs e)
         {
             this.HideSearchDobErrorLabel(true, false);
+            this.HideAllSsnSearch();
         }
 
         private void ValidateFnln()
@@ -333,7 +402,11 @@ namespace Group3_ClinicDB.UserControls
                 }
                 else if (this.patients.Count > 1)
                 {
-
+                    this.HideSsnFnlnSearch(false);
+                    this.ssnFnlnErrorLabel.Visible = false;
+                    //check only long
+                    //check ssn exists
+                    //find with ssn
                 }
                 else
                 {
@@ -352,12 +425,14 @@ namespace Group3_ClinicDB.UserControls
         {
             this.HideFirstNameFnlnErrorLabel(true);
             this.HideSearchFnlnErrorLabel(true, false);
+            this.HideAllSsnSearch();
         }
 
         private void LastNameFnlnSearchTextBoxTextChanged(object sender, EventArgs e)
         {
             this.HideLastNameFnlnErrorLabel(true);
             this.HideSearchFnlnErrorLabel(true, false);
+            this.HideAllSsnSearch();
         }
 
         private void ValidateDobln()
@@ -380,7 +455,11 @@ namespace Group3_ClinicDB.UserControls
                 }
                 else if (this.patients.Count > 1)
                 {
-
+                    this.HideSsnDoblnSearch(false);
+                    this.ssnDoblnErrorLabel.Visible = false;
+                    //check only long
+                    //check ssn exists
+                    //find with ssn
                 }
                 else
                 {
@@ -399,6 +478,13 @@ namespace Group3_ClinicDB.UserControls
         {
             this.HideLastNameDoblnErrorLabel(true);
             this.HideSearchDoblnErrorLabel(true, false);
+            this.HideAllSsnSearch();
+        }
+
+        private void DobDoblnSearchDateTimePickerValueChanged(object sender, EventArgs e)
+        {
+            this.HideSearchDoblnErrorLabel(true, false);
+            this.HideAllSsnSearch();
         }
     }
 }

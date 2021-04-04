@@ -183,6 +183,7 @@ namespace Group3_ClinicDB.UserControls
             this.dobDoblnSearchDateTimePicker.Name = "dobDoblnSearchDateTimePicker";
             this.dobDoblnSearchDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.dobDoblnSearchDateTimePicker.TabIndex = 8;
+            this.dobDoblnSearchDateTimePicker.ValueChanged += new System.EventHandler(this.DobDoblnSearchDateTimePickerValueChanged);
             // 
             // doblnSearchButton
             // 
