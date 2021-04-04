@@ -81,7 +81,7 @@ namespace Group3_ClinicDB.UserControls
             this.fnlnSearchRadioButton.Location = new System.Drawing.Point(404, 26);
             this.fnlnSearchRadioButton.Name = "fnlnSearchRadioButton";
             this.fnlnSearchRadioButton.Size = new System.Drawing.Size(173, 17);
-            this.fnlnSearchRadioButton.TabIndex = 2;
+            this.fnlnSearchRadioButton.TabIndex = 3;
             this.fnlnSearchRadioButton.TabStop = true;
             this.fnlnSearchRadioButton.Text = "Search by First and Last Name:";
             this.fnlnSearchRadioButton.UseVisualStyleBackColor = true;
@@ -93,7 +93,7 @@ namespace Group3_ClinicDB.UserControls
             this.dobLastNameSearchRadioButton.Location = new System.Drawing.Point(703, 26);
             this.dobLastNameSearchRadioButton.Name = "dobLastNameSearchRadioButton";
             this.dobLastNameSearchRadioButton.Size = new System.Drawing.Size(177, 17);
-            this.dobLastNameSearchRadioButton.TabIndex = 3;
+            this.dobLastNameSearchRadioButton.TabIndex = 7;
             this.dobLastNameSearchRadioButton.TabStop = true;
             this.dobLastNameSearchRadioButton.Text = "Search by DOB and Last Name:";
             this.dobLastNameSearchRadioButton.UseVisualStyleBackColor = true;
@@ -113,7 +113,7 @@ namespace Group3_ClinicDB.UserControls
             this.dobSearchDateTimePicker.Location = new System.Drawing.Point(114, 66);
             this.dobSearchDateTimePicker.Name = "dobSearchDateTimePicker";
             this.dobSearchDateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.dobSearchDateTimePicker.TabIndex = 5;
+            this.dobSearchDateTimePicker.TabIndex = 1;
             this.dobSearchDateTimePicker.ValueChanged += new System.EventHandler(this.DobSearchDateTimePickerValueChanged);
             // 
             // dobSearchButton
@@ -121,7 +121,7 @@ namespace Group3_ClinicDB.UserControls
             this.dobSearchButton.Location = new System.Drawing.Point(42, 127);
             this.dobSearchButton.Name = "dobSearchButton";
             this.dobSearchButton.Size = new System.Drawing.Size(75, 23);
-            this.dobSearchButton.TabIndex = 6;
+            this.dobSearchButton.TabIndex = 2;
             this.dobSearchButton.Text = "Search";
             this.dobSearchButton.UseVisualStyleBackColor = true;
             this.dobSearchButton.Click += new System.EventHandler(this.DobSearchButtonClick);
@@ -140,7 +140,7 @@ namespace Group3_ClinicDB.UserControls
             this.firstNameFnlnSearchTextBox.Location = new System.Drawing.Point(467, 49);
             this.firstNameFnlnSearchTextBox.Name = "firstNameFnlnSearchTextBox";
             this.firstNameFnlnSearchTextBox.Size = new System.Drawing.Size(162, 20);
-            this.firstNameFnlnSearchTextBox.TabIndex = 8;
+            this.firstNameFnlnSearchTextBox.TabIndex = 4;
             this.firstNameFnlnSearchTextBox.TextChanged += new System.EventHandler(this.FirstNameFnlnSearchTextBoxTextChanged);
             // 
             // lastNameFnlnSearchLabel
@@ -157,7 +157,7 @@ namespace Group3_ClinicDB.UserControls
             this.lastNameFnlnSearchTextBox.Location = new System.Drawing.Point(467, 86);
             this.lastNameFnlnSearchTextBox.Name = "lastNameFnlnSearchTextBox";
             this.lastNameFnlnSearchTextBox.Size = new System.Drawing.Size(161, 20);
-            this.lastNameFnlnSearchTextBox.TabIndex = 10;
+            this.lastNameFnlnSearchTextBox.TabIndex = 5;
             this.lastNameFnlnSearchTextBox.TextChanged += new System.EventHandler(this.LastNameFnlnSearchTextBoxTextChanged);
             // 
             // fnlnSearchButton
@@ -165,7 +165,7 @@ namespace Group3_ClinicDB.UserControls
             this.fnlnSearchButton.Location = new System.Drawing.Point(403, 127);
             this.fnlnSearchButton.Name = "fnlnSearchButton";
             this.fnlnSearchButton.Size = new System.Drawing.Size(75, 23);
-            this.fnlnSearchButton.TabIndex = 11;
+            this.fnlnSearchButton.TabIndex = 6;
             this.fnlnSearchButton.Text = "Search";
             this.fnlnSearchButton.UseVisualStyleBackColor = true;
             this.fnlnSearchButton.Click += new System.EventHandler(this.FnlnSearchButtonClick);
@@ -184,14 +184,14 @@ namespace Group3_ClinicDB.UserControls
             this.dobDoblnSearchDateTimePicker.Location = new System.Drawing.Point(775, 49);
             this.dobDoblnSearchDateTimePicker.Name = "dobDoblnSearchDateTimePicker";
             this.dobDoblnSearchDateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.dobDoblnSearchDateTimePicker.TabIndex = 13;
+            this.dobDoblnSearchDateTimePicker.TabIndex = 8;
             // 
             // doblnSearchButton
             // 
             this.doblnSearchButton.Location = new System.Drawing.Point(703, 127);
             this.doblnSearchButton.Name = "doblnSearchButton";
             this.doblnSearchButton.Size = new System.Drawing.Size(75, 23);
-            this.doblnSearchButton.TabIndex = 14;
+            this.doblnSearchButton.TabIndex = 10;
             this.doblnSearchButton.Text = "Search";
             this.doblnSearchButton.UseVisualStyleBackColor = true;
             this.doblnSearchButton.Click += new System.EventHandler(this.DoblnSearchButtonClick);
@@ -210,7 +210,7 @@ namespace Group3_ClinicDB.UserControls
             this.lastNameDoblnSearchTextBox.Location = new System.Drawing.Point(775, 86);
             this.lastNameDoblnSearchTextBox.Name = "lastNameDoblnSearchTextBox";
             this.lastNameDoblnSearchTextBox.Size = new System.Drawing.Size(200, 20);
-            this.lastNameDoblnSearchTextBox.TabIndex = 16;
+            this.lastNameDoblnSearchTextBox.TabIndex = 9;
             this.lastNameDoblnSearchTextBox.TextChanged += new System.EventHandler(this.LastNameDoblnSearchTextBoxTextChanged);
             // 
             // firstNameFnlnErrorLabel

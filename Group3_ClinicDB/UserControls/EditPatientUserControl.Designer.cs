@@ -180,7 +180,7 @@ namespace Group3_ClinicDB.UserControls
             this.firstNameTextBox.Location = new System.Drawing.Point(161, 200);
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(210, 20);
-            this.firstNameTextBox.TabIndex = 11;
+            this.firstNameTextBox.TabIndex = 1;
             this.firstNameTextBox.TextChanged += new System.EventHandler(this.FirstNameTextBoxTextChanged);
             // 
             // lastNameTextBox
@@ -188,16 +188,15 @@ namespace Group3_ClinicDB.UserControls
             this.lastNameTextBox.Location = new System.Drawing.Point(160, 141);
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(210, 20);
-            this.lastNameTextBox.TabIndex = 12;
+            this.lastNameTextBox.TabIndex = 0;
             this.lastNameTextBox.TextChanged += new System.EventHandler(this.LastNameTextBoxTextChanged);
             // 
             // ssnTextBox
             // 
             this.ssnTextBox.Location = new System.Drawing.Point(161, 374);
             this.ssnTextBox.Name = "ssnTextBox";
-            this.ssnTextBox.ReadOnly = true;
             this.ssnTextBox.Size = new System.Drawing.Size(210, 20);
-            this.ssnTextBox.TabIndex = 15;
+            this.ssnTextBox.TabIndex = 4;
             this.ssnTextBox.TextChanged += new System.EventHandler(this.SsnTextBoxTextChanged);
             // 
             // addressTextBox
@@ -205,7 +204,7 @@ namespace Group3_ClinicDB.UserControls
             this.addressTextBox.Location = new System.Drawing.Point(676, 141);
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(210, 20);
-            this.addressTextBox.TabIndex = 16;
+            this.addressTextBox.TabIndex = 5;
             this.addressTextBox.TextChanged += new System.EventHandler(this.AddressTextBoxTextChanged);
             // 
             // address2TextBox
@@ -213,7 +212,7 @@ namespace Group3_ClinicDB.UserControls
             this.address2TextBox.Location = new System.Drawing.Point(676, 200);
             this.address2TextBox.Name = "address2TextBox";
             this.address2TextBox.Size = new System.Drawing.Size(210, 20);
-            this.address2TextBox.TabIndex = 17;
+            this.address2TextBox.TabIndex = 6;
             this.address2TextBox.TextChanged += new System.EventHandler(this.Address2TextBoxTextChanged);
             // 
             // cityTextBox
@@ -221,7 +220,7 @@ namespace Group3_ClinicDB.UserControls
             this.cityTextBox.Location = new System.Drawing.Point(676, 260);
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(210, 20);
-            this.cityTextBox.TabIndex = 18;
+            this.cityTextBox.TabIndex = 7;
             this.cityTextBox.TextChanged += new System.EventHandler(this.CityTextBoxTextChanged);
             // 
             // zipCodeTextBox
@@ -229,7 +228,7 @@ namespace Group3_ClinicDB.UserControls
             this.zipCodeTextBox.Location = new System.Drawing.Point(676, 316);
             this.zipCodeTextBox.Name = "zipCodeTextBox";
             this.zipCodeTextBox.Size = new System.Drawing.Size(210, 20);
-            this.zipCodeTextBox.TabIndex = 20;
+            this.zipCodeTextBox.TabIndex = 9;
             this.zipCodeTextBox.TextChanged += new System.EventHandler(this.ZipCodeTextBoxTextChanged);
             // 
             // phoneNumberTextBox
@@ -237,7 +236,7 @@ namespace Group3_ClinicDB.UserControls
             this.phoneNumberTextBox.Location = new System.Drawing.Point(676, 372);
             this.phoneNumberTextBox.Name = "phoneNumberTextBox";
             this.phoneNumberTextBox.Size = new System.Drawing.Size(210, 20);
-            this.phoneNumberTextBox.TabIndex = 21;
+            this.phoneNumberTextBox.TabIndex = 10;
             this.phoneNumberTextBox.TextChanged += new System.EventHandler(this.PhoneNumberTextBoxTextChanged);
             // 
             // updateButton
@@ -246,7 +245,7 @@ namespace Group3_ClinicDB.UserControls
             this.updateButton.Location = new System.Drawing.Point(561, 455);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(180, 32);
-            this.updateButton.TabIndex = 22;
+            this.updateButton.TabIndex = 11;
             this.updateButton.Text = "Update";
             this.updateButton.UseVisualStyleBackColor = true;
             this.updateButton.Click += new System.EventHandler(this.UpdateButtonClick);
@@ -257,7 +256,7 @@ namespace Group3_ClinicDB.UserControls
             this.clearButton.Location = new System.Drawing.Point(801, 455);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(180, 32);
-            this.clearButton.TabIndex = 23;
+            this.clearButton.TabIndex = 12;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = true;
             this.clearButton.Click += new System.EventHandler(this.ClearButtonClick);
@@ -279,7 +278,7 @@ namespace Group3_ClinicDB.UserControls
             this.genderComboBox.Location = new System.Drawing.Point(161, 318);
             this.genderComboBox.Name = "genderComboBox";
             this.genderComboBox.Size = new System.Drawing.Size(105, 21);
-            this.genderComboBox.TabIndex = 25;
+            this.genderComboBox.TabIndex = 3;
             this.genderComboBox.SelectedIndexChanged += new System.EventHandler(this.GenderComboBoxSelectedIndexChanged);
             // 
             // stateComboBox
@@ -289,7 +288,7 @@ namespace Group3_ClinicDB.UserControls
             this.stateComboBox.Location = new System.Drawing.Point(992, 263);
             this.stateComboBox.Name = "stateComboBox";
             this.stateComboBox.Size = new System.Drawing.Size(108, 21);
-            this.stateComboBox.TabIndex = 26;
+            this.stateComboBox.TabIndex = 8;
             this.stateComboBox.SelectedIndexChanged += new System.EventHandler(this.StateComboBoxSelectedIndexChanged);
             // 
             // dobDateTimePicker
@@ -297,7 +296,7 @@ namespace Group3_ClinicDB.UserControls
             this.dobDateTimePicker.Location = new System.Drawing.Point(162, 263);
             this.dobDateTimePicker.Name = "dobDateTimePicker";
             this.dobDateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.dobDateTimePicker.TabIndex = 27;
+            this.dobDateTimePicker.TabIndex = 2;
             // 
             // stateErrorLabel
             // 

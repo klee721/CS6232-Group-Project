@@ -71,7 +71,7 @@ namespace Group3_ClinicDB.UserControls
             this.registerButton.Location = new System.Drawing.Point(720, 452);
             this.registerButton.Name = "registerButton";
             this.registerButton.Size = new System.Drawing.Size(180, 32);
-            this.registerButton.TabIndex = 0;
+            this.registerButton.TabIndex = 11;
             this.registerButton.Text = "Register";
             this.registerButton.UseVisualStyleBackColor = true;
             this.registerButton.Click += new System.EventHandler(this.RegisterButtonClick);
@@ -82,7 +82,7 @@ namespace Group3_ClinicDB.UserControls
             this.clearButton.Location = new System.Drawing.Point(929, 452);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(180, 32);
-            this.clearButton.TabIndex = 1;
+            this.clearButton.TabIndex = 12;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = true;
             this.clearButton.Click += new System.EventHandler(this.ClearButtonClick);
@@ -223,7 +223,7 @@ namespace Group3_ClinicDB.UserControls
             this.stateComboBox.Location = new System.Drawing.Point(1031, 204);
             this.stateComboBox.Name = "stateComboBox";
             this.stateComboBox.Size = new System.Drawing.Size(75, 21);
-            this.stateComboBox.TabIndex = 10;
+            this.stateComboBox.TabIndex = 8;
             this.stateComboBox.SelectedIndexChanged += new System.EventHandler(this.StateComboBoxSelectedIndexChanged);
             // 
             // cityTextBox
@@ -239,7 +239,7 @@ namespace Group3_ClinicDB.UserControls
             this.zipCodeTextBox.Location = new System.Drawing.Point(720, 258);
             this.zipCodeTextBox.Name = "zipCodeTextBox";
             this.zipCodeTextBox.Size = new System.Drawing.Size(130, 20);
-            this.zipCodeTextBox.TabIndex = 8;
+            this.zipCodeTextBox.TabIndex = 9;
             this.zipCodeTextBox.TextChanged += new System.EventHandler(this.ZipCodeTextBoxTextChanged);
             // 
             // phoneNumberTextBox
@@ -247,7 +247,7 @@ namespace Group3_ClinicDB.UserControls
             this.phoneNumberTextBox.Location = new System.Drawing.Point(719, 309);
             this.phoneNumberTextBox.Name = "phoneNumberTextBox";
             this.phoneNumberTextBox.Size = new System.Drawing.Size(181, 20);
-            this.phoneNumberTextBox.TabIndex = 9;
+            this.phoneNumberTextBox.TabIndex = 10;
             this.phoneNumberTextBox.TextChanged += new System.EventHandler(this.PhoneNumberTextBoxTextChanged);
             // 
             // ssnTextBox
