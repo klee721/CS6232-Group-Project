@@ -86,12 +86,12 @@ namespace Group3_ClinicDB.UserControls
                 if (this.oldPatient != null)
                 {
                     this.PopulateFields();
-                    this.DisableAll(false);
+                    this.Enabled = true;
                 }
                 else
                 {
                     this.Clear();
-                    this.DisableAll(true);
+                    this.Enabled = false;
                 }
             }
         }
@@ -227,23 +227,32 @@ namespace Group3_ClinicDB.UserControls
                                 string zipCode = this.zipCodeTextBox.Text;
                                 string phoneNumber = this.phoneNumberTextBox.Text;
 
-                                this.newPatient = new Patient(this.oldPatient.Id, this.oldPatient.PersonsId, firstName, lastName, dob, gender, ssn,
-                                                            address1, address2, city, state, zipCode, phoneNumber);
-
-                               if (this.personController.UpdatePerson(this.oldPatient, this.newPatient))
-                               {
-                                    this.Clear();
-                                    this.DisableAll(true);
-                                    this.updateSuccessMessage.Text = "Patient Updated!";
-                                    this.updateSuccessMessage.Visible = true;
-                                    this.updateSuccessMessage.ForeColor = Color.Black;
-                               }
-                               else
-                               {
-                                   this.updateSuccessMessage.Text = "Patient update not changed. Someone has changed the patient before you";
-                                   this.updateSuccessMessage.Visible = true;
-                                   this.updateSuccessMessage.ForeColor = Color.Red;
-                               }
+                                if (ssn != this.oldPatient.SSN)
+                                {
+                                    Person person = new Person(firstName, lastName, dob, gender, ssn,
+                                                        address1, address2, city, state, zipCode, phoneNumber);
+                                    if (this.personController.SsnExists(person))
+                                    {
+                                        if (MessageBox.Show("The given SSN already exists",
+                                             "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                                        {
+                                            this.ssnErrorLabel.Text = "This social security number already exists";
+                                            this.ssnErrorLabel.Visible = true;
+                                            this.ssnErrorLabel.ForeColor = Color.Red;
+                                        }
+                                    } else
+                                    {
+                                        this.newPatient = new Patient(this.oldPatient.Id, this.oldPatient.PersonsId, firstName, lastName, dob, gender, ssn,
+                                                                        address1, address2, city, state, zipCode, phoneNumber);
+                                        this.Updates();
+                                    }
+                                }
+                                else
+                                {
+                                    this.newPatient = new Patient(this.oldPatient.Id, this.oldPatient.PersonsId, firstName, lastName, dob, gender, ssn,
+                                                                        address1, address2, city, state, zipCode, phoneNumber);
+                                    this.Updates();
+                                }
                             }
                             catch (Exception)
                             {
@@ -266,6 +275,23 @@ namespace Group3_ClinicDB.UserControls
                         this.ssnErrorLabel.ForeColor = Color.Red;
                     }
                 }
+            }
+        }
+
+        private void Updates()
+        {
+            if (this.personController.UpdatePerson(this.oldPatient, this.newPatient))
+            {
+                this.Clear();
+                this.updateSuccessMessage.Text = "Patient Updated!";
+                this.updateSuccessMessage.Visible = true;
+                this.updateSuccessMessage.ForeColor = Color.Black;
+            }
+            else
+            {
+                this.updateSuccessMessage.Text = "Patient update not changed. Someone has changed the patient before you";
+                this.updateSuccessMessage.Visible = true;
+                this.updateSuccessMessage.ForeColor = Color.Red;
             }
         }
 

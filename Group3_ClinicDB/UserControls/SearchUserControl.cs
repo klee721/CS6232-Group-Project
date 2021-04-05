@@ -359,7 +359,7 @@ namespace Group3_ClinicDB.UserControls
             
             if (this.patients.Count == 0)
             {
-                if (MessageBox.Show("No Patients match the date of birth.",
+                if (MessageBox.Show("No Patients match the search criteria.",
                     "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                 {
                     this.HideSearchDobErrorLabel(false, false);
@@ -440,7 +440,7 @@ namespace Group3_ClinicDB.UserControls
 
                 if (this.patients.Count == 0)
                 {
-                    if (MessageBox.Show("No Patients match the first and last name.",
+                    if (MessageBox.Show("No Patients match the search criteria.",
                         "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                     {
                         this.HideSearchFnlnErrorLabel(false, false);
@@ -532,7 +532,7 @@ namespace Group3_ClinicDB.UserControls
 
                 if (this.patients.Count == 0)
                 {
-                    if (MessageBox.Show("No Patients match the date of birth and last name.",
+                    if (MessageBox.Show("No Patients match the search criteria.",
                         "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                     {
                         this.HideSearchDoblnErrorLabel(false, false);
