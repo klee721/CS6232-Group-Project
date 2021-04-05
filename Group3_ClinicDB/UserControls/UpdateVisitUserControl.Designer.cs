@@ -267,7 +267,7 @@ namespace Group3_ClinicDB.UserControls
             this.clearButton.TabIndex = 26;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = true;
-            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            this.clearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
             // confirmLabel
             // 

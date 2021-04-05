@@ -62,11 +62,7 @@ namespace Group3_ClinicDB.UserControls
                 newVisit.symptoms = visit.symptoms;
                 newVisit.weight = visit.weight;
                 newVisit.height = visit.height;
-                
                
-                
-               
-              
                     if (this.visitController.UpdateVisit(visit,newVisit))
                     {
 
@@ -76,9 +72,7 @@ namespace Group3_ClinicDB.UserControls
                     {
                         MessageBox.Show("Visit is not updated");
                     }
-                
-
-
+            
             }
             catch (Exception ex)
             {
@@ -103,10 +97,10 @@ namespace Group3_ClinicDB.UserControls
 
             }
             
-            this.getVisitDetails(id);
+            this.GetVisitDetails(id);
         }
 
-        private void getVisitDetails(int visitID)
+        private void GetVisitDetails(int visitID)
         {
             this.visitController.GetVisitsByID(visitID);
             try
@@ -144,7 +138,7 @@ namespace Group3_ClinicDB.UserControls
             }
         }
 
-        private void clearButton_Click(object sender, EventArgs e)
+        private void ClearButton_Click(object sender, EventArgs e)
         {
             this.visit = new Visits();
             this.weightTextBox.Text = "";

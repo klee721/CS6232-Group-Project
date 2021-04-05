@@ -35,10 +35,10 @@ namespace Group3_ClinicDB.UserControls
         {
 
             //visitsDALDataGridView.DataSource = null;
-            this.load_visits();
+            this.Load_visits();
         }
 
-        public void load_visits()
+        public void Load_visits()
         {
             if (this.patient != null)
             {
@@ -58,7 +58,7 @@ namespace Group3_ClinicDB.UserControls
         {
             this.patient = selectedPatient;
             this.Enabled = true;
-            this.load_visits();
+            this.Load_visits();
         }
 
     }
