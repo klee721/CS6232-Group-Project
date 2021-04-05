@@ -71,7 +71,7 @@ namespace Group3_ClinicDB.UserControls
             // visitLabel
             // 
             visitLabel.AutoSize = true;
-            visitLabel.Location = new System.Drawing.Point(80, 89);
+            visitLabel.Location = new System.Drawing.Point(80, 37);
             visitLabel.Name = "visitLabel";
             visitLabel.Size = new System.Drawing.Size(55, 20);
             visitLabel.TabIndex = 1;
@@ -80,7 +80,7 @@ namespace Group3_ClinicDB.UserControls
             // bloodPressureDiastolicLabel
             // 
             bloodPressureDiastolicLabel.AutoSize = true;
-            bloodPressureDiastolicLabel.Location = new System.Drawing.Point(80, 125);
+            bloodPressureDiastolicLabel.Location = new System.Drawing.Point(80, 73);
             bloodPressureDiastolicLabel.Name = "bloodPressureDiastolicLabel";
             bloodPressureDiastolicLabel.Size = new System.Drawing.Size(183, 20);
             bloodPressureDiastolicLabel.TabIndex = 3;
@@ -89,7 +89,7 @@ namespace Group3_ClinicDB.UserControls
             // bloodPressureSystolicLabel
             // 
             bloodPressureSystolicLabel.AutoSize = true;
-            bloodPressureSystolicLabel.Location = new System.Drawing.Point(80, 160);
+            bloodPressureSystolicLabel.Location = new System.Drawing.Point(80, 108);
             bloodPressureSystolicLabel.Name = "bloodPressureSystolicLabel";
             bloodPressureSystolicLabel.Size = new System.Drawing.Size(177, 20);
             bloodPressureSystolicLabel.TabIndex = 5;
@@ -98,7 +98,7 @@ namespace Group3_ClinicDB.UserControls
             // bodyTemparatureLabel
             // 
             bodyTemparatureLabel.AutoSize = true;
-            bodyTemparatureLabel.Location = new System.Drawing.Point(80, 195);
+            bodyTemparatureLabel.Location = new System.Drawing.Point(80, 143);
             bodyTemparatureLabel.Name = "bodyTemparatureLabel";
             bodyTemparatureLabel.Size = new System.Drawing.Size(142, 20);
             bodyTemparatureLabel.TabIndex = 7;
@@ -107,7 +107,7 @@ namespace Group3_ClinicDB.UserControls
             // finalDiagnoseLabel
             // 
             finalDiagnoseLabel.AutoSize = true;
-            finalDiagnoseLabel.Location = new System.Drawing.Point(80, 560);
+            finalDiagnoseLabel.Location = new System.Drawing.Point(80, 508);
             finalDiagnoseLabel.Name = "finalDiagnoseLabel";
             finalDiagnoseLabel.Size = new System.Drawing.Size(114, 20);
             finalDiagnoseLabel.TabIndex = 9;
@@ -116,7 +116,7 @@ namespace Group3_ClinicDB.UserControls
             // heightLabel
             // 
             heightLabel.AutoSize = true;
-            heightLabel.Location = new System.Drawing.Point(80, 265);
+            heightLabel.Location = new System.Drawing.Point(80, 213);
             heightLabel.Name = "heightLabel";
             heightLabel.Size = new System.Drawing.Size(57, 20);
             heightLabel.TabIndex = 11;
@@ -125,7 +125,7 @@ namespace Group3_ClinicDB.UserControls
             // initialDiagnoseLabel
             // 
             initialDiagnoseLabel.AutoSize = true;
-            initialDiagnoseLabel.Location = new System.Drawing.Point(80, 433);
+            initialDiagnoseLabel.Location = new System.Drawing.Point(80, 381);
             initialDiagnoseLabel.Name = "initialDiagnoseLabel";
             initialDiagnoseLabel.Size = new System.Drawing.Size(120, 20);
             initialDiagnoseLabel.TabIndex = 15;
@@ -134,16 +134,16 @@ namespace Group3_ClinicDB.UserControls
             // nurseIdLabel
             // 
             nurseIdLabel.AutoSize = true;
-            nurseIdLabel.Location = new System.Drawing.Point(80, 337);
+            nurseIdLabel.Location = new System.Drawing.Point(80, 285);
             nurseIdLabel.Name = "nurseIdLabel";
-            nurseIdLabel.Size = new System.Drawing.Size(71, 20);
+            nurseIdLabel.Size = new System.Drawing.Size(57, 20);
             nurseIdLabel.TabIndex = 17;
-            nurseIdLabel.Text = "nurse Id:";
+            nurseIdLabel.Text = "nurse :";
             // 
             // pulseLabel
             // 
             pulseLabel.AutoSize = true;
-            pulseLabel.Location = new System.Drawing.Point(80, 300);
+            pulseLabel.Location = new System.Drawing.Point(80, 248);
             pulseLabel.Name = "pulseLabel";
             pulseLabel.Size = new System.Drawing.Size(51, 20);
             pulseLabel.TabIndex = 19;
@@ -152,7 +152,7 @@ namespace Group3_ClinicDB.UserControls
             // symptomsLabel
             // 
             symptomsLabel.AutoSize = true;
-            symptomsLabel.Location = new System.Drawing.Point(80, 372);
+            symptomsLabel.Location = new System.Drawing.Point(80, 320);
             symptomsLabel.Name = "symptomsLabel";
             symptomsLabel.Size = new System.Drawing.Size(85, 20);
             symptomsLabel.TabIndex = 21;
@@ -161,7 +161,7 @@ namespace Group3_ClinicDB.UserControls
             // weightLabel
             // 
             weightLabel.AutoSize = true;
-            weightLabel.Location = new System.Drawing.Point(80, 231);
+            weightLabel.Location = new System.Drawing.Point(80, 179);
             weightLabel.Name = "weightLabel";
             weightLabel.Size = new System.Drawing.Size(59, 20);
             weightLabel.TabIndex = 23;
@@ -169,7 +169,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             // bloodPressureDiastolicTextBox
             // 
-            this.bloodPressureDiastolicTextBox.Location = new System.Drawing.Point(273, 122);
+            this.bloodPressureDiastolicTextBox.Location = new System.Drawing.Point(273, 70);
             this.bloodPressureDiastolicTextBox.Name = "bloodPressureDiastolicTextBox";
             this.bloodPressureDiastolicTextBox.ReadOnly = true;
             this.bloodPressureDiastolicTextBox.Size = new System.Drawing.Size(112, 26);
@@ -177,7 +177,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             // bloodPressureSystolicTextBox
             // 
-            this.bloodPressureSystolicTextBox.Location = new System.Drawing.Point(273, 157);
+            this.bloodPressureSystolicTextBox.Location = new System.Drawing.Point(273, 105);
             this.bloodPressureSystolicTextBox.Name = "bloodPressureSystolicTextBox";
             this.bloodPressureSystolicTextBox.ReadOnly = true;
             this.bloodPressureSystolicTextBox.Size = new System.Drawing.Size(112, 26);
@@ -185,7 +185,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             // bodyTemparatureTextBox
             // 
-            this.bodyTemparatureTextBox.Location = new System.Drawing.Point(273, 191);
+            this.bodyTemparatureTextBox.Location = new System.Drawing.Point(273, 139);
             this.bodyTemparatureTextBox.Name = "bodyTemparatureTextBox";
             this.bodyTemparatureTextBox.ReadOnly = true;
             this.bodyTemparatureTextBox.Size = new System.Drawing.Size(112, 26);
@@ -193,7 +193,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             // finalDiagnoseTextBox
             // 
-            this.finalDiagnoseTextBox.Location = new System.Drawing.Point(272, 526);
+            this.finalDiagnoseTextBox.Location = new System.Drawing.Point(272, 474);
             this.finalDiagnoseTextBox.Multiline = true;
             this.finalDiagnoseTextBox.Name = "finalDiagnoseTextBox";
             this.finalDiagnoseTextBox.Size = new System.Drawing.Size(463, 83);
@@ -201,7 +201,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             // heightTextBox
             // 
-            this.heightTextBox.Location = new System.Drawing.Point(273, 262);
+            this.heightTextBox.Location = new System.Drawing.Point(273, 210);
             this.heightTextBox.Name = "heightTextBox";
             this.heightTextBox.ReadOnly = true;
             this.heightTextBox.Size = new System.Drawing.Size(112, 26);
@@ -209,7 +209,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             // initialDiagnoseTextBox
             // 
-            this.initialDiagnoseTextBox.Location = new System.Drawing.Point(273, 430);
+            this.initialDiagnoseTextBox.Location = new System.Drawing.Point(273, 378);
             this.initialDiagnoseTextBox.Multiline = true;
             this.initialDiagnoseTextBox.Name = "initialDiagnoseTextBox";
             this.initialDiagnoseTextBox.ReadOnly = true;
@@ -218,7 +218,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             // nurseIdTextBox
             // 
-            this.nurseIdTextBox.Location = new System.Drawing.Point(273, 331);
+            this.nurseIdTextBox.Location = new System.Drawing.Point(273, 279);
             this.nurseIdTextBox.Name = "nurseIdTextBox";
             this.nurseIdTextBox.ReadOnly = true;
             this.nurseIdTextBox.Size = new System.Drawing.Size(112, 26);
@@ -226,7 +226,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             // pulseTextBox
             // 
-            this.pulseTextBox.Location = new System.Drawing.Point(273, 297);
+            this.pulseTextBox.Location = new System.Drawing.Point(273, 245);
             this.pulseTextBox.Name = "pulseTextBox";
             this.pulseTextBox.ReadOnly = true;
             this.pulseTextBox.Size = new System.Drawing.Size(112, 26);
@@ -234,7 +234,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             // symptomsTextBox
             // 
-            this.symptomsTextBox.Location = new System.Drawing.Point(273, 369);
+            this.symptomsTextBox.Location = new System.Drawing.Point(273, 317);
             this.symptomsTextBox.Multiline = true;
             this.symptomsTextBox.Name = "symptomsTextBox";
             this.symptomsTextBox.ReadOnly = true;
@@ -243,7 +243,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             // weightTextBox
             // 
-            this.weightTextBox.Location = new System.Drawing.Point(273, 226);
+            this.weightTextBox.Location = new System.Drawing.Point(273, 174);
             this.weightTextBox.Name = "weightTextBox";
             this.weightTextBox.ReadOnly = true;
             this.weightTextBox.Size = new System.Drawing.Size(112, 26);
@@ -251,7 +251,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             // updateButton
             // 
-            this.updateButton.Location = new System.Drawing.Point(117, 663);
+            this.updateButton.Location = new System.Drawing.Point(117, 611);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(83, 36);
             this.updateButton.TabIndex = 25;
@@ -261,7 +261,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(300, 663);
+            this.clearButton.Location = new System.Drawing.Point(300, 611);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(85, 36);
             this.clearButton.TabIndex = 26;
@@ -272,21 +272,21 @@ namespace Group3_ClinicDB.UserControls
             // confirmLabel
             // 
             this.confirmLabel.AutoSize = true;
-            this.confirmLabel.Location = new System.Drawing.Point(141, 630);
+            this.confirmLabel.Location = new System.Drawing.Point(141, 578);
             this.confirmLabel.Name = "confirmLabel";
             this.confirmLabel.Size = new System.Drawing.Size(0, 20);
             this.confirmLabel.TabIndex = 29;
             // 
             // visitTextBox
             // 
-            this.visitTextBox.Location = new System.Drawing.Point(272, 83);
+            this.visitTextBox.Location = new System.Drawing.Point(272, 31);
             this.visitTextBox.Name = "visitTextBox";
             this.visitTextBox.Size = new System.Drawing.Size(112, 26);
             this.visitTextBox.TabIndex = 30;
             // 
             // getVisitButton
             // 
-            this.getVisitButton.Location = new System.Drawing.Point(451, 82);
+            this.getVisitButton.Location = new System.Drawing.Point(451, 30);
             this.getVisitButton.Name = "getVisitButton";
             this.getVisitButton.Size = new System.Drawing.Size(84, 29);
             this.getVisitButton.TabIndex = 31;
