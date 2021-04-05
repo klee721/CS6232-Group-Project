@@ -46,7 +46,7 @@ namespace Group3_ClinicDB.UserControls
 
         private void RefreshAppointments()
         {
-            appointment_idComboBox.Items.Clear();
+            //appointment_idComboBox.Items.Clear();
             List<Appointment> appointments;
 
 
@@ -221,6 +221,9 @@ namespace Group3_ClinicDB.UserControls
 
         }
 
-       
+        private void AddVisitUserControl_Enter(object sender, EventArgs e)
+        {
+            this.RefreshAppointments();
+        }
     }
 }

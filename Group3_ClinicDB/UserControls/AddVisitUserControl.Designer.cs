@@ -309,6 +309,7 @@ namespace Group3_ClinicDB.UserControls
             this.Name = "AddVisitUserControl";
             this.Size = new System.Drawing.Size(1070, 775);
             this.Load += new System.EventHandler(this.AddVisitUserControl_Load);
+            this.Enter += new System.EventHandler(this.AddVisitUserControl_Enter);
             this.ResumeLayout(false);
             this.PerformLayout();
 
