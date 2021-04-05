@@ -313,10 +313,7 @@ namespace Group3_ClinicDB.UserControls
             this.initialDiagnoseTextBox.Text = "";
             this.finalDiagnoseTextBox.Text = "";
            // this.confirmLabel.Text = "";
-            this.cancelButton.Enabled = false;
-            this.submitButton.Enabled = true;
-            
-            //this.technicianComboBox.SelectedIndex = 0;
+           
         }
         private void ClearButton_Click(object sender, EventArgs e)
         {

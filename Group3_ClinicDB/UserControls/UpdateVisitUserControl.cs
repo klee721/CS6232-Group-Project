@@ -111,10 +111,11 @@ namespace Group3_ClinicDB.UserControls
             this.visitController.GetVisitsByID(visitID);
             try
             {
-                this.visit = this.visitController.GetVisitsByID(visitID);
+                // this.visit = this.visitController.GetVisitsByID(visitID);
+                this.visit = this.visitController.GetVisitsByVisitIDPatientId(visitID, this.patient.Id);
                 if (string.IsNullOrEmpty(this.visit.symptoms))
                 {
-                    MessageBox.Show("There is no visit with the entered id.");
+                    MessageBox.Show("There is no visit for the selected patient with the entered id.");
                     return;
                 }
 
