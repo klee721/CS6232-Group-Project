@@ -286,6 +286,7 @@ namespace Group3_ClinicDB.UserControls
             this.ssnFnlnSearchTextBox.Size = new System.Drawing.Size(200, 20);
             this.ssnFnlnSearchTextBox.TabIndex = 25;
             this.ssnFnlnSearchTextBox.Visible = false;
+            this.ssnFnlnSearchTextBox.TextChanged += new System.EventHandler(this.SsnFnlnSearchTextBoxTextChanged);
             // 
             // ssnFnlnSearchLabel
             // 
@@ -304,6 +305,7 @@ namespace Group3_ClinicDB.UserControls
             this.ssnDoblnSearchTextBox.Size = new System.Drawing.Size(200, 20);
             this.ssnDoblnSearchTextBox.TabIndex = 27;
             this.ssnDoblnSearchTextBox.Visible = false;
+            this.ssnDoblnSearchTextBox.TextChanged += new System.EventHandler(this.SsnDoblnSearchTextBoxTextChanged);
             // 
             // ssnDoblnSearchLabel
             // 
@@ -322,6 +324,7 @@ namespace Group3_ClinicDB.UserControls
             this.ssnDobSearchTextBox.Size = new System.Drawing.Size(200, 20);
             this.ssnDobSearchTextBox.TabIndex = 29;
             this.ssnDobSearchTextBox.Visible = false;
+            this.ssnDobSearchTextBox.TextChanged += new System.EventHandler(this.SsnDobSearchTextBoxTextChanged);
             // 
             // ssnDobErrorLabel
             // 
