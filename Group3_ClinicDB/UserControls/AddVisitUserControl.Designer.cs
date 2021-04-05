@@ -99,9 +99,9 @@ namespace Group3_ClinicDB.UserControls
             bodyTemparatureLabel.AutoSize = true;
             bodyTemparatureLabel.Location = new System.Drawing.Point(80, 132);
             bodyTemparatureLabel.Name = "bodyTemparatureLabel";
-            bodyTemparatureLabel.Size = new System.Drawing.Size(142, 20);
+            bodyTemparatureLabel.Size = new System.Drawing.Size(166, 20);
             bodyTemparatureLabel.TabIndex = 7;
-            bodyTemparatureLabel.Text = "body Temparature:";
+            bodyTemparatureLabel.Text = "body Temparature (F):";
             // 
             // finalDiagnoseLabel
             // 
@@ -117,9 +117,9 @@ namespace Group3_ClinicDB.UserControls
             heightLabel.AutoSize = true;
             heightLabel.Location = new System.Drawing.Point(80, 202);
             heightLabel.Name = "heightLabel";
-            heightLabel.Size = new System.Drawing.Size(57, 20);
+            heightLabel.Size = new System.Drawing.Size(92, 20);
             heightLabel.TabIndex = 11;
-            heightLabel.Text = "height:";
+            heightLabel.Text = "height (cm):";
             // 
             // initialDiagnoseLabel
             // 
@@ -162,9 +162,9 @@ namespace Group3_ClinicDB.UserControls
             weightLabel.AutoSize = true;
             weightLabel.Location = new System.Drawing.Point(80, 168);
             weightLabel.Name = "weightLabel";
-            weightLabel.Size = new System.Drawing.Size(59, 20);
+            weightLabel.Size = new System.Drawing.Size(85, 20);
             weightLabel.TabIndex = 23;
-            weightLabel.Text = "weight:";
+            weightLabel.Text = "weight (lb):";
             // 
             // bloodPressureDiastolicTextBox
             // 
@@ -248,7 +248,7 @@ namespace Group3_ClinicDB.UserControls
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(84, 29);
             this.cancelButton.TabIndex = 26;
-            this.cancelButton.Text = "Cancel";
+            this.cancelButton.Text = "Clear";
             this.cancelButton.UseVisualStyleBackColor = true;
             // 
             // appointment_idComboBox

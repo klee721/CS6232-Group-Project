@@ -22,12 +22,26 @@ namespace Group3_ClinicDB.UserControls
 
         private List<Nurse> nurses;
 
+        public Patient patient;
         public AddVisitUserControl()
         {
             InitializeComponent();
             this.visitController = new VisitsController();
             this.appointmentController = new AppointmentController();
             this.nurseController = new NurseController();
+            this.Enabled = false;
+        }
+
+        /// <summary>
+        /// Method to retrieve a patient object from the parent form. This enables the module and loads the patient data
+        /// </summary>
+        /// <param name="selectedPatient">a Patient object to use in appointment booking</param>
+        public void GetPatient(Patient selectedPatient)
+        {
+            this.patient = selectedPatient;
+            this.Enabled = true;
+           
+            this.RefreshAppointments();
         }
 
         private void RefreshAppointments()
@@ -43,20 +57,23 @@ namespace Group3_ClinicDB.UserControls
                 //so that the view does not have to know where the data comes from
                 //(the line after the commented line)
 
-                appointments = this.appointmentController.GetAllAppointmentsByPatient(1); //Added patient_id 1
-                appointment_idComboBox.Refresh();
-                if (appointments.Count > 0)
+                if (this.patient != null)
                 {
+                    appointments = this.appointmentController.GetAllAppointmentsByPatient(this.patient.Id); //Added patient_id 1
+                    appointment_idComboBox.Refresh();
+                    if (appointments.Count > 0)
+                    {
 
-                    appointment_idComboBox.DisplayMember = "AppointmentDate";
-                    appointment_idComboBox.ValueMember = "ID";
-                    appointment_idComboBox.DataSource = appointments;
+                        appointment_idComboBox.DisplayMember = "AppointmentDate";
+                        appointment_idComboBox.ValueMember = "ID";
+                        appointment_idComboBox.DataSource = appointments;
 
-                }
-                else
-                {
-                    MessageBox.Show("No appointments.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No appointments.");
 
+                    }
                 }
                
             }

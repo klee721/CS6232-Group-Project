@@ -18,15 +18,27 @@ namespace Group3_ClinicDB.UserControls
         private readonly VisitsController visitController;
         private readonly AppointmentController appointmentController;
         private Visits visit;
+        public Patient patient;
+
         public UpdateVisitUserControl()
         {
             InitializeComponent();
             this.visitController = new VisitsController();
             this.appointmentController = new AppointmentController();
             this.visit = new Visits();
+            this.Enabled = false;
         }
 
-        
+        /// <summary>
+        /// Method to retrieve a patient object from the parent form. This enables the module and loads the patient data
+        /// </summary>
+        /// <param name="selectedPatient">a Patient object to use in appointment booking</param>
+        public void GetPatient(Patient selectedPatient)
+        {
+            this.patient = selectedPatient;
+            this.Enabled = true;
+
+        }
         private void UpdateButton_Click(object sender, EventArgs e)
         {
            // var appointment_id = this.appointment_idComboBox.SelectedValue;

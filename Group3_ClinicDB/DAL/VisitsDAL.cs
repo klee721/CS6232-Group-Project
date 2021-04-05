@@ -224,7 +224,7 @@ namespace Group3_ClinicDB.DAL
       ",visit.initialDiagnose" +
 	  ",ISNULL(visit.finalDiagnose, ' ') finalDiagnose" +
       " FROM dbo.visits visit JOIN dbo.appointments app on(app.Id = visit.appointment_id)" +
-      "where app.patientId = patient_Id";
+      "where app.patientId = @patient_Id";
 
 
             int id;
@@ -246,6 +246,8 @@ namespace Group3_ClinicDB.DAL
 
                 using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
                 {
+                    selectCommand.Parameters.AddWithValue("@patient_Id", patient_Id);
+                    
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
                         int idOrd = reader.GetOrdinal("Id");
