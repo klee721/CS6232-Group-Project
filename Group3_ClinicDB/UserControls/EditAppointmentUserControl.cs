@@ -31,6 +31,13 @@ namespace Group3_ClinicDB.UserControls
         }
 
 
+        private void ApptSelectComboBox_ValueMemberChanged(object sender, EventArgs e)
+        {
+            this.ApptSelectComboBox_SelectedIndexChanged(sender, e);
+
+        }
+
+
         private void ApptSelectComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (this.ApptSelectComboBox.SelectedIndex < 0)
@@ -39,11 +46,9 @@ namespace Group3_ClinicDB.UserControls
             }
             if (appointmentList.Count > 0)
             {
-
                 this.FillOutForm();
             }
         
-          
         }
          
         /// <summary>
@@ -74,14 +79,24 @@ namespace Group3_ClinicDB.UserControls
                 if (this.ApptSelectComboBox.SelectedValue != null)
                 {
                     this.EnableModule();
-                    int aptNumber = int.Parse(this.ApptSelectComboBox.SelectedValue.ToString());
-                    this.selectedAppointment = this.appointmentList.Find(apt => apt.ID == aptNumber);
-                    this.ApptDatePicker.Value = selectedAppointment.AppointmentDate.Date;
-                    this.ApptDatePicker.MinDate = DateTime.Now.Date;
-                    this.ApptTimePicker.Value = DateTime.Now.Date;
-                    this.ApptTimePicker.Value += selectedAppointment.AppointmentDate.TimeOfDay;
-                    this.DoctorComboBox.SelectedValue = selectedAppointment.DoctorID;
-                    this.ReasonRichText.Text = selectedAppointment.Reason;
+                    int result;
+                    if (int.TryParse(this.ApptSelectComboBox.SelectedValue.ToString(), out result))
+                    {
+                        int aptNumber = int.Parse(this.ApptSelectComboBox.SelectedValue.ToString());
+                        this.selectedAppointment = this.appointmentList.Find(apt => apt.ID == aptNumber);
+                        this.ApptDatePicker.Value = selectedAppointment.AppointmentDate.Date;
+                        this.ApptDatePicker.MinDate = DateTime.Now.Date;
+                        this.ApptTimePicker.Value = DateTime.Now.Date;
+                        this.ApptTimePicker.Value += selectedAppointment.AppointmentDate.TimeOfDay;
+                        this.DoctorComboBox.SelectedValue = selectedAppointment.DoctorID;
+                        this.ReasonRichText.Text = selectedAppointment.Reason;
+
+                    }
+                    else
+                    {
+
+                   
+                    }
                 }
             }
             else
@@ -91,6 +106,10 @@ namespace Group3_ClinicDB.UserControls
             }
 
         }
+
+
+
+
 
         private void ConfirmButton_Click(object sender, EventArgs e)
         {

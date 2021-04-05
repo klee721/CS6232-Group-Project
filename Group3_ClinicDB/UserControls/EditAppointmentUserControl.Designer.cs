@@ -64,6 +64,7 @@ namespace Group3_ClinicDB.UserControls
             this.ApptSelectComboBox.Size = new System.Drawing.Size(227, 21);
             this.ApptSelectComboBox.TabIndex = 1;
             this.ApptSelectComboBox.SelectedIndexChanged += new System.EventHandler(this.ApptSelectComboBox_SelectedIndexChanged);
+            this.ApptSelectComboBox.ValueMemberChanged += new System.EventHandler(this.ApptSelectComboBox_ValueMemberChanged);
             this.ApptSelectComboBox.Click += new System.EventHandler(this.RefreshList);
             // 
             // TimeLabel
