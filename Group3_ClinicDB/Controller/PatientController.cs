@@ -49,7 +49,7 @@ namespace Group3_ClinicDB.Controller
         /// </summary>
         /// <param name="dateOfBirth">The date of birth for the patients</param>
         /// <param name="ssn">The SSN for the patients</param>
-        /// <returns>The patients with the date of birth and ssn specified</returns>
+        /// <returns>The patient with the date of birth and ssn specified</returns>
         public Patient GetPatientByDobWithSsn(DateTime dateOfBirth, string ssn)
         {
             if (dateOfBirth == null)
@@ -92,7 +92,7 @@ namespace Group3_ClinicDB.Controller
         /// <param name="firstName">The first name for the patients</param>
         /// <param name="lastName">The last name for the patients</param>
         /// <param name="ssn">The SSN for the patients</param>
-        /// <returns>The patients with the first, last name, and ssn specified</returns>
+        /// <returns>The patient with the first, last name, and ssn specified</returns>
         public Patient GetPatientByFnlnWithSsn(string firstName, string lastName, string ssn)
         {
             if (firstName.Length == 0)
@@ -103,6 +103,11 @@ namespace Group3_ClinicDB.Controller
             if (lastName.Length == 0)
             {
                 throw new Exception("Last Name cannot be empty");
+            }
+
+            if (ssn.Length == 0)
+            {
+                throw new Exception("SSN cannot be empty");
             }
 
             return this.patientDBSource.GetPatientByFnlnWithSsn(firstName, lastName, ssn);
@@ -127,6 +132,33 @@ namespace Group3_ClinicDB.Controller
             }
 
             return this.patientDBSource.GetPatientsByDobln(dateOfBirth, lastName);
+        }
+
+        /// <summary>
+        /// Retrieves the patients with the date of birth, last name and ssn specified
+        /// </summary>
+        /// <param name="dateOfBirth">The date of birth for the patients</param>
+        /// <param name="lastName">The last name for the patients</param>
+        /// <param name="ssn">The SSN for the patients</param>
+        /// <returns>The patient with the date of birth, last name and ssn specified</returns>
+        public Patient GetPatientByDoblnWithSsn(DateTime dateOfBirth, string lastName, string ssn)
+        {
+            if (dateOfBirth == null)
+            {
+                throw new Exception("Date of birth cannot be null");
+            }
+
+            if (lastName.Length == 0)
+            {
+                throw new Exception("Last Name cannot be empty");
+            }
+
+            if (ssn.Length == 0)
+            {
+                throw new Exception("SSN cannot be empty");
+            }
+
+            return this.patientDBSource.GetPatientByDoblnWithSsn(dateOfBirth, lastName, ssn);
         }
 
         /// <summary>

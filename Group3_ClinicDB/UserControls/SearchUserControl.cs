@@ -540,11 +540,50 @@ namespace Group3_ClinicDB.UserControls
                 }
                 else if (this.patients.Count > 1)
                 {
-                    this.HideSsnDoblnSearch(false);
-                    this.ssnDoblnErrorLabel.Visible = false;
-                    //check only long
-                    //check ssn exists
-                    //find with ssn
+                    if (!this.doblnMessageBoxPresent)
+                    {
+                        if (MessageBox.Show("More than one patient found. Please find the specific patient by searching their Social Security Number.",
+                        "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                        {
+                            this.HideSsnDoblnSearch(false);
+                            this.ssnDoblnErrorLabel.Visible = false;
+                            this.doblnMessageBoxPresent = true;
+                        }
+                    }
+                    else
+                    {
+                        if (this.ssnDoblnSearchTextBox.Text.Length != 9)
+                        {
+                            this.ssnDoblnErrorLabel.Visible = true;
+                        }
+                        else
+                        {
+                            try
+                            {
+                                long ssnLong = Convert.ToInt64(this.ssnDoblnSearchTextBox.Text);
+
+                                this.patient = this.patientController.GetPatientByDoblnWithSsn(this.dobDoblnSearchDateTimePicker.Value, this.lastNameDoblnSearchTextBox.Text, this.ssnDoblnSearchTextBox.Text);
+
+                                if (this.patient == null)
+                                {
+                                    if (MessageBox.Show("No Patients match the date of birth.",
+                                        "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                                    {
+                                        this.HideSearchDoblnErrorLabel(false, false);
+                                    }
+                                }
+                                else
+                                {
+                                    this.HideSearchDoblnErrorLabel(false, true);
+                                }
+                            }
+                            catch (Exception)
+                            {
+                                MessageBox.Show("Social security number can only contain whole numbers", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                this.ssnDoblnErrorLabel.Visible = true;
+                            }
+                        }
+                    }
                 }
                 else
                 {
@@ -570,6 +609,21 @@ namespace Group3_ClinicDB.UserControls
         {
             this.HideSearchDoblnErrorLabel(true, false);
             this.HideAllSsnSearch();
+        }
+
+        private void SsnDobSearchTextBoxTextChanged(object sender, EventArgs e)
+        {
+            this.HideSearchDobErrorLabel(true, false);
+        }
+
+        private void SsnFnlnSearchTextBoxTextChanged(object sender, EventArgs e)
+        {
+            this.HideSearchFnlnErrorLabel(true, false);
+        }
+
+        private void SsnDoblnSearchTextBoxTextChanged(object sender, EventArgs e)
+        {
+            this.HideSearchDoblnErrorLabel(true, false);
         }
     }
 }
