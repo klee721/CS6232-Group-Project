@@ -204,7 +204,6 @@ namespace Group3_ClinicDB.UserControls
 
         }
 
-        
-      
+       
     }
 }
