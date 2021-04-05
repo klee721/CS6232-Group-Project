@@ -121,23 +121,49 @@ namespace Group3_ClinicDB.UserControls
             }
         }
 
-        private void AddButton_Click(object sender, EventArgs e)
+       
+            private void AddButton_Click(object sender, EventArgs e)
         {
             var appointment_id = this.appointment_idComboBox.SelectedValue;
             var nurseId = this.nurseComboBox.SelectedValue;
-
+            int i = 0;
             if (string.IsNullOrEmpty(this.weightTextBox.Text.ToString()))
             {
                 MessageBox.Show("Weight is required.", "Error!");
                 return;
             }
-            var weight = int.Parse(this.weightTextBox.Text.ToString());
+            try
+            {
+                i = int.Parse(this.weightTextBox.Text.ToString());
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Weight is not a valid number!!!!",
+                    "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
 
+            }
+
+            var weight = int.Parse(this.weightTextBox.Text.ToString());
             if (string.IsNullOrEmpty(this.heightTextBox.Text.ToString()))
             {
                 MessageBox.Show("height is required.", "Error!");
                 return;
             }
+
+            try
+            {
+                i = int.Parse(this.heightTextBox.Text.ToString());
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("height is not a valid number!!!!",
+                    "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
+            }
+
+           
             var height = int.Parse(this.heightTextBox.Text.ToString());
 
             if (string.IsNullOrEmpty(this.bloodPressureSystolicTextBox.Text.ToString()))
@@ -145,12 +171,35 @@ namespace Group3_ClinicDB.UserControls
                 MessageBox.Show("bloodPressureSystolic is required.", "Error!");
                 return;
             }
+            try
+            {
+                i = int.Parse(this.bloodPressureSystolicTextBox.Text.ToString());
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("bloodPressureSystolic is not a valid number!!!!",
+                    "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
+            }
+
             var bloodPressureSystolic = int.Parse(this.bloodPressureSystolicTextBox.Text.ToString());
 
             if (string.IsNullOrEmpty(this.bloodPressureDiastolicTextBox.Text.ToString()))
             {
                 MessageBox.Show("bloodPressureDiastolic is required.", "Error!");
                 return;
+            }
+            try
+            {
+                i = int.Parse(this.bloodPressureDiastolicTextBox.Text.ToString());
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("bloodPressureDiastolic is not a valid number!!!!",
+                    "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
             }
             var bloodPressureDiastolic = int.Parse(this.bloodPressureDiastolicTextBox.Text.ToString());
 
@@ -159,6 +208,19 @@ namespace Group3_ClinicDB.UserControls
                 MessageBox.Show("pulse is required.", "Error!");
                 return;
             }
+
+            try
+            {
+                i = int.Parse(this.pulseTextBox.Text.ToString());
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("pulse is not a valid number!!!!",
+                    "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
+            }
+
             var pulse = int.Parse(this.pulseTextBox.Text.ToString());
 
             if (string.IsNullOrEmpty(this.bodyTemparatureTextBox.Text.ToString()))
@@ -166,6 +228,18 @@ namespace Group3_ClinicDB.UserControls
                 MessageBox.Show("bodyTemparature is required.", "Error!");
                 return;
             }
+            try
+            {
+                float temp = float.Parse(this.bodyTemparatureTextBox.Text.ToString());
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("bodyTemparature is not a valid number!!!!",
+                    "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
+            }
+
             var bodyTemparature = int.Parse(this.bodyTemparatureTextBox.Text.ToString());
             if (string.IsNullOrEmpty(this.initialDiagnoseTextBox.Text.ToString()))
             {
@@ -197,7 +271,8 @@ namespace Group3_ClinicDB.UserControls
                     {
 
                         this.confirmLabel.Text = "Visit added successfully";
-                    }
+                        this.Reset();
+                }
                     else
                     {
                         MessageBox.Show("Visit is not added");
@@ -225,5 +300,29 @@ namespace Group3_ClinicDB.UserControls
         {
             this.RefreshAppointments();
         }
+
+        private void Reset()
+        {
+            this.weightTextBox.Text = "";
+            this.heightTextBox.Text = "";
+            this.bloodPressureDiastolicTextBox.Text = "";
+            this.bloodPressureSystolicTextBox.Text = "";
+            this.bodyTemparatureTextBox.Text = "";
+            this.pulseTextBox.Text = "";
+            this.symptomsTextBox.Text = "";
+            this.initialDiagnoseTextBox.Text = "";
+            this.finalDiagnoseTextBox.Text = "";
+           // this.confirmLabel.Text = "";
+            this.cancelButton.Enabled = false;
+            this.submitButton.Enabled = true;
+            
+            //this.technicianComboBox.SelectedIndex = 0;
+        }
+        private void ClearButton_Click(object sender, EventArgs e)
+        {
+            this.Reset();
+            this.confirmLabel.Text = "";
+        }
+
     }
 }

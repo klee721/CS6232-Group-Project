@@ -106,7 +106,7 @@ namespace Group3_ClinicDB.UserControls
             // finalDiagnoseLabel
             // 
             finalDiagnoseLabel.AutoSize = true;
-            finalDiagnoseLabel.Location = new System.Drawing.Point(80, 534);
+            finalDiagnoseLabel.Location = new System.Drawing.Point(80, 479);
             finalDiagnoseLabel.Name = "finalDiagnoseLabel";
             finalDiagnoseLabel.Size = new System.Drawing.Size(114, 20);
             finalDiagnoseLabel.TabIndex = 9;
@@ -124,7 +124,7 @@ namespace Group3_ClinicDB.UserControls
             // initialDiagnoseLabel
             // 
             initialDiagnoseLabel.AutoSize = true;
-            initialDiagnoseLabel.Location = new System.Drawing.Point(80, 407);
+            initialDiagnoseLabel.Location = new System.Drawing.Point(81, 400);
             initialDiagnoseLabel.Name = "initialDiagnoseLabel";
             initialDiagnoseLabel.Size = new System.Drawing.Size(120, 20);
             initialDiagnoseLabel.TabIndex = 15;
@@ -151,7 +151,7 @@ namespace Group3_ClinicDB.UserControls
             // symptomsLabel
             // 
             symptomsLabel.AutoSize = true;
-            symptomsLabel.Location = new System.Drawing.Point(79, 311);
+            symptomsLabel.Location = new System.Drawing.Point(81, 327);
             symptomsLabel.Name = "symptomsLabel";
             symptomsLabel.Size = new System.Drawing.Size(85, 20);
             symptomsLabel.TabIndex = 21;
@@ -189,10 +189,10 @@ namespace Group3_ClinicDB.UserControls
             // 
             // finalDiagnoseTextBox
             // 
-            this.finalDiagnoseTextBox.Location = new System.Drawing.Point(273, 519);
+            this.finalDiagnoseTextBox.Location = new System.Drawing.Point(273, 464);
             this.finalDiagnoseTextBox.Multiline = true;
             this.finalDiagnoseTextBox.Name = "finalDiagnoseTextBox";
-            this.finalDiagnoseTextBox.Size = new System.Drawing.Size(463, 93);
+            this.finalDiagnoseTextBox.Size = new System.Drawing.Size(463, 62);
             this.finalDiagnoseTextBox.TabIndex = 11;
             // 
             // heightTextBox
@@ -204,10 +204,10 @@ namespace Group3_ClinicDB.UserControls
             // 
             // initialDiagnoseTextBox
             // 
-            this.initialDiagnoseTextBox.Location = new System.Drawing.Point(273, 404);
+            this.initialDiagnoseTextBox.Location = new System.Drawing.Point(273, 377);
             this.initialDiagnoseTextBox.Multiline = true;
             this.initialDiagnoseTextBox.Name = "initialDiagnoseTextBox";
-            this.initialDiagnoseTextBox.Size = new System.Drawing.Size(463, 107);
+            this.initialDiagnoseTextBox.Size = new System.Drawing.Size(463, 71);
             this.initialDiagnoseTextBox.TabIndex = 10;
             // 
             // pulseTextBox
@@ -222,7 +222,7 @@ namespace Group3_ClinicDB.UserControls
             this.symptomsTextBox.Location = new System.Drawing.Point(272, 311);
             this.symptomsTextBox.Multiline = true;
             this.symptomsTextBox.Name = "symptomsTextBox";
-            this.symptomsTextBox.Size = new System.Drawing.Size(464, 87);
+            this.symptomsTextBox.Size = new System.Drawing.Size(464, 60);
             this.symptomsTextBox.TabIndex = 9;
             // 
             // weightTextBox
@@ -250,6 +250,7 @@ namespace Group3_ClinicDB.UserControls
             this.cancelButton.TabIndex = 26;
             this.cancelButton.Text = "Clear";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
             // appointment_idComboBox
             // 
