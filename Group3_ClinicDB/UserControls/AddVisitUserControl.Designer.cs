@@ -72,9 +72,9 @@ namespace Group3_ClinicDB.UserControls
             appointment_idLabel.AutoSize = true;
             appointment_idLabel.Location = new System.Drawing.Point(80, 26);
             appointment_idLabel.Name = "appointment_idLabel";
-            appointment_idLabel.Size = new System.Drawing.Size(118, 20);
+            appointment_idLabel.Size = new System.Drawing.Size(140, 20);
             appointment_idLabel.TabIndex = 1;
-            appointment_idLabel.Text = "appointment id:";
+            appointment_idLabel.Text = "appointment Time:";
             // 
             // bloodPressureDiastolicLabel
             // 
