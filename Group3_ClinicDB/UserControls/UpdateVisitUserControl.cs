@@ -20,6 +20,10 @@ namespace Group3_ClinicDB.UserControls
         private Visits visit;
         public Patient patient;
 
+        /// <summary>
+        /// The constructor
+        /// </summary>
+        /// 
         public UpdateVisitUserControl()
         {
             InitializeComponent();
@@ -39,6 +43,12 @@ namespace Group3_ClinicDB.UserControls
             this.Enabled = true;
 
         }
+
+
+        /// <summary>
+        /// Method for update button click
+        /// </summary>
+        /// 
         private void UpdateButton_Click(object sender, EventArgs e)
         {
            // var appointment_id = this.appointment_idComboBox.SelectedValue;
@@ -82,6 +92,10 @@ namespace Group3_ClinicDB.UserControls
         }
 
 
+        /// <summary>
+        /// Method for get visit button click
+        /// </summary>
+        /// 
         public void GetVisitUserControl_Click(object sender, EventArgs e)
         {
             int id = 0;
@@ -100,6 +114,10 @@ namespace Group3_ClinicDB.UserControls
             this.GetVisitDetails(id);
         }
 
+        /// <summary>
+        /// Method to get visit details
+        /// </summary>
+        /// 
         private void GetVisitDetails(int visitID)
         {
             this.visitController.GetVisitsByID(visitID);
@@ -138,6 +156,10 @@ namespace Group3_ClinicDB.UserControls
             }
         }
 
+        /// <summary>
+        /// Method for clear button click
+        /// </summary>
+        /// 
         private void ClearButton_Click(object sender, EventArgs e)
         {
             this.visit = new Visits();

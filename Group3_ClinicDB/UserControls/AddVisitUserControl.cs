@@ -23,6 +23,11 @@ namespace Group3_ClinicDB.UserControls
         private List<Nurse> nurses;
 
         public Patient patient;
+
+        /// <summary>
+        /// The constructor
+        /// </summary>
+        /// 
         public AddVisitUserControl()
         {
             InitializeComponent();
@@ -44,6 +49,10 @@ namespace Group3_ClinicDB.UserControls
             this.RefreshAppointments();
         }
 
+        /// <summary>
+        /// Method to refresh appointments combo box
+        /// </summary>
+        /// 
         private void RefreshAppointments()
         {
             //appointment_idComboBox.Items.Clear();
@@ -84,6 +93,10 @@ namespace Group3_ClinicDB.UserControls
             }
         }
 
+        /// <summary>
+        /// Method to refresh Nurses combo box
+        /// </summary>
+        /// 
         private void RefreshNurses()
         {
             nurseComboBox.Items.Clear();
@@ -121,8 +134,12 @@ namespace Group3_ClinicDB.UserControls
             }
         }
 
-       
-            private void AddButton_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Method for add click button or submit click button
+        /// </summary>
+        /// 
+
+        private void AddButton_Click(object sender, EventArgs e)
         {
             var appointment_id = this.appointment_idComboBox.SelectedValue;
             var nurseId = this.nurseComboBox.SelectedValue;
@@ -288,6 +305,10 @@ namespace Group3_ClinicDB.UserControls
             }
         }
 
+        /// <summary>
+        /// Method to load comboboxes on load
+        /// </summary>
+        /// 
         private void AddVisitUserControl_Load(object sender, EventArgs e)
         {
             this.RefreshAppointments();
@@ -296,11 +317,19 @@ namespace Group3_ClinicDB.UserControls
 
         }
 
+        /// <summary>
+        /// Method to load appointments on entering tab
+        /// </summary>
+        /// 
         private void AddVisitUserControl_Enter(object sender, EventArgs e)
         {
             this.RefreshAppointments();
         }
 
+        /// <summary>
+        /// Method to reset all values
+        /// </summary>
+        /// 
         private void Reset()
         {
             this.weightTextBox.Text = "";
@@ -315,6 +344,11 @@ namespace Group3_ClinicDB.UserControls
            // this.confirmLabel.Text = "";
            
         }
+
+        /// <summary>
+        /// Method for clear button
+        /// </summary>
+        /// 
         private void ClearButton_Click(object sender, EventArgs e)
         {
             this.Reset();

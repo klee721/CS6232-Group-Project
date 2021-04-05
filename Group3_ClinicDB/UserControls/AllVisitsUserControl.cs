@@ -30,7 +30,11 @@ namespace Group3_ClinicDB.UserControls
 
         private readonly VisitsController controller;
 
- 
+
+        /// <summary>
+        /// Method to load visits on load
+        /// </summary>
+        /// 
         private void AllVisitsUserControl_Load(object sender, EventArgs e)
         {
 
@@ -38,6 +42,10 @@ namespace Group3_ClinicDB.UserControls
             this.Load_visits();
         }
 
+        /// <summary>
+        /// Method to load visits
+        /// </summary>
+        /// 
         public void Load_visits()
         {
             if (this.patient != null)
