@@ -15,6 +15,9 @@ namespace Group3_ClinicDB.UserControls
         private readonly PatientController patientController;
         private List<Patient> patients;
         private Patient patient;
+        private bool dobMessageBoxPresent;
+        private bool fnlnMessageBoxPresent;
+        private bool doblnMessageBoxPresent;
 
         /// <summary>
         /// Loads the UserControl
@@ -25,6 +28,9 @@ namespace Group3_ClinicDB.UserControls
             this.patientController = new PatientController();
             this.patients = new List<Patient>();
             this.patient = null;
+            this.dobMessageBoxPresent = false;
+            this.fnlnMessageBoxPresent = false;
+            this.doblnMessageBoxPresent = false;
         }
 
         private void InitSearches()
@@ -286,7 +292,6 @@ namespace Group3_ClinicDB.UserControls
                 this.ssnDobSearchLabel.Visible = false;
                 this.ssnDobSearchTextBox.Visible = false;
                 this.ssnDobErrorLabel.Visible = false;
-                this.ssnDobErrorLabel.ForeColor = Color.Black;
             }
             else
             {
@@ -338,6 +343,14 @@ namespace Group3_ClinicDB.UserControls
             this.HideSsnDobSearch(true);
             this.HideSsnFnlnSearch(true);
             this.HideSsnDoblnSearch(true);
+            this.HideAllMessageBox();
+        }
+
+        private void HideAllMessageBox()
+        {
+            this.dobMessageBoxPresent = false;
+            this.fnlnMessageBoxPresent = false;
+            this.doblnMessageBoxPresent = false;
         }
 
         private void DobSearchButtonClick(object sender, EventArgs e)
@@ -354,15 +367,48 @@ namespace Group3_ClinicDB.UserControls
             }  
             else if (this.patients.Count > 1)
             {
-                if (MessageBox.Show("More than one patient found. Please find the specific patient by searching their Social Security Number.",
-                    "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                if (!this.dobMessageBoxPresent) 
                 {
-                    //enable ssn
-                    this.HideSsnDobSearch(false);
-                    this.ssnDobErrorLabel.Visible = false;
-                    //check only long
-                    //check ssn exists
-                    //find with ssn
+                    if (MessageBox.Show("More than one patient found. Please find the specific patient by searching their Social Security Number.",
+                    "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                    {
+                        this.HideSsnDobSearch(false);
+                        this.ssnDobErrorLabel.Visible = false;
+                        this.dobMessageBoxPresent = true;
+                    }
+                }
+                else
+                {
+                    if (this.ssnDobSearchTextBox.Text.Length != 9)
+                    {
+                        this.ssnDobErrorLabel.Visible = true;
+                    }
+                    else
+                    {
+                        try
+                        {
+                            long ssnLong = Convert.ToInt64(this.ssnDobSearchTextBox.Text);
+
+                            this.patient = this.patientController.GetPatientByDobWithSsn(this.dobSearchDateTimePicker.Value, this.ssnDobSearchTextBox.Text);
+
+                            if (this.patient == null)
+                            {
+                                if (MessageBox.Show("No Patients match the date of birth.",
+                                    "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                                {
+                                    this.HideSearchDobErrorLabel(false, false);
+                                }
+                            } else
+                            {
+                                this.HideSearchDobErrorLabel(false, true);
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Social security number can only contain whole numbers", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            this.ssnDobErrorLabel.Visible = true;
+                        }
+                    }
                 }
             }
             else
@@ -402,11 +448,50 @@ namespace Group3_ClinicDB.UserControls
                 }
                 else if (this.patients.Count > 1)
                 {
-                    this.HideSsnFnlnSearch(false);
-                    this.ssnFnlnErrorLabel.Visible = false;
-                    //check only long
-                    //check ssn exists
-                    //find with ssn
+                    if (!this.fnlnMessageBoxPresent)
+                    {
+                        if (MessageBox.Show("More than one patient found. Please find the specific patient by searching their Social Security Number.",
+                        "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                        {
+                            this.HideSsnFnlnSearch(false);
+                            this.ssnFnlnErrorLabel.Visible = false;
+                            this.fnlnMessageBoxPresent = true;
+                        }
+                    }
+                    else
+                    {
+                        if (this.ssnFnlnSearchTextBox.Text.Length != 9)
+                        {
+                            this.ssnFnlnErrorLabel.Visible = true;
+                        }
+                        else
+                        {
+                            try
+                            {
+                                long ssnLong = Convert.ToInt64(this.ssnFnlnSearchTextBox.Text);
+
+                                this.patient = this.patientController.GetPatientByFnlnWithSsn(this.firstNameFnlnSearchTextBox.Text, this.lastNameFnlnSearchTextBox.Text, this.ssnFnlnSearchTextBox.Text);
+
+                                if (this.patient == null)
+                                {
+                                    if (MessageBox.Show("No Patients match the date of birth.",
+                                        "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                                    {
+                                        this.HideSearchFnlnErrorLabel(false, false);
+                                    }
+                                }
+                                else
+                                {
+                                    this.HideSearchFnlnErrorLabel(false, true);
+                                }
+                            }
+                            catch (Exception)
+                            {
+                                MessageBox.Show("Social security number can only contain whole numbers", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                this.ssnFnlnErrorLabel.Visible = true;
+                            }
+                        }
+                    }
                 }
                 else
                 {
