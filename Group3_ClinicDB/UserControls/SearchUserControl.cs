@@ -613,17 +613,17 @@ namespace Group3_ClinicDB.UserControls
 
         private void SsnDobSearchTextBoxTextChanged(object sender, EventArgs e)
         {
-            this.HideSearchDobErrorLabel(true, false);
+            this.ssnDobErrorLabel.Visible = false;
         }
 
         private void SsnFnlnSearchTextBoxTextChanged(object sender, EventArgs e)
         {
-            this.HideSearchFnlnErrorLabel(true, false);
+            this.ssnFnlnErrorLabel.Visible = false;
         }
 
         private void SsnDoblnSearchTextBoxTextChanged(object sender, EventArgs e)
         {
-            this.HideSearchDoblnErrorLabel(true, false);
+            this.ssnDoblnErrorLabel.Visible = false;
         }
     }
 }
