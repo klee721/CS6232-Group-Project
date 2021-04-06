@@ -198,6 +198,7 @@ namespace Group3_ClinicDB.View
             // 
             // allVisitsUserControl1
             // 
+            this.allVisitsUserControl1.Enabled = false;
             this.allVisitsUserControl1.Location = new System.Drawing.Point(18, 24);
             this.allVisitsUserControl1.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.allVisitsUserControl1.Name = "allVisitsUserControl1";
@@ -216,6 +217,7 @@ namespace Group3_ClinicDB.View
             // 
             // addVisitUserControl1
             // 
+            this.addVisitUserControl1.Enabled = false;
             this.addVisitUserControl1.Location = new System.Drawing.Point(54, 15);
             this.addVisitUserControl1.Margin = new System.Windows.Forms.Padding(1);
             this.addVisitUserControl1.Name = "addVisitUserControl1";
@@ -234,6 +236,7 @@ namespace Group3_ClinicDB.View
             // 
             // updateVisitUserControl1
             // 
+            this.updateVisitUserControl1.Enabled = false;
             this.updateVisitUserControl1.Location = new System.Drawing.Point(30, 62);
             this.updateVisitUserControl1.Margin = new System.Windows.Forms.Padding(1);
             this.updateVisitUserControl1.Name = "updateVisitUserControl1";
