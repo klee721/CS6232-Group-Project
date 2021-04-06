@@ -15,7 +15,7 @@ namespace Group3_ClinicDB.View
             InitializeComponent();
             this.LoggedInTextBox.Text = user.userName;
             this.loginform = loginform;
-            this.SelectedPatientTextBox.Text = "";
+            this.SelectedPatientIDTextBox.Text = "";
         }
 
 
@@ -24,7 +24,8 @@ namespace Group3_ClinicDB.View
             if (this.searchUserControl2.GetPatient() != null)
             {
                 this.patient = this.searchUserControl2.GetPatient();
-                this.SelectedPatientTextBox.Text = "ID #: " + this.patient.Id;
+                this.SelectedPatientIDTextBox.Text = this.patient.Id.ToString();
+                this.SelectedPatientNameTextBox.Text = this.patient.FirstName + " " + this.patient.LastName;
 
                 this.appointmentBookingUserControl2.GetPatient(this.patient);
                 this.editAppointmentUserControl1.GetPatient(this.patient);
@@ -46,7 +47,8 @@ namespace Group3_ClinicDB.View
             this.Hide();
             this.loginform.Show();
             this.patient = null;
-            this.SelectedPatientTextBox.Text = "";
+            this.SelectedPatientIDTextBox.Text = "";
+            this.SelectedPatientNameTextBox.Text = "";
             this.DisableModules();
 
         }
