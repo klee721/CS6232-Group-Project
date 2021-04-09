@@ -30,34 +30,36 @@ namespace Group3_ClinicDB.View
         private void InitializeComponent()
         {
             this.DashboardTabControl = new System.Windows.Forms.TabControl();
+            this.SearchPatientTab = new System.Windows.Forms.TabPage();
+            this.searchUserControl2 = new Group3_ClinicDB.UserControls.SearchUserControl();
             this.registerPatientTab = new System.Windows.Forms.TabPage();
+            this.registerPatientUserControl1 = new Group3_ClinicDB.UserControls.RegisterPatientUserControl();
             this.allPatientsTab = new System.Windows.Forms.TabPage();
+            this.allPatientUserControl1 = new Group3_ClinicDB.UserControls.AllPatientUserControl();
             this.editPatientTab = new System.Windows.Forms.TabPage();
+            this.editPatientUserControl1 = new Group3_ClinicDB.UserControls.EditPatientUserControl();
             this.ScheduleApptTab = new System.Windows.Forms.TabPage();
+            this.appointmentBookingUserControl2 = new Group3_ClinicDB.UserControls.AppointmentBookingUserControl();
             this.EditApptTab = new System.Windows.Forms.TabPage();
+            this.editAppointmentUserControl1 = new Group3_ClinicDB.UserControls.EditAppointmentUserControl();
             this.visitsTabPage = new System.Windows.Forms.TabPage();
+            this.allVisitsUserControl1 = new Group3_ClinicDB.UserControls.AllVisitsUserControl();
             this.addVisitTabPage = new System.Windows.Forms.TabPage();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.addVisitUserControl1 = new Group3_ClinicDB.UserControls.AddVisitUserControl();
+            this.EditVisitTab = new System.Windows.Forms.TabPage();
+            this.updateVisitUserControl1 = new Group3_ClinicDB.UserControls.UpdateVisitUserControl();
             this.LoggedInAsLabel = new System.Windows.Forms.Label();
-            this.LoggedInTextBox = new System.Windows.Forms.TextBox();
             this.SelectedPatientIDLabel = new System.Windows.Forms.Label();
-            this.SelectedPatientIDTextBox = new System.Windows.Forms.TextBox();
             this.LogoutLink = new System.Windows.Forms.LinkLabel();
             this.SelectPatientButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.SelectedPatientNameTextBox = new System.Windows.Forms.TextBox();
+            this.EmployeeNameLabel = new System.Windows.Forms.Label();
             this.SelectedPatientNameLabel = new System.Windows.Forms.Label();
-            this.searchUserControl2 = new Group3_ClinicDB.UserControls.SearchUserControl();
-            this.registerPatientUserControl1 = new Group3_ClinicDB.UserControls.RegisterPatientUserControl();
-            this.allPatientUserControl1 = new Group3_ClinicDB.UserControls.AllPatientUserControl();
-            this.editPatientUserControl1 = new Group3_ClinicDB.UserControls.EditPatientUserControl();
-            this.appointmentBookingUserControl2 = new Group3_ClinicDB.UserControls.AppointmentBookingUserControl();
-            this.editAppointmentUserControl1 = new Group3_ClinicDB.UserControls.EditAppointmentUserControl();
-            this.allVisitsUserControl1 = new Group3_ClinicDB.UserControls.AllVisitsUserControl();
-            this.addVisitUserControl1 = new Group3_ClinicDB.UserControls.AddVisitUserControl();
-            this.updateVisitUserControl1 = new Group3_ClinicDB.UserControls.UpdateVisitUserControl();
+            this.PatientIDLabel = new System.Windows.Forms.Label();
+            this.PatientNameLabel = new System.Windows.Forms.Label();
+            this.UserFullNameLabel = new System.Windows.Forms.Label();
+            this.UserNameLabel = new System.Windows.Forms.Label();
             this.DashboardTabControl.SuspendLayout();
+            this.SearchPatientTab.SuspendLayout();
             this.registerPatientTab.SuspendLayout();
             this.allPatientsTab.SuspendLayout();
             this.editPatientTab.SuspendLayout();
@@ -65,11 +67,12 @@ namespace Group3_ClinicDB.View
             this.EditApptTab.SuspendLayout();
             this.visitsTabPage.SuspendLayout();
             this.addVisitTabPage.SuspendLayout();
-            this.tabPage6.SuspendLayout();
+            this.EditVisitTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // DashboardTabControl
             // 
+            this.DashboardTabControl.Controls.Add(this.SearchPatientTab);
             this.DashboardTabControl.Controls.Add(this.registerPatientTab);
             this.DashboardTabControl.Controls.Add(this.allPatientsTab);
             this.DashboardTabControl.Controls.Add(this.editPatientTab);
@@ -77,13 +80,29 @@ namespace Group3_ClinicDB.View
             this.DashboardTabControl.Controls.Add(this.EditApptTab);
             this.DashboardTabControl.Controls.Add(this.visitsTabPage);
             this.DashboardTabControl.Controls.Add(this.addVisitTabPage);
-            this.DashboardTabControl.Controls.Add(this.tabPage6);
-            this.DashboardTabControl.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.DashboardTabControl.Location = new System.Drawing.Point(0, 253);
+            this.DashboardTabControl.Controls.Add(this.EditVisitTab);
+            this.DashboardTabControl.Location = new System.Drawing.Point(2, 90);
             this.DashboardTabControl.Name = "DashboardTabControl";
             this.DashboardTabControl.SelectedIndex = 0;
             this.DashboardTabControl.Size = new System.Drawing.Size(1223, 641);
             this.DashboardTabControl.TabIndex = 0;
+            // 
+            // SearchPatientTab
+            // 
+            this.SearchPatientTab.Controls.Add(this.searchUserControl2);
+            this.SearchPatientTab.Location = new System.Drawing.Point(4, 22);
+            this.SearchPatientTab.Name = "SearchPatientTab";
+            this.SearchPatientTab.Size = new System.Drawing.Size(1215, 615);
+            this.SearchPatientTab.TabIndex = 8;
+            this.SearchPatientTab.Text = "Search Patients";
+            this.SearchPatientTab.UseVisualStyleBackColor = true;
+            // 
+            // searchUserControl2
+            // 
+            this.searchUserControl2.Location = new System.Drawing.Point(70, 160);
+            this.searchUserControl2.Name = "searchUserControl2";
+            this.searchUserControl2.Size = new System.Drawing.Size(1025, 209);
+            this.searchUserControl2.TabIndex = 8;
             // 
             // registerPatientTab
             // 
@@ -96,6 +115,17 @@ namespace Group3_ClinicDB.View
             this.registerPatientTab.Text = "Register Patient";
             this.registerPatientTab.UseVisualStyleBackColor = true;
             // 
+            // registerPatientUserControl1
+            // 
+            this.registerPatientUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.registerPatientUserControl1.Location = new System.Drawing.Point(3, 3);
+            this.registerPatientUserControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.registerPatientUserControl1.MaximumSize = new System.Drawing.Size(1215, 615);
+            this.registerPatientUserControl1.MinimumSize = new System.Drawing.Size(1215, 615);
+            this.registerPatientUserControl1.Name = "registerPatientUserControl1";
+            this.registerPatientUserControl1.Size = new System.Drawing.Size(1215, 615);
+            this.registerPatientUserControl1.TabIndex = 0;
+            // 
             // allPatientsTab
             // 
             this.allPatientsTab.Controls.Add(this.allPatientUserControl1);
@@ -106,6 +136,14 @@ namespace Group3_ClinicDB.View
             this.allPatientsTab.Text = "Patients";
             this.allPatientsTab.UseVisualStyleBackColor = true;
             // 
+            // allPatientUserControl1
+            // 
+            this.allPatientUserControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.allPatientUserControl1.Location = new System.Drawing.Point(0, 3);
+            this.allPatientUserControl1.Name = "allPatientUserControl1";
+            this.allPatientUserControl1.Size = new System.Drawing.Size(1215, 612);
+            this.allPatientUserControl1.TabIndex = 0;
+            // 
             // editPatientTab
             // 
             this.editPatientTab.Controls.Add(this.editPatientUserControl1);
@@ -115,6 +153,16 @@ namespace Group3_ClinicDB.View
             this.editPatientTab.TabIndex = 7;
             this.editPatientTab.Text = "Edit Patient";
             this.editPatientTab.UseVisualStyleBackColor = true;
+            // 
+            // editPatientUserControl1
+            // 
+            this.editPatientUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.editPatientUserControl1.Location = new System.Drawing.Point(0, 0);
+            this.editPatientUserControl1.MaximumSize = new System.Drawing.Size(1215, 615);
+            this.editPatientUserControl1.MinimumSize = new System.Drawing.Size(1215, 615);
+            this.editPatientUserControl1.Name = "editPatientUserControl1";
+            this.editPatientUserControl1.Size = new System.Drawing.Size(1215, 615);
+            this.editPatientUserControl1.TabIndex = 0;
             // 
             // ScheduleApptTab
             // 
@@ -127,175 +175,6 @@ namespace Group3_ClinicDB.View
             this.ScheduleApptTab.Text = "Schedule Appointment";
             this.ScheduleApptTab.UseVisualStyleBackColor = true;
             // 
-            // EditApptTab
-            // 
-            this.EditApptTab.Controls.Add(this.editAppointmentUserControl1);
-            this.EditApptTab.Location = new System.Drawing.Point(4, 22);
-            this.EditApptTab.Name = "EditApptTab";
-            this.EditApptTab.Size = new System.Drawing.Size(1215, 615);
-            this.EditApptTab.TabIndex = 2;
-            this.EditApptTab.Text = "Edit Appointment";
-            this.EditApptTab.UseVisualStyleBackColor = true;
-            // 
-            // visitsTabPage
-            // 
-            this.visitsTabPage.Controls.Add(this.allVisitsUserControl1);
-            this.visitsTabPage.Location = new System.Drawing.Point(4, 22);
-            this.visitsTabPage.Name = "visitsTabPage";
-            this.visitsTabPage.Size = new System.Drawing.Size(1215, 615);
-            this.visitsTabPage.TabIndex = 3;
-            this.visitsTabPage.Text = "Visits";
-            this.visitsTabPage.UseVisualStyleBackColor = true;
-            // 
-            // addVisitTabPage
-            // 
-            this.addVisitTabPage.Controls.Add(this.addVisitUserControl1);
-            this.addVisitTabPage.Location = new System.Drawing.Point(4, 22);
-            this.addVisitTabPage.Name = "addVisitTabPage";
-            this.addVisitTabPage.Size = new System.Drawing.Size(1215, 615);
-            this.addVisitTabPage.TabIndex = 4;
-            this.addVisitTabPage.Text = "Add Visit";
-            this.addVisitTabPage.UseVisualStyleBackColor = true;
-            // 
-            // tabPage6
-            // 
-            this.tabPage6.Controls.Add(this.updateVisitUserControl1);
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1215, 615);
-            this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "Edit Visit";
-            this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // LoggedInAsLabel
-            // 
-            this.LoggedInAsLabel.AutoSize = true;
-            this.LoggedInAsLabel.Location = new System.Drawing.Point(1025, 49);
-            this.LoggedInAsLabel.Name = "LoggedInAsLabel";
-            this.LoggedInAsLabel.Size = new System.Drawing.Size(61, 13);
-            this.LoggedInAsLabel.TabIndex = 3;
-            this.LoggedInAsLabel.Text = "Username: ";
-            // 
-            // LoggedInTextBox
-            // 
-            this.LoggedInTextBox.Location = new System.Drawing.Point(1092, 42);
-            this.LoggedInTextBox.Name = "LoggedInTextBox";
-            this.LoggedInTextBox.ReadOnly = true;
-            this.LoggedInTextBox.Size = new System.Drawing.Size(119, 20);
-            this.LoggedInTextBox.TabIndex = 4;
-            // 
-            // SelectedPatientIDLabel
-            // 
-            this.SelectedPatientIDLabel.AutoSize = true;
-            this.SelectedPatientIDLabel.Location = new System.Drawing.Point(1019, 218);
-            this.SelectedPatientIDLabel.Name = "SelectedPatientIDLabel";
-            this.SelectedPatientIDLabel.Size = new System.Drawing.Size(63, 13);
-            this.SelectedPatientIDLabel.TabIndex = 5;
-            this.SelectedPatientIDLabel.Text = "Patient ID:  ";
-            // 
-            // SelectedPatientIDTextBox
-            // 
-            this.SelectedPatientIDTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SelectedPatientIDTextBox.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.SelectedPatientIDTextBox.Location = new System.Drawing.Point(1092, 215);
-            this.SelectedPatientIDTextBox.Name = "SelectedPatientIDTextBox";
-            this.SelectedPatientIDTextBox.ReadOnly = true;
-            this.SelectedPatientIDTextBox.Size = new System.Drawing.Size(119, 21);
-            this.SelectedPatientIDTextBox.TabIndex = 6;
-            // 
-            // LogoutLink
-            // 
-            this.LogoutLink.AutoSize = true;
-            this.LogoutLink.Location = new System.Drawing.Point(1171, 65);
-            this.LogoutLink.Name = "LogoutLink";
-            this.LogoutLink.Size = new System.Drawing.Size(40, 13);
-            this.LogoutLink.TabIndex = 7;
-            this.LogoutLink.TabStop = true;
-            this.LogoutLink.Text = "Logout";
-            this.LogoutLink.Click += new System.EventHandler(this.LogoutLink_Click);
-            // 
-            // SelectPatientButton
-            // 
-            this.SelectPatientButton.Location = new System.Drawing.Point(782, 215);
-            this.SelectPatientButton.Name = "SelectPatientButton";
-            this.SelectPatientButton.Size = new System.Drawing.Size(203, 54);
-            this.SelectPatientButton.TabIndex = 9;
-            this.SelectPatientButton.Text = "Select Patient";
-            this.SelectPatientButton.UseVisualStyleBackColor = true;
-            this.SelectPatientButton.Click += new System.EventHandler(this.SelectPatientButton_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(1092, 16);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(119, 20);
-            this.textBox1.TabIndex = 11;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(999, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 13);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Employee Name:";
-            // 
-            // SelectedPatientNameTextBox
-            // 
-            this.SelectedPatientNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SelectedPatientNameTextBox.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.SelectedPatientNameTextBox.Location = new System.Drawing.Point(1092, 241);
-            this.SelectedPatientNameTextBox.Name = "SelectedPatientNameTextBox";
-            this.SelectedPatientNameTextBox.ReadOnly = true;
-            this.SelectedPatientNameTextBox.Size = new System.Drawing.Size(119, 21);
-            this.SelectedPatientNameTextBox.TabIndex = 13;
-            // 
-            // SelectedPatientNameLabel
-            // 
-            this.SelectedPatientNameLabel.AutoSize = true;
-            this.SelectedPatientNameLabel.Location = new System.Drawing.Point(1006, 244);
-            this.SelectedPatientNameLabel.Name = "SelectedPatientNameLabel";
-            this.SelectedPatientNameLabel.Size = new System.Drawing.Size(80, 13);
-            this.SelectedPatientNameLabel.TabIndex = 12;
-            this.SelectedPatientNameLabel.Text = "Patient Name:  ";
-            // 
-            // searchUserControl2
-            // 
-            this.searchUserControl2.Location = new System.Drawing.Point(0, 0);
-            this.searchUserControl2.Name = "searchUserControl2";
-            this.searchUserControl2.Size = new System.Drawing.Size(1025, 209);
-            this.searchUserControl2.TabIndex = 8;
-            // 
-            // registerPatientUserControl1
-            // 
-            this.registerPatientUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.registerPatientUserControl1.Location = new System.Drawing.Point(3, 3);
-            this.registerPatientUserControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.registerPatientUserControl1.MaximumSize = new System.Drawing.Size(1215, 615);
-            this.registerPatientUserControl1.MinimumSize = new System.Drawing.Size(1215, 615);
-            this.registerPatientUserControl1.Name = "registerPatientUserControl1";
-            this.registerPatientUserControl1.Size = new System.Drawing.Size(1215, 615);
-            this.registerPatientUserControl1.TabIndex = 0;
-            // 
-            // allPatientUserControl1
-            // 
-            this.allPatientUserControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.allPatientUserControl1.Location = new System.Drawing.Point(0, 3);
-            this.allPatientUserControl1.Name = "allPatientUserControl1";
-            this.allPatientUserControl1.Size = new System.Drawing.Size(1215, 612);
-            this.allPatientUserControl1.TabIndex = 0;
-            // 
-            // editPatientUserControl1
-            // 
-            this.editPatientUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.editPatientUserControl1.Location = new System.Drawing.Point(0, 0);
-            this.editPatientUserControl1.MaximumSize = new System.Drawing.Size(1215, 615);
-            this.editPatientUserControl1.MinimumSize = new System.Drawing.Size(1215, 615);
-            this.editPatientUserControl1.Name = "editPatientUserControl1";
-            this.editPatientUserControl1.Size = new System.Drawing.Size(1215, 615);
-            this.editPatientUserControl1.TabIndex = 0;
-            // 
             // appointmentBookingUserControl2
             // 
             this.appointmentBookingUserControl2.Enabled = false;
@@ -306,6 +185,16 @@ namespace Group3_ClinicDB.View
             this.appointmentBookingUserControl2.Name = "appointmentBookingUserControl2";
             this.appointmentBookingUserControl2.Size = new System.Drawing.Size(1215, 615);
             this.appointmentBookingUserControl2.TabIndex = 0;
+            // 
+            // EditApptTab
+            // 
+            this.EditApptTab.Controls.Add(this.editAppointmentUserControl1);
+            this.EditApptTab.Location = new System.Drawing.Point(4, 22);
+            this.EditApptTab.Name = "EditApptTab";
+            this.EditApptTab.Size = new System.Drawing.Size(1215, 615);
+            this.EditApptTab.TabIndex = 2;
+            this.EditApptTab.Text = "Edit Appointment";
+            this.EditApptTab.UseVisualStyleBackColor = true;
             // 
             // editAppointmentUserControl1
             // 
@@ -318,6 +207,16 @@ namespace Group3_ClinicDB.View
             this.editAppointmentUserControl1.Size = new System.Drawing.Size(1215, 615);
             this.editAppointmentUserControl1.TabIndex = 0;
             // 
+            // visitsTabPage
+            // 
+            this.visitsTabPage.Controls.Add(this.allVisitsUserControl1);
+            this.visitsTabPage.Location = new System.Drawing.Point(4, 22);
+            this.visitsTabPage.Name = "visitsTabPage";
+            this.visitsTabPage.Size = new System.Drawing.Size(1215, 615);
+            this.visitsTabPage.TabIndex = 3;
+            this.visitsTabPage.Text = "Visits";
+            this.visitsTabPage.UseVisualStyleBackColor = true;
+            // 
             // allVisitsUserControl1
             // 
             this.allVisitsUserControl1.Enabled = false;
@@ -326,6 +225,16 @@ namespace Group3_ClinicDB.View
             this.allVisitsUserControl1.Name = "allVisitsUserControl1";
             this.allVisitsUserControl1.Size = new System.Drawing.Size(643, 291);
             this.allVisitsUserControl1.TabIndex = 0;
+            // 
+            // addVisitTabPage
+            // 
+            this.addVisitTabPage.Controls.Add(this.addVisitUserControl1);
+            this.addVisitTabPage.Location = new System.Drawing.Point(4, 22);
+            this.addVisitTabPage.Name = "addVisitTabPage";
+            this.addVisitTabPage.Size = new System.Drawing.Size(1215, 615);
+            this.addVisitTabPage.TabIndex = 4;
+            this.addVisitTabPage.Text = "Add Visit";
+            this.addVisitTabPage.UseVisualStyleBackColor = true;
             // 
             // addVisitUserControl1
             // 
@@ -336,6 +245,16 @@ namespace Group3_ClinicDB.View
             this.addVisitUserControl1.Size = new System.Drawing.Size(694, 482);
             this.addVisitUserControl1.TabIndex = 0;
             // 
+            // EditVisitTab
+            // 
+            this.EditVisitTab.Controls.Add(this.updateVisitUserControl1);
+            this.EditVisitTab.Location = new System.Drawing.Point(4, 22);
+            this.EditVisitTab.Name = "EditVisitTab";
+            this.EditVisitTab.Size = new System.Drawing.Size(1215, 615);
+            this.EditVisitTab.TabIndex = 5;
+            this.EditVisitTab.Text = "Edit Visit";
+            this.EditVisitTab.UseVisualStyleBackColor = true;
+            // 
             // updateVisitUserControl1
             // 
             this.updateVisitUserControl1.Enabled = false;
@@ -345,30 +264,135 @@ namespace Group3_ClinicDB.View
             this.updateVisitUserControl1.Size = new System.Drawing.Size(496, 471);
             this.updateVisitUserControl1.TabIndex = 0;
             // 
+            // LoggedInAsLabel
+            // 
+            this.LoggedInAsLabel.AutoSize = true;
+            this.LoggedInAsLabel.Location = new System.Drawing.Point(1034, 38);
+            this.LoggedInAsLabel.Name = "LoggedInAsLabel";
+            this.LoggedInAsLabel.Size = new System.Drawing.Size(61, 13);
+            this.LoggedInAsLabel.TabIndex = 3;
+            this.LoggedInAsLabel.Text = "Username: ";
+            // 
+            // SelectedPatientIDLabel
+            // 
+            this.SelectedPatientIDLabel.AutoSize = true;
+            this.SelectedPatientIDLabel.Location = new System.Drawing.Point(810, 12);
+            this.SelectedPatientIDLabel.Name = "SelectedPatientIDLabel";
+            this.SelectedPatientIDLabel.Size = new System.Drawing.Size(63, 13);
+            this.SelectedPatientIDLabel.TabIndex = 5;
+            this.SelectedPatientIDLabel.Text = "Patient ID:  ";
+            // 
+            // LogoutLink
+            // 
+            this.LogoutLink.AutoSize = true;
+            this.LogoutLink.Location = new System.Drawing.Point(1171, 74);
+            this.LogoutLink.Name = "LogoutLink";
+            this.LogoutLink.Size = new System.Drawing.Size(40, 13);
+            this.LogoutLink.TabIndex = 7;
+            this.LogoutLink.TabStop = true;
+            this.LogoutLink.Text = "Logout";
+            this.LogoutLink.Click += new System.EventHandler(this.LogoutLink_Click);
+            // 
+            // SelectPatientButton
+            // 
+            this.SelectPatientButton.Location = new System.Drawing.Point(57, 16);
+            this.SelectPatientButton.Name = "SelectPatientButton";
+            this.SelectPatientButton.Size = new System.Drawing.Size(203, 54);
+            this.SelectPatientButton.TabIndex = 9;
+            this.SelectPatientButton.Text = "Select Patient";
+            this.SelectPatientButton.UseVisualStyleBackColor = true;
+            this.SelectPatientButton.Click += new System.EventHandler(this.SelectPatientButton_Click);
+            // 
+            // EmployeeNameLabel
+            // 
+            this.EmployeeNameLabel.AutoSize = true;
+            this.EmployeeNameLabel.Location = new System.Drawing.Point(1008, 9);
+            this.EmployeeNameLabel.Name = "EmployeeNameLabel";
+            this.EmployeeNameLabel.Size = new System.Drawing.Size(87, 13);
+            this.EmployeeNameLabel.TabIndex = 10;
+            this.EmployeeNameLabel.Text = "Employee Name:";
+            // 
+            // SelectedPatientNameLabel
+            // 
+            this.SelectedPatientNameLabel.AutoSize = true;
+            this.SelectedPatientNameLabel.Location = new System.Drawing.Point(797, 38);
+            this.SelectedPatientNameLabel.Name = "SelectedPatientNameLabel";
+            this.SelectedPatientNameLabel.Size = new System.Drawing.Size(80, 13);
+            this.SelectedPatientNameLabel.TabIndex = 12;
+            this.SelectedPatientNameLabel.Text = "Patient Name:  ";
+            // 
+            // PatientIDLabel
+            // 
+            this.PatientIDLabel.AutoSize = true;
+            this.PatientIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PatientIDLabel.Location = new System.Drawing.Point(880, 9);
+            this.PatientIDLabel.MaximumSize = new System.Drawing.Size(120, 20);
+            this.PatientIDLabel.MinimumSize = new System.Drawing.Size(120, 20);
+            this.PatientIDLabel.Name = "PatientIDLabel";
+            this.PatientIDLabel.Size = new System.Drawing.Size(120, 20);
+            this.PatientIDLabel.TabIndex = 14;
+            this.PatientIDLabel.Text = "PATIENT ID #";
+            // 
+            // PatientNameLabel
+            // 
+            this.PatientNameLabel.AutoSize = true;
+            this.PatientNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PatientNameLabel.Location = new System.Drawing.Point(880, 35);
+            this.PatientNameLabel.MaximumSize = new System.Drawing.Size(120, 20);
+            this.PatientNameLabel.MinimumSize = new System.Drawing.Size(120, 20);
+            this.PatientNameLabel.Name = "PatientNameLabel";
+            this.PatientNameLabel.Size = new System.Drawing.Size(120, 20);
+            this.PatientNameLabel.TabIndex = 15;
+            this.PatientNameLabel.Text = "PATIENT NAME";
+            // 
+            // UserFullNameLabel
+            // 
+            this.UserFullNameLabel.AutoSize = true;
+            this.UserFullNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserFullNameLabel.Location = new System.Drawing.Point(1101, 9);
+            this.UserFullNameLabel.MaximumSize = new System.Drawing.Size(120, 20);
+            this.UserFullNameLabel.MinimumSize = new System.Drawing.Size(120, 20);
+            this.UserFullNameLabel.Name = "UserFullNameLabel";
+            this.UserFullNameLabel.Size = new System.Drawing.Size(120, 20);
+            this.UserFullNameLabel.TabIndex = 16;
+            this.UserFullNameLabel.Text = "EMPLOYEE NAME";
+            // 
+            // UserNameLabel
+            // 
+            this.UserNameLabel.AutoSize = true;
+            this.UserNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserNameLabel.Location = new System.Drawing.Point(1101, 35);
+            this.UserNameLabel.MaximumSize = new System.Drawing.Size(120, 20);
+            this.UserNameLabel.MinimumSize = new System.Drawing.Size(120, 20);
+            this.UserNameLabel.Name = "UserNameLabel";
+            this.UserNameLabel.Size = new System.Drawing.Size(120, 20);
+            this.UserNameLabel.TabIndex = 17;
+            this.UserNameLabel.Text = "USERNAME";
+            // 
             // NurseMainDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1223, 894);
-            this.Controls.Add(this.SelectedPatientNameTextBox);
+            this.ClientSize = new System.Drawing.Size(1223, 733);
+            this.Controls.Add(this.UserNameLabel);
+            this.Controls.Add(this.UserFullNameLabel);
+            this.Controls.Add(this.PatientNameLabel);
+            this.Controls.Add(this.PatientIDLabel);
             this.Controls.Add(this.SelectedPatientNameLabel);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.EmployeeNameLabel);
             this.Controls.Add(this.SelectPatientButton);
-            this.Controls.Add(this.searchUserControl2);
             this.Controls.Add(this.LogoutLink);
-            this.Controls.Add(this.SelectedPatientIDTextBox);
             this.Controls.Add(this.SelectedPatientIDLabel);
-            this.Controls.Add(this.LoggedInTextBox);
             this.Controls.Add(this.LoggedInAsLabel);
             this.Controls.Add(this.DashboardTabControl);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1239, 933);
-            this.MinimumSize = new System.Drawing.Size(1239, 933);
+            this.MaximumSize = new System.Drawing.Size(1239, 772);
+            this.MinimumSize = new System.Drawing.Size(1239, 772);
             this.Name = "NurseMainDashboard";
             this.Text = "Home";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Exit);
             this.DashboardTabControl.ResumeLayout(false);
+            this.SearchPatientTab.ResumeLayout(false);
             this.registerPatientTab.ResumeLayout(false);
             this.allPatientsTab.ResumeLayout(false);
             this.editPatientTab.ResumeLayout(false);
@@ -376,7 +400,7 @@ namespace Group3_ClinicDB.View
             this.EditApptTab.ResumeLayout(false);
             this.visitsTabPage.ResumeLayout(false);
             this.addVisitTabPage.ResumeLayout(false);
-            this.tabPage6.ResumeLayout(false);
+            this.EditVisitTab.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -390,16 +414,14 @@ namespace Group3_ClinicDB.View
         private System.Windows.Forms.TabPage EditApptTab;
         private System.Windows.Forms.TabPage visitsTabPage;
         private System.Windows.Forms.TabPage addVisitTabPage;
-        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.TabPage EditVisitTab;
         private System.Windows.Forms.TabPage allPatientsTab;
         private UserControls.AppointmentBookingUserControl appointmentBookingUserControl2;
         private UserControls.EditAppointmentUserControl editAppointmentUserControl1;
         private UserControls.AllVisitsUserControl allVisitsUserControl1;
         private UserControls.AddVisitUserControl addVisitUserControl1;
         private System.Windows.Forms.Label LoggedInAsLabel;
-        private System.Windows.Forms.TextBox LoggedInTextBox;
         private System.Windows.Forms.Label SelectedPatientIDLabel;
-        private System.Windows.Forms.TextBox SelectedPatientIDTextBox;
         private System.Windows.Forms.LinkLabel LogoutLink;
         private UserControls.RegisterPatientUserControl registerPatientUserControl1;
         private UserControls.UpdateVisitUserControl updateVisitUserControl1;
@@ -408,9 +430,12 @@ namespace Group3_ClinicDB.View
         private UserControls.SearchUserControl searchUserControl2;
         private System.Windows.Forms.Button SelectPatientButton;
         private UserControls.EditPatientUserControl editPatientUserControl1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox SelectedPatientNameTextBox;
+        private System.Windows.Forms.Label EmployeeNameLabel;
         private System.Windows.Forms.Label SelectedPatientNameLabel;
+        private System.Windows.Forms.TabPage SearchPatientTab;
+        private System.Windows.Forms.Label PatientIDLabel;
+        private System.Windows.Forms.Label PatientNameLabel;
+        private System.Windows.Forms.Label UserFullNameLabel;
+        private System.Windows.Forms.Label UserNameLabel;
     }
 }

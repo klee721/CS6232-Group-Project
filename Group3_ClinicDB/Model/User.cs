@@ -14,8 +14,6 @@ namespace Group3_ClinicDB.Model
 
         public string lastName { get; set; }
 
-        public string password { get; set; }
-
         public int adminID { get; set; }
 
         public int nurseID { get; set; }

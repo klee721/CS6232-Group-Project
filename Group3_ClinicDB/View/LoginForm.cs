@@ -17,10 +17,6 @@ namespace Group3_ClinicDB
         {
             this.loginController = new LoginController();
             this.userList = new List<User>();
-            this.userList = loginController.GetAllUsers();
-
-         
-
             InitializeComponent();
 
         }
@@ -30,9 +26,10 @@ namespace Group3_ClinicDB
             
             string enteredUser = this.UsernameTextBox.Text;
             string enteredPass = this.PasswordTextbox.Text;
-            if (this.userList.Exists(user => user.userName == enteredUser && user.password == enteredPass))
+            this.userList = this.loginController.GetUserByNameAndPassword(enteredUser, enteredPass);
+            if (this.userList.Count == 1)
             {
-                User newUser = this.userList.Find(user => user.userName == enteredUser);
+                User newUser = this.userList[0];
                 if (this.nurseMainDashboard == null)
                 {
                     this.nurseMainDashboard = new NurseMainDashboard(newUser, this);
@@ -45,9 +42,9 @@ namespace Group3_ClinicDB
                     this.nurseMainDashboard.Show();
                     this.Hide();
                 }
-            }
-            else
-            {
+            }else if (this.userList.Count > 1){
+                MessageBox.Show("Duplicate users found. Please contact your system adminstrator ", "Login Failed");
+            }else{
                 MessageBox.Show("Username or Password is incorrect", "Login Failed");
             }
 

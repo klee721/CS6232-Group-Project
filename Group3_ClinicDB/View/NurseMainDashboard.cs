@@ -13,9 +13,11 @@ namespace Group3_ClinicDB.View
         public NurseMainDashboard(User user, LoginForm loginform)
         {
             InitializeComponent();
-            this.LoggedInTextBox.Text = user.userName;
+            this.UserNameLabel.Text = user.userName;
+            this.UserFullNameLabel.Text = "";
             this.loginform = loginform;
-            this.SelectedPatientIDTextBox.Text = "";
+            this.PatientIDLabel.Text = "";
+            this.PatientNameLabel.Text = "";
         }
 
 
@@ -24,8 +26,9 @@ namespace Group3_ClinicDB.View
             if (this.searchUserControl2.GetPatient() != null)
             {
                 this.patient = this.searchUserControl2.GetPatient();
-                this.SelectedPatientIDTextBox.Text = this.patient.Id.ToString();
-                this.SelectedPatientNameTextBox.Text = this.patient.FirstName + " " + this.patient.LastName;
+                this.PatientIDLabel.Text = this.patient.Id.ToString();
+                this.PatientNameLabel.Text = this.patient.FirstName + " " + this.patient.LastName;
+               
 
                 this.appointmentBookingUserControl2.GetPatient(this.patient);
                 this.editAppointmentUserControl1.GetPatient(this.patient);
@@ -47,8 +50,8 @@ namespace Group3_ClinicDB.View
             this.Hide();
             this.loginform.Show();
             this.patient = null;
-            this.SelectedPatientIDTextBox.Text = "";
-            this.SelectedPatientNameTextBox.Text = "";
+            this.PatientIDLabel.Text = "";
+            this.PatientNameLabel.Text = "";
             this.DisableModules();
 
         }
@@ -72,12 +75,17 @@ namespace Group3_ClinicDB.View
         public void ChangeUser(User newUser)
         {
             this.user = newUser;
-            this.LoggedInTextBox.Text = user.userName;
+            this.UserNameLabel.Text = user.userName;
         }
 
         private void Exit(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void NurseMainDashboard_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

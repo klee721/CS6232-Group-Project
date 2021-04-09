@@ -29,5 +29,10 @@ namespace Group3_ClinicDB.Controller
             return this.loginSource.GetAllUsers();
         }
 
+        public List<User> GetUserByNameAndPassword(string name, string password)
+        {
+            return this.loginSource.GetUserByNameAndPassword(name, password);
+        }
+
     }
 }
