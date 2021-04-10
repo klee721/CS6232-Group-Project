@@ -28,7 +28,7 @@ namespace Group3_ClinicDB.View
                 this.patient = this.searchUserControl2.GetPatient();
                 this.PatientIDLabel.Text = this.patient.Id.ToString();
                 this.PatientNameLabel.Text = this.patient.FirstName + " " + this.patient.LastName;
-               
+
 
                 this.appointmentBookingUserControl2.GetPatient(this.patient);
                 this.editAppointmentUserControl1.GetPatient(this.patient);
@@ -84,9 +84,5 @@ namespace Group3_ClinicDB.View
             Application.Exit();
         }
 
-        private void NurseMainDashboard_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

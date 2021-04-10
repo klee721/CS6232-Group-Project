@@ -1,7 +1,7 @@
 ﻿
 namespace Group3_ClinicDB.View
 {
-    partial class MainDashboard
+    partial class AdminMainDashboard
     {
         /// <summary>
         /// Required designer variable.
@@ -29,138 +29,126 @@ namespace Group3_ClinicDB.View
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.tabControl1.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
+            this.AdminTabControl = new System.Windows.Forms.TabControl();
+            this.AddUserTab = new System.Windows.Forms.TabPage();
+            this.EditUserTab = new System.Windows.Forms.TabPage();
+            this.ReportingTab = new System.Windows.Forms.TabPage();
+            this.UserNameLabel = new System.Windows.Forms.Label();
+            this.UserFullNameLabel = new System.Windows.Forms.Label();
+            this.EmployeeNameLabel = new System.Windows.Forms.Label();
+            this.LogoutLink = new System.Windows.Forms.LinkLabel();
+            this.LoggedInAsLabel = new System.Windows.Forms.Label();
+            this.AdminTabControl.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // AdminTabControl
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Controls.Add(this.tabPage6);
-            this.tabControl1.Controls.Add(this.tabPage7);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tabControl1.Location = new System.Drawing.Point(0, 27);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1223, 641);
-            this.tabControl1.TabIndex = 0;
+            this.AdminTabControl.Controls.Add(this.AddUserTab);
+            this.AdminTabControl.Controls.Add(this.EditUserTab);
+            this.AdminTabControl.Controls.Add(this.ReportingTab);
+            this.AdminTabControl.Location = new System.Drawing.Point(2, 91);
+            this.AdminTabControl.Name = "AdminTabControl";
+            this.AdminTabControl.SelectedIndex = 0;
+            this.AdminTabControl.Size = new System.Drawing.Size(1223, 641);
+            this.AdminTabControl.TabIndex = 1;
             // 
-            // tabPage1
+            // AddUserTab
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1215, 615);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.AddUserTab.Location = new System.Drawing.Point(4, 22);
+            this.AddUserTab.Name = "AddUserTab";
+            this.AddUserTab.Size = new System.Drawing.Size(1215, 615);
+            this.AddUserTab.TabIndex = 8;
+            this.AddUserTab.Text = "Add User";
+            this.AddUserTab.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // EditUserTab
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1215, 615);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.EditUserTab.Location = new System.Drawing.Point(4, 22);
+            this.EditUserTab.Name = "EditUserTab";
+            this.EditUserTab.Size = new System.Drawing.Size(1215, 615);
+            this.EditUserTab.TabIndex = 9;
+            this.EditUserTab.Text = "Edit User";
+            this.EditUserTab.UseVisualStyleBackColor = true;
             // 
-            // menuStrip1
+            // ReportingTab
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1223, 24);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
+            this.ReportingTab.Location = new System.Drawing.Point(4, 22);
+            this.ReportingTab.Name = "ReportingTab";
+            this.ReportingTab.Size = new System.Drawing.Size(1215, 615);
+            this.ReportingTab.TabIndex = 10;
+            this.ReportingTab.Text = "Reporting";
+            this.ReportingTab.UseVisualStyleBackColor = true;
             // 
-            // fileToolStripMenuItem
+            // UserNameLabel
             // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.logoutToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
+            this.UserNameLabel.AutoSize = true;
+            this.UserNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserNameLabel.Location = new System.Drawing.Point(1101, 32);
+            this.UserNameLabel.MaximumSize = new System.Drawing.Size(120, 20);
+            this.UserNameLabel.MinimumSize = new System.Drawing.Size(120, 20);
+            this.UserNameLabel.Name = "UserNameLabel";
+            this.UserNameLabel.Size = new System.Drawing.Size(120, 20);
+            this.UserNameLabel.TabIndex = 22;
+            this.UserNameLabel.Text = "USERNAME";
             // 
-            // logoutToolStripMenuItem
+            // UserFullNameLabel
             // 
-            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.logoutToolStripMenuItem.Text = "Logout";
+            this.UserFullNameLabel.AutoSize = true;
+            this.UserFullNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserFullNameLabel.Location = new System.Drawing.Point(1101, 6);
+            this.UserFullNameLabel.MaximumSize = new System.Drawing.Size(120, 20);
+            this.UserFullNameLabel.MinimumSize = new System.Drawing.Size(120, 20);
+            this.UserFullNameLabel.Name = "UserFullNameLabel";
+            this.UserFullNameLabel.Size = new System.Drawing.Size(120, 20);
+            this.UserFullNameLabel.TabIndex = 21;
+            this.UserFullNameLabel.Text = "EMPLOYEE NAME";
             // 
-            // tabPage3
+            // EmployeeNameLabel
             // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1215, 615);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.EmployeeNameLabel.AutoSize = true;
+            this.EmployeeNameLabel.Location = new System.Drawing.Point(1008, 6);
+            this.EmployeeNameLabel.Name = "EmployeeNameLabel";
+            this.EmployeeNameLabel.Size = new System.Drawing.Size(87, 13);
+            this.EmployeeNameLabel.TabIndex = 20;
+            this.EmployeeNameLabel.Text = "Employee Name:";
             // 
-            // tabPage4
+            // LogoutLink
             // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1215, 615);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "tabPage4";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.LogoutLink.AutoSize = true;
+            this.LogoutLink.Location = new System.Drawing.Point(1171, 71);
+            this.LogoutLink.Name = "LogoutLink";
+            this.LogoutLink.Size = new System.Drawing.Size(40, 13);
+            this.LogoutLink.TabIndex = 19;
+            this.LogoutLink.TabStop = true;
+            this.LogoutLink.Text = "Logout";
+            this.LogoutLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LogoutLink_LinkClicked);
             // 
-            // tabPage5
+            // LoggedInAsLabel
             // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(1215, 615);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "tabPage5";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            this.LoggedInAsLabel.AutoSize = true;
+            this.LoggedInAsLabel.Location = new System.Drawing.Point(1034, 35);
+            this.LoggedInAsLabel.Name = "LoggedInAsLabel";
+            this.LoggedInAsLabel.Size = new System.Drawing.Size(61, 13);
+            this.LoggedInAsLabel.TabIndex = 18;
+            this.LoggedInAsLabel.Text = "Username: ";
             // 
-            // tabPage6
-            // 
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1215, 615);
-            this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "tabPage6";
-            this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // tabPage7
-            // 
-            this.tabPage7.Location = new System.Drawing.Point(4, 22);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(1215, 615);
-            this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "tabPage7";
-            this.tabPage7.UseVisualStyleBackColor = true;
-            // 
-            // MainDashboard
+            // AdminMainDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1223, 668);
-            this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.menuStrip1);
-            this.Name = "MainDashboard";
-            this.Text = "Home";
-            this.tabControl1.ResumeLayout(false);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.ClientSize = new System.Drawing.Size(1223, 733);
+            this.Controls.Add(this.UserNameLabel);
+            this.Controls.Add(this.UserFullNameLabel);
+            this.Controls.Add(this.EmployeeNameLabel);
+            this.Controls.Add(this.LogoutLink);
+            this.Controls.Add(this.LoggedInAsLabel);
+            this.Controls.Add(this.AdminTabControl);
+            this.MaximumSize = new System.Drawing.Size(1239, 772);
+            this.MinimumSize = new System.Drawing.Size(1239, 772);
+            this.Name = "AdminMainDashboard";
+            this.Text = "Admin Home";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Exit);
+            this.AdminTabControl.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,16 +156,14 @@ namespace Group3_ClinicDB.View
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.TabPage tabPage7;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
+        private System.Windows.Forms.TabControl AdminTabControl;
+        private System.Windows.Forms.TabPage AddUserTab;
+        private System.Windows.Forms.TabPage EditUserTab;
+        private System.Windows.Forms.TabPage ReportingTab;
+        private System.Windows.Forms.Label UserNameLabel;
+        private System.Windows.Forms.Label UserFullNameLabel;
+        private System.Windows.Forms.Label EmployeeNameLabel;
+        private System.Windows.Forms.LinkLabel LogoutLink;
+        private System.Windows.Forms.Label LoggedInAsLabel;
     }
 }

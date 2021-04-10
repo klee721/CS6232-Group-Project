@@ -13,6 +13,7 @@ namespace Group3_ClinicDB
         LoginController loginController;
         PersonController personController;
         NurseMainDashboard nurseMainDashboard;
+        AdminMainDashboard adminMainDashboard;
 
         public LoginForm()
         {
@@ -28,24 +29,45 @@ namespace Group3_ClinicDB
             
             string enteredUser = this.UsernameTextBox.Text;
             string enteredPass = this.PasswordTextbox.Text;
+            this.PasswordTextbox.Text = "";
             this.userList = this.loginController.GetUserByNameAndPassword(enteredUser, enteredPass);
             if (this.userList.Count == 1)
             {
                 User newUser = this.userList[0];
                 newUser = this.personController.GetUserFullName(newUser);
-                Console.WriteLine(newUser.firstName + newUser.lastName);
-                if (this.nurseMainDashboard == null)
+               if (newUser.adminID != 0)
                 {
-                    this.nurseMainDashboard = new NurseMainDashboard(newUser, this);
-                    nurseMainDashboard.Show();
-                    this.Hide();
+                    if (this.adminMainDashboard == null)
+                    {
+                        this.adminMainDashboard = new AdminMainDashboard(newUser, this);
+                        adminMainDashboard.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        this.adminMainDashboard.ChangeUser(newUser);
+                        this.adminMainDashboard.Show();
+                        this.Hide();
+                    }
+
                 }
-                else
+
+               if (newUser.nurseID != 0)
                 {
-                    this.nurseMainDashboard.ChangeUser(newUser);
-                    this.nurseMainDashboard.Show();
-                    this.Hide();
+                    if (this.nurseMainDashboard == null)
+                    {
+                        this.nurseMainDashboard = new NurseMainDashboard(newUser, this);
+                        nurseMainDashboard.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        this.nurseMainDashboard.ChangeUser(newUser);
+                        this.nurseMainDashboard.Show();
+                        this.Hide();
+                    }
                 }
+
             }else if (this.userList.Count > 1){
                 MessageBox.Show("Duplicate users found. Please contact your system adminstrator ", "Login Failed");
             }else{

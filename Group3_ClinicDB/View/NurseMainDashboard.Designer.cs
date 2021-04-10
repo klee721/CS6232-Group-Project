@@ -391,6 +391,7 @@ namespace Group3_ClinicDB.View
             this.Name = "NurseMainDashboard";
             this.Text = "Home";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Exit);
+           
             this.DashboardTabControl.ResumeLayout(false);
             this.SearchPatientTab.ResumeLayout(false);
             this.registerPatientTab.ResumeLayout(false);

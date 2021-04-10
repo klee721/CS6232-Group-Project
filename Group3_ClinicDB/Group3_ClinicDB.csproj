@@ -172,6 +172,9 @@
     <EmbeddedResource Include="UserControls\RegisterPatientUserControl.resx">
       <DependentUpon>RegisterPatientUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\AdminMainDashboard.resx">
+      <DependentUpon>AdminMainDashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -184,9 +187,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\AdminMainDashboard.resx">
-      <DependentUpon>AdminMainDashboard.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\NurseMainDashboard.resx">
       <DependentUpon>NurseMainDashboard.cs</DependentUpon>
     </EmbeddedResource>
