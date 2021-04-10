@@ -35,6 +35,15 @@ namespace Group3_ClinicDB.Controller
             return this.loginSource.IsAdminAUser(id);
         }
 
+        public bool IsUsernameUnique(string username)
+        {
+           return this.loginSource.IsUsernameUnique(username);
+        }
+
+        public bool CreateNewUser(User user, string username, string password)
+        {
+            return this.loginSource.CreateNewUser(user, username, password);
+        }
 
     }
 }

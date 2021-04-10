@@ -40,8 +40,11 @@ namespace Group3_ClinicDB.UserControls
         private void LockCreateUser()
         {
             this.CreateUserButton.Enabled = false;
+            this.PasswordTextBox.Text = "";
             this.PasswordTextBox.Enabled = false;
+            this.UserNameTextBox.Text = "";
             this.UserNameTextBox.Enabled = false;
+            this.ConfirmPassTextbox.Text = "";
             this.ConfirmPassTextbox.Enabled = false;
         }
 
@@ -115,5 +118,48 @@ namespace Group3_ClinicDB.UserControls
             this.UserFullNameLabel.Text = "";
             this.LockCreateUser();
         }
+
+        private void CreateUserButton_Click(object sender, EventArgs e)
+        {
+            this.UserNameLabel.ForeColor = System.Drawing.Color.Black;
+            this.PasswordLabel.ForeColor = System.Drawing.Color.Black;
+            this.ConfirmPassLabel.ForeColor = System.Drawing.Color.Black;
+
+            if (this.UserNameTextBox.Text == "" || this.PasswordTextBox.Text == "")
+            {
+                MessageBox.Show("Please fill out all fields");
+                return;
+            }
+
+            if(this.PasswordTextBox.Text != this.ConfirmPassTextbox.Text)
+            {
+                MessageBox.Show("Password entries must match!");
+                this.PasswordLabel.ForeColor = System.Drawing.Color.Red;
+                this.ConfirmPassLabel.ForeColor = System.Drawing.Color.Red;
+                return;
+            }
+
+            if (!this.loginController.IsUsernameUnique(this.UserNameTextBox.Text))
+            {
+                MessageBox.Show("That username is already in use");
+                this.UserNameLabel.ForeColor = System.Drawing.Color.Red;
+                return;
+            }
+
+            if (this.loginController.CreateNewUser(storedUser, this.UserNameTextBox.Text, this.PasswordTextBox.Text))
+            {
+                MessageBox.Show("New user successfully created!");
+                this.ClearModule();
+            }
+            else
+            {
+                MessageBox.Show("Error! User was not created. Please check your information and contact your system Administrator.","",MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+
+
+
+        }
     }
-    }
+}

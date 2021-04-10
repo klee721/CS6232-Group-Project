@@ -31,6 +31,7 @@ namespace Group3_ClinicDB.View
         {
             this.AdminTabControl = new System.Windows.Forms.TabControl();
             this.AddUserTab = new System.Windows.Forms.TabPage();
+            this.addUserUserControl1 = new Group3_ClinicDB.UserControls.AddUserUserControl();
             this.EditUserTab = new System.Windows.Forms.TabPage();
             this.ReportingTab = new System.Windows.Forms.TabPage();
             this.UserNameLabel = new System.Windows.Forms.Label();
@@ -38,7 +39,6 @@ namespace Group3_ClinicDB.View
             this.EmployeeNameLabel = new System.Windows.Forms.Label();
             this.LogoutLink = new System.Windows.Forms.LinkLabel();
             this.LoggedInAsLabel = new System.Windows.Forms.Label();
-            this.addUserUserControl1 = new Group3_ClinicDB.UserControls.AddUserUserControl();
             this.AdminTabControl.SuspendLayout();
             this.AddUserTab.SuspendLayout();
             this.SuspendLayout();
@@ -48,7 +48,7 @@ namespace Group3_ClinicDB.View
             this.AdminTabControl.Controls.Add(this.AddUserTab);
             this.AdminTabControl.Controls.Add(this.EditUserTab);
             this.AdminTabControl.Controls.Add(this.ReportingTab);
-            this.AdminTabControl.Location = new System.Drawing.Point(2, 91);
+            this.AdminTabControl.Location = new System.Drawing.Point(-2, 87);
             this.AdminTabControl.Name = "AdminTabControl";
             this.AdminTabControl.SelectedIndex = 0;
             this.AdminTabControl.Size = new System.Drawing.Size(1223, 641);
@@ -63,6 +63,15 @@ namespace Group3_ClinicDB.View
             this.AddUserTab.TabIndex = 8;
             this.AddUserTab.Text = "Add User";
             this.AddUserTab.UseVisualStyleBackColor = true;
+            // 
+            // addUserUserControl1
+            // 
+            this.addUserUserControl1.Location = new System.Drawing.Point(0, 0);
+            this.addUserUserControl1.MaximumSize = new System.Drawing.Size(1215, 615);
+            this.addUserUserControl1.MinimumSize = new System.Drawing.Size(1215, 615);
+            this.addUserUserControl1.Name = "addUserUserControl1";
+            this.addUserUserControl1.Size = new System.Drawing.Size(1215, 615);
+            this.addUserUserControl1.TabIndex = 0;
             // 
             // EditUserTab
             // 
@@ -134,15 +143,6 @@ namespace Group3_ClinicDB.View
             this.LoggedInAsLabel.Size = new System.Drawing.Size(61, 13);
             this.LoggedInAsLabel.TabIndex = 18;
             this.LoggedInAsLabel.Text = "Username: ";
-            // 
-            // addUserUserControl1
-            // 
-            this.addUserUserControl1.Location = new System.Drawing.Point(0, 0);
-            this.addUserUserControl1.MaximumSize = new System.Drawing.Size(1215, 615);
-            this.addUserUserControl1.MinimumSize = new System.Drawing.Size(1215, 615);
-            this.addUserUserControl1.Name = "addUserUserControl1";
-            this.addUserUserControl1.Size = new System.Drawing.Size(1215, 615);
-            this.addUserUserControl1.TabIndex = 0;
             // 
             // AdminMainDashboard
             // 

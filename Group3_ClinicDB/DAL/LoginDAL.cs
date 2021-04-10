@@ -78,6 +78,68 @@ namespace Group3_ClinicDB.DAL
 
             return userList;
         }
+
+
+        public bool CreateNewUser(User user, string username, string password)
+        {
+            int idNumber;
+
+            if (user.adminID != 0)
+            {
+                idNumber = user.adminID;
+
+                string insertStatement =
+                "INSERT INTO login " +
+                    "(userName, password, admin_id) " +
+                "VALUES (@username, @password, @adminID)";
+
+                using (SqlConnection connection = ClinicDBConnection.GetConnection())
+                {
+                    connection.Open();
+
+                    using (SqlCommand insertCommand = new SqlCommand(insertStatement, connection))
+                    {
+                        insertCommand.Parameters.AddWithValue("@username", username);
+                        insertCommand.Parameters.AddWithValue("@password", password);
+                        insertCommand.Parameters.AddWithValue("@adminID", idNumber);
+
+                        insertCommand.ExecuteNonQuery();
+                    }
+                }
+
+                return true;
+            }
+            if (user.nurseID != 0)
+            {
+                idNumber = user.nurseID;
+
+                string insertStatement =
+                "INSERT INTO login " +
+                    "(userName, password, nurse_id) " +
+                "VALUES (@username, @password, @nurseID)";
+
+                using (SqlConnection connection = ClinicDBConnection.GetConnection())
+                {
+                    connection.Open();
+
+                    using (SqlCommand insertCommand = new SqlCommand(insertStatement, connection))
+                    {
+                        insertCommand.Parameters.AddWithValue("@username", username);
+                        insertCommand.Parameters.AddWithValue("@password", password);
+                        insertCommand.Parameters.AddWithValue("@nurseID", idNumber);
+
+                        insertCommand.ExecuteNonQuery();
+                    }
+                }
+
+                return true;   
+            }
+
+            return false;
+        }
+
+
+
         /// <summary>
         /// Checks the table of Users to see if a given employee is already registered or not
         /// </summary>
@@ -141,6 +203,40 @@ namespace Group3_ClinicDB.DAL
                         else
                         {
                             return false;
+                        }
+                    }
+                }
+            }
+
+        }
+        /// <summary>
+        /// Public that checks is a proposed username is unique to the DB
+        /// </summary>
+        /// <param name="username">a string the user is planning to use as a username</param>
+        /// <returns>false if the name is NOT unique and can't be used, true if its unique and can be used</returns>
+        public bool IsUsernameUnique(string username)
+        {
+            string selectStatement = "SELECT userName FROM login " +
+                "WHERE userName = @username";
+
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@username", username);
+
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return false;
+                        }
+                        else
+                        {
+                            return true;
                         }
                     }
                 }

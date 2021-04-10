@@ -32,15 +32,15 @@ namespace Group3_ClinicDB.UserControls
             this.UserNameLabel = new System.Windows.Forms.Label();
             this.UserNameTextBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.PasswordTextBox = new System.Windows.Forms.TextBox();
-            this.PasswordLabel = new System.Windows.Forms.Label();
-            this.NurseRadio = new System.Windows.Forms.RadioButton();
-            this.AdminRadio = new System.Windows.Forms.RadioButton();
-            this.EmployeeRoleLabel = new System.Windows.Forms.Label();
-            this.FindEmployeeLabel = new System.Windows.Forms.Label();
+            this.SearchButton = new System.Windows.Forms.Button();
             this.EmployeeIDTextBox = new System.Windows.Forms.TextBox();
             this.EmployeeIDLabel = new System.Windows.Forms.Label();
-            this.SearchButton = new System.Windows.Forms.Button();
+            this.FindEmployeeLabel = new System.Windows.Forms.Label();
+            this.EmployeeRoleLabel = new System.Windows.Forms.Label();
+            this.AdminRadio = new System.Windows.Forms.RadioButton();
+            this.NurseRadio = new System.Windows.Forms.RadioButton();
+            this.PasswordTextBox = new System.Windows.Forms.TextBox();
+            this.PasswordLabel = new System.Windows.Forms.Label();
             this.UserFullNameLabel = new System.Windows.Forms.Label();
             this.EmployeeNameLabel = new System.Windows.Forms.Label();
             this.CreateUserButton = new System.Windows.Forms.Button();
@@ -81,65 +81,15 @@ namespace Group3_ClinicDB.UserControls
             this.panel1.Size = new System.Drawing.Size(1174, 291);
             this.panel1.TabIndex = 2;
             // 
-            // PasswordTextBox
+            // SearchButton
             // 
-            this.PasswordTextBox.Location = new System.Drawing.Point(151, 443);
-            this.PasswordTextBox.Name = "PasswordTextBox";
-            this.PasswordTextBox.PasswordChar = '*';
-            this.PasswordTextBox.Size = new System.Drawing.Size(279, 20);
-            this.PasswordTextBox.TabIndex = 4;
-            // 
-            // PasswordLabel
-            // 
-            this.PasswordLabel.AutoSize = true;
-            this.PasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PasswordLabel.Location = new System.Drawing.Point(14, 443);
-            this.PasswordLabel.Name = "PasswordLabel";
-            this.PasswordLabel.Size = new System.Drawing.Size(64, 15);
-            this.PasswordLabel.TabIndex = 3;
-            this.PasswordLabel.Text = "Password:";
-            // 
-            // NurseRadio
-            // 
-            this.NurseRadio.AutoSize = true;
-            this.NurseRadio.Location = new System.Drawing.Point(131, 80);
-            this.NurseRadio.Name = "NurseRadio";
-            this.NurseRadio.Size = new System.Drawing.Size(53, 17);
-            this.NurseRadio.TabIndex = 0;
-            this.NurseRadio.TabStop = true;
-            this.NurseRadio.Text = "Nurse";
-            this.NurseRadio.UseVisualStyleBackColor = true;
-            // 
-            // AdminRadio
-            // 
-            this.AdminRadio.AutoSize = true;
-            this.AdminRadio.Location = new System.Drawing.Point(200, 80);
-            this.AdminRadio.Name = "AdminRadio";
-            this.AdminRadio.Size = new System.Drawing.Size(85, 17);
-            this.AdminRadio.TabIndex = 1;
-            this.AdminRadio.TabStop = true;
-            this.AdminRadio.Text = "Administrator";
-            this.AdminRadio.UseVisualStyleBackColor = true;
-            // 
-            // EmployeeRoleLabel
-            // 
-            this.EmployeeRoleLabel.AutoSize = true;
-            this.EmployeeRoleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EmployeeRoleLabel.Location = new System.Drawing.Point(17, 82);
-            this.EmployeeRoleLabel.Name = "EmployeeRoleLabel";
-            this.EmployeeRoleLabel.Size = new System.Drawing.Size(94, 15);
-            this.EmployeeRoleLabel.TabIndex = 2;
-            this.EmployeeRoleLabel.Text = "Employee Role:";
-            // 
-            // FindEmployeeLabel
-            // 
-            this.FindEmployeeLabel.AutoSize = true;
-            this.FindEmployeeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FindEmployeeLabel.Location = new System.Drawing.Point(449, 12);
-            this.FindEmployeeLabel.Name = "FindEmployeeLabel";
-            this.FindEmployeeLabel.Size = new System.Drawing.Size(181, 20);
-            this.FindEmployeeLabel.TabIndex = 3;
-            this.FindEmployeeLabel.Text = "Search For Employee";
+            this.SearchButton.Location = new System.Drawing.Point(20, 232);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Size = new System.Drawing.Size(115, 23);
+            this.SearchButton.TabIndex = 6;
+            this.SearchButton.Text = "Search";
+            this.SearchButton.UseVisualStyleBackColor = true;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // EmployeeIDTextBox
             // 
@@ -158,15 +108,65 @@ namespace Group3_ClinicDB.UserControls
             this.EmployeeIDLabel.TabIndex = 4;
             this.EmployeeIDLabel.Text = "Employee ID:";
             // 
-            // SearchButton
+            // FindEmployeeLabel
             // 
-            this.SearchButton.Location = new System.Drawing.Point(20, 232);
-            this.SearchButton.Name = "SearchButton";
-            this.SearchButton.Size = new System.Drawing.Size(115, 23);
-            this.SearchButton.TabIndex = 6;
-            this.SearchButton.Text = "Search";
-            this.SearchButton.UseVisualStyleBackColor = true;
-            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
+            this.FindEmployeeLabel.AutoSize = true;
+            this.FindEmployeeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FindEmployeeLabel.Location = new System.Drawing.Point(449, 12);
+            this.FindEmployeeLabel.Name = "FindEmployeeLabel";
+            this.FindEmployeeLabel.Size = new System.Drawing.Size(181, 20);
+            this.FindEmployeeLabel.TabIndex = 3;
+            this.FindEmployeeLabel.Text = "Search For Employee";
+            // 
+            // EmployeeRoleLabel
+            // 
+            this.EmployeeRoleLabel.AutoSize = true;
+            this.EmployeeRoleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmployeeRoleLabel.Location = new System.Drawing.Point(17, 82);
+            this.EmployeeRoleLabel.Name = "EmployeeRoleLabel";
+            this.EmployeeRoleLabel.Size = new System.Drawing.Size(94, 15);
+            this.EmployeeRoleLabel.TabIndex = 2;
+            this.EmployeeRoleLabel.Text = "Employee Role:";
+            // 
+            // AdminRadio
+            // 
+            this.AdminRadio.AutoSize = true;
+            this.AdminRadio.Location = new System.Drawing.Point(200, 80);
+            this.AdminRadio.Name = "AdminRadio";
+            this.AdminRadio.Size = new System.Drawing.Size(85, 17);
+            this.AdminRadio.TabIndex = 1;
+            this.AdminRadio.TabStop = true;
+            this.AdminRadio.Text = "Administrator";
+            this.AdminRadio.UseVisualStyleBackColor = true;
+            // 
+            // NurseRadio
+            // 
+            this.NurseRadio.AutoSize = true;
+            this.NurseRadio.Location = new System.Drawing.Point(131, 80);
+            this.NurseRadio.Name = "NurseRadio";
+            this.NurseRadio.Size = new System.Drawing.Size(53, 17);
+            this.NurseRadio.TabIndex = 0;
+            this.NurseRadio.TabStop = true;
+            this.NurseRadio.Text = "Nurse";
+            this.NurseRadio.UseVisualStyleBackColor = true;
+            // 
+            // PasswordTextBox
+            // 
+            this.PasswordTextBox.Location = new System.Drawing.Point(151, 443);
+            this.PasswordTextBox.Name = "PasswordTextBox";
+            this.PasswordTextBox.PasswordChar = '*';
+            this.PasswordTextBox.Size = new System.Drawing.Size(279, 20);
+            this.PasswordTextBox.TabIndex = 4;
+            // 
+            // PasswordLabel
+            // 
+            this.PasswordLabel.AutoSize = true;
+            this.PasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PasswordLabel.Location = new System.Drawing.Point(14, 443);
+            this.PasswordLabel.Name = "PasswordLabel";
+            this.PasswordLabel.Size = new System.Drawing.Size(64, 15);
+            this.PasswordLabel.TabIndex = 3;
+            this.PasswordLabel.Text = "Password:";
             // 
             // UserFullNameLabel
             // 
@@ -197,6 +197,7 @@ namespace Group3_ClinicDB.UserControls
             this.CreateUserButton.TabIndex = 19;
             this.CreateUserButton.Text = "Create User";
             this.CreateUserButton.UseVisualStyleBackColor = true;
+            this.CreateUserButton.Click += new System.EventHandler(this.CreateUserButton_Click);
             // 
             // ConfirmPassTextbox
             // 
