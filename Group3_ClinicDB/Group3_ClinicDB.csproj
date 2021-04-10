@@ -33,8 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,8 +47,10 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\AdminController.cs" />
     <Compile Include="Controller\AppointmentController.cs" />
     <Compile Include="Controller\DoctorController.cs" />
     <Compile Include="Controller\LoginController.cs" />
@@ -54,6 +59,7 @@
     <Compile Include="Controller\PersonController.cs" />
     <Compile Include="Controller\StateController.cs" />
     <Compile Include="Controller\VisitsController.cs" />
+    <Compile Include="DAL\AdminDAL.cs" />
     <Compile Include="DAL\AppointmentsDAL.cs" />
     <Compile Include="DAL\ClinicDBConnection.cs" />
     <Compile Include="DAL\DoctorDAL.cs" />
@@ -71,6 +77,12 @@
     <Compile Include="Model\State.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\Visits.cs" />
+    <Compile Include="UserControls\AddUserUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AddUserUserControl.Designer.cs">
+      <DependentUpon>AddUserUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\AllPatientUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -145,6 +157,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="UserControls\AddUserUserControl.resx">
+      <DependentUpon>AddUserUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AllPatientUserControl.resx">
       <DependentUpon>AllPatientUserControl.cs</DependentUpon>
     </EmbeddedResource>

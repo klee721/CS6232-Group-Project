@@ -25,5 +25,16 @@ namespace Group3_ClinicDB.Controller
             return this.loginSource.GetUserByNameAndPassword(name, password);
         }
 
+        public bool IsNurseAUser(int id)
+        {
+            return this.loginSource.IsNurseAUser(id);
+        }
+
+        public bool IsAdminAUser(int id)
+        {
+            return this.loginSource.IsAdminAUser(id);
+        }
+
+
     }
 }

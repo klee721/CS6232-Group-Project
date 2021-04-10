@@ -37,6 +37,7 @@ namespace Group3_ClinicDB.View
             this.Hide();
             this.loginform.Show();
             this.patient = null;
+            this.addUserUserControl1.ClearModule();
         }
 
         public void ChangeUser(User newUser)

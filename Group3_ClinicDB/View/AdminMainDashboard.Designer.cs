@@ -38,7 +38,9 @@ namespace Group3_ClinicDB.View
             this.EmployeeNameLabel = new System.Windows.Forms.Label();
             this.LogoutLink = new System.Windows.Forms.LinkLabel();
             this.LoggedInAsLabel = new System.Windows.Forms.Label();
+            this.addUserUserControl1 = new Group3_ClinicDB.UserControls.AddUserUserControl();
             this.AdminTabControl.SuspendLayout();
+            this.AddUserTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // AdminTabControl
@@ -54,6 +56,7 @@ namespace Group3_ClinicDB.View
             // 
             // AddUserTab
             // 
+            this.AddUserTab.Controls.Add(this.addUserUserControl1);
             this.AddUserTab.Location = new System.Drawing.Point(4, 22);
             this.AddUserTab.Name = "AddUserTab";
             this.AddUserTab.Size = new System.Drawing.Size(1215, 615);
@@ -132,6 +135,15 @@ namespace Group3_ClinicDB.View
             this.LoggedInAsLabel.TabIndex = 18;
             this.LoggedInAsLabel.Text = "Username: ";
             // 
+            // addUserUserControl1
+            // 
+            this.addUserUserControl1.Location = new System.Drawing.Point(0, 0);
+            this.addUserUserControl1.MaximumSize = new System.Drawing.Size(1215, 615);
+            this.addUserUserControl1.MinimumSize = new System.Drawing.Size(1215, 615);
+            this.addUserUserControl1.Name = "addUserUserControl1";
+            this.addUserUserControl1.Size = new System.Drawing.Size(1215, 615);
+            this.addUserUserControl1.TabIndex = 0;
+            // 
             // AdminMainDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -149,6 +161,7 @@ namespace Group3_ClinicDB.View
             this.Text = "Admin Home";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Exit);
             this.AdminTabControl.ResumeLayout(false);
+            this.AddUserTab.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -165,5 +178,6 @@ namespace Group3_ClinicDB.View
         private System.Windows.Forms.Label EmployeeNameLabel;
         private System.Windows.Forms.LinkLabel LogoutLink;
         private System.Windows.Forms.Label LoggedInAsLabel;
+        private UserControls.AddUserUserControl addUserUserControl1;
     }
 }

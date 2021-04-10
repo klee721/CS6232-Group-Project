@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Group3_ClinicDB.DAL;
 using Group3_ClinicDB.Model;
 
@@ -26,5 +23,16 @@ namespace Group3_ClinicDB.Controller
             return this.NurseSource.GetAllNurses();
 
         }
+
+        /// <summary>
+        /// Method to get the persons_id of a user based on their employee (nurse) id number
+        /// </summary>
+        /// <param name="id">nurse ID of the user we need more info for</param>
+        /// <returns>the persons ID for the employee</returns>
+        public int GetNurseByID(int id)
+        {
+            return this.NurseSource.GetNurseByID(id);
+        }
+
     }
 }
