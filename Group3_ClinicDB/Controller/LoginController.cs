@@ -20,15 +20,6 @@ namespace Group3_ClinicDB.Controller
             this.loginSource = new LoginDAL();
         }
 
-        /// <summary>
-        /// Returns the result of the LoginDALs GetAllUsers method
-        /// </summary>
-        /// <returns>a list of all Users</returns>
-        public List<User> GetAllUsers()
-        {
-            return this.loginSource.GetAllUsers();
-        }
-
         public List<User> GetUserByNameAndPassword(string name, string password)
         {
             return this.loginSource.GetUserByNameAndPassword(name, password);
