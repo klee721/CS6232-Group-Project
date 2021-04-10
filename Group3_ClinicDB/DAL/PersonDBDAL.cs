@@ -217,5 +217,79 @@ namespace Group3_ClinicDB.DAL
                 }
             }
         }
+        /// <summary>
+        /// Public method to retrieve a User's first and last name and store it in a User object
+        /// </summary>
+        /// <param name="user">a User object that may only contain a nurseID or an adminID</param>
+        /// <returns>the same user object with the first and last name updated </returns>
+        public User GetUserFullName(User user)
+        {
+            User updatedUser = user;
+
+            if (updatedUser.adminID != 0)
+            {
+                string selectStatement = "SELECT firstName, lastName FROM persons AS p " +
+                    "INNER JOIN clinicadmins as c " + 
+                    "ON p.id = c.persons_id " +
+                    "WHERE c.id = @id";
+
+                using (SqlConnection connection = ClinicDBConnection.GetConnection())
+                {
+                    connection.Open();
+
+                    using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                    {
+                        selectCommand.Parameters.AddWithValue("@id", updatedUser.adminID);
+
+                        using (SqlDataReader reader = selectCommand.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                updatedUser.firstName = reader["firstName"].ToString();
+                                updatedUser.lastName = reader["lastName"].ToString();
+
+                            }
+                        }
+                    }
+                }
+
+                return updatedUser;
+            }
+
+            if (updatedUser.nurseID != 0)
+            {
+                string selectStatement = "SELECT firstName, lastName FROM persons AS p " +
+                    "INNER JOIN nurses as n " +
+                    "ON p.id = n.persons_id " +
+                    "WHERE n.id = @id";
+
+                using (SqlConnection connection = ClinicDBConnection.GetConnection())
+                {
+                    connection.Open();
+
+                    using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                    {
+
+                        selectCommand.Parameters.AddWithValue("@id", updatedUser.nurseID);
+
+                        using (SqlDataReader reader = selectCommand.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                updatedUser.firstName = reader["firstName"].ToString();
+                                updatedUser.lastName = reader["lastName"].ToString();
+
+                            }
+                        }
+                    }
+                }
+
+
+                return updatedUser;
+            }
+
+            return updatedUser;
+        }
+
     }
 }

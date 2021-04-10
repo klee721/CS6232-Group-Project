@@ -14,7 +14,7 @@ namespace Group3_ClinicDB.View
         {
             InitializeComponent();
             this.UserNameLabel.Text = user.userName;
-            this.UserFullNameLabel.Text = "";
+            this.UserFullNameLabel.Text = user.firstName + " " + user.lastName;
             this.loginform = loginform;
             this.PatientIDLabel.Text = "";
             this.PatientNameLabel.Text = "";
@@ -76,6 +76,7 @@ namespace Group3_ClinicDB.View
         {
             this.user = newUser;
             this.UserNameLabel.Text = user.userName;
+            this.UserFullNameLabel.Text = user.firstName + " " + user.lastName;
         }
 
         private void Exit(object sender, FormClosedEventArgs e)

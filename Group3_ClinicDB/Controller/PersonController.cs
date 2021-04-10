@@ -74,5 +74,11 @@ namespace Group3_ClinicDB.Controller
 
             return this.personsDBSource.UpdatePerson(oldPatient, newPatient);
         }
+
+        public User GetUserFullName(User user)
+        {
+            return this.personsDBSource.GetUserFullName(user);
+        }
+
     }
 }

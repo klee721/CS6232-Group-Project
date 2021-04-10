@@ -16,7 +16,12 @@ namespace Group3_ClinicDB.DAL
             List<User> userList = new List<User>();
 
             string selectStatement = "SELECT userName, password, admin_id, nurse_id, doctor_id, patient_id from login";
-             
+
+            int adminID;
+            int nurseID;
+            int doctorID;
+            int patientID;
+
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
             {
                 connection.Open();
@@ -26,27 +31,31 @@ namespace Group3_ClinicDB.DAL
 
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
+                        
+
                         while (reader.Read())
                         {
+                            int adminIDOrd = reader.GetOrdinal("admin_id");
+                            int nurseIDOrd = reader.GetOrdinal("nurse_id");
+                            int doctorIDOrd = reader.GetOrdinal("doctor_id");
+                            int patientIDOrd = reader.GetOrdinal("patient_id");
+
+
+
                             User user = new User();
                             user.userName = reader["userName"].ToString();
-                            if (reader["admin_id"].ToString() == "null")
-                            {
-                                user.adminID = (int)reader["admin_id"];
-                            }
-                            if (reader["nurse_id"].ToString() == "null")
-                            {
-                                user.nurseID = (int)reader["nurse_id"];
-                            }
-                            if (reader["doctor_id"].ToString() == "null")
-                            {
-                                user.doctorID = (int)reader["doctor_id"];
-                            }
-                            if (reader["patient_id"].ToString() == "null")
-                            {
-                                user.patientID = (int)reader["patient_id"];
-                            }
-                        
+                            adminID = reader.GetInt32(adminIDOrd);
+                            nurseID = reader.GetInt32(nurseIDOrd);
+                            doctorID = reader.GetInt32(doctorIDOrd);
+                            patientID = reader.GetInt32(patientIDOrd);
+
+
+                            user.adminID = adminID;
+                            user.nurseID = nurseID;
+                            user.doctorID = doctorID;
+                            user.patientID = patientID;
+
+                          
                             userList.Add(user);
                         }
                     }
@@ -60,8 +69,9 @@ namespace Group3_ClinicDB.DAL
         {
             List<User> userList = new List<User>();
 
-            string selectStatement = "SELECT userName, admin_id, nurse_id, doctor_id, patient_id from login " +
+            string selectStatement = "SELECT userName, password, admin_id, nurse_id, doctor_id, patient_id from login " +
                 "WHERE userName = @name AND password = @password";
+
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
             {
@@ -76,24 +86,41 @@ namespace Group3_ClinicDB.DAL
                     {
                         while (reader.Read())
                         {
+                            int adminIDOrd = reader.GetOrdinal("admin_id");
+                            int nurseIDOrd = reader.GetOrdinal("nurse_id");
+                            int doctorIDOrd = reader.GetOrdinal("doctor_id");
+                            int patientIDOrd = reader.GetOrdinal("patient_id");
+
+
+
                             User user = new User();
                             user.userName = reader["userName"].ToString();
-                            if (reader["admin_id"].ToString() == "null")
+                            if (!reader.IsDBNull(reader.GetOrdinal("admin_id")))
                             {
-                                user.adminID = (int)reader["admin_id"];
+                                user.adminID = reader.GetInt32(adminIDOrd);
+                                
                             }
-                            if (reader["nurse_id"].ToString() == "null")
+                            if (!reader.IsDBNull(reader.GetOrdinal("nurse_id")))
+                                {
+                                user.nurseID = reader.GetInt32(nurseIDOrd);
+                               
+                            }
+                            if (!reader.IsDBNull(reader.GetOrdinal("doctor_id")))
                             {
-                                user.nurseID = (int)reader["nurse_id"];
+                                user.doctorID = reader.GetInt32(doctorIDOrd);
+                                 
                             }
-                            if (reader["doctor_id"].ToString() == "null")
+                            if (!reader.IsDBNull(reader.GetOrdinal("patient_id")))
                             {
-                                user.doctorID = (int)reader["doctor_id"];
+                                user.patientID = reader.GetInt32(patientIDOrd);
+                                
                             }
-                            if (reader["patient_id"].ToString() == "null")
-                            {
-                                user.patientID = (int)reader["patient_id"];
-                            }
+
+                            
+                            
+                            
+                            
+
 
                             userList.Add(user);
                         }

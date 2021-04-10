@@ -11,11 +11,13 @@ namespace Group3_ClinicDB
     {
         List<User> userList;
         LoginController loginController;
+        PersonController personController;
         NurseMainDashboard nurseMainDashboard;
 
         public LoginForm()
         {
             this.loginController = new LoginController();
+            this.personController = new PersonController();
             this.userList = new List<User>();
             InitializeComponent();
 
@@ -30,6 +32,8 @@ namespace Group3_ClinicDB
             if (this.userList.Count == 1)
             {
                 User newUser = this.userList[0];
+                newUser = this.personController.GetUserFullName(newUser);
+                Console.WriteLine(newUser.firstName + newUser.lastName);
                 if (this.nurseMainDashboard == null)
                 {
                     this.nurseMainDashboard = new NurseMainDashboard(newUser, this);
