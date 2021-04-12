@@ -103,8 +103,8 @@ namespace Group3_ClinicDB.DAL
 
             }
 
-            string insertStatement = "INSERT INTO labtests "
-                + "VALUES (@patientID, @testCode, @orderDateTime)";
+            string insertStatement = "INSERT INTO labtests (patientId ,testCode,orderDateTime, normal) "
+                + "VALUES (@patientID, @testCode, @orderDateTime, @normal)";
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
             {
@@ -115,6 +115,7 @@ namespace Group3_ClinicDB.DAL
                     insertCommand.Parameters.AddWithValue("@patientID", labTest.PatientID);
                     insertCommand.Parameters.AddWithValue("@orderDateTime", labTest.OrderDateTime);
                     insertCommand.Parameters.AddWithValue("@testCode", labTest.TestCode);
+                    insertCommand.Parameters.AddWithValue("@normal", "Y"); 
                     insertCommand.ExecuteNonQuery();
 
                 }
