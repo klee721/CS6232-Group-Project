@@ -57,17 +57,63 @@ namespace Group3_ClinicDB.UserControls
                 MessageBox.Show("Please select test code", "Test Required");
                 return;
             }
+            if (string.IsNullOrEmpty(this.descriptionLabel.Text.ToString()))
+            {
+                MessageBox.Show("Test code is required.", "Error!");
+                return;
+            }
 
-            DateTime newTestTime = DateTime.Now.Date;
+            if (string.IsNullOrEmpty(this.testCodecomboBox.SelectedValue.ToString()))
+            {
+                MessageBox.Show("Test code is required.", "Error!");
+                return;
+            }
+
+            DateTime newTestTime = DateTime.Now;
             LabTest labTest = new LabTest();
             labTest.PatientID = this.patient.Id;
             labTest.TestCode = this.test.TestCode;
             labTest.OrderDateTime = newTestTime;
 
-            this.labTestController.OrderLabTest(labTest);
+            
+            if (this.labTestController.OrderLabTest(labTest))
+            {
+
+                this.confirmLabel.Text = "Lab test ordered successfully";
+                this.Reset();
+            }
+            else
+            {
+                MessageBox.Show("Lab test is not ordered");
+            }
+
 
         }
 
+        /// <summary>
+        /// Method to reset all values
+        /// </summary>
+        /// 
+        private void Reset()
+        {
+            this.testCodecomboBox.SelectedIndex = 0; 
+            this.testNameLabel.Text = "";
+            this.descriptionLabel.Text = "";
+             this.confirmLabel.Text = "";
+            //this.testCodecomboBox.Refresh();
+            //this.RefreshTests();
+            
+        }
+
+        /// <summary>
+        /// Method for clear button
+        /// </summary>
+        /// 
+        private void ClearButton_Click(object sender, EventArgs e)
+        {
+            this.Reset();
+            this.confirmLabel.Text = "";
+        }
 
         /// <summary>
         /// Method to refresh Nurses combo box

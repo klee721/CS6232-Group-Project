@@ -38,6 +38,7 @@ namespace Group3_ClinicDB.UserControls
             this.testDescritionLabel = new System.Windows.Forms.Label();
             this.Description = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.confirmLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // testCodecomboBox
@@ -59,7 +60,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             // submitLabTestButton
             // 
-            this.submitLabTestButton.Location = new System.Drawing.Point(173, 290);
+            this.submitLabTestButton.Location = new System.Drawing.Point(173, 322);
             this.submitLabTestButton.Name = "submitLabTestButton";
             this.submitLabTestButton.Size = new System.Drawing.Size(75, 23);
             this.submitLabTestButton.TabIndex = 3;
@@ -69,12 +70,13 @@ namespace Group3_ClinicDB.UserControls
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(323, 290);
+            this.cancelButton.Location = new System.Drawing.Point(323, 322);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 4;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
             // label2
             // 
@@ -119,10 +121,19 @@ namespace Group3_ClinicDB.UserControls
             this.label1.TabIndex = 9;
             this.label1.Text = "Name";
             // 
+            // confirmLabel
+            // 
+            this.confirmLabel.AutoSize = true;
+            this.confirmLabel.Location = new System.Drawing.Point(93, 274);
+            this.confirmLabel.Name = "confirmLabel";
+            this.confirmLabel.Size = new System.Drawing.Size(0, 13);
+            this.confirmLabel.TabIndex = 10;
+            // 
             // OrderTestsUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.confirmLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Description);
             this.Controls.Add(this.testDescritionLabel);
@@ -149,5 +160,6 @@ namespace Group3_ClinicDB.UserControls
         private System.Windows.Forms.Label testDescritionLabel;
         private System.Windows.Forms.Label Description;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label confirmLabel;
     }
 }
