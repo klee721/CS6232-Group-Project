@@ -37,6 +37,7 @@ namespace Group3_ClinicDB.View
                 this.addVisitUserControl1.GetPatient(this.patient);
                 this.allVisitsUserControl1.GetPatient(this.patient);
                 this.updateVisitUserControl1.GetPatient(this.patient);
+                this.orderTestsUserControl1.GetPatient(this.patient);
                 //PUT ANY UC PATIENT GETS HERE
             }
             else
@@ -65,6 +66,7 @@ namespace Group3_ClinicDB.View
             this.addVisitUserControl1.Enabled = false;
             this.updateVisitUserControl1.Enabled = false;
             this.allVisitsUserControl1.Enabled = false;
+            this.orderTestsUserControl1.Enabled = false;
             //DISABLE YOUR MODULES ON LOGOUT HERE
         }
 

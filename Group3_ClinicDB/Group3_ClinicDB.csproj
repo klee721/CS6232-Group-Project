@@ -54,6 +54,7 @@
     <Compile Include="Controller\AppointmentController.cs" />
     <Compile Include="Controller\DoctorController.cs" />
     <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="Controller\LabTestController.cs" />
     <Compile Include="Controller\NurseController.cs" />
     <Compile Include="Controller\PatientController.cs" />
     <Compile Include="Controller\PersonController.cs" />
@@ -68,12 +69,15 @@
     <Compile Include="DAL\PatientDBDAL.cs" />
     <Compile Include="DAL\PersonDBDAL.cs" />
     <Compile Include="DAL\StateDBDAL.cs" />
+    <Compile Include="DAL\LabTestDAL.cs" />
     <Compile Include="DAL\VisitsDAL.cs" />
+    <Compile Include="Model\LabTest.cs" />
     <Compile Include="Model\Appointment.cs" />
     <Compile Include="Model\Doctor.cs" />
     <Compile Include="Model\Nurse.cs" />
     <Compile Include="Model\Patient.cs" />
     <Compile Include="Model\Person.cs" />
+    <Compile Include="Model\Test.cs" />
     <Compile Include="Model\State.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\Visits.cs" />
@@ -88,6 +92,12 @@
     </Compile>
     <Compile Include="UserControls\AllPatientUserControl.Designer.cs">
       <DependentUpon>AllPatientUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\OrderTestsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\OrderTestsUserControl.Designer.cs">
+      <DependentUpon>OrderTestsUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\SearchUserControl.cs">
       <SubType>UserControl</SubType>
@@ -157,11 +167,19 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_cs6232_g3DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_cs6232_g3DataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="UserControls\AddUserUserControl.resx">
       <DependentUpon>AddUserUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AllPatientUserControl.resx">
       <DependentUpon>AllPatientUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\OrderTestsUserControl.resx">
+      <DependentUpon>OrderTestsUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\SearchUserControl.resx">
       <DependentUpon>SearchUserControl.cs</DependentUpon>
@@ -214,6 +232,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="_cs6232_g3DataSet.xsc">
+      <DependentUpon>_cs6232_g3DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_cs6232_g3DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_cs6232_g3DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_cs6232_g3DataSet.xss">
+      <DependentUpon>_cs6232_g3DataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
