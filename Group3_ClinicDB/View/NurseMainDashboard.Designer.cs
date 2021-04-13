@@ -48,6 +48,8 @@ namespace Group3_ClinicDB.View
             this.addVisitUserControl1 = new Group3_ClinicDB.UserControls.AddVisitUserControl();
             this.EditVisitTab = new System.Windows.Forms.TabPage();
             this.updateVisitUserControl1 = new Group3_ClinicDB.UserControls.UpdateVisitUserControl();
+            this.OrderTestTab = new System.Windows.Forms.TabPage();
+            this.orderTestsUserControl1 = new Group3_ClinicDB.UserControls.OrderTestsUserControl();
             this.LoggedInAsLabel = new System.Windows.Forms.Label();
             this.SelectedPatientIDLabel = new System.Windows.Forms.Label();
             this.LogoutLink = new System.Windows.Forms.LinkLabel();
@@ -58,8 +60,6 @@ namespace Group3_ClinicDB.View
             this.PatientNameLabel = new System.Windows.Forms.Label();
             this.UserFullNameLabel = new System.Windows.Forms.Label();
             this.UserNameLabel = new System.Windows.Forms.Label();
-            this.OrderTestTab = new System.Windows.Forms.TabPage();
-            this.orderTestsUserControl1 = new Group3_ClinicDB.UserControls.OrderTestsUserControl();
             this.DashboardTabControl.SuspendLayout();
             this.SearchPatientTab.SuspendLayout();
             this.registerPatientTab.SuspendLayout();
@@ -268,6 +268,24 @@ namespace Group3_ClinicDB.View
             this.updateVisitUserControl1.Size = new System.Drawing.Size(496, 471);
             this.updateVisitUserControl1.TabIndex = 0;
             // 
+            // OrderTestTab
+            // 
+            this.OrderTestTab.Controls.Add(this.orderTestsUserControl1);
+            this.OrderTestTab.Location = new System.Drawing.Point(4, 22);
+            this.OrderTestTab.Name = "OrderTestTab";
+            this.OrderTestTab.Size = new System.Drawing.Size(1215, 615);
+            this.OrderTestTab.TabIndex = 9;
+            this.OrderTestTab.Text = "Order Tests";
+            this.OrderTestTab.UseVisualStyleBackColor = true;
+            // 
+            // orderTestsUserControl1
+            // 
+            this.orderTestsUserControl1.Enabled = false;
+            this.orderTestsUserControl1.Location = new System.Drawing.Point(20, 34);
+            this.orderTestsUserControl1.Name = "orderTestsUserControl1";
+            this.orderTestsUserControl1.Size = new System.Drawing.Size(720, 481);
+            this.orderTestsUserControl1.TabIndex = 0;
+            // 
             // LoggedInAsLabel
             // 
             this.LoggedInAsLabel.AutoSize = true;
@@ -373,29 +391,11 @@ namespace Group3_ClinicDB.View
             this.UserNameLabel.TabIndex = 17;
             this.UserNameLabel.Text = "USERNAME";
             // 
-            // OrderTestTab
-            // 
-            this.OrderTestTab.Controls.Add(this.orderTestsUserControl1);
-            this.OrderTestTab.Location = new System.Drawing.Point(4, 22);
-            this.OrderTestTab.Name = "OrderTestTab";
-            this.OrderTestTab.Size = new System.Drawing.Size(1215, 615);
-            this.OrderTestTab.TabIndex = 9;
-            this.OrderTestTab.Text = "Order Tests";
-            this.OrderTestTab.UseVisualStyleBackColor = true;
-            // 
-            // orderTestsUserControl1
-            // 
-            this.orderTestsUserControl1.Enabled = false;
-            this.orderTestsUserControl1.Location = new System.Drawing.Point(20, 34);
-            this.orderTestsUserControl1.Name = "orderTestsUserControl1";
-            this.orderTestsUserControl1.Size = new System.Drawing.Size(720, 481);
-            this.orderTestsUserControl1.TabIndex = 0;
-            // 
             // NurseMainDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1217, 716);
+            this.ClientSize = new System.Drawing.Size(1223, 733);
             this.Controls.Add(this.UserNameLabel);
             this.Controls.Add(this.UserFullNameLabel);
             this.Controls.Add(this.PatientNameLabel);

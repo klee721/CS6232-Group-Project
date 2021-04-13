@@ -69,7 +69,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             this.firstNameLabel.AutoSize = true;
             this.firstNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.firstNameLabel.Location = new System.Drawing.Point(70, 203);
+            this.firstNameLabel.Location = new System.Drawing.Point(70, 141);
             this.firstNameLabel.Name = "firstNameLabel";
             this.firstNameLabel.Size = new System.Drawing.Size(85, 18);
             this.firstNameLabel.TabIndex = 0;
@@ -79,7 +79,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             this.lastNameLabel.AutoSize = true;
             this.lastNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lastNameLabel.Location = new System.Drawing.Point(70, 144);
+            this.lastNameLabel.Location = new System.Drawing.Point(71, 200);
             this.lastNameLabel.Name = "lastNameLabel";
             this.lastNameLabel.Size = new System.Drawing.Size(84, 18);
             this.lastNameLabel.TabIndex = 1;
@@ -177,7 +177,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             // firstNameTextBox
             // 
-            this.firstNameTextBox.Location = new System.Drawing.Point(161, 200);
+            this.firstNameTextBox.Location = new System.Drawing.Point(161, 145);
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(210, 20);
             this.firstNameTextBox.TabIndex = 1;
@@ -185,7 +185,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             // lastNameTextBox
             // 
-            this.lastNameTextBox.Location = new System.Drawing.Point(160, 141);
+            this.lastNameTextBox.Location = new System.Drawing.Point(162, 204);
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(210, 20);
             this.lastNameTextBox.TabIndex = 0;
@@ -321,7 +321,7 @@ namespace Group3_ClinicDB.UserControls
             // firstNameErrorLabel
             // 
             this.firstNameErrorLabel.AutoSize = true;
-            this.firstNameErrorLabel.Location = new System.Drawing.Point(161, 227);
+            this.firstNameErrorLabel.Location = new System.Drawing.Point(158, 168);
             this.firstNameErrorLabel.Name = "firstNameErrorLabel";
             this.firstNameErrorLabel.Size = new System.Drawing.Size(146, 13);
             this.firstNameErrorLabel.TabIndex = 30;
@@ -331,7 +331,7 @@ namespace Group3_ClinicDB.UserControls
             // lastNameErrorLabel
             // 
             this.lastNameErrorLabel.AutoSize = true;
-            this.lastNameErrorLabel.Location = new System.Drawing.Point(160, 168);
+            this.lastNameErrorLabel.Location = new System.Drawing.Point(161, 227);
             this.lastNameErrorLabel.Name = "lastNameErrorLabel";
             this.lastNameErrorLabel.Size = new System.Drawing.Size(147, 13);
             this.lastNameErrorLabel.TabIndex = 31;

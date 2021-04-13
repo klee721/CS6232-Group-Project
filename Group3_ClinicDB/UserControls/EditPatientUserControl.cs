@@ -55,6 +55,13 @@ namespace Group3_ClinicDB.UserControls
         private void EditPatientUserControlVisibleChanged(object sender, EventArgs e)
         {
             this.InitEditPatient();
+            /*
+            if (this.newPatient != null)
+            {
+                this.PopulateFields(this.newPatient);
+                this.Enabled = true;
+            }
+            */
         }
 
         private void InitEditPatient()
@@ -85,7 +92,7 @@ namespace Group3_ClinicDB.UserControls
 
                 if (this.oldPatient != null)
                 {
-                    this.PopulateFields();
+                    this.PopulateFields(this.oldPatient);
                     this.Enabled = true;
                 }
                 else
@@ -99,22 +106,22 @@ namespace Group3_ClinicDB.UserControls
         /// <summary>
         /// Disables all fields. Public for use on log out
         /// </summary>
-        private void PopulateFields()
+        private void PopulateFields(Patient patient)
         {
-            this.genderIndex = genderComboBox.Items.IndexOf(this.oldPatient.Gender);
-            this.stateIndex = stateComboBox.Items.IndexOf(this.oldPatient.State);
+            this.genderIndex = genderComboBox.Items.IndexOf(patient.Gender);
+            this.stateIndex = stateComboBox.Items.IndexOf(patient.State);
 
-            this.lastNameTextBox.Text = this.oldPatient.LastName;
-            this.firstNameTextBox.Text = this.oldPatient.FirstName;
-            this.dobDateTimePicker.Value = this.oldPatient.DateOfBirth;
+            this.lastNameTextBox.Text = patient.LastName;
+            this.firstNameTextBox.Text = patient.FirstName;
+            this.dobDateTimePicker.Value = patient.DateOfBirth;
             this.genderComboBox.SelectedIndex = this.genderIndex;
-            this.ssnTextBox.Text = this.oldPatient.SSN;
-            this.addressTextBox.Text = this.oldPatient.Address1;
-            this.address2TextBox.Text = this.oldPatient.Address2;
-            this.cityTextBox.Text = this.oldPatient.City;
+            this.ssnTextBox.Text = patient.SSN;
+            this.addressTextBox.Text = patient.Address1;
+            this.address2TextBox.Text = patient.Address2;
+            this.cityTextBox.Text = patient.City;
             this.stateComboBox.SelectedIndex = this.stateIndex;
-            this.zipCodeTextBox.Text = this.oldPatient.ZipCode;
-            this.phoneNumberTextBox.Text = this.oldPatient.PhoneNumber;
+            this.zipCodeTextBox.Text = patient.ZipCode;
+            this.phoneNumberTextBox.Text = patient.PhoneNumber;
         }
 
         public void DisableAll(bool disable)
@@ -282,6 +289,8 @@ namespace Group3_ClinicDB.UserControls
         {
             if (this.personController.UpdatePerson(this.oldPatient, this.newPatient))
             {
+                this.oldPatient = this.newPatient;
+                this.newPatient = null;
                 this.Clear();
                 this.updateSuccessMessage.Text = "Patient Updated!";
                 this.updateSuccessMessage.Visible = true;
