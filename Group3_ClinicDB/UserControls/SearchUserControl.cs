@@ -1,5 +1,6 @@
 ﻿using Group3_ClinicDB.Controller;
 using Group3_ClinicDB.Model;
+using Group3_ClinicDB.View;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -15,9 +16,12 @@ namespace Group3_ClinicDB.UserControls
         private readonly PatientController patientController;
         private List<Patient> patients;
         private Patient patient;
+        /*
         private bool dobMessageBoxPresent;
         private bool fnlnMessageBoxPresent;
         private bool doblnMessageBoxPresent;
+        */
+        public static AllPatientUserControl patientUserControl;
 
         /// <summary>
         /// Loads the UserControl
@@ -28,13 +32,16 @@ namespace Group3_ClinicDB.UserControls
             this.patientController = new PatientController();
             this.patients = new List<Patient>();
             this.patient = null;
+            /*
             this.dobMessageBoxPresent = false;
             this.fnlnMessageBoxPresent = false;
             this.doblnMessageBoxPresent = false;
+            */
         }
 
         private void InitSearches()
         {
+            this.patientDataGridView.DataSource = this.patientController.GetAllPatients();
             this.dobSearchRadioButton.Checked = true;
             this.dobSearchDateTimePicker.MaxDate = DateTime.Now.Date.AddDays(-1);
             this.dobSearchDateTimePicker.MinDate = DateTime.Now.Date.AddYears(-150);
@@ -118,20 +125,22 @@ namespace Group3_ClinicDB.UserControls
         {
             if (this.dobSearchRadioButton.Checked)
             {
+                this.patient = null;
+                this.patientDataGridView.DataSource = this.patientController.GetAllPatients();
                 this.DisableDobSearch(false);
                 this.DisableFirstNameLastNameSearch(true);
                 this.DisableDobLastNameSearch(true);
                 this.HideSearchDobErrorLabel(true, false);
                 this.HideSearchFnlnErrorLabel(true, false);
                 this.HideSearchDoblnErrorLabel(true, false);
-                this.HideAllSsnSearch();
+                //this.HideAllSsnSearch();
             } else
             {
                 this.DisableDobSearch(true);
                 this.HideSearchDobErrorLabel(true, false);
                 this.HideSearchFnlnErrorLabel(true, false);
                 this.HideSearchDoblnErrorLabel(true, false);
-                this.HideAllSsnSearch();
+                //this.HideAllSsnSearch();
             }
         }
 
@@ -139,13 +148,15 @@ namespace Group3_ClinicDB.UserControls
         {
             if (this.fnlnSearchRadioButton.Checked)
             {
+                this.patient = null;
+                this.patientDataGridView.DataSource = this.patientController.GetAllPatients();
                 this.DisableDobSearch(true);
                 this.DisableFirstNameLastNameSearch(false);
                 this.DisableDobLastNameSearch(true);
                 this.HideSearchDobErrorLabel(true, false);
                 this.HideSearchFnlnErrorLabel(true, false);
                 this.HideSearchDoblnErrorLabel(true, false);
-                this.HideAllSsnSearch();
+                //this.HideAllSsnSearch();
             }
             else
             {
@@ -153,7 +164,7 @@ namespace Group3_ClinicDB.UserControls
                 this.HideSearchDobErrorLabel(true, false);
                 this.HideSearchFnlnErrorLabel(true, false);
                 this.HideSearchDoblnErrorLabel(true, false);
-                this.HideAllSsnSearch();
+                //this.HideAllSsnSearch();
             }
         }
 
@@ -161,13 +172,15 @@ namespace Group3_ClinicDB.UserControls
         {
             if (this.dobLastNameSearchRadioButton.Checked)
             {
+                this.patient = null;
+                this.patientDataGridView.DataSource = this.patientController.GetAllPatients();
                 this.DisableDobSearch(true);
                 this.DisableFirstNameLastNameSearch(true);
                 this.DisableDobLastNameSearch(false);
                 this.HideSearchDobErrorLabel(true, false);
                 this.HideSearchFnlnErrorLabel(true, false);
                 this.HideSearchDoblnErrorLabel(true, false);
-                this.HideAllSsnSearch();
+                //this.HideAllSsnSearch();
             }
             else
             {
@@ -175,7 +188,7 @@ namespace Group3_ClinicDB.UserControls
                 this.HideSearchDobErrorLabel(true, false);
                 this.HideSearchFnlnErrorLabel(true, false);
                 this.HideSearchDoblnErrorLabel(true, false);
-                this.HideAllSsnSearch();
+                //this.HideAllSsnSearch();
             }
         }
 
@@ -284,7 +297,7 @@ namespace Group3_ClinicDB.UserControls
                 this.searchDoblnErrorLabel.ForeColor = Color.Red;
             }
         }
-
+        /*
         private void HideSsnDobSearch(bool hide)
         {
             if (hide)
@@ -352,7 +365,7 @@ namespace Group3_ClinicDB.UserControls
             this.fnlnMessageBoxPresent = false;
             this.doblnMessageBoxPresent = false;
         }
-
+       */
         private void DobSearchButtonClick(object sender, EventArgs e)
         {
             this.patients = this.patientController.GetPatientsByDob(this.dobSearchDateTimePicker.Value);
@@ -364,7 +377,13 @@ namespace Group3_ClinicDB.UserControls
                 {
                     this.HideSearchDobErrorLabel(false, false);
                 }
+            } 
+            else
+            {
+                this.patientDataGridView.DataSource = this.patients;
+                this.HideSearchDobErrorLabel(false, true);
             }  
+            /*
             else if (this.patients.Count > 1)
             {
                 if (!this.dobMessageBoxPresent) 
@@ -416,12 +435,13 @@ namespace Group3_ClinicDB.UserControls
                 this.patient = this.patients[0];
                 this.HideSearchDobErrorLabel(false, true);
             }
+            */
         }
 
         private void DobSearchDateTimePickerValueChanged(object sender, EventArgs e)
         {
             this.HideSearchDobErrorLabel(true, false);
-            this.HideAllSsnSearch();
+            //this.HideAllSsnSearch();
         }
 
         private void ValidateFnln()
@@ -446,6 +466,12 @@ namespace Group3_ClinicDB.UserControls
                         this.HideSearchFnlnErrorLabel(false, false);
                     }
                 }
+                else
+                {
+                    this.patientDataGridView.DataSource = this.patients;
+                    this.HideSearchFnlnErrorLabel(false, true);
+                }
+                /*
                 else if (this.patients.Count > 1)
                 {
                     if (!this.fnlnMessageBoxPresent)
@@ -498,6 +524,7 @@ namespace Group3_ClinicDB.UserControls
                     this.patient = this.patients[0];
                     this.HideSearchFnlnErrorLabel(false, true);
                 }
+                */
             }
         }
 
@@ -510,14 +537,14 @@ namespace Group3_ClinicDB.UserControls
         {
             this.HideFirstNameFnlnErrorLabel(true);
             this.HideSearchFnlnErrorLabel(true, false);
-            this.HideAllSsnSearch();
+            //this.HideAllSsnSearch();
         }
 
         private void LastNameFnlnSearchTextBoxTextChanged(object sender, EventArgs e)
         {
             this.HideLastNameFnlnErrorLabel(true);
             this.HideSearchFnlnErrorLabel(true, false);
-            this.HideAllSsnSearch();
+            //this.HideAllSsnSearch();
         }
 
         private void ValidateDobln()
@@ -538,6 +565,12 @@ namespace Group3_ClinicDB.UserControls
                         this.HideSearchDoblnErrorLabel(false, false);
                     }
                 }
+                else
+                {
+                    this.patientDataGridView.DataSource = this.patients;
+                    this.HideSearchDoblnErrorLabel(false, true);
+                }
+                /*
                 else if (this.patients.Count > 1)
                 {
                     if (!this.doblnMessageBoxPresent)
@@ -590,6 +623,7 @@ namespace Group3_ClinicDB.UserControls
                     this.patient = this.patients[0];
                     this.HideSearchDoblnErrorLabel(false, true);
                 }
+                */
             }
         }
 
@@ -602,15 +636,15 @@ namespace Group3_ClinicDB.UserControls
         {
             this.HideLastNameDoblnErrorLabel(true);
             this.HideSearchDoblnErrorLabel(true, false);
-            this.HideAllSsnSearch();
+            //this.HideAllSsnSearch();
         }
 
         private void DobDoblnSearchDateTimePickerValueChanged(object sender, EventArgs e)
         {
             this.HideSearchDoblnErrorLabel(true, false);
-            this.HideAllSsnSearch();
+            //this.HideAllSsnSearch();
         }
-
+        /*
         private void SsnDobSearchTextBoxTextChanged(object sender, EventArgs e)
         {
             this.ssnDobErrorLabel.Visible = false;
@@ -624,6 +658,34 @@ namespace Group3_ClinicDB.UserControls
         private void SsnDoblnSearchTextBoxTextChanged(object sender, EventArgs e)
         {
             this.ssnDoblnErrorLabel.Visible = false;
+        }
+        */
+        private void PatientDataGridViewCellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (patientDataGridView.SelectedCells.Count > 0)
+            {
+                int selectedrowindex = patientDataGridView.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = patientDataGridView.Rows[selectedrowindex];
+
+                int id = (int)selectedRow.Cells["Id"].Value;
+                int personsId = (int)selectedRow.Cells["PersonsId"].Value;
+                string firstName = selectedRow.Cells["FirstName"].Value.ToString();
+                string lastName = selectedRow.Cells["LastName"].Value.ToString();
+                DateTime dateOfBirth = (DateTime)selectedRow.Cells["DateOfBirth"].Value;
+                string gender = selectedRow.Cells["Gender"].Value.ToString();
+                string ssn = selectedRow.Cells["SSN"].Value.ToString();
+                string address1 = selectedRow.Cells["Address1"].Value.ToString();
+                string address2 = selectedRow.Cells["Address2"].Value.ToString();
+                string city = selectedRow.Cells["City"].Value.ToString();
+                string state = selectedRow.Cells["State"].Value.ToString();
+                string zipCode = selectedRow.Cells["ZipCode"].Value.ToString();
+                string phoneNumber = selectedRow.Cells["PhoneNumber"].Value.ToString();
+
+                this.patient = new Patient(id, personsId, firstName, lastName, dateOfBirth, gender,
+                            ssn, address1, address2, city, state, zipCode, phoneNumber);
+                this.patientLoadedMessage.Text = this.patient.FirstName + " " + this.patient.LastName + " loaded!";
+                this.patientLoadedMessage.Visible = true;
+            }
         }
     }
 }

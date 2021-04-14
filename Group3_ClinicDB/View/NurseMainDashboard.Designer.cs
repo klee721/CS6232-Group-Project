@@ -93,6 +93,7 @@ namespace Group3_ClinicDB.View
             // 
             // SearchPatientTab
             // 
+            this.SearchPatientTab.Controls.Add(this.SelectPatientButton);
             this.SearchPatientTab.Controls.Add(this.searchUserControl2);
             this.SearchPatientTab.Location = new System.Drawing.Point(4, 22);
             this.SearchPatientTab.Name = "SearchPatientTab";
@@ -103,9 +104,11 @@ namespace Group3_ClinicDB.View
             // 
             // searchUserControl2
             // 
-            this.searchUserControl2.Location = new System.Drawing.Point(70, 160);
+            this.searchUserControl2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.searchUserControl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchUserControl2.Location = new System.Drawing.Point(0, 0);
             this.searchUserControl2.Name = "searchUserControl2";
-            this.searchUserControl2.Size = new System.Drawing.Size(1025, 209);
+            this.searchUserControl2.Size = new System.Drawing.Size(1215, 744);
             this.searchUserControl2.TabIndex = 8;
             // 
             // registerPatientTab
@@ -317,7 +320,7 @@ namespace Group3_ClinicDB.View
             // 
             // SelectPatientButton
             // 
-            this.SelectPatientButton.Location = new System.Drawing.Point(57, 16);
+            this.SelectPatientButton.Location = new System.Drawing.Point(807, 555);
             this.SelectPatientButton.Name = "SelectPatientButton";
             this.SelectPatientButton.Size = new System.Drawing.Size(203, 54);
             this.SelectPatientButton.TabIndex = 9;
@@ -402,7 +405,6 @@ namespace Group3_ClinicDB.View
             this.Controls.Add(this.PatientIDLabel);
             this.Controls.Add(this.SelectedPatientNameLabel);
             this.Controls.Add(this.EmployeeNameLabel);
-            this.Controls.Add(this.SelectPatientButton);
             this.Controls.Add(this.LogoutLink);
             this.Controls.Add(this.SelectedPatientIDLabel);
             this.Controls.Add(this.LoggedInAsLabel);

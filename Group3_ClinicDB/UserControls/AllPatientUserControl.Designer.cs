@@ -43,7 +43,6 @@ namespace Group3_ClinicDB.UserControls
             this.stateColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.zipCodeColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.phoneNumberColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.allPatientsLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // patientListView
@@ -64,9 +63,9 @@ namespace Group3_ClinicDB.UserControls
             this.phoneNumberColumnHeader});
             this.patientListView.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.patientListView.HideSelection = false;
-            this.patientListView.Location = new System.Drawing.Point(0, 83);
+            this.patientListView.Location = new System.Drawing.Point(0, 319);
             this.patientListView.Name = "patientListView";
-            this.patientListView.Size = new System.Drawing.Size(1215, 532);
+            this.patientListView.Size = new System.Drawing.Size(1215, 296);
             this.patientListView.TabIndex = 0;
             this.patientListView.UseCompatibleStateImageBehavior = false;
             this.patientListView.View = System.Windows.Forms.View.Details;
@@ -135,28 +134,16 @@ namespace Group3_ClinicDB.UserControls
             this.phoneNumberColumnHeader.Text = "Phone Number";
             this.phoneNumberColumnHeader.Width = 490;
             // 
-            // allPatientsLabel
-            // 
-            this.allPatientsLabel.AutoSize = true;
-            this.allPatientsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.allPatientsLabel.Location = new System.Drawing.Point(46, 26);
-            this.allPatientsLabel.Name = "allPatientsLabel";
-            this.allPatientsLabel.Size = new System.Drawing.Size(306, 29);
-            this.allPatientsLabel.TabIndex = 1;
-            this.allPatientsLabel.Text = "Patients/Searched Patient";
-            // 
             // AllPatientUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.allPatientsLabel);
             this.Controls.Add(this.patientListView);
             this.Name = "AllPatientUserControl";
             this.Size = new System.Drawing.Size(1215, 615);
             this.Load += new System.EventHandler(this.AllPatientUserControlLoad);
             this.VisibleChanged += new System.EventHandler(this.AllPatientUserControlVisibleChanged);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -176,6 +163,5 @@ namespace Group3_ClinicDB.UserControls
         private System.Windows.Forms.ColumnHeader stateColumnHeader;
         private System.Windows.Forms.ColumnHeader zipCodeColumnHeader;
         private System.Windows.Forms.ColumnHeader phoneNumberColumnHeader;
-        private System.Windows.Forms.Label allPatientsLabel;
     }
 }

@@ -60,6 +60,9 @@ namespace Group3_ClinicDB.UserControls
             this.ssnDobErrorLabel = new System.Windows.Forms.Label();
             this.ssnFnlnErrorLabel = new System.Windows.Forms.Label();
             this.ssnDoblnErrorLabel = new System.Windows.Forms.Label();
+            this.patientDataGridView = new System.Windows.Forms.DataGridView();
+            this.patientLoadedMessage = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.patientDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // dobSearchRadioButton
@@ -286,7 +289,7 @@ namespace Group3_ClinicDB.UserControls
             this.ssnFnlnSearchTextBox.Size = new System.Drawing.Size(200, 20);
             this.ssnFnlnSearchTextBox.TabIndex = 25;
             this.ssnFnlnSearchTextBox.Visible = false;
-            this.ssnFnlnSearchTextBox.TextChanged += new System.EventHandler(this.SsnFnlnSearchTextBoxTextChanged);
+            //this.ssnFnlnSearchTextBox.TextChanged += new System.EventHandler(this.SsnFnlnSearchTextBoxTextChanged);
             // 
             // ssnFnlnSearchLabel
             // 
@@ -305,7 +308,7 @@ namespace Group3_ClinicDB.UserControls
             this.ssnDoblnSearchTextBox.Size = new System.Drawing.Size(200, 20);
             this.ssnDoblnSearchTextBox.TabIndex = 27;
             this.ssnDoblnSearchTextBox.Visible = false;
-            this.ssnDoblnSearchTextBox.TextChanged += new System.EventHandler(this.SsnDoblnSearchTextBoxTextChanged);
+            //this.ssnDoblnSearchTextBox.TextChanged += new System.EventHandler(this.SsnDoblnSearchTextBoxTextChanged);
             // 
             // ssnDoblnSearchLabel
             // 
@@ -324,7 +327,7 @@ namespace Group3_ClinicDB.UserControls
             this.ssnDobSearchTextBox.Size = new System.Drawing.Size(200, 20);
             this.ssnDobSearchTextBox.TabIndex = 29;
             this.ssnDobSearchTextBox.Visible = false;
-            this.ssnDobSearchTextBox.TextChanged += new System.EventHandler(this.SsnDobSearchTextBoxTextChanged);
+           // this.ssnDobSearchTextBox.TextChanged += new System.EventHandler(this.SsnDobSearchTextBoxTextChanged);
             // 
             // ssnDobErrorLabel
             // 
@@ -356,10 +359,35 @@ namespace Group3_ClinicDB.UserControls
             this.ssnDoblnErrorLabel.Text = "Social security number must contain exactly nine digits";
             this.ssnDoblnErrorLabel.Visible = false;
             // 
+            // patientDataGridView
+            // 
+            this.patientDataGridView.AllowUserToAddRows = false;
+            this.patientDataGridView.AllowUserToDeleteRows = false;
+            this.patientDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.patientDataGridView.Location = new System.Drawing.Point(0, 206);
+            this.patientDataGridView.Name = "patientDataGridView";
+            this.patientDataGridView.ReadOnly = true;
+            this.patientDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.patientDataGridView.Size = new System.Drawing.Size(1195, 334);
+            this.patientDataGridView.TabIndex = 33;
+            this.patientDataGridView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.PatientDataGridViewCellMouseClick);
+            // 
+            // patientLoadedMessage
+            // 
+            this.patientLoadedMessage.AutoSize = true;
+            this.patientLoadedMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patientLoadedMessage.Location = new System.Drawing.Point(552, 566);
+            this.patientLoadedMessage.Name = "patientLoadedMessage";
+            this.patientLoadedMessage.Size = new System.Drawing.Size(0, 20);
+            this.patientLoadedMessage.TabIndex = 34;
+            this.patientLoadedMessage.Visible = false;
+            // 
             // SearchUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.patientLoadedMessage);
+            this.Controls.Add(this.patientDataGridView);
             this.Controls.Add(this.ssnDoblnErrorLabel);
             this.Controls.Add(this.ssnFnlnErrorLabel);
             this.Controls.Add(this.ssnDobErrorLabel);
@@ -392,9 +420,10 @@ namespace Group3_ClinicDB.UserControls
             this.Controls.Add(this.fnlnSearchRadioButton);
             this.Controls.Add(this.dobSearchRadioButton);
             this.Name = "SearchUserControl";
-            this.Size = new System.Drawing.Size(1025, 229);
+            this.Size = new System.Drawing.Size(1195, 586);
             this.Load += new System.EventHandler(this.SearchUserControlLoad);
             this.VisibleChanged += new System.EventHandler(this.SearchUserControlVisibleChanged);
+            ((System.ComponentModel.ISupportInitialize)(this.patientDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -433,5 +462,7 @@ namespace Group3_ClinicDB.UserControls
         private System.Windows.Forms.Label ssnDobErrorLabel;
         private System.Windows.Forms.Label ssnFnlnErrorLabel;
         private System.Windows.Forms.Label ssnDoblnErrorLabel;
+        private System.Windows.Forms.DataGridView patientDataGridView;
+        private System.Windows.Forms.Label patientLoadedMessage;
     }
 }

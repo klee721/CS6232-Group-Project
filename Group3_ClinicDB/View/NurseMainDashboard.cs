@@ -20,7 +20,6 @@ namespace Group3_ClinicDB.View
             this.PatientNameLabel.Text = "";
         }
 
-
         private void SelectPatientButton_Click(object sender, EventArgs e)
         {
             if (this.searchUserControl2.GetPatient() != null)
@@ -29,11 +28,10 @@ namespace Group3_ClinicDB.View
                 this.PatientIDLabel.Text = this.patient.Id.ToString();
                 this.PatientNameLabel.Text = this.patient.FirstName + " " + this.patient.LastName;
 
-
                 this.appointmentBookingUserControl2.GetPatient(this.patient);
                 this.editAppointmentUserControl1.GetPatient(this.patient);
                 this.editPatientUserControl1.GetPatient(this.patient);
-                this.allPatientUserControl1.GetPatient(this.patient);
+                //this.allPatientUserControl1.GetPatient(this.patient);
                 this.addVisitUserControl1.GetPatient(this.patient);
                 this.allVisitsUserControl1.GetPatient(this.patient);
                 this.updateVisitUserControl1.GetPatient(this.patient);
@@ -85,6 +83,5 @@ namespace Group3_ClinicDB.View
         {
             Application.Exit();
         }
-
     }
 }

@@ -21,6 +21,8 @@ namespace Group3_ClinicDB.UserControls
         /// </summary>
         public void InitPatients()
         {
+            //this.patientDataGridView.DataSource = this.patientController.GetAllPatients();
+            /*
             List<Patient> patientsList;
             this.patientListView.Items.Clear();
 
@@ -58,6 +60,7 @@ namespace Group3_ClinicDB.UserControls
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
+            */
         }
 
         private void AllPatientUserControlLoad(object sender, EventArgs e)
@@ -69,7 +72,7 @@ namespace Group3_ClinicDB.UserControls
         {
             this.InitPatients();
         }
-
+        /*
         /// <summary>
         /// Changes the ListView to a single patient
         /// </summary>
@@ -90,6 +93,15 @@ namespace Group3_ClinicDB.UserControls
             this.patientListView.Items[0].SubItems.Add(patient.State.ToString());
             this.patientListView.Items[0].SubItems.Add(patient.ZipCode.ToString());
             this.patientListView.Items[0].SubItems.Add(patient.PhoneNumber.ToString());
+        }
+        */
+
+        /// <summary>
+        /// Changes the data source of the datagrid view
+        /// </summary>
+        public void SetDataSource(List<Patient> patients)
+        {
+            //this.patientDataGridView.DataSource = patients;
         }
     }
 }
