@@ -59,7 +59,6 @@ namespace Group3_ClinicDB.View
             this.appointmentBookingUserControl2.Enabled = false;
             this.editAppointmentUserControl1.Enabled = false;
             this.editPatientUserControl1.Enabled = false;
-            this.allPatientUserControl1.InitPatients();
             this.addVisitUserControl1.Enabled = false;
             this.updateVisitUserControl1.Enabled = false;
             this.allVisitsUserControl1.Enabled = false;
