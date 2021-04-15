@@ -99,6 +99,18 @@
     <Compile Include="UserControls\EditNurseUserControl.Designer.cs">
       <DependentUpon>EditNurseUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\EnterTestResultsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\EnterTestResultsUserControl.Designer.cs">
+      <DependentUpon>EnterTestResultsUserControl.cs</DependentUpon>
+    </Compile>
+	  
+	  
+	  
+	  
+	  
+	  
     <Compile Include="UserControls\OrderTestsUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -187,6 +199,10 @@
     <EmbeddedResource Include="UserControls\EditNurseUserControl.resx">
       <DependentUpon>EditNurseUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\EnterTestResultsUserControl.resx">
+      <DependentUpon>EnterTestResultsUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+
     <EmbeddedResource Include="UserControls\OrderTestsUserControl.resx">
       <DependentUpon>OrderTestsUserControl.cs</DependentUpon>
     </EmbeddedResource>
