@@ -79,6 +79,17 @@ namespace Group3_ClinicDB.Controller
         {
             return this.personsDBSource.GetUserFullName(user);
         }
+        public Nurse GetNurseFullName(Nurse nurse)
+        {
+            User user = new User();
+            user.nurseID = nurse.NurseID;
+            this.personsDBSource.GetUserFullName(user);
+            nurse.FirstName = user.firstName;
+            nurse.LastName = user.lastName;
+            return nurse;
+
+        }
+
 
     }
 }

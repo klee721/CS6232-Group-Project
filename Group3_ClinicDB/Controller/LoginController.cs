@@ -45,5 +45,16 @@ namespace Group3_ClinicDB.Controller
             return this.loginSource.CreateNewUser(user, username, password);
         }
 
+        public string GetUsernameByNurseID(int nurseID)
+        {
+            return this.loginSource.GetUsernameByNurseID(nurseID);
+        }
+
+        public bool UpdateUser(User user, string password)
+        {
+           return this.loginSource.UpdateUser(user, password);
+  
+        }
+
     }
 }

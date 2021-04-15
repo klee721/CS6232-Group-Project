@@ -34,5 +34,16 @@ namespace Group3_ClinicDB.Controller
             return this.NurseSource.GetNurseByID(id);
         }
 
+        public Nurse GetNurseStatus(Nurse nurse)
+        {
+            return this.NurseSource.GetNurseStatus(nurse);
+        }
+
+        public bool UpdateNurseStatus(Nurse nurse, string status)
+        {
+            return this.NurseSource.UpdateNurseStatus(nurse, status);
+        }
+        
+
     }
 }

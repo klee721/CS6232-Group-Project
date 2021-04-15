@@ -1,4 +1,5 @@
-﻿using Group3_ClinicDB.Model;
+﻿using System;
+using Group3_ClinicDB.Model;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
@@ -50,9 +51,7 @@ namespace Group3_ClinicDB.DAL
         /// <returns>int of the persons_id</returns>
         public int GetNurseByID(int id)
         {
-            string selectStatement = "SELECT persons_id FROM nurses " +
-                "WHERE status = 'A' " +
-                "AND id = @id" ;
+            string selectStatement = "SELECT persons_id FROM nurses WHERE id = @id";
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
             {
@@ -79,10 +78,64 @@ namespace Group3_ClinicDB.DAL
                     }
                 }
             }
-            
+
 
         }
 
+        public Nurse GetNurseStatus(Nurse nurse)
+        {
+            string selectStatement = "SELECT status FROM nurses WHERE id = @id";
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+
+                    selectCommand.Parameters.AddWithValue("@id", nurse.NurseID);
+
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            nurse.Status = reader["status"].ToString();
+
+                        }
+
+
+                    }
+
+                    return nurse;
+                }
+
+            }
+        }
+
+        public bool UpdateNurseStatus(Nurse nurse, string status)
+        {
+            string updateStatement = "UPDATE nurses " +
+                                 "SET status = @status " +
+                                 "WHERE Id = @Id";
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand cmd = new SqlCommand(updateStatement, connection))
+                {
+                    cmd.Parameters.AddWithValue("@status", status);
+                    cmd.Parameters.AddWithValue("@Id", nurse.NurseID);
+                    cmd.ExecuteNonQuery();
+
+                    Console.WriteLine("NurseID " + nurse.NurseID + " has been updated.");
+                }
+
+                connection.Close();
+                return true;
+
+            }
+        }
 
     }
 }
