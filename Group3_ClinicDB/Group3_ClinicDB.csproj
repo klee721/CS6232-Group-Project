@@ -93,6 +93,12 @@
     <Compile Include="UserControls\AllPatientUserControl.Designer.cs">
       <DependentUpon>AllPatientUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\EnterTestResultsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\EnterTestResultsUserControl.Designer.cs">
+      <DependentUpon>EnterTestResultsUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\OrderTestsUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -177,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AllPatientUserControl.resx">
       <DependentUpon>AllPatientUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\EnterTestResultsUserControl.resx">
+      <DependentUpon>EnterTestResultsUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\OrderTestsUserControl.resx">
       <DependentUpon>OrderTestsUserControl.cs</DependentUpon>

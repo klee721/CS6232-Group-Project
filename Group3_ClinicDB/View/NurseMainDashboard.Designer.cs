@@ -58,6 +58,7 @@ namespace Group3_ClinicDB.View
             this.PatientNameLabel = new System.Windows.Forms.Label();
             this.UserFullNameLabel = new System.Windows.Forms.Label();
             this.UserNameLabel = new System.Windows.Forms.Label();
+            this.enterTestResultsTab = new System.Windows.Forms.TabPage();
             this.DashboardTabControl.SuspendLayout();
             this.SearchPatientTab.SuspendLayout();
             this.registerPatientTab.SuspendLayout();
@@ -81,6 +82,7 @@ namespace Group3_ClinicDB.View
             this.DashboardTabControl.Controls.Add(this.addVisitTabPage);
             this.DashboardTabControl.Controls.Add(this.EditVisitTab);
             this.DashboardTabControl.Controls.Add(this.OrderTestTab);
+            this.DashboardTabControl.Controls.Add(this.enterTestResultsTab);
             this.DashboardTabControl.Location = new System.Drawing.Point(2, 90);
             this.DashboardTabControl.Name = "DashboardTabControl";
             this.DashboardTabControl.SelectedIndex = 0;
@@ -372,6 +374,15 @@ namespace Group3_ClinicDB.View
             this.UserNameLabel.TabIndex = 17;
             this.UserNameLabel.Text = "USERNAME";
             // 
+            // enterTestResultsTab
+            // 
+            this.enterTestResultsTab.Location = new System.Drawing.Point(4, 22);
+            this.enterTestResultsTab.Name = "enterTestResultsTab";
+            this.enterTestResultsTab.Size = new System.Drawing.Size(1215, 615);
+            this.enterTestResultsTab.TabIndex = 10;
+            this.enterTestResultsTab.Text = "Enter Test Results";
+            this.enterTestResultsTab.UseVisualStyleBackColor = true;
+            // 
             // NurseMainDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -439,5 +450,6 @@ namespace Group3_ClinicDB.View
         private System.Windows.Forms.Label UserNameLabel;
         private System.Windows.Forms.TabPage OrderTestTab;
         private UserControls.OrderTestsUserControl orderTestsUserControl1;
+        private System.Windows.Forms.TabPage enterTestResultsTab;
     }
 }

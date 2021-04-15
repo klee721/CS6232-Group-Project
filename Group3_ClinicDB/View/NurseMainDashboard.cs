@@ -31,7 +31,6 @@ namespace Group3_ClinicDB.View
                 this.appointmentBookingUserControl2.GetPatient(this.patient);
                 this.editAppointmentUserControl1.GetPatient(this.patient);
                 this.editPatientUserControl1.GetPatient(this.patient);
-                //this.allPatientUserControl1.GetPatient(this.patient);
                 this.addVisitUserControl1.GetPatient(this.patient);
                 this.allVisitsUserControl1.GetPatient(this.patient);
                 this.updateVisitUserControl1.GetPatient(this.patient);
