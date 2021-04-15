@@ -1,23 +1,19 @@
-﻿using Group3_ClinicDB.Model;
+﻿using Group3_ClinicDB.Controller;
+using Group3_ClinicDB.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Group3_ClinicDB.UserControls
 {
     public partial class EnterTestResultsUserControl : UserControl
     {
+        private readonly LabTestController labTestController;
         private Patient patient;
 
         public EnterTestResultsUserControl()
         {
             InitializeComponent();
+            this.labTestController = new LabTestController();
             this.patient = null;
         }
 
@@ -37,7 +33,10 @@ namespace Group3_ClinicDB.UserControls
 
         private void InitEnterTestResults()
         {
-
+            if (this.patient != null)
+            {
+                this.patientDataGridView.DataSource = this.labTestController.GetAllLabTestsForPatient(this.patient);
+            }
         }
 
         private void EnterTestResultsUserControlLoad(object sender, EventArgs e)

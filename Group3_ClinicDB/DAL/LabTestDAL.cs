@@ -1,16 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Group3_ClinicDB.Model;
-using Group3_ClinicDB.DAL;
 
 namespace Group3_ClinicDB.DAL
 {
     /// <summary>
-    /// This the DAL class that deals with incidents.
+    /// This the DAL class that deals with lab tests.
     /// </summary>
     public class LabTestDAL
     {
@@ -44,8 +40,48 @@ namespace Group3_ClinicDB.DAL
                 }
             }
             return testList;
+        }
 
+        /// <summary>
+        ///Retrieves the ordered tests (lab tests) for a patient from the DB
+        /// </summary>
+        /// <returns>The list of lab test for a patient</returns>
+        public List<LabTest> GetAllLabTestsForPatient(Patient patient)
+        {
+            List<LabTest> labTestList = new List<LabTest>();
 
+            string selectStatement = "SELECT patientId, orderDateTime, " +
+                                        "ISNULL(performedDateTime, orderDateTime) as performedDateTime, " +
+                                        "testCode, ISNULL(results, '') as results, ISNULL(normal, '') as normal " +
+                                        "FROM labtests " + 
+                                        "WHERE patientId = @PatientID";
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@PatientID", patient.Id);
+
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            LabTest labTest = new LabTest();
+                            labTest.PatientID = (int) reader["patientId"];
+                            labTest.OrderDateTime = (DateTime) reader["orderDateTime"];
+                            labTest.PerformedDateTime = (DateTime) reader["performedDateTime"];
+                            labTest.TestCode = reader["testCode"].ToString();
+                            labTest.Results = reader["results"].ToString();
+                            labTest.Normal = reader["normal"].ToString();
+
+                            labTestList.Add(labTest);
+                        }
+                    }
+                }
+            }
+            return labTestList;
         }
 
         /// <summary>

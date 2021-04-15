@@ -15,8 +15,6 @@ namespace Group3_ClinicDB.Model
 
         public string TestCode { get; set; }
 
-        public string Name { get; set; }
-
         public string Results { get; set; }
 
         public string Normal { get; set; }

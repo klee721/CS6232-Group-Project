@@ -35,6 +35,7 @@ namespace Group3_ClinicDB.View
                 this.allVisitsUserControl1.GetPatient(this.patient);
                 this.updateVisitUserControl1.GetPatient(this.patient);
                 this.orderTestsUserControl1.GetPatient(this.patient);
+                this.enterTestResultsUserControl1.GetPatient(this.patient);
                 //PUT ANY UC PATIENT GETS HERE
             }
             else

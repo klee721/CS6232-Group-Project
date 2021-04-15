@@ -36,9 +36,9 @@ namespace Group3_ClinicDB.UserControls
             // patientDataGridView
             // 
             this.patientDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.patientDataGridView.Location = new System.Drawing.Point(121, 12);
+            this.patientDataGridView.Location = new System.Drawing.Point(227, 70);
             this.patientDataGridView.Name = "patientDataGridView";
-            this.patientDataGridView.Size = new System.Drawing.Size(867, 150);
+            this.patientDataGridView.Size = new System.Drawing.Size(717, 150);
             this.patientDataGridView.TabIndex = 0;
             // 
             // EnterTestResultsUserControl
