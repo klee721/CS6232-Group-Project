@@ -50,6 +50,7 @@ namespace Group3_ClinicDB.UserControls
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
+          
             int result;
             User newUser = new User();
 
