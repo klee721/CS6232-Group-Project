@@ -9,6 +9,7 @@ namespace Group3_ClinicDB.DAL
     /// </summary>
     public class PersonDBDAL
     {
+
         /// <summary>
         /// Uses Clinic DB to retrieve the id of a person
         /// </summary>
@@ -96,7 +97,7 @@ namespace Group3_ClinicDB.DAL
                 }
             }
         }
-
+        /*
         /// <summary>
         /// Uses Clinic DB to add Person
         /// </summary>
@@ -138,7 +139,7 @@ namespace Group3_ClinicDB.DAL
                 }
             }
         }
-
+        */
         /// <summary>
         /// Updates new patient information to the table on the old patient information
         /// </summary>
@@ -217,6 +218,7 @@ namespace Group3_ClinicDB.DAL
                 }
             }
         }
+
         /// <summary>
         /// Public method to retrieve a User's first and last name and store it in a User object
         /// </summary>

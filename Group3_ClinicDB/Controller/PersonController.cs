@@ -46,7 +46,7 @@ namespace Group3_ClinicDB.Controller
             }
             return this.personsDBSource.SsnExists(person);
         }
-
+        /*
         /// <summary>
         /// Adds a Persons object to the DB
         /// </summary>
@@ -58,7 +58,7 @@ namespace Group3_ClinicDB.Controller
             }
             this.personsDBSource.AddPerson(person);
         }
-
+        */
 
         /// <summary>
         /// Updates personal info portion of an already existing patient

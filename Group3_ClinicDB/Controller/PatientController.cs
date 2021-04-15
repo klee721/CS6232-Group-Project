@@ -43,7 +43,7 @@ namespace Group3_ClinicDB.Controller
 
             return this.patientDBSource.GetPatientsByDob(dateOfBirth);
         }
-
+        /*
         /// <summary>
         /// Retrieves the patients with the date of birth and ssn specified
         /// </summary>
@@ -64,7 +64,7 @@ namespace Group3_ClinicDB.Controller
 
             return this.patientDBSource.GetPatientByDobWithSsn(dateOfBirth, ssn);
         }
-
+        */
         /// <summary>
         /// Retrieves the patients with the first and last name specified
         /// </summary>
@@ -85,7 +85,7 @@ namespace Group3_ClinicDB.Controller
 
             return this.patientDBSource.GetPatientsByFnln(firstName, lastName);
         }
-
+        /*
         /// <summary>
         /// Retrieves the patients with the first, last name, and ssn specified
         /// </summary>
@@ -112,7 +112,7 @@ namespace Group3_ClinicDB.Controller
 
             return this.patientDBSource.GetPatientByFnlnWithSsn(firstName, lastName, ssn);
         }
-
+        */
         /// <summary>
         /// Retrieves the patients with the date of birth and last name specified
         /// </summary>
@@ -133,7 +133,7 @@ namespace Group3_ClinicDB.Controller
 
             return this.patientDBSource.GetPatientsByDobln(dateOfBirth, lastName);
         }
-
+        /*
         /// <summary>
         /// Retrieves the patients with the date of birth, last name and ssn specified
         /// </summary>
@@ -160,7 +160,7 @@ namespace Group3_ClinicDB.Controller
 
             return this.patientDBSource.GetPatientByDoblnWithSsn(dateOfBirth, lastName, ssn);
         }
-
+        
         /// <summary>
         /// Adds a Patient to the table based on the Id
         /// </summary>
@@ -173,6 +173,34 @@ namespace Group3_ClinicDB.Controller
             }
 
             this.patientDBSource.AddPatient(personId);
+        }
+        */
+        /// <summary>
+        /// Adds a Patient to the table that already exists as a person
+        /// </summary>
+        /// <param name="person">The person the nurse has entered</param>
+        public void AddPatientExistingPerson(Person person)
+        {
+            if (person == null)
+            {
+                throw new ArgumentException("Person cannot be null");
+            }
+
+            this.patientDBSource.AddPatientExistingPerson(person);
+        }
+
+        /// <summary>
+        /// Adds a Patient to the table based on the Id
+        /// </summary>
+        /// <param name="personId"></param>
+        public void AddPatientNewPerson(Person person)
+        {
+            if (person == null)
+            {
+                throw new ArgumentException("Person cannot be null");
+            }
+
+            this.patientDBSource.AddPatientNewPerson(person);
         }
     }
 }
