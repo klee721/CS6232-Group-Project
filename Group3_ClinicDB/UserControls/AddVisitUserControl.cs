@@ -346,9 +346,10 @@ namespace Group3_ClinicDB.UserControls
             var pulse = int.Parse(this.pulseTextBox.Text.ToString());
 
            
+            
             try
             {
-                float temp = float.Parse(this.bodyTemparatureTextBox.Text.ToString());
+                i = int.Parse(this.bodyTemparatureTextBox.Text.ToString());
             }
             catch (Exception)
             {
