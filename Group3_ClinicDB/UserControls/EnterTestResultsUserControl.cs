@@ -10,6 +10,7 @@ namespace Group3_ClinicDB.UserControls
     {
         private readonly LabTestController labTestController;
         private Patient patient;
+        private int patientId;
         private int normalIndex;
         private LabTest oldLabTest;
         private LabTest newLabTest;
@@ -19,6 +20,7 @@ namespace Group3_ClinicDB.UserControls
             InitializeComponent();
             this.labTestController = new LabTestController();
             this.patient = null;
+            this.patientId = 0;
             this.oldLabTest = new LabTest();
             this.newLabTest = new LabTest();
         }
@@ -111,6 +113,7 @@ namespace Group3_ClinicDB.UserControls
                 string results = selectedRow.Cells["Results"].Value.ToString();
                 string normal = selectedRow.Cells["Normal"].Value.ToString();
 
+                this.patientId = id;
                 this.orderDateTimePicker.Value = orderDateTime;
                 this.performedDateTimePicker.MinDate = orderDateTime.AddDays(1);
                 this.performedDateTimePicker.Value = performedDateTime;
@@ -118,6 +121,13 @@ namespace Group3_ClinicDB.UserControls
                 this.resultsTextBox.Text = results;
                 this.normalIndex = normalComboBox.Items.IndexOf(normal);
                 this.normalComboBox.SelectedIndex = this.normalIndex;
+
+                this.oldLabTest.PatientID = this.patientId;
+                this.oldLabTest.OrderDateTime = this.orderDateTimePicker.Value;
+                this.oldLabTest.PerformedDateTime = this.performedDateTimePicker.Value;
+                this.oldLabTest.TestCode = this.testCodeTextBox.Text;
+                this.oldLabTest.Results = this.resultsTextBox.Text;
+                this.oldLabTest.Normal = this.normalComboBox.SelectedItem.ToString();
             }
         }
 
@@ -130,7 +140,13 @@ namespace Group3_ClinicDB.UserControls
                 this.resultsErrorLabel.ForeColor = Color.Red;
             } else
             {
-                //this.labTestController.UpdateLabTest();
+                this.newLabTest.PatientID = this.patientId;
+                this.newLabTest.OrderDateTime = this.orderDateTimePicker.Value;
+                this.newLabTest.PerformedDateTime = this.performedDateTimePicker.Value;
+                this.newLabTest.TestCode = this.testCodeTextBox.Text;
+                this.newLabTest.Results = this.resultsTextBox.Text;
+                this.newLabTest.Normal = this.normalComboBox.SelectedItem.ToString();
+                this.labTestController.UpdateLabTest(this.oldLabTest, this.newLabTest);
             }
         }
 
