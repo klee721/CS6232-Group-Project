@@ -172,7 +172,7 @@ namespace Group3_ClinicDB.DAL
             List<LabTest> labList = new List<LabTest>();
 
             string selectStatement =
-                " SELECT lab.patientId,lab.orderDateTime,lab.performedDateTime,lab.testCode,lab.results,lab.normal,tes.Name " +
+                " SELECT lab.patientId,lab.orderDateTime,lab.performedDateTime,lab.testCode,lab.results,lab.normal " +
                 "FROM labtests lab, tests tes where tes.testCode = lab.testCode and patientId = @patient_Id";
             
             int patientId;
@@ -209,7 +209,7 @@ namespace Group3_ClinicDB.DAL
                             labTest.TestCode = reader["testCode"].ToString() ;
                             labTest.Results = reader["results"].ToString();
                             labTest.Normal = reader["normal"].ToString();
-                            labTest.Name = reader["Name"].ToString();
+                            //labTest.Name = reader["Name"].ToString();
                            
                             labList.Add(labTest);
                         }
