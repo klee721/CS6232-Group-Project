@@ -91,7 +91,7 @@ namespace Group3_ClinicDB.UserControls
                     {
 
                         appointment_idComboBox.DisplayMember = "AppointmentDate";
-                        appointment_idComboBox.ValueMember = "ID";
+                        appointment_idComboBox.ValueMember = "ID" ;
                         appointment_idComboBox.DataSource = appointments;
 
                     }
