@@ -24,6 +24,10 @@ namespace Group3_ClinicDB.UserControls
 
         public Patient patient;
 
+        public User loginUser;
+
+        
+
         /// <summary>
         /// The constructor
         /// </summary>
@@ -35,6 +39,9 @@ namespace Group3_ClinicDB.UserControls
             this.appointmentController = new AppointmentController();
             this.nurseController = new NurseController();
             this.Enabled = false;
+            this.loginUser = new User();
+            this.confirmLabel.Text = "";
+            
         }
 
         /// <summary>
@@ -47,6 +54,16 @@ namespace Group3_ClinicDB.UserControls
             this.Enabled = true;
            
             this.RefreshAppointments();
+        }
+
+        /// <summary>
+        /// Method to retrieve a patient object from the parent form. This enables the module and loads the nurse data
+        /// </summary>
+        /// <param name="loginUser">a Nurse user object to use in appointment booking</param>
+        public void GetNurse(User loginNurseUser)
+        {
+            this.loginUser = loginNurseUser;
+            this.nurseNameLabel.Text = loginNurseUser.firstName + " " + loginNurseUser.lastName;
         }
 
         /// <summary>
@@ -81,6 +98,7 @@ namespace Group3_ClinicDB.UserControls
                     else
                     {
                         MessageBox.Show("No appointments.");
+                        
 
                     }
                 }
@@ -134,6 +152,106 @@ namespace Group3_ClinicDB.UserControls
             }
         }
 
+        private bool validations()
+        {
+            string errors = "Y";
+            if (string.IsNullOrEmpty(this.weightTextBox.Text.ToString()))
+            {
+                //MessageBox.Show("Weight is required.", "Error!");
+                this.weightErrorLabel.Visible = true;
+                errors = "N";
+                //return;
+            } else
+            {
+                this.weightErrorLabel.Visible = false;
+            }
+
+            if (string.IsNullOrEmpty(this.heightTextBox.Text.ToString()))
+            {
+                // MessageBox.Show("height is required.", "Error!");
+                this.heightErrorLabel.Visible = true;
+                errors = "N";
+                // return;
+            } else
+            {
+                this.heightErrorLabel.Visible = false;
+            }
+
+            if (string.IsNullOrEmpty(this.bloodPressureSystolicTextBox.Text.ToString()))
+            {
+                //MessageBox.Show("bloodPressureSystolic is required.", "Error!");
+                //return;
+                bpsErrorLabel.Visible = true;
+                errors = "N";
+            }
+            else
+            {
+                this.bpsErrorLabel.Visible = false;
+            }
+            if (string.IsNullOrEmpty(this.bloodPressureDiastolicTextBox.Text.ToString()))
+            {
+                //MessageBox.Show("bloodPressureDiastolic is required.", "Error!");
+                //return;
+                bpdErrorLabel.Visible = true;
+                errors = "N";
+            }
+            else
+            {
+                this.bpdErrorLabel.Visible = false;
+            }
+            if (string.IsNullOrEmpty(this.pulseTextBox.Text.ToString()))
+            {
+                //MessageBox.Show("pulse is required.", "Error!");
+                //return;
+                pulseErrorLabel.Visible = true;
+                errors = "N";
+            }
+            else
+            {
+                this.pulseErrorLabel.Visible = false;
+            }
+            if (string.IsNullOrEmpty(this.bodyTemparatureTextBox.Text.ToString()))
+            {
+                //MessageBox.Show("bodyTemparature is required.", "Error!");
+                //return;
+                temparatureErrorlabel.Visible = true;
+                errors = "N";
+            }
+            else
+            {
+                this.temparatureErrorlabel.Visible = false;
+            }
+            if (string.IsNullOrEmpty(this.initialDiagnoseTextBox.Text.ToString()))
+            {
+                //MessageBox.Show("initialDiagnose is required.", "Error!");
+                //return;
+                initialDiagnoseErrorLabel.Visible = true;
+                errors = "N";
+            }
+            else
+            {
+                this.initialDiagnoseErrorLabel.Visible = false;
+            }
+            if (string.IsNullOrEmpty(this.symptomsTextBox.Text.ToString()))
+            {
+                //MessageBox.Show("initialDiagnose is required.", "Error!");
+                //return;
+                symptomsErrorlabel.Visible = true;
+                errors = "N";
+            }
+            else
+            {
+                this.symptomsErrorlabel.Visible = false;
+            }
+            if (errors == "N")
+            {
+                MessageBox.Show("Input information is missing!!!!", "Error!");
+                //return;
+                return false;
+            }
+            return true;
+        }
+
         /// <summary>
         /// Method for add click button or submit click button
         /// </summary>
@@ -142,16 +260,18 @@ namespace Group3_ClinicDB.UserControls
         private void AddButton_Click(object sender, EventArgs e)
         {
             var appointment_id = this.appointment_idComboBox.SelectedValue;
-            var nurseId = this.nurseComboBox.SelectedValue;
+            //var nurseId = this.nurseComboBox.SelectedValue;
+            var nurseId = this.loginUser.nurseID;
             int i = 0;
-            if (string.IsNullOrEmpty(this.weightTextBox.Text.ToString()))
+            decimal d = 0;
+            if (!this.validations())
             {
-                MessageBox.Show("Weight is required.", "Error!");
                 return;
             }
+           
             try
             {
-                i = int.Parse(this.weightTextBox.Text.ToString());
+                d = decimal.Parse(this.weightTextBox.Text.ToString());
             }
             catch (Exception)
             {
@@ -161,16 +281,12 @@ namespace Group3_ClinicDB.UserControls
 
             }
 
-            var weight = int.Parse(this.weightTextBox.Text.ToString());
-            if (string.IsNullOrEmpty(this.heightTextBox.Text.ToString()))
-            {
-                MessageBox.Show("height is required.", "Error!");
-                return;
-            }
+            var weight = decimal.Parse(this.weightTextBox.Text.ToString());
+            
 
             try
             {
-                i = int.Parse(this.heightTextBox.Text.ToString());
+                d = decimal.Parse(this.heightTextBox.Text.ToString());
             }
             catch (Exception)
             {
@@ -181,13 +297,9 @@ namespace Group3_ClinicDB.UserControls
             }
 
            
-            var height = int.Parse(this.heightTextBox.Text.ToString());
+            var height = decimal.Parse(this.heightTextBox.Text.ToString());
 
-            if (string.IsNullOrEmpty(this.bloodPressureSystolicTextBox.Text.ToString()))
-            {
-                MessageBox.Show("bloodPressureSystolic is required.", "Error!");
-                return;
-            }
+            
             try
             {
                 i = int.Parse(this.bloodPressureSystolicTextBox.Text.ToString());
@@ -197,16 +309,13 @@ namespace Group3_ClinicDB.UserControls
                 MessageBox.Show("bloodPressureSystolic is not a valid number!!!!",
                     "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
+                
 
             }
 
             var bloodPressureSystolic = int.Parse(this.bloodPressureSystolicTextBox.Text.ToString());
 
-            if (string.IsNullOrEmpty(this.bloodPressureDiastolicTextBox.Text.ToString()))
-            {
-                MessageBox.Show("bloodPressureDiastolic is required.", "Error!");
-                return;
-            }
+            
             try
             {
                 i = int.Parse(this.bloodPressureDiastolicTextBox.Text.ToString());
@@ -220,11 +329,7 @@ namespace Group3_ClinicDB.UserControls
             }
             var bloodPressureDiastolic = int.Parse(this.bloodPressureDiastolicTextBox.Text.ToString());
 
-            if (string.IsNullOrEmpty(this.pulseTextBox.Text.ToString()))
-            {
-                MessageBox.Show("pulse is required.", "Error!");
-                return;
-            }
+            
 
             try
             {
@@ -240,11 +345,7 @@ namespace Group3_ClinicDB.UserControls
 
             var pulse = int.Parse(this.pulseTextBox.Text.ToString());
 
-            if (string.IsNullOrEmpty(this.bodyTemparatureTextBox.Text.ToString()))
-            {
-                MessageBox.Show("bodyTemparature is required.", "Error!");
-                return;
-            }
+           
             try
             {
                 float temp = float.Parse(this.bodyTemparatureTextBox.Text.ToString());
@@ -258,11 +359,9 @@ namespace Group3_ClinicDB.UserControls
             }
 
             var bodyTemparature = int.Parse(this.bodyTemparatureTextBox.Text.ToString());
-            if (string.IsNullOrEmpty(this.initialDiagnoseTextBox.Text.ToString()))
-            {
-                MessageBox.Show("initialDiagnose is required.", "Error!");
-                return;
-            }
+            
+
+            
             var initialDiagnose = this.initialDiagnoseTextBox.Text;
             var finalDiagnose = this.finalDiagnoseTextBox.Text;
             var symptoms = this.symptomsTextBox.Text;
@@ -341,8 +440,19 @@ namespace Group3_ClinicDB.UserControls
             this.symptomsTextBox.Text = "";
             this.initialDiagnoseTextBox.Text = "";
             this.finalDiagnoseTextBox.Text = "";
-           // this.confirmLabel.Text = "";
-           
+            // this.confirmLabel.Text = "";
+
+            initialDiagnoseErrorLabel.Visible = false;
+            appointmentErrorLabel.Visible = false;
+            bpdErrorLabel.Visible = false;
+            bpsErrorLabel.Visible = false;
+            pulseErrorLabel.Visible = false;
+            temparatureErrorlabel.Visible = false;
+            heightErrorLabel.Visible = false;
+            weightErrorLabel.Visible = false;
+            nurseErrorLabel.Visible = false;
+            symptomsErrorlabel.Visible = false;
+            
         }
 
         /// <summary>
