@@ -9,6 +9,7 @@ namespace Group3_ClinicDB.UserControls
     {
         private readonly LabTestController labTestController;
         private Patient patient;
+        private int normalIndex;
 
         public EnterTestResultsUserControl()
         {
@@ -41,6 +42,7 @@ namespace Group3_ClinicDB.UserControls
                 this.normalComboBox.Items.Clear();
                 this.normalComboBox.Items.Add("Y");
                 this.normalComboBox.Items.Add("N");
+                this.normalComboBox.SelectedIndex = 0;
             }
         }
 
@@ -107,7 +109,8 @@ namespace Group3_ClinicDB.UserControls
                 this.performedDateTimePicker.Value = performedDateTime;
                 this.testCodeTextBox.Text = testCode;
                 this.resultsTextBox.Text = results;
-                //this.normalComboBox. = true;
+                this.normalIndex = normalComboBox.Items.IndexOf(normal);
+                this.normalComboBox.SelectedIndex = this.normalIndex;
             }
         }
     }

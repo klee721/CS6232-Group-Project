@@ -156,7 +156,7 @@ namespace Group3_ClinicDB.UserControls
             this.normalComboBox.FormattingEnabled = true;
             this.normalComboBox.Location = new System.Drawing.Point(721, 480);
             this.normalComboBox.Name = "normalComboBox";
-            this.normalComboBox.Size = new System.Drawing.Size(67, 21);
+            this.normalComboBox.Size = new System.Drawing.Size(127, 21);
             this.normalComboBox.TabIndex = 11;
             this.normalComboBox.Visible = false;
             // 
