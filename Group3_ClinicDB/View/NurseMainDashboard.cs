@@ -18,6 +18,7 @@ namespace Group3_ClinicDB.View
             this.loginform = loginform;
             this.PatientIDLabel.Text = "";
             this.PatientNameLabel.Text = "";
+            this.user = user;
         }
 
         private void SelectPatientButton_Click(object sender, EventArgs e)
@@ -36,6 +37,8 @@ namespace Group3_ClinicDB.View
                 this.updateVisitUserControl1.GetPatient(this.patient);
                 this.orderTestsUserControl1.GetPatient(this.patient);
                 this.enterTestResultsUserControl1.GetPatient(this.patient);
+
+                this.addVisitUserControl1.GetNurse(this.user);
                 //PUT ANY UC PATIENT GETS HERE
             }
             else
