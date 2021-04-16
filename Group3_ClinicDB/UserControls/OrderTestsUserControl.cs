@@ -42,6 +42,7 @@ namespace Group3_ClinicDB.UserControls
             this.Enabled = true;
 
             this.RefreshTests();
+            this.Load_LabTests();
         }
 
 
@@ -69,6 +70,12 @@ namespace Group3_ClinicDB.UserControls
                 return;
             }
 
+            if (!this.labTestController.GetOpenLabTestByPatient(this.patient.Id, this.test.TestCode))
+            {
+                MessageBox.Show("An open lab order exists for the same test. Please order different test", "Error!");
+                return;
+            }
+
             DateTime newTestTime = DateTime.Now;
             LabTest labTest = new LabTest();
             labTest.PatientID = this.patient.Id;
@@ -79,7 +86,7 @@ namespace Group3_ClinicDB.UserControls
             if (this.labTestController.OrderLabTest(labTest))
             {
 
-                this.confirmLabel.Text = "Lab test ordered successfully";
+                //this.confirmLabel.Text = "Lab test ordered successfully";
                 this.Reset();
             }
             else
@@ -99,9 +106,10 @@ namespace Group3_ClinicDB.UserControls
             this.testCodecomboBox.SelectedIndex = 0; 
             this.testNameLabel.Text = "";
             this.descriptionLabel.Text = "";
-             this.confirmLabel.Text = "";
+            //this.confirmLabel.Text = "";
             //this.testCodecomboBox.Refresh();
             //this.RefreshTests();
+            this.Load_LabTests();
             
         }
 
@@ -121,7 +129,7 @@ namespace Group3_ClinicDB.UserControls
         /// 
         private void RefreshTests()
         {
-            testCodecomboBox.Items.Clear();
+            //testCodecomboBox.Items.Clear();
             List<Test> tests;
 
 
@@ -163,6 +171,20 @@ namespace Group3_ClinicDB.UserControls
 
             descriptionLabel.Text = test.Description;
             testNameLabel.Text = test.Name;
+            //this.confirmLabel.Text = "";
+
+        }
+
+        /// <summary>
+        /// Method to load visits
+        /// </summary>
+        /// 
+        public void Load_LabTests()
+        {
+            if (this.patient != null)
+            {
+                labTestsDataGridView.DataSource = this.labTestController.GetLabsByPatient(this.patient.Id);
+            }
         }
     }
 }

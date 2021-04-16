@@ -64,6 +64,23 @@ namespace Group3_ClinicDB.Controller
 
         }
 
-       
+        /// <summary>
+        /// GetLabsByPatient method to list the labs of a patient
+        /// </summary>
+        public List<LabTest> GetLabsByPatient(int patient_id)
+        {
+            return this.testSource.GetLabTestsByPatient(patient_id);
+        }
+
+        /// <summary>
+        /// GetLabsByPatient method to list the labs of a patient
+        /// </summary>
+        public bool GetOpenLabTestByPatient(int patient_id, string testCode)
+        {
+            return this.testSource.GetOpenLabTestByPatient(patient_id,testCode);
+        }
+
+        
+
     }
 }

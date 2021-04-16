@@ -161,5 +161,113 @@ namespace Group3_ClinicDB.DAL
             return true;
         }
 
+
+        /// <summary>
+        ///method to get labtests which are open
+        /// </summary>
+        /// <returns>a list of Incidents</returns>
+
+        public List<LabTest> GetLabTestsByPatient(int patient_Id)
+        {
+            List<LabTest> labList = new List<LabTest>();
+
+            string selectStatement =
+                " SELECT lab.patientId,lab.orderDateTime,lab.performedDateTime,lab.testCode,lab.results,lab.normal " +
+                "FROM labtests lab, tests tes where tes.testCode = lab.testCode and patientId = @patient_Id";
+            
+            int patientId;
+            DateTime orderDateTime;
+            DateTime performedDateTime;
+            string testCode;
+            string results;
+            string normal;
+            string name;
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@patient_Id", patient_Id);
+
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+              
+                        while (reader.Read())
+                        {
+
+                            LabTest labTest = new LabTest();
+                        
+                            labTest.PatientID = (int)reader["patientId"]; ;
+                            labTest.OrderDateTime = (DateTime)reader["orderDateTime"];
+                            if (reader["performedDateTime"] != DBNull.Value)
+                            {
+                                labTest.PerformedDateTime = (DateTime)reader["performedDateTime"];
+                            }
+                            
+                            labTest.TestCode = reader["testCode"].ToString() ;
+                            labTest.Results = reader["results"].ToString();
+                            labTest.Normal = reader["normal"].ToString();
+                            //labTest.Name = reader["Name"].ToString();
+                           
+                            labList.Add(labTest);
+                        }
+                    }
+                }
+
+            }
+            return labList;
+        }
+
+        /// <summary>
+        ///method to get labtests which are open
+        /// </summary>
+        /// <returns>boolean </returns>
+
+        public bool GetOpenLabTestByPatient(int patient_Id, string testCode)
+        {
+            
+            string selectStatement =
+                " SELECT testCode " +
+                "FROM labtests lab where patientId = @patient_Id and testCode = @testCode and performedDateTime is null ";
+
+            
+            string code = "";
+            
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@patient_Id", patient_Id);
+                    selectCommand.Parameters.AddWithValue("@testCode", testCode);
+
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+
+                        while (reader.Read())
+                        {
+
+                            code = reader["testCode"].ToString();
+                           
+                        }
+
+                       
+                    }
+                }
+
+            }
+
+            if (code == "")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
