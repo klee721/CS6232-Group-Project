@@ -1,6 +1,7 @@
 ﻿using Group3_ClinicDB.Controller;
 using Group3_ClinicDB.Model;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Group3_ClinicDB.UserControls
@@ -10,12 +11,16 @@ namespace Group3_ClinicDB.UserControls
         private readonly LabTestController labTestController;
         private Patient patient;
         private int normalIndex;
+        private LabTest oldLabTest;
+        private LabTest newLabTest;
 
         public EnterTestResultsUserControl()
         {
             InitializeComponent();
             this.labTestController = new LabTestController();
             this.patient = null;
+            this.oldLabTest = new LabTest();
+            this.newLabTest = new LabTest();
         }
 
         /// <summary>
@@ -93,6 +98,8 @@ namespace Group3_ClinicDB.UserControls
             if (patientDataGridView.SelectedCells.Count > 0)
             {
                 this.HidePatientInfo(false);
+                this.resultsErrorLabel.Visible = false;
+                this.resultsErrorLabel.ForeColor = Color.Black;
 
                 int selectedrowindex = patientDataGridView.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = patientDataGridView.Rows[selectedrowindex];
@@ -112,6 +119,25 @@ namespace Group3_ClinicDB.UserControls
                 this.normalIndex = normalComboBox.Items.IndexOf(normal);
                 this.normalComboBox.SelectedIndex = this.normalIndex;
             }
+        }
+
+        private void TestResultsButtonClick(object sender, EventArgs e)
+        {
+            if(this.resultsTextBox.Text.Equals(""))
+            {
+                this.resultsErrorLabel.Text = "Must enter a result for the lab test";
+                this.resultsErrorLabel.Visible = true;
+                this.resultsErrorLabel.ForeColor = Color.Red;
+            } else
+            {
+                //this.labTestController.UpdateLabTest();
+            }
+        }
+
+        private void ResultsTextBoxTextChanged(object sender, EventArgs e)
+        {
+            this.resultsErrorLabel.Visible = false;
+            this.resultsErrorLabel.ForeColor = Color.Black;
         }
     }
 }
