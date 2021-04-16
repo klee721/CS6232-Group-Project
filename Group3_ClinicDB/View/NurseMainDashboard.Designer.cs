@@ -49,6 +49,7 @@ namespace Group3_ClinicDB.View
             this.updateVisitUserControl1 = new Group3_ClinicDB.UserControls.UpdateVisitUserControl();
             this.OrderTestTab = new System.Windows.Forms.TabPage();
             this.orderTestsUserControl1 = new Group3_ClinicDB.UserControls.OrderTestsUserControl();
+            this.enterTestResultsTab = new System.Windows.Forms.TabPage();
             this.LoggedInAsLabel = new System.Windows.Forms.Label();
             this.SelectedPatientIDLabel = new System.Windows.Forms.Label();
             this.LogoutLink = new System.Windows.Forms.LinkLabel();
@@ -58,7 +59,7 @@ namespace Group3_ClinicDB.View
             this.PatientNameLabel = new System.Windows.Forms.Label();
             this.UserFullNameLabel = new System.Windows.Forms.Label();
             this.UserNameLabel = new System.Windows.Forms.Label();
-            this.enterTestResultsTab = new System.Windows.Forms.TabPage();
+            this.enterTestResultsUserControl1 = new Group3_ClinicDB.UserControls.EnterTestResultsUserControl();
             this.DashboardTabControl.SuspendLayout();
             this.SearchPatientTab.SuspendLayout();
             this.registerPatientTab.SuspendLayout();
@@ -69,6 +70,7 @@ namespace Group3_ClinicDB.View
             this.addVisitTabPage.SuspendLayout();
             this.EditVisitTab.SuspendLayout();
             this.OrderTestTab.SuspendLayout();
+            this.enterTestResultsTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // DashboardTabControl
@@ -279,6 +281,16 @@ namespace Group3_ClinicDB.View
             this.orderTestsUserControl1.Size = new System.Drawing.Size(720, 481);
             this.orderTestsUserControl1.TabIndex = 0;
             // 
+            // enterTestResultsTab
+            // 
+            this.enterTestResultsTab.Controls.Add(this.enterTestResultsUserControl1);
+            this.enterTestResultsTab.Location = new System.Drawing.Point(4, 22);
+            this.enterTestResultsTab.Name = "enterTestResultsTab";
+            this.enterTestResultsTab.Size = new System.Drawing.Size(1215, 615);
+            this.enterTestResultsTab.TabIndex = 10;
+            this.enterTestResultsTab.Text = "Enter Test Results";
+            this.enterTestResultsTab.UseVisualStyleBackColor = true;
+            // 
             // LoggedInAsLabel
             // 
             this.LoggedInAsLabel.AutoSize = true;
@@ -374,14 +386,15 @@ namespace Group3_ClinicDB.View
             this.UserNameLabel.TabIndex = 17;
             this.UserNameLabel.Text = "USERNAME";
             // 
-            // enterTestResultsTab
+            // enterTestResultsUserControl1
             // 
-            this.enterTestResultsTab.Location = new System.Drawing.Point(4, 22);
-            this.enterTestResultsTab.Name = "enterTestResultsTab";
-            this.enterTestResultsTab.Size = new System.Drawing.Size(1215, 615);
-            this.enterTestResultsTab.TabIndex = 10;
-            this.enterTestResultsTab.Text = "Enter Test Results";
-            this.enterTestResultsTab.UseVisualStyleBackColor = true;
+            this.enterTestResultsUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.enterTestResultsUserControl1.Location = new System.Drawing.Point(0, 0);
+            this.enterTestResultsUserControl1.MaximumSize = new System.Drawing.Size(1215, 615);
+            this.enterTestResultsUserControl1.MinimumSize = new System.Drawing.Size(1215, 615);
+            this.enterTestResultsUserControl1.Name = "enterTestResultsUserControl1";
+            this.enterTestResultsUserControl1.Size = new System.Drawing.Size(1215, 615);
+            this.enterTestResultsUserControl1.TabIndex = 0;
             // 
             // NurseMainDashboard
             // 
@@ -414,6 +427,7 @@ namespace Group3_ClinicDB.View
             this.addVisitTabPage.ResumeLayout(false);
             this.EditVisitTab.ResumeLayout(false);
             this.OrderTestTab.ResumeLayout(false);
+            this.enterTestResultsTab.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -451,5 +465,6 @@ namespace Group3_ClinicDB.View
         private System.Windows.Forms.TabPage OrderTestTab;
         private UserControls.OrderTestsUserControl orderTestsUserControl1;
         private System.Windows.Forms.TabPage enterTestResultsTab;
+        private UserControls.EnterTestResultsUserControl enterTestResultsUserControl1;
     }
 }

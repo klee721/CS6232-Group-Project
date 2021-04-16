@@ -25,6 +25,20 @@ namespace Group3_ClinicDB.Controller
         }
 
         /// <summary>
+        /// Controller method to call on DAL method to retrieve List of all LabTests in the DB for a patient
+        /// </summary>
+        /// <returns>a List of Test objects for all Nurses in the DB</returns>
+        public List<LabTest> GetAllLabTestsForPatient(Patient patient)
+        {
+            if (patient == null)
+            {
+                throw new Exception("patient cannot be null");
+            }
+
+            return this.testSource.GetAllLabTestsForPatient(patient);
+        }
+
+        /// <summary>
         /// Controller method to call on DAL method to retrieve List of all Tests in the DB
         /// </summary>
         ///  Test objects for the code in the DB</returns>

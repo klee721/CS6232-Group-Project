@@ -55,13 +55,6 @@ namespace Group3_ClinicDB.UserControls
         private void EditPatientUserControlVisibleChanged(object sender, EventArgs e)
         {
             this.InitEditPatient();
-            /*
-            if (this.newPatient != null)
-            {
-                this.PopulateFields(this.newPatient);
-                this.Enabled = true;
-            }
-            */
         }
 
         private void InitEditPatient()
