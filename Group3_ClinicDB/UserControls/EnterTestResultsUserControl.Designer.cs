@@ -66,7 +66,6 @@ namespace Group3_ClinicDB.UserControls
             this.patientNameLabel.Size = new System.Drawing.Size(41, 13);
             this.patientNameLabel.TabIndex = 1;
             this.patientNameLabel.Text = "label1";
-            this.patientNameLabel.Visible = false;
             // 
             // orderDateTimeLabel
             // 
@@ -76,7 +75,6 @@ namespace Group3_ClinicDB.UserControls
             this.orderDateTimeLabel.Size = new System.Drawing.Size(142, 13);
             this.orderDateTimeLabel.TabIndex = 2;
             this.orderDateTimeLabel.Text = "Lab Test Ordered DateTime:";
-            this.orderDateTimeLabel.Visible = false;
             // 
             // testCodeLabel
             // 
@@ -86,7 +84,6 @@ namespace Group3_ClinicDB.UserControls
             this.testCodeLabel.Size = new System.Drawing.Size(59, 13);
             this.testCodeLabel.TabIndex = 6;
             this.testCodeLabel.Text = "Test Code:";
-            this.testCodeLabel.Visible = false;
             // 
             // testCodeTextBox
             // 
@@ -95,7 +92,6 @@ namespace Group3_ClinicDB.UserControls
             this.testCodeTextBox.ReadOnly = true;
             this.testCodeTextBox.Size = new System.Drawing.Size(200, 20);
             this.testCodeTextBox.TabIndex = 7;
-            this.testCodeTextBox.Visible = false;
             // 
             // resultsLabel
             // 
@@ -105,7 +101,6 @@ namespace Group3_ClinicDB.UserControls
             this.resultsLabel.Size = new System.Drawing.Size(45, 13);
             this.resultsLabel.TabIndex = 8;
             this.resultsLabel.Text = "Results:";
-            this.resultsLabel.Visible = false;
             // 
             // resultsTextBox
             // 
@@ -114,7 +109,6 @@ namespace Group3_ClinicDB.UserControls
             this.resultsTextBox.Name = "resultsTextBox";
             this.resultsTextBox.Size = new System.Drawing.Size(235, 138);
             this.resultsTextBox.TabIndex = 9;
-            this.resultsTextBox.Visible = false;
             this.resultsTextBox.TextChanged += new System.EventHandler(this.ResultsTextBoxTextChanged);
             // 
             // normalLabel
@@ -125,7 +119,6 @@ namespace Group3_ClinicDB.UserControls
             this.normalLabel.Size = new System.Drawing.Size(49, 13);
             this.normalLabel.TabIndex = 10;
             this.normalLabel.Text = "Normal?:";
-            this.normalLabel.Visible = false;
             // 
             // normalComboBox
             // 
@@ -135,7 +128,6 @@ namespace Group3_ClinicDB.UserControls
             this.normalComboBox.Name = "normalComboBox";
             this.normalComboBox.Size = new System.Drawing.Size(127, 21);
             this.normalComboBox.TabIndex = 11;
-            this.normalComboBox.Visible = false;
             // 
             // testResultsButton
             // 
@@ -146,7 +138,6 @@ namespace Group3_ClinicDB.UserControls
             this.testResultsButton.TabIndex = 12;
             this.testResultsButton.Text = "Enter Results";
             this.testResultsButton.UseVisualStyleBackColor = true;
-            this.testResultsButton.Visible = false;
             this.testResultsButton.Click += new System.EventHandler(this.TestResultsButtonClick);
             // 
             // resultsErrorLabel
@@ -167,7 +158,6 @@ namespace Group3_ClinicDB.UserControls
             this.performedDateTimeLabel.Size = new System.Drawing.Size(155, 13);
             this.performedDateTimeLabel.TabIndex = 15;
             this.performedDateTimeLabel.Text = "Lab Test Performed Date Time:";
-            this.performedDateTimeLabel.Visible = false;
             // 
             // fullOrderedDateTimeTextBox
             // 
@@ -176,7 +166,6 @@ namespace Group3_ClinicDB.UserControls
             this.fullOrderedDateTimeTextBox.ReadOnly = true;
             this.fullOrderedDateTimeTextBox.Size = new System.Drawing.Size(200, 20);
             this.fullOrderedDateTimeTextBox.TabIndex = 17;
-            this.fullOrderedDateTimeTextBox.Visible = false;
             // 
             // fullPerformedDateTimeTextBox
             // 
@@ -185,7 +174,6 @@ namespace Group3_ClinicDB.UserControls
             this.fullPerformedDateTimeTextBox.ReadOnly = true;
             this.fullPerformedDateTimeTextBox.Size = new System.Drawing.Size(200, 20);
             this.fullPerformedDateTimeTextBox.TabIndex = 18;
-            this.fullPerformedDateTimeTextBox.Visible = false;
             // 
             // enterTestTitleLabel
             // 

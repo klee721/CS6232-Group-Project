@@ -67,6 +67,7 @@ namespace Group3_ClinicDB.View
             this.updateVisitUserControl1.Enabled = false;
             this.allVisitsUserControl1.Enabled = false;
             this.orderTestsUserControl1.Enabled = false;
+            this.enterTestResultsUserControl1.GetPatient(null);
             //DISABLE YOUR MODULES ON LOGOUT HERE
         }
 

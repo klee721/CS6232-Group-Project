@@ -39,11 +39,12 @@ namespace Group3_ClinicDB.UserControls
 
         private void InitEnterTestResults()
         {
+            this.DisablePatientInfo(true);
+            this.patientDataGridView.DataSource = null;
+
             if (this.patient != null)
             {
                 this.patientDataGridView.DataSource = this.labTestController.GetAllLabTestsForPatientNotPerformed(this.patient);
-                this.HidePatientInfo(true);
-
                 this.normalComboBox.Items.Clear();
                 this.normalComboBox.Items.Add("Y");
                 this.normalComboBox.Items.Add("N");
@@ -61,47 +62,43 @@ namespace Group3_ClinicDB.UserControls
             this.InitEnterTestResults();
         }
 
-        private void HidePatientInfo(bool hide)
+        private void DisablePatientInfo(bool disable)
         {
-            if (hide)
+            if (disable)
             {
-                this.patientNameLabel.Visible = false;
-                this.orderDateTimeLabel.Visible = false;
-                this.fullOrderedDateTimeTextBox.Visible = false;
-                this.performedDateTimeLabel.Visible = false;
-                this.fullPerformedDateTimeTextBox.Visible = false;
-                this.testCodeLabel.Visible = false;
-                this.testCodeTextBox.Visible = false;
-                this.resultsLabel.Visible = false;
-                this.resultsTextBox.Visible = false;
-                this.normalLabel.Visible = false;
-                this.normalComboBox.Visible = false;
-                this.testResultsButton.Visible = false;
+                this.patientNameLabel.Text = "lab test";
+                this.fullOrderedDateTimeTextBox.Text = "";
+                this.fullPerformedDateTimeTextBox.Text = "";
+                this.testCodeTextBox.Text = "";
+
+                this.normalComboBox.Enabled = false;
+
+                this.resultsTextBox.ReadOnly = true;
+                this.resultsTextBox.Text = "";
+                this.testResultsButton.Enabled = false;
                 this.resultsErrorLabel.Visible = false;
             } else
             {
                 this.patientNameLabel.Text = this.patient.FirstName + " " + this.patient.LastName + "'s lab test";
-                this.patientNameLabel.Visible = true;
-                this.orderDateTimeLabel.Visible = true;
-                this.fullOrderedDateTimeTextBox.Visible = true;
-                this.performedDateTimeLabel.Visible = true;
-                this.fullPerformedDateTimeTextBox.Visible = true;
                 this.fullPerformedDateTimeTextBox.Text = "Updated at time of submission";
-                this.testCodeLabel.Visible = true;
-                this.testCodeTextBox.Visible = true;
-                this.resultsLabel.Visible = true;
-                this.resultsTextBox.Visible = true;
-                this.normalLabel.Visible = true;
-                this.normalComboBox.Visible = true;
-                this.testResultsButton.Visible = true;
+                this.resultsTextBox.ReadOnly = false;
+                this.normalComboBox.Enabled = true; ;
+                this.testResultsButton.Enabled = true;
             }
+        }
+
+        public void OnLogOut()
+        {
+            this.DisablePatientInfo(true);
+            this.patientDataGridView.DataSource = null;
+            this.patientDataGridView.Rows.Clear();
         }
 
         private void PatientDataGridViewCellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (patientDataGridView.SelectedCells.Count > 0)
             {
-                this.HidePatientInfo(false);
+                this.DisablePatientInfo(false);
                 this.resultsErrorLabel.Visible = false;
                 this.resultsErrorLabel.ForeColor = Color.Black;
 
