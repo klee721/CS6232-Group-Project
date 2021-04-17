@@ -275,9 +275,9 @@ namespace Group3_ClinicDB.DAL
                     "results = @newResults, normal = @newNormal, visit_id = @newVisitId " +
                     "WHERE patientId = @oldPatientID " +
                     "AND orderDateTime = @oldOrderDateTime " +
-                    "AND performedDateTime = @oldPerformedDateTime " +
+                    "AND ISNULL(performedDateTime, '') = @oldPerformedDateTime " +
                     "AND testCode = @oldTestCode " +
-                    "AND results = @oldResults " +
+                    "AND ISNULL(results, '') = @oldResults " +
                     "AND normal = @oldNormal " +
                     "AND visit_id = @oldVisitId ";
 
