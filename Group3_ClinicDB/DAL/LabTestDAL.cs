@@ -50,9 +50,9 @@ namespace Group3_ClinicDB.DAL
         {
             List<LabTest> labTestList = new List<LabTest>();
 
-            string selectStatement = "SELECT patientId, orderDateTime,visit_id, " +
-                                        "ISNULL(performedDateTime, DATEADD(day, 1, orderDateTime)) as performedDateTime, " +
-                                        "testCode, ISNULL(results, '') as results, ISNULL(normal, '') as normal " +
+            string selectStatement = "SELECT patientId, orderDateTime, " +
+                                        "ISNULL(performedDateTime, '') as performedDateTime, " +
+                                        "testCode, ISNULL(results, '') as results, ISNULL(normal, '') as normal, visit_id " +
                                         "FROM labtests " + 
                                         "WHERE patientId = @PatientID";
 

@@ -10,7 +10,6 @@ namespace Group3_ClinicDB.UserControls
     {
         private readonly LabTestController labTestController;
         private Patient patient;
-        private int patientId;
         private int normalIndex;
         private LabTest oldLabTest;
         private LabTest newLabTest;
@@ -20,7 +19,6 @@ namespace Group3_ClinicDB.UserControls
             InitializeComponent();
             this.labTestController = new LabTestController();
             this.patient = null;
-            this.patientId = 0;
             this.oldLabTest = new LabTest();
             this.newLabTest = new LabTest();
         }
@@ -45,7 +43,7 @@ namespace Group3_ClinicDB.UserControls
             {
                 this.patientDataGridView.DataSource = this.labTestController.GetAllLabTestsForPatient(this.patient);
                 this.HidePatientInfo(true);
-                this.performedDateTimePicker.MaxDate = DateTime.Now.AddDays(1);
+
                 this.normalComboBox.Items.Clear();
                 this.normalComboBox.Items.Add("Y");
                 this.normalComboBox.Items.Add("N");
@@ -69,29 +67,33 @@ namespace Group3_ClinicDB.UserControls
             {
                 this.patientNameLabel.Visible = false;
                 this.orderDateTimeLabel.Visible = false;
-                this.orderDateTimePicker.Visible = false;
+                this.fullOrderedDateTimeTextBox.Visible = false;
                 this.performedDateTimeLabel.Visible = false;
-                this.performedDateTimePicker.Visible = false;
+                this.fullPerformedDateTimeTextBox.Visible = false;
                 this.testCodeLabel.Visible = false;
                 this.testCodeTextBox.Visible = false;
                 this.resultsLabel.Visible = false;
                 this.resultsTextBox.Visible = false;
                 this.normalLabel.Visible = false;
                 this.normalComboBox.Visible = false;
+                this.testResultsButton.Visible = false;
+                this.resultsErrorLabel.Visible = false;
             } else
             {
                 this.patientNameLabel.Text = this.patient.FirstName + " " + this.patient.LastName + "'s lab test";
                 this.patientNameLabel.Visible = true;
                 this.orderDateTimeLabel.Visible = true;
-                this.orderDateTimePicker.Visible = true;
+                this.fullOrderedDateTimeTextBox.Visible = true;
                 this.performedDateTimeLabel.Visible = true;
-                this.performedDateTimePicker.Visible = true;
+                this.fullPerformedDateTimeTextBox.Visible = true;
+                this.fullPerformedDateTimeTextBox.Text = "Updated at time of submission";
                 this.testCodeLabel.Visible = true;
                 this.testCodeTextBox.Visible = true;
                 this.resultsLabel.Visible = true;
                 this.resultsTextBox.Visible = true;
                 this.normalLabel.Visible = true;
                 this.normalComboBox.Visible = true;
+                this.testResultsButton.Visible = true;
             }
         }
 
@@ -112,22 +114,21 @@ namespace Group3_ClinicDB.UserControls
                 string testCode = selectedRow.Cells["TestCode"].Value.ToString();
                 string results = selectedRow.Cells["Results"].Value.ToString();
                 string normal = selectedRow.Cells["Normal"].Value.ToString();
+                int visitID = (int)selectedRow.Cells["visitId"].Value;
 
-                this.patientId = id;
-                this.orderDateTimePicker.Value = orderDateTime;
-                this.performedDateTimePicker.MinDate = orderDateTime.AddDays(1);
-                this.performedDateTimePicker.Value = performedDateTime;
+                this.fullOrderedDateTimeTextBox.Text = orderDateTime.ToString();
                 this.testCodeTextBox.Text = testCode;
                 this.resultsTextBox.Text = results;
                 this.normalIndex = normalComboBox.Items.IndexOf(normal);
                 this.normalComboBox.SelectedIndex = this.normalIndex;
 
-                this.oldLabTest.PatientID = this.patientId;
-                this.oldLabTest.OrderDateTime = this.orderDateTimePicker.Value;
-                this.oldLabTest.PerformedDateTime = this.performedDateTimePicker.Value;
+                this.oldLabTest.PatientID = id;
+                this.oldLabTest.OrderDateTime = orderDateTime;
+                this.oldLabTest.PerformedDateTime = performedDateTime;
                 this.oldLabTest.TestCode = this.testCodeTextBox.Text;
                 this.oldLabTest.Results = this.resultsTextBox.Text;
                 this.oldLabTest.Normal = this.normalComboBox.SelectedItem.ToString();
+                this.oldLabTest.visitId = visitID;
             }
         }
 
@@ -140,13 +141,26 @@ namespace Group3_ClinicDB.UserControls
                 this.resultsErrorLabel.ForeColor = Color.Red;
             } else
             {
-                this.newLabTest.PatientID = this.patientId;
-                this.newLabTest.OrderDateTime = this.orderDateTimePicker.Value;
-                this.newLabTest.PerformedDateTime = this.performedDateTimePicker.Value;
-                this.newLabTest.TestCode = this.testCodeTextBox.Text;
+                this.newLabTest.PatientID = this.oldLabTest.PatientID;
+                this.newLabTest.OrderDateTime = this.oldLabTest.OrderDateTime;
+                this.newLabTest.PerformedDateTime = DateTime.Now;
+                this.newLabTest.TestCode = this.oldLabTest.TestCode;
                 this.newLabTest.Results = this.resultsTextBox.Text;
-                this.newLabTest.Normal = this.normalComboBox.SelectedItem.ToString();
-                this.labTestController.UpdateLabTest(this.oldLabTest, this.newLabTest);
+                this.newLabTest.Normal = this.oldLabTest.Normal;
+                this.newLabTest.visitId = this.oldLabTest.visitId;
+
+                //this.labTestController.UpdateLabTest(this.oldLabTest, this.newLabTest);
+
+                this.fullPerformedDateTimeTextBox.Text = this.newLabTest.PerformedDateTime.ToString();
+                this.fullPerformedDateTimeTextBox.Visible = true;
+
+                this.oldLabTest = this.newLabTest;
+                this.newLabTest = null;
+                this.patientDataGridView.DataSource = this.labTestController.GetAllLabTestsForPatient(this.patient);
+
+                this.resultsErrorLabel.Visible = true;
+                this.resultsErrorLabel.Text = "Results successfully entered!";
+                this.resultsErrorLabel.ForeColor = Color.Black;
             }
         }
 
