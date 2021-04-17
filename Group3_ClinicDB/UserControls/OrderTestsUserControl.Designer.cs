@@ -39,13 +39,15 @@ namespace Group3_ClinicDB.UserControls
             this.label1 = new System.Windows.Forms.Label();
             this.confirmLabel = new System.Windows.Forms.Label();
             this.labTestsDataGridView = new System.Windows.Forms.DataGridView();
+            this.visitComboBox = new System.Windows.Forms.ComboBox();
+            this.lable3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.labTestsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // testCodecomboBox
             // 
             this.testCodecomboBox.FormattingEnabled = true;
-            this.testCodecomboBox.Location = new System.Drawing.Point(260, 94);
+            this.testCodecomboBox.Location = new System.Drawing.Point(260, 131);
             this.testCodecomboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.testCodecomboBox.Name = "testCodecomboBox";
             this.testCodecomboBox.Size = new System.Drawing.Size(322, 28);
@@ -55,7 +57,7 @@ namespace Group3_ClinicDB.UserControls
             // testNameLabel
             // 
             this.testNameLabel.AutoSize = true;
-            this.testNameLabel.Location = new System.Drawing.Point(270, 35);
+            this.testNameLabel.Location = new System.Drawing.Point(262, 84);
             this.testNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.testNameLabel.Name = "testNameLabel";
             this.testNameLabel.Size = new System.Drawing.Size(0, 20);
@@ -86,7 +88,7 @@ namespace Group3_ClinicDB.UserControls
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(151, 94);
+            this.label2.Location = new System.Drawing.Point(151, 131);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 20);
@@ -96,7 +98,7 @@ namespace Group3_ClinicDB.UserControls
             // descriptionLabel
             // 
             this.descriptionLabel.AutoSize = true;
-            this.descriptionLabel.Location = new System.Drawing.Point(270, 171);
+            this.descriptionLabel.Location = new System.Drawing.Point(259, 186);
             this.descriptionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.descriptionLabel.Name = "descriptionLabel";
             this.descriptionLabel.Size = new System.Drawing.Size(0, 20);
@@ -105,7 +107,7 @@ namespace Group3_ClinicDB.UserControls
             // Description
             // 
             this.Description.AutoSize = true;
-            this.Description.Location = new System.Drawing.Point(105, 171);
+            this.Description.Location = new System.Drawing.Point(105, 186);
             this.Description.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Description.Name = "Description";
             this.Description.Size = new System.Drawing.Size(128, 20);
@@ -115,7 +117,7 @@ namespace Group3_ClinicDB.UserControls
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(182, 35);
+            this.label1.Location = new System.Drawing.Point(174, 84);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 20);
@@ -125,7 +127,7 @@ namespace Group3_ClinicDB.UserControls
             // confirmLabel
             // 
             this.confirmLabel.AutoSize = true;
-            this.confirmLabel.Location = new System.Drawing.Point(233, 240);
+            this.confirmLabel.Location = new System.Drawing.Point(233, 255);
             this.confirmLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.confirmLabel.Name = "confirmLabel";
             this.confirmLabel.Size = new System.Drawing.Size(0, 20);
@@ -141,10 +143,29 @@ namespace Group3_ClinicDB.UserControls
             this.labTestsDataGridView.Size = new System.Drawing.Size(870, 250);
             this.labTestsDataGridView.TabIndex = 11;
             // 
+            // visitComboBox
+            // 
+            this.visitComboBox.FormattingEnabled = true;
+            this.visitComboBox.Location = new System.Drawing.Point(266, 41);
+            this.visitComboBox.Name = "visitComboBox";
+            this.visitComboBox.Size = new System.Drawing.Size(216, 28);
+            this.visitComboBox.TabIndex = 13;
+            // 
+            // lable3
+            // 
+            this.lable3.AutoSize = true;
+            this.lable3.Location = new System.Drawing.Point(178, 48);
+            this.lable3.Name = "lable3";
+            this.lable3.Size = new System.Drawing.Size(57, 20);
+            this.lable3.TabIndex = 14;
+            this.lable3.Text = "Visit Id";
+            // 
             // OrderTestsUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lable3);
+            this.Controls.Add(this.visitComboBox);
             this.Controls.Add(this.labTestsDataGridView);
             this.Controls.Add(this.confirmLabel);
             this.Controls.Add(this.label1);
@@ -158,6 +179,8 @@ namespace Group3_ClinicDB.UserControls
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "OrderTestsUserControl";
             this.Size = new System.Drawing.Size(953, 678);
+            this.Load += new System.EventHandler(this.OrderTestsUserControl_Load);
+            this.Enter += new System.EventHandler(this.OrderTestsUserControl_Enter);
             ((System.ComponentModel.ISupportInitialize)(this.labTestsDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -175,5 +198,7 @@ namespace Group3_ClinicDB.UserControls
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label confirmLabel;
         private System.Windows.Forms.DataGridView labTestsDataGridView;
+        private System.Windows.Forms.ComboBox visitComboBox;
+        private System.Windows.Forms.Label lable3;
     }
 }

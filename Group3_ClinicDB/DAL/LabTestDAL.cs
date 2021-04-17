@@ -50,7 +50,7 @@ namespace Group3_ClinicDB.DAL
         {
             List<LabTest> labTestList = new List<LabTest>();
 
-            string selectStatement = "SELECT patientId, orderDateTime, " +
+            string selectStatement = "SELECT patientId, orderDateTime,visit_id, " +
                                         "ISNULL(performedDateTime, DATEADD(day, 1, orderDateTime)) as performedDateTime, " +
                                         "testCode, ISNULL(results, '') as results, ISNULL(normal, '') as normal " +
                                         "FROM labtests " + 
@@ -75,6 +75,7 @@ namespace Group3_ClinicDB.DAL
                             labTest.TestCode = reader["testCode"].ToString();
                             labTest.Results = reader["results"].ToString();
                             labTest.Normal = reader["normal"].ToString();
+                            labTest.visitId = (int)reader["visit_id"];
 
                             labTestList.Add(labTest);
                         }
@@ -139,8 +140,8 @@ namespace Group3_ClinicDB.DAL
 
             }
 
-            string insertStatement = "INSERT INTO labtests (patientId ,testCode,orderDateTime, normal) "
-                + "VALUES (@patientID, @testCode, @orderDateTime, @normal)";
+            string insertStatement = "INSERT INTO labtests (patientId ,testCode,orderDateTime, normal,visit_id) "
+                + "VALUES (@patientID, @testCode, @orderDateTime, @normal, @visitId)";
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
             {
@@ -151,7 +152,8 @@ namespace Group3_ClinicDB.DAL
                     insertCommand.Parameters.AddWithValue("@patientID", labTest.PatientID);
                     insertCommand.Parameters.AddWithValue("@orderDateTime", labTest.OrderDateTime);
                     insertCommand.Parameters.AddWithValue("@testCode", labTest.TestCode);
-                    insertCommand.Parameters.AddWithValue("@normal", "Y"); 
+                    insertCommand.Parameters.AddWithValue("@normal", "Y");
+                    insertCommand.Parameters.AddWithValue("@visitId", labTest.visitId);
                     insertCommand.ExecuteNonQuery();
 
                 }
@@ -172,7 +174,7 @@ namespace Group3_ClinicDB.DAL
             List<LabTest> labList = new List<LabTest>();
 
             string selectStatement =
-                " SELECT lab.patientId,lab.orderDateTime,lab.performedDateTime,lab.testCode,lab.results,lab.normal " +
+                " SELECT lab.patientId,lab.orderDateTime,lab.performedDateTime,lab.testCode,lab.results,lab.normal,lab.visit_id " +
                 "FROM labtests lab, tests tes where tes.testCode = lab.testCode and patientId = @patient_Id";
             
             int patientId;
@@ -182,6 +184,7 @@ namespace Group3_ClinicDB.DAL
             string results;
             string normal;
             string name;
+            int visitId;
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
             {
@@ -199,7 +202,8 @@ namespace Group3_ClinicDB.DAL
 
                             LabTest labTest = new LabTest();
                         
-                            labTest.PatientID = (int)reader["patientId"]; ;
+                            labTest.PatientID = (int)reader["patientId"];
+                            labTest.visitId = (int)reader["visit_id"];
                             labTest.OrderDateTime = (DateTime)reader["orderDateTime"];
                             if (reader["performedDateTime"] != DBNull.Value)
                             {

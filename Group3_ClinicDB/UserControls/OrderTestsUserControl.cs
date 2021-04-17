@@ -15,6 +15,7 @@ namespace Group3_ClinicDB.UserControls
     public partial class OrderTestsUserControl : UserControl
     {
         private readonly LabTestController labTestController;
+        private readonly VisitsController visitController;
 
         private Test test;
         public Patient patient;
@@ -28,6 +29,7 @@ namespace Group3_ClinicDB.UserControls
         {
             InitializeComponent();
             this.labTestController = new LabTestController();
+            this.visitController = new VisitsController();
             this.test = new Test();
             //this.Enabled = false;
         }
@@ -43,6 +45,7 @@ namespace Group3_ClinicDB.UserControls
 
             this.RefreshTests();
             this.Load_LabTests();
+            this.RefreshVisits();
         }
 
 
@@ -70,6 +73,11 @@ namespace Group3_ClinicDB.UserControls
                 return;
             }
 
+            if (string.IsNullOrEmpty(this.visitComboBox.SelectedValue.ToString()))
+            {
+                MessageBox.Show("Visit is required.", "Error!");
+                return;
+            }
             if (!this.labTestController.GetOpenLabTestByPatient(this.patient.Id, this.test.TestCode))
             {
                 MessageBox.Show("An open lab order exists for the same test. Please order different test", "Error!");
@@ -81,6 +89,7 @@ namespace Group3_ClinicDB.UserControls
             labTest.PatientID = this.patient.Id;
             labTest.TestCode = this.test.TestCode;
             labTest.OrderDateTime = newTestTime;
+            labTest.visitId = int.Parse(this.visitComboBox.SelectedValue.ToString());
 
             
             if (this.labTestController.OrderLabTest(labTest))
@@ -110,7 +119,9 @@ namespace Group3_ClinicDB.UserControls
             //this.testCodecomboBox.Refresh();
             //this.RefreshTests();
             this.Load_LabTests();
-            
+            this.RefreshVisits();
+
+
         }
 
         /// <summary>
@@ -176,7 +187,7 @@ namespace Group3_ClinicDB.UserControls
         }
 
         /// <summary>
-        /// Method to load visits
+        /// Method to load tests
         /// </summary>
         /// 
         public void Load_LabTests()
@@ -185,6 +196,52 @@ namespace Group3_ClinicDB.UserControls
             {
                 labTestsDataGridView.DataSource = this.labTestController.GetLabsByPatient(this.patient.Id);
             }
+        }
+
+        /// <summary>
+        /// Method to refresh Nurses combo box
+        /// </summary>
+        /// 
+        private void RefreshVisits()
+        {
+            //testCodecomboBox.Items.Clear();
+            List<Visits> visitsList;
+
+
+            try
+            {
+                //instead of using the following line of code, which couples the 
+                //DAL with the view, we ask the controller to get the data for us 
+                //so that the view does not have to know where the data comes from
+                //(the line after the commented line)
+
+                visitsList = this.visitController.GetVisitsByPatient(this.patient.Id);
+                visitComboBox.Refresh();
+                //if (visitsList.Count > 0)
+                //{
+
+                    visitComboBox.DisplayMember = "Id";
+                    visitComboBox.ValueMember = "Id";
+                    visitComboBox.DataSource = visitsList;
+
+               // }
+               
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+
+            }
+        }
+
+        private void OrderTestsUserControl_Load(object sender, EventArgs e)
+        {
+            this.RefreshVisits();
+        }
+
+        private void OrderTestsUserControl_Enter(object sender, EventArgs e)
+        {
+            this.RefreshVisits();
         }
     }
 }

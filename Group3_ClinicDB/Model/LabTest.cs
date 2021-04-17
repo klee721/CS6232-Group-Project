@@ -19,6 +19,8 @@ namespace Group3_ClinicDB.Model
 
         public string Normal { get; set; }
 
+        public int visitId { get; set; }
+
 
     }
 }
