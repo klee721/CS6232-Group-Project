@@ -166,6 +166,7 @@ namespace Group3_ClinicDB.UserControls
             this.performedDateTimeLabel.Size = new System.Drawing.Size(155, 13);
             this.performedDateTimeLabel.TabIndex = 15;
             this.performedDateTimeLabel.Text = "Lab Test Performed Date Time:";
+            this.performedDateTimeLabel.Visible = false;
             // 
             // fullOrderedDateTimeTextBox
             // 

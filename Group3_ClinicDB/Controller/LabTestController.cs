@@ -28,14 +28,14 @@ namespace Group3_ClinicDB.Controller
         /// Controller method to call on DAL method to retrieve List of all LabTests in the DB for a patient
         /// </summary>
         /// <returns>a List of Test objects for all Nurses in the DB</returns>
-        public List<LabTest> GetAllLabTestsForPatient(Patient patient)
+        public List<LabTest> GetAllLabTestsForPatientNotPerformed(Patient patient)
         {
             if (patient == null)
             {
-                throw new Exception("patient cannot be null");
+                throw new ArgumentException("patient cannot be null");
             }
 
-            return this.testSource.GetAllLabTestsForPatient(patient);
+            return this.testSource.GetAllLabTestsForPatientNotPerformed(patient);
         }
 
         /// <summary>
@@ -85,9 +85,14 @@ namespace Group3_ClinicDB.Controller
         /// </summary>
         /// <param name="oldLabTest">The old lab test</param>
         /// <param name="newLabTest">The new lab test</param>
-        public void UpdateLabTest(LabTest oldLabTest, LabTest newLabTest)
+        public bool UpdateLabTest(LabTest oldLabTest, LabTest newLabTest)
         {
+            if (oldLabTest == null || newLabTest == null)
+            {
+                throw new ArgumentException("A lab test cannot be null");
+            }
 
+            return this.testSource.UpdateLabTest(oldLabTest, newLabTest);
         }
 
     }

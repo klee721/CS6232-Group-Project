@@ -41,7 +41,7 @@ namespace Group3_ClinicDB.UserControls
         {
             if (this.patient != null)
             {
-                this.patientDataGridView.DataSource = this.labTestController.GetAllLabTestsForPatient(this.patient);
+                this.patientDataGridView.DataSource = this.labTestController.GetAllLabTestsForPatientNotPerformed(this.patient);
                 this.HidePatientInfo(true);
 
                 this.normalComboBox.Items.Clear();
@@ -149,14 +149,14 @@ namespace Group3_ClinicDB.UserControls
                 this.newLabTest.Normal = this.oldLabTest.Normal;
                 this.newLabTest.visitId = this.oldLabTest.visitId;
 
-                //this.labTestController.UpdateLabTest(this.oldLabTest, this.newLabTest);
+                this.labTestController.UpdateLabTest(this.oldLabTest, this.newLabTest);
 
                 this.fullPerformedDateTimeTextBox.Text = this.newLabTest.PerformedDateTime.ToString();
                 this.fullPerformedDateTimeTextBox.Visible = true;
 
                 this.oldLabTest = this.newLabTest;
                 this.newLabTest = null;
-                this.patientDataGridView.DataSource = this.labTestController.GetAllLabTestsForPatient(this.patient);
+                this.patientDataGridView.DataSource = this.labTestController.GetAllLabTestsForPatientNotPerformed(this.patient);
 
                 this.resultsErrorLabel.Visible = true;
                 this.resultsErrorLabel.Text = "Results successfully entered!";

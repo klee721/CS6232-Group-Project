@@ -46,7 +46,7 @@ namespace Group3_ClinicDB.DAL
         ///Retrieves the ordered tests (lab tests) for a patient from the DB
         /// </summary>
         /// <returns>The list of lab test for a patient</returns>
-        public List<LabTest> GetAllLabTestsForPatient(Patient patient)
+        public List<LabTest> GetAllLabTestsForPatientNotPerformed(Patient patient)
         {
             List<LabTest> labTestList = new List<LabTest>();
 
@@ -54,7 +54,8 @@ namespace Group3_ClinicDB.DAL
                                         "ISNULL(performedDateTime, '') as performedDateTime, " +
                                         "testCode, ISNULL(results, '') as results, ISNULL(normal, '') as normal, visit_id " +
                                         "FROM labtests " + 
-                                        "WHERE patientId = @PatientID";
+                                        "WHERE patientId = @PatientID " +
+                                        "AND performedDateTime IS NULL";
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
             {
@@ -109,20 +110,15 @@ namespace Group3_ClinicDB.DAL
                     {
                         if (reader.Read())
                         {
-
                             test.TestCode = reader["testCode"].ToString();
                             test.Name = reader["Name"].ToString();
                             test.Description = reader["description"].ToString();
-
-
-                            
                         }
                         return test;
 
                     }
                 }
-            }
-                       
+            }           
         }
 
         /// <summary>
@@ -131,7 +127,6 @@ namespace Group3_ClinicDB.DAL
         /// <param name="appointment">an Appointment object containing the data that will be written to the DB</param>
         /// <returns>a bool flag indicating write success</returns>
         /// 
-
         public bool OrderLabTest(LabTest labTest)
         {
             if (labTest == null)
@@ -168,7 +163,6 @@ namespace Group3_ClinicDB.DAL
         ///method to get labtests which are open
         /// </summary>
         /// <returns>a list of Incidents</returns>
-
         public List<LabTest> GetLabTestsByPatient(int patient_Id)
         {
             List<LabTest> labList = new List<LabTest>();
@@ -213,7 +207,6 @@ namespace Group3_ClinicDB.DAL
                             labTest.TestCode = reader["testCode"].ToString() ;
                             labTest.Results = reader["results"].ToString();
                             labTest.Normal = reader["normal"].ToString();
-                            //labTest.Name = reader["Name"].ToString();
                            
                             labList.Add(labTest);
                         }
@@ -228,10 +221,8 @@ namespace Group3_ClinicDB.DAL
         ///method to get labtests which are open
         /// </summary>
         /// <returns>boolean </returns>
-
         public bool GetOpenLabTestByPatient(int patient_Id, string testCode)
         {
-            
             string selectStatement =
                 " SELECT testCode " +
                 "FROM labtests lab where patientId = @patient_Id and testCode = @testCode and performedDateTime is null ";
@@ -250,18 +241,14 @@ namespace Group3_ClinicDB.DAL
 
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
-
                         while (reader.Read())
                         {
 
                             code = reader["testCode"].ToString();
                            
                         }
-
-                       
                     }
                 }
-
             }
 
             if (code == "")
@@ -271,6 +258,61 @@ namespace Group3_ClinicDB.DAL
             else
             {
                 return false;
+            }
+        }
+
+        /// <summary>
+        /// Updates the lab test entered in the UC to the DB
+        /// </summary>
+        /// <param name="oldLabTest">The old lab test</param>
+        /// <param name="newLabTest">The new lab test</param>
+        public bool UpdateLabTest(LabTest oldLabTest, LabTest newLabTest)
+        {
+            string updateStatement =
+                "UPDATE labtests " +
+                    "SET patientId = @newPatientID, orderDateTime = @newOrderDateTime, " +
+                    "performedDateTime = @newPerformedDateTime, testCode = @newTestCode, " +
+                    "results = @newResults, normal = @newNormal, visit_id = @newVisitId " +
+                    "WHERE patientId = @oldPatientID " +
+                    "AND orderDateTime = @oldOrderDateTime " +
+                    "AND performedDateTime = @oldPerformedDateTime " +
+                    "AND testCode = @oldTestCode " +
+                    "AND results = @oldResults " +
+                    "AND normal = @oldNormal " +
+                    "AND visit_id = @oldVisitId ";
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand updateCommand = new SqlCommand(updateStatement, connection))
+                {
+                    updateCommand.Parameters.AddWithValue("@newPatientID", newLabTest.PatientID);
+                    updateCommand.Parameters.AddWithValue("@newOrderDateTime", newLabTest.OrderDateTime);
+                    updateCommand.Parameters.AddWithValue("@newPerformedDateTime", newLabTest.PerformedDateTime);
+                    updateCommand.Parameters.AddWithValue("@newTestCode", newLabTest.TestCode);
+                    updateCommand.Parameters.AddWithValue("@newResults", newLabTest.Results);
+                    updateCommand.Parameters.AddWithValue("@newNormal", newLabTest.Normal);
+                    updateCommand.Parameters.AddWithValue("@newVisitId", newLabTest.visitId);
+
+                    updateCommand.Parameters.AddWithValue("@oldPatientID", oldLabTest.PatientID);
+                    updateCommand.Parameters.AddWithValue("@oldOrderDateTime", oldLabTest.OrderDateTime);
+                    updateCommand.Parameters.AddWithValue("@oldPerformedDateTime", oldLabTest.PerformedDateTime);
+                    updateCommand.Parameters.AddWithValue("@oldTestCode", oldLabTest.TestCode);
+                    updateCommand.Parameters.AddWithValue("@oldResults", oldLabTest.Results);
+                    updateCommand.Parameters.AddWithValue("@oldNormal", oldLabTest.Normal);
+                    updateCommand.Parameters.AddWithValue("@oldVisitId", oldLabTest.visitId);
+
+                    int count = updateCommand.ExecuteNonQuery();
+                    if (count > 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
             }
         }
     }
