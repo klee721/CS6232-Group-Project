@@ -132,6 +132,12 @@ namespace Group3_ClinicDB.Controller
 
         }
 
+        public List<Appointment> GetOpenAppointmentsWithNoVisitsByPatient(int patientID)
+        {
+            return this.appointmentSource.GetOpenAppointmentsWithNoVisitsByPatient(patientID);
+
+        }
+
 
 
 

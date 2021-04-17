@@ -54,7 +54,6 @@ namespace Group3_ClinicDB.UserControls
             this.appointment_idComboBox = new System.Windows.Forms.ComboBox();
             this.confirmLabel = new System.Windows.Forms.Label();
             this.nurseComboBox = new System.Windows.Forms.ComboBox();
-            this.appointmentErrorLabel = new System.Windows.Forms.Label();
             this.bpdErrorLabel = new System.Windows.Forms.Label();
             this.bpsErrorLabel = new System.Windows.Forms.Label();
             this.temparatureErrorlabel = new System.Windows.Forms.Label();
@@ -65,6 +64,7 @@ namespace Group3_ClinicDB.UserControls
             this.symptomsErrorlabel = new System.Windows.Forms.Label();
             this.initialDiagnoseErrorLabel = new System.Windows.Forms.Label();
             this.nurseNameLabel = new System.Windows.Forms.Label();
+            this.appointmentErrorLabel = new System.Windows.Forms.Label();
             appointment_idLabel = new System.Windows.Forms.Label();
             bloodPressureDiastolicLabel = new System.Windows.Forms.Label();
             bloodPressureSystolicLabel = new System.Windows.Forms.Label();
@@ -290,17 +290,6 @@ namespace Group3_ClinicDB.UserControls
             this.nurseComboBox.TabIndex = 8;
             this.nurseComboBox.Visible = false;
             // 
-            // appointmentErrorLabel
-            // 
-            this.appointmentErrorLabel.AutoSize = true;
-            this.appointmentErrorLabel.ForeColor = System.Drawing.Color.Red;
-            this.appointmentErrorLabel.Location = new System.Drawing.Point(520, 28);
-            this.appointmentErrorLabel.Name = "appointmentErrorLabel";
-            this.appointmentErrorLabel.Size = new System.Drawing.Size(238, 20);
-            this.appointmentErrorLabel.TabIndex = 40;
-            this.appointmentErrorLabel.Text = "appointment information missing";
-            this.appointmentErrorLabel.Visible = false;
-            // 
             // bpdErrorLabel
             // 
             this.bpdErrorLabel.AutoSize = true;
@@ -409,10 +398,22 @@ namespace Group3_ClinicDB.UserControls
             this.nurseNameLabel.TabIndex = 50;
             this.nurseNameLabel.Text = "Name of Nurse";
             // 
+            // appointmentErrorLabel
+            // 
+            this.appointmentErrorLabel.AutoSize = true;
+            this.appointmentErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.appointmentErrorLabel.Location = new System.Drawing.Point(514, 20);
+            this.appointmentErrorLabel.Name = "appointmentErrorLabel";
+            this.appointmentErrorLabel.Size = new System.Drawing.Size(238, 20);
+            this.appointmentErrorLabel.TabIndex = 51;
+            this.appointmentErrorLabel.Text = "appointment information missing";
+            this.appointmentErrorLabel.Visible = false;
+            // 
             // AddVisitUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.appointmentErrorLabel);
             this.Controls.Add(this.nurseNameLabel);
             this.Controls.Add(this.initialDiagnoseErrorLabel);
             this.Controls.Add(this.symptomsErrorlabel);
@@ -423,7 +424,6 @@ namespace Group3_ClinicDB.UserControls
             this.Controls.Add(this.temparatureErrorlabel);
             this.Controls.Add(this.bpsErrorLabel);
             this.Controls.Add(this.bpdErrorLabel);
-            this.Controls.Add(this.appointmentErrorLabel);
             this.Controls.Add(this.nurseComboBox);
             this.Controls.Add(this.confirmLabel);
             this.Controls.Add(this.appointment_idComboBox);
@@ -473,7 +473,6 @@ namespace Group3_ClinicDB.UserControls
         private System.Windows.Forms.ComboBox appointment_idComboBox;
         private System.Windows.Forms.Label confirmLabel;
         private System.Windows.Forms.ComboBox nurseComboBox;
-        private System.Windows.Forms.Label appointmentErrorLabel;
         private System.Windows.Forms.Label bpdErrorLabel;
         private System.Windows.Forms.Label bpsErrorLabel;
         private System.Windows.Forms.Label temparatureErrorlabel;
@@ -484,5 +483,6 @@ namespace Group3_ClinicDB.UserControls
         private System.Windows.Forms.Label symptomsErrorlabel;
         private System.Windows.Forms.Label initialDiagnoseErrorLabel;
         private System.Windows.Forms.Label nurseNameLabel;
+        private System.Windows.Forms.Label appointmentErrorLabel;
     }
 }

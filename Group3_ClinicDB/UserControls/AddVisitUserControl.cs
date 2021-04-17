@@ -26,7 +26,8 @@ namespace Group3_ClinicDB.UserControls
 
         public User loginUser;
 
-        
+        public List<Appointment> appointments;
+
 
         /// <summary>
         /// The constructor
@@ -41,7 +42,7 @@ namespace Group3_ClinicDB.UserControls
             this.Enabled = false;
             this.loginUser = new User();
             this.confirmLabel.Text = "";
-            
+            this.appointments = new List<Appointment>();
         }
 
         /// <summary>
@@ -52,7 +53,7 @@ namespace Group3_ClinicDB.UserControls
         {
             this.patient = selectedPatient;
             this.Enabled = true;
-           
+            this.Reset();
             this.RefreshAppointments();
         }
 
@@ -73,7 +74,9 @@ namespace Group3_ClinicDB.UserControls
         private void RefreshAppointments()
         {
             //appointment_idComboBox.Items.Clear();
-            List<Appointment> appointments;
+            this.appointment_idComboBox.SelectedValue = "";
+            //this.appointment_idComboBox.SelectedIndex = 0;
+            //List<Appointment> appointments;
 
 
             try
@@ -85,22 +88,23 @@ namespace Group3_ClinicDB.UserControls
 
                 if (this.patient != null)
                 {
-                    appointments = this.appointmentController.GetAllAppointmentsByPatient(this.patient.Id); //Added patient_id 1
+                    appointments = this.appointmentController.GetOpenAppointmentsWithNoVisitsByPatient(this.patient.Id); //Added patient_id 1
                     appointment_idComboBox.Refresh();
-                    if (appointments.Count > 0)
-                    {
+                   // if (appointments.Count > 0)
+                   // {
 
                         appointment_idComboBox.DisplayMember = "AppointmentDate";
                         appointment_idComboBox.ValueMember = "ID" ;
                         appointment_idComboBox.DataSource = appointments;
 
-                    }
-                    else
-                    {
-                        MessageBox.Show("No appointments.");
-                        
+                   // }
+                    //else
+                    // {
+                    //     MessageBox.Show("No appointments.");
+                    
 
-                    }
+
+                    //}
                 }
                
             }
@@ -155,7 +159,21 @@ namespace Group3_ClinicDB.UserControls
         private bool validations()
         {
             string errors = "Y";
-            if (string.IsNullOrEmpty(this.weightTextBox.Text.ToString()))
+
+    
+       // if (string.IsNullOrEmpty(this.appointment_idComboBox.SelectedValue.ToString()))
+                if (appointments.Count <= 0)
+                {
+                //MessageBox.Show("Weight is required.", "Error!");
+                this.appointmentErrorLabel.Visible = true;
+                errors = "N";
+        //return;
+    }
+    else
+    {
+                this.appointmentErrorLabel.Visible = false;
+            }
+    if (string.IsNullOrEmpty(this.weightTextBox.Text.ToString()))
             {
                 //MessageBox.Show("Weight is required.", "Error!");
                 this.weightErrorLabel.Visible = true;
@@ -423,7 +441,9 @@ namespace Group3_ClinicDB.UserControls
         /// 
         private void AddVisitUserControl_Enter(object sender, EventArgs e)
         {
+            this.Reset();
             this.RefreshAppointments();
+            
         }
 
         /// <summary>
@@ -442,7 +462,7 @@ namespace Group3_ClinicDB.UserControls
             this.initialDiagnoseTextBox.Text = "";
             this.finalDiagnoseTextBox.Text = "";
             // this.confirmLabel.Text = "";
-
+            //this.appointment_idComboBox.SelectedIndex = 0;
             initialDiagnoseErrorLabel.Visible = false;
             appointmentErrorLabel.Visible = false;
             bpdErrorLabel.Visible = false;

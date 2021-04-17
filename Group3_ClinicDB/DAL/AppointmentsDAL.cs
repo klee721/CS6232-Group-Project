@@ -92,6 +92,47 @@ namespace Group3_ClinicDB.DAL
             return appointments;
         }
 
+        /// <summary>
+        /// Public method to retrieve a list of all a patient's appointments via their patient ID number with no visits
+        /// </summary>
+        /// <param name="patientID">the patient ID of the patient whos appointments are being retrieved</param>
+        /// <returns>a List of Appointment objects</returns>
+        public List<Appointment> GetOpenAppointmentsWithNoVisitsByPatient(int patientID)
+        {
+            List<Appointment> appointments = new List<Appointment>();
+
+            string selectStatement = "SELECT Id, patientID, doctor_id, AppointmentDateTime, reasons, status FROM appointments "
+                + "WHERE patientid = @patientID and id not in (select appointment_Id from Visits) "
+                + "ORDER BY AppointmentDateTime ASC ";
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+
+                    selectCommand.Parameters.AddWithValue("@patientID", patientID);
+
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Appointment appt = new Appointment();
+                            appt.ID = (int)reader["Id"];
+                            appt.PatientID = (int)reader["patientID"];
+                            appt.DoctorID = (int)reader["doctor_id"];
+                            appt.AppointmentDate = (DateTime)reader["AppointmentDateTime"];
+                            appt.Reason = reader["reasons"].ToString();
+                            appt.Status = reader["status"].ToString();
+                            appointments.Add(appt);
+                        }
+                    }
+                }
+            }
+            return appointments;
+        }
+
 
 
         /// <summary>
