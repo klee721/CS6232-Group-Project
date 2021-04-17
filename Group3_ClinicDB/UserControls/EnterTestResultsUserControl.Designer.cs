@@ -42,6 +42,7 @@ namespace Group3_ClinicDB.UserControls
             this.normalLabel = new System.Windows.Forms.Label();
             this.normalComboBox = new System.Windows.Forms.ComboBox();
             this.testResultsButton = new System.Windows.Forms.Button();
+            this.resultsErrorLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.patientDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -140,6 +141,7 @@ namespace Group3_ClinicDB.UserControls
             this.resultsTextBox.Size = new System.Drawing.Size(235, 102);
             this.resultsTextBox.TabIndex = 9;
             this.resultsTextBox.Visible = false;
+            this.resultsTextBox.TextChanged += new System.EventHandler(this.ResultsTextBoxTextChanged);
             // 
             // normalLabel
             // 
@@ -170,11 +172,23 @@ namespace Group3_ClinicDB.UserControls
             this.testResultsButton.TabIndex = 12;
             this.testResultsButton.Text = "Enter Results";
             this.testResultsButton.UseVisualStyleBackColor = true;
+            this.testResultsButton.Click += new System.EventHandler(this.TestResultsButtonClick);
+            // 
+            // resultsErrorLabel
+            // 
+            this.resultsErrorLabel.AutoSize = true;
+            this.resultsErrorLabel.Location = new System.Drawing.Point(758, 574);
+            this.resultsErrorLabel.Name = "resultsErrorLabel";
+            this.resultsErrorLabel.Size = new System.Drawing.Size(144, 13);
+            this.resultsErrorLabel.TabIndex = 13;
+            this.resultsErrorLabel.Text = "Results entered successfully!";
+            this.resultsErrorLabel.Visible = false;
             // 
             // EnterTestResultsUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.resultsErrorLabel);
             this.Controls.Add(this.testResultsButton);
             this.Controls.Add(this.normalComboBox);
             this.Controls.Add(this.normalLabel);
@@ -215,5 +229,6 @@ namespace Group3_ClinicDB.UserControls
         private System.Windows.Forms.Label normalLabel;
         private System.Windows.Forms.ComboBox normalComboBox;
         private System.Windows.Forms.Button testResultsButton;
+        private System.Windows.Forms.Label resultsErrorLabel;
     }
 }

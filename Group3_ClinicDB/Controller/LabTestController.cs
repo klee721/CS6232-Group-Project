@@ -80,7 +80,15 @@ namespace Group3_ClinicDB.Controller
             return this.testSource.GetOpenLabTestByPatient(patient_id,testCode);
         }
 
-        
+        /// <summary>
+        /// Updates the lab test entered in the UC to the DB
+        /// </summary>
+        /// <param name="oldLabTest">The old lab test</param>
+        /// <param name="newLabTest">The new lab test</param>
+        public void UpdateLabTest(LabTest oldLabTest, LabTest newLabTest)
+        {
+
+        }
 
     }
 }
