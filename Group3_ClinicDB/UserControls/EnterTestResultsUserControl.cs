@@ -142,8 +142,8 @@ namespace Group3_ClinicDB.UserControls
 
                 if (this.labTestController.UpdateLabTest(this.oldLabTest, this.newLabTest))
                 {
-                    this.fullPerformedDateTimeTextBox.Text = this.newLabTest.PerformedDateTime.ToString();
-                    this.fullPerformedDateTimeTextBox.Visible = true;
+                    //this.fullPerformedDateTimeTextBox.Text = this.newLabTest.PerformedDateTime.ToString();
+                    //this.fullPerformedDateTimeTextBox.Visible = true;
 
                     this.oldLabTest = this.newLabTest;
                     this.newLabTest = null;
@@ -151,7 +151,8 @@ namespace Group3_ClinicDB.UserControls
                     this.DisablePatientInfo(true);
                     this.patientDataGridView.DataSource = this.labTestController.GetAllLabTestsForPatientNotPerformed(this.patient);
 
-                    this.resultsErrorLabel.Text = "Results successfully entered!";
+                    this.resultsErrorLabel.Text = "Results successfully entered and performed at " + " " 
+                                                        + this.newLabTest.PerformedDateTime.ToString();
                     this.resultsErrorLabel.Visible = true;
                     this.resultsErrorLabel.ForeColor = Color.Black;
                 }
