@@ -87,13 +87,6 @@ namespace Group3_ClinicDB.UserControls
             }
         }
 
-        public void OnLogOut()
-        {
-            this.DisablePatientInfo(true);
-            this.patientDataGridView.DataSource = null;
-            this.patientDataGridView.Rows.Clear();
-        }
-
         private void PatientDataGridViewCellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (patientDataGridView.SelectedCells.Count > 0)
@@ -136,7 +129,8 @@ namespace Group3_ClinicDB.UserControls
                 this.resultsErrorLabel.Text = "Must enter a result for the lab test";
                 this.resultsErrorLabel.Visible = true;
                 this.resultsErrorLabel.ForeColor = Color.Red;
-            } else
+            } 
+            else
             {
                 this.newLabTest.PatientID = this.oldLabTest.PatientID;
                 this.newLabTest.OrderDateTime = this.oldLabTest.OrderDateTime;
@@ -153,6 +147,8 @@ namespace Group3_ClinicDB.UserControls
 
                     this.oldLabTest = this.newLabTest;
                     this.newLabTest = null;
+
+                    this.DisablePatientInfo(true);
                     this.patientDataGridView.DataSource = this.labTestController.GetAllLabTestsForPatientNotPerformed(this.patient);
 
                     this.resultsErrorLabel.Text = "Results successfully entered!";
