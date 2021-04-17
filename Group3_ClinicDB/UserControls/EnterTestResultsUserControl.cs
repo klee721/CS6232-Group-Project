@@ -158,9 +158,15 @@ namespace Group3_ClinicDB.UserControls
                     this.newLabTest = null;
                     this.patientDataGridView.DataSource = this.labTestController.GetAllLabTestsForPatientNotPerformed(this.patient);
 
-                    this.resultsErrorLabel.Visible = true;
                     this.resultsErrorLabel.Text = "Results successfully entered!";
+                    this.resultsErrorLabel.Visible = true;
                     this.resultsErrorLabel.ForeColor = Color.Black;
+                }
+                else
+                {
+                    this.resultsErrorLabel.Text = "Lab Test update not changed. Someone has changed the Lab Test before you";
+                    this.resultsErrorLabel.Visible = true;
+                    this.resultsErrorLabel.ForeColor = Color.Red;
                 }
             }
         }

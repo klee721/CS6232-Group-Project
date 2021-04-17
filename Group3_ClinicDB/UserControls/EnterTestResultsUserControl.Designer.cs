@@ -43,13 +43,14 @@ namespace Group3_ClinicDB.UserControls
             this.performedDateTimeLabel = new System.Windows.Forms.Label();
             this.fullOrderedDateTimeTextBox = new System.Windows.Forms.TextBox();
             this.fullPerformedDateTimeTextBox = new System.Windows.Forms.TextBox();
+            this.enterTestTitleLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.patientDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // patientDataGridView
             // 
             this.patientDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.patientDataGridView.Location = new System.Drawing.Point(228, 36);
+            this.patientDataGridView.Location = new System.Drawing.Point(231, 62);
             this.patientDataGridView.Name = "patientDataGridView";
             this.patientDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.patientDataGridView.Size = new System.Drawing.Size(717, 174);
@@ -60,7 +61,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             this.patientNameLabel.AutoSize = true;
             this.patientNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.patientNameLabel.Location = new System.Drawing.Point(228, 233);
+            this.patientNameLabel.Location = new System.Drawing.Point(231, 259);
             this.patientNameLabel.Name = "patientNameLabel";
             this.patientNameLabel.Size = new System.Drawing.Size(41, 13);
             this.patientNameLabel.TabIndex = 1;
@@ -70,7 +71,7 @@ namespace Group3_ClinicDB.UserControls
             // orderDateTimeLabel
             // 
             this.orderDateTimeLabel.AutoSize = true;
-            this.orderDateTimeLabel.Location = new System.Drawing.Point(228, 287);
+            this.orderDateTimeLabel.Location = new System.Drawing.Point(231, 313);
             this.orderDateTimeLabel.Name = "orderDateTimeLabel";
             this.orderDateTimeLabel.Size = new System.Drawing.Size(142, 13);
             this.orderDateTimeLabel.TabIndex = 2;
@@ -80,7 +81,7 @@ namespace Group3_ClinicDB.UserControls
             // testCodeLabel
             // 
             this.testCodeLabel.AutoSize = true;
-            this.testCodeLabel.Location = new System.Drawing.Point(228, 377);
+            this.testCodeLabel.Location = new System.Drawing.Point(231, 403);
             this.testCodeLabel.Name = "testCodeLabel";
             this.testCodeLabel.Size = new System.Drawing.Size(59, 13);
             this.testCodeLabel.TabIndex = 6;
@@ -89,7 +90,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             // testCodeTextBox
             // 
-            this.testCodeTextBox.Location = new System.Drawing.Point(396, 377);
+            this.testCodeTextBox.Location = new System.Drawing.Point(399, 403);
             this.testCodeTextBox.Name = "testCodeTextBox";
             this.testCodeTextBox.ReadOnly = true;
             this.testCodeTextBox.Size = new System.Drawing.Size(200, 20);
@@ -99,7 +100,7 @@ namespace Group3_ClinicDB.UserControls
             // resultsLabel
             // 
             this.resultsLabel.AutoSize = true;
-            this.resultsLabel.Location = new System.Drawing.Point(643, 287);
+            this.resultsLabel.Location = new System.Drawing.Point(646, 313);
             this.resultsLabel.Name = "resultsLabel";
             this.resultsLabel.Size = new System.Drawing.Size(45, 13);
             this.resultsLabel.TabIndex = 8;
@@ -108,7 +109,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             // resultsTextBox
             // 
-            this.resultsTextBox.Location = new System.Drawing.Point(707, 284);
+            this.resultsTextBox.Location = new System.Drawing.Point(710, 310);
             this.resultsTextBox.Multiline = true;
             this.resultsTextBox.Name = "resultsTextBox";
             this.resultsTextBox.Size = new System.Drawing.Size(235, 138);
@@ -119,7 +120,7 @@ namespace Group3_ClinicDB.UserControls
             // normalLabel
             // 
             this.normalLabel.AutoSize = true;
-            this.normalLabel.Location = new System.Drawing.Point(231, 432);
+            this.normalLabel.Location = new System.Drawing.Point(234, 458);
             this.normalLabel.Name = "normalLabel";
             this.normalLabel.Size = new System.Drawing.Size(49, 13);
             this.normalLabel.TabIndex = 10;
@@ -130,7 +131,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             this.normalComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.normalComboBox.FormattingEnabled = true;
-            this.normalComboBox.Location = new System.Drawing.Point(396, 424);
+            this.normalComboBox.Location = new System.Drawing.Point(399, 450);
             this.normalComboBox.Name = "normalComboBox";
             this.normalComboBox.Size = new System.Drawing.Size(127, 21);
             this.normalComboBox.TabIndex = 11;
@@ -139,7 +140,7 @@ namespace Group3_ClinicDB.UserControls
             // testResultsButton
             // 
             this.testResultsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.testResultsButton.Location = new System.Drawing.Point(707, 448);
+            this.testResultsButton.Location = new System.Drawing.Point(710, 474);
             this.testResultsButton.Name = "testResultsButton";
             this.testResultsButton.Size = new System.Drawing.Size(235, 40);
             this.testResultsButton.TabIndex = 12;
@@ -151,7 +152,7 @@ namespace Group3_ClinicDB.UserControls
             // resultsErrorLabel
             // 
             this.resultsErrorLabel.AutoSize = true;
-            this.resultsErrorLabel.Location = new System.Drawing.Point(704, 491);
+            this.resultsErrorLabel.Location = new System.Drawing.Point(707, 517);
             this.resultsErrorLabel.Name = "resultsErrorLabel";
             this.resultsErrorLabel.Size = new System.Drawing.Size(144, 13);
             this.resultsErrorLabel.TabIndex = 13;
@@ -161,7 +162,7 @@ namespace Group3_ClinicDB.UserControls
             // performedDateTimeLabel
             // 
             this.performedDateTimeLabel.AutoSize = true;
-            this.performedDateTimeLabel.Location = new System.Drawing.Point(228, 333);
+            this.performedDateTimeLabel.Location = new System.Drawing.Point(231, 359);
             this.performedDateTimeLabel.Name = "performedDateTimeLabel";
             this.performedDateTimeLabel.Size = new System.Drawing.Size(155, 13);
             this.performedDateTimeLabel.TabIndex = 15;
@@ -170,7 +171,7 @@ namespace Group3_ClinicDB.UserControls
             // 
             // fullOrderedDateTimeTextBox
             // 
-            this.fullOrderedDateTimeTextBox.Location = new System.Drawing.Point(396, 284);
+            this.fullOrderedDateTimeTextBox.Location = new System.Drawing.Point(399, 310);
             this.fullOrderedDateTimeTextBox.Name = "fullOrderedDateTimeTextBox";
             this.fullOrderedDateTimeTextBox.ReadOnly = true;
             this.fullOrderedDateTimeTextBox.Size = new System.Drawing.Size(200, 20);
@@ -179,17 +180,28 @@ namespace Group3_ClinicDB.UserControls
             // 
             // fullPerformedDateTimeTextBox
             // 
-            this.fullPerformedDateTimeTextBox.Location = new System.Drawing.Point(396, 333);
+            this.fullPerformedDateTimeTextBox.Location = new System.Drawing.Point(399, 359);
             this.fullPerformedDateTimeTextBox.Name = "fullPerformedDateTimeTextBox";
             this.fullPerformedDateTimeTextBox.ReadOnly = true;
             this.fullPerformedDateTimeTextBox.Size = new System.Drawing.Size(200, 20);
             this.fullPerformedDateTimeTextBox.TabIndex = 18;
             this.fullPerformedDateTimeTextBox.Visible = false;
             // 
+            // enterTestTitleLabel
+            // 
+            this.enterTestTitleLabel.AutoSize = true;
+            this.enterTestTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enterTestTitleLabel.Location = new System.Drawing.Point(228, 26);
+            this.enterTestTitleLabel.Name = "enterTestTitleLabel";
+            this.enterTestTitleLabel.Size = new System.Drawing.Size(182, 22);
+            this.enterTestTitleLabel.TabIndex = 19;
+            this.enterTestTitleLabel.Text = "Non-Performed Tests";
+            // 
             // EnterTestResultsUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.enterTestTitleLabel);
             this.Controls.Add(this.fullPerformedDateTimeTextBox);
             this.Controls.Add(this.fullOrderedDateTimeTextBox);
             this.Controls.Add(this.performedDateTimeLabel);
@@ -232,5 +244,6 @@ namespace Group3_ClinicDB.UserControls
         private System.Windows.Forms.Label performedDateTimeLabel;
         private System.Windows.Forms.TextBox fullOrderedDateTimeTextBox;
         private System.Windows.Forms.TextBox fullPerformedDateTimeTextBox;
+        private System.Windows.Forms.Label enterTestTitleLabel;
     }
 }
