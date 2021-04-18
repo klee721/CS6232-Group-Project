@@ -6,6 +6,9 @@ using System.Windows.Forms;
 
 namespace Group3_ClinicDB.UserControls
 {
+    /// <summary>
+    /// User Control for entering test results
+    /// </summary>
     public partial class EnterTestResultsUserControl : UserControl
     {
         private readonly LabTestController labTestController;
@@ -14,6 +17,9 @@ namespace Group3_ClinicDB.UserControls
         private LabTest oldLabTest;
         private LabTest newLabTest;
 
+        /// <summary>
+        /// 0 parameter constructor
+        /// </summary>
         public EnterTestResultsUserControl()
         {
             InitializeComponent();

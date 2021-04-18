@@ -110,6 +110,7 @@ namespace Group3_ClinicDB.UserControls
             this.visitIdTextBox.ReadOnly = true;
             this.visitIdTextBox.Size = new System.Drawing.Size(130, 20);
             this.visitIdTextBox.TabIndex = 6;
+            this.visitIdTextBox.TextChanged += new System.EventHandler(this.VisitIdTextBoxTextChanged);
             // 
             // visitIdErrorLabel
             // 
@@ -124,7 +125,7 @@ namespace Group3_ClinicDB.UserControls
             // patientNameLabel
             // 
             this.patientNameLabel.AutoSize = true;
-            this.patientNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patientNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.patientNameLabel.Location = new System.Drawing.Point(224, 42);
             this.patientNameLabel.Name = "patientNameLabel";
             this.patientNameLabel.Size = new System.Drawing.Size(45, 13);
@@ -148,6 +149,8 @@ namespace Group3_ClinicDB.UserControls
             this.MinimumSize = new System.Drawing.Size(1215, 615);
             this.Name = "SearchTestResultsUserControl";
             this.Size = new System.Drawing.Size(1215, 615);
+            this.Load += new System.EventHandler(this.SearchTestResultsUserControlLoad);
+            this.VisibleChanged += new System.EventHandler(this.SearchTestResultsUserControlVisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.patientDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
