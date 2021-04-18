@@ -131,6 +131,52 @@ namespace Group3_ClinicDB.DAL
         }
 
         /// <summary>
+        ///Retrieves the ordered and performed tests (lab tests) for a patient from the DB based on a given visitId
+        /// </summary>
+        /// <returns>The list of lab test for a patient</returns>
+        public List<LabTest> GetAllLabTestsForPatientPerformedByVisitId(Patient patient, int visitId)
+        {
+            List<LabTest> labTestList = new List<LabTest>();
+
+            string selectStatement = "SELECT patientId, orderDateTime, " +
+                                        "ISNULL(performedDateTime, '') as performedDateTime, " +
+                                        "testCode, ISNULL(results, '') as results, ISNULL(normal, '') as normal, visit_id " +
+                                        "FROM labtests " +
+                                        "WHERE patientId = @PatientID " +
+                                        "AND performedDateTime IS NOT NULL " +
+                                        "AND visit_id = @VisitID";
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@PatientID", patient.Id);
+                    selectCommand.Parameters.AddWithValue("@VisitID", visitId);
+
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            LabTest labTest = new LabTest();
+                            labTest.PatientID = (int)reader["patientId"];
+                            labTest.OrderDateTime = (DateTime)reader["orderDateTime"];
+                            labTest.PerformedDateTime = (DateTime)reader["performedDateTime"];
+                            labTest.TestCode = reader["testCode"].ToString();
+                            labTest.Results = reader["results"].ToString();
+                            labTest.Normal = reader["normal"].ToString();
+                            labTest.visitId = (int)reader["visit_id"];
+
+                            labTestList.Add(labTest);
+                        }
+                    }
+                }
+            }
+            return labTestList;
+        }
+
+        /// <summary>
         /// Method to retrieve a Tests for a given code 
         /// </summary>
         /// <param name="id">nurse ID for the user we want a persons ID for</param>
