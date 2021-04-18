@@ -40,9 +40,11 @@ namespace Group3_ClinicDB.View
             this.LoggedInAsLabel = new System.Windows.Forms.Label();
             this.addUserUserControl1 = new Group3_ClinicDB.UserControls.AddUserUserControl();
             this.editNurseUserControl1 = new Group3_ClinicDB.UserControls.EditNurseUserControl();
+            this.getLabTestReportUserControl1 = new Group3_ClinicDB.UserControls.GetLabTestReportUserControl();
             this.AdminTabControl.SuspendLayout();
             this.AddUserTab.SuspendLayout();
             this.EditNurseTab.SuspendLayout();
+            this.ReportingTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // AdminTabControl
@@ -78,6 +80,7 @@ namespace Group3_ClinicDB.View
             // 
             // ReportingTab
             // 
+            this.ReportingTab.Controls.Add(this.getLabTestReportUserControl1);
             this.ReportingTab.Location = new System.Drawing.Point(4, 22);
             this.ReportingTab.Name = "ReportingTab";
             this.ReportingTab.Size = new System.Drawing.Size(1215, 615);
@@ -156,6 +159,15 @@ namespace Group3_ClinicDB.View
             this.editNurseUserControl1.Size = new System.Drawing.Size(1215, 615);
             this.editNurseUserControl1.TabIndex = 0;
             // 
+            // getLabTestReportUserControl1
+            // 
+            this.getLabTestReportUserControl1.Location = new System.Drawing.Point(0, 0);
+            this.getLabTestReportUserControl1.MaximumSize = new System.Drawing.Size(1215, 615);
+            this.getLabTestReportUserControl1.MinimumSize = new System.Drawing.Size(1215, 615);
+            this.getLabTestReportUserControl1.Name = "getLabTestReportUserControl1";
+            this.getLabTestReportUserControl1.Size = new System.Drawing.Size(1215, 615);
+            this.getLabTestReportUserControl1.TabIndex = 0;
+            // 
             // AdminMainDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -175,6 +187,7 @@ namespace Group3_ClinicDB.View
             this.AdminTabControl.ResumeLayout(false);
             this.AddUserTab.ResumeLayout(false);
             this.EditNurseTab.ResumeLayout(false);
+            this.ReportingTab.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,5 +206,6 @@ namespace Group3_ClinicDB.View
         private System.Windows.Forms.Label LoggedInAsLabel;
         private UserControls.AddUserUserControl addUserUserControl1;
         private UserControls.EditNurseUserControl editNurseUserControl1;
+        private UserControls.GetLabTestReportUserControl getLabTestReportUserControl1;
     }
 }
