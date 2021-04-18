@@ -68,6 +68,9 @@ namespace Group3_ClinicDB.UserControls
             this.Enabled = true;
             this.Load_visits();
         }
-
+        private void AllVisitsUserControl_MouseEnter(object sender, EventArgs e)
+        {
+            this.Load_visits();
+        }
     }
 }
