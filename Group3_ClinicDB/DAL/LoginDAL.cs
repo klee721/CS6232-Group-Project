@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
 using Group3_ClinicDB.Model;
 
 namespace Group3_ClinicDB.DAL
@@ -17,8 +18,8 @@ namespace Group3_ClinicDB.DAL
         {
             List<User> userList = new List<User>();
 
-            string selectStatement = "SELECT userName, password, admin_id, nurse_id, doctor_id, patient_id from login " +
-                "WHERE userName = @name AND password = @password";
+            string selectStatement = "SELECT userName, passwordHash, admin_id, nurse_id, doctor_id, patient_id from login " +
+                "WHERE userName = @name AND passwordHash = @password";
 
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
@@ -27,8 +28,13 @@ namespace Group3_ClinicDB.DAL
 
                 using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
                 {
+                    Byte[] inputBytes = System.Text.Encoding.UTF8.GetBytes(password);
+                    SHA512 shaM = new SHA512Managed();
+                    Byte[] hashedBytes = shaM.ComputeHash(inputBytes);
+
+                    
                     selectCommand.Parameters.AddWithValue("@name", name);
-                    selectCommand.Parameters.AddWithValue("@password", password);
+                    selectCommand.Parameters.AddWithValue("@password", hashedBytes);
 
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
@@ -90,7 +96,7 @@ namespace Group3_ClinicDB.DAL
 
                 string insertStatement =
                 "INSERT INTO login " +
-                    "(userName, password, admin_id) " +
+                    "(userName, passwordHash, admin_id) " +
                 "VALUES (@username, @password, @adminID)";
 
                 using (SqlConnection connection = ClinicDBConnection.GetConnection())
@@ -99,8 +105,13 @@ namespace Group3_ClinicDB.DAL
 
                     using (SqlCommand insertCommand = new SqlCommand(insertStatement, connection))
                     {
+
+                        Byte[] inputBytes = System.Text.Encoding.UTF8.GetBytes(password);
+                        SHA512 shaM = new SHA512Managed();
+                        Byte[] hashedBytes = shaM.ComputeHash(inputBytes);
+
                         insertCommand.Parameters.AddWithValue("@username", username);
-                        insertCommand.Parameters.AddWithValue("@password", password);
+                        insertCommand.Parameters.AddWithValue("@password", hashedBytes);
                         insertCommand.Parameters.AddWithValue("@adminID", idNumber);
 
                         insertCommand.ExecuteNonQuery();
@@ -124,8 +135,13 @@ namespace Group3_ClinicDB.DAL
 
                     using (SqlCommand insertCommand = new SqlCommand(insertStatement, connection))
                     {
+
+                        Byte[] inputBytes = System.Text.Encoding.UTF8.GetBytes(password);
+                        SHA512 shaM = new SHA512Managed();
+                        Byte[] hashedBytes = shaM.ComputeHash(inputBytes);
+
                         insertCommand.Parameters.AddWithValue("@username", username);
-                        insertCommand.Parameters.AddWithValue("@password", password);
+                        insertCommand.Parameters.AddWithValue("@password", hashedBytes);
                         insertCommand.Parameters.AddWithValue("@nurseID", idNumber);
 
                         insertCommand.ExecuteNonQuery();
@@ -281,7 +297,7 @@ namespace Group3_ClinicDB.DAL
         public bool UpdateUser(User user, string password)
         {
             string updateStatement = "UPDATE login " +
-                                  "SET userName = @userName, password = @password " +
+                                  "SET userName = @userName, passwordHash = @password " +
                                   "WHERE nurse_id = @Id";
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
@@ -290,8 +306,12 @@ namespace Group3_ClinicDB.DAL
 
                 using (SqlCommand cmd = new SqlCommand(updateStatement, connection))
                 {
+                    Byte[] inputBytes = System.Text.Encoding.UTF8.GetBytes(password);
+                    SHA512 shaM = new SHA512Managed();
+                    Byte[] hashedBytes = shaM.ComputeHash(inputBytes);
+
                     cmd.Parameters.AddWithValue("@userName", user.userName);
-                    cmd.Parameters.AddWithValue("@password", password);
+                    cmd.Parameters.AddWithValue("@password", hashedBytes);
                     cmd.Parameters.AddWithValue("@Id", user.nurseID);
 
                     cmd.ExecuteNonQuery();

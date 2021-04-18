@@ -96,12 +96,12 @@ insert into persons
 
 --login
 
-INSERT into login (   userName,   password,   admin_id,   nurse_id,   doctor_id,   patient_id) values
-('Sam', 'test1234', 1, null, null, null),    
-('Lauren', 'test123', null, 1, null, null),    
-('Laura', 'test4321', null, 2, null, null),
-('doe', 'test1234', 2, null, null, null),
-('jane', 'test1234', null, 3, null, null);
+INSERT into login (   userName,   passwordHash,   admin_id,   nurse_id,   doctor_id,   patient_id) values
+('Sam',HASHBYTES('SHA2_512', 'test1234'), 1, null, null, null),    
+('Lauren',HASHBYTES('SHA2_512', 'test123'), null, 1, null, null),    
+('Laura',HASHBYTES('SHA2_512', 'test4321'), null, 2, null, null),
+('doe',HASHBYTES('SHA2_512', 'test1234'), 2, null, null, null),
+('jane',HASHBYTES('SHA2_512', 'test1234'), null, 3, null, null);
 
 
 -- doctorspecialities
