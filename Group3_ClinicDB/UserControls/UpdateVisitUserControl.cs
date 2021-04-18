@@ -127,7 +127,7 @@ namespace Group3_ClinicDB.UserControls
                 this.visit = this.visitController.GetVisitsByVisitIDPatientId(visitID, this.patient.Id);
                 if (string.IsNullOrEmpty(this.visit.symptoms))
                 {
-                    MessageBox.Show("There is no visit for the selected patient with the entered id.");
+                    MessageBox.Show("There is no open visit for the selected patient with the entered id.");
                     return;
                 }
 
