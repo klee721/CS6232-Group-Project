@@ -1,13 +1,6 @@
 ﻿using Group3_ClinicDB.Controller;
 using Group3_ClinicDB.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Group3_ClinicDB.UserControls
@@ -51,7 +44,8 @@ namespace Group3_ClinicDB.UserControls
 
             if (this.patient != null)
             {
-                //this.patientDataGridView.DataSource = this.labTestController.GetAllLabTestsForPatientPerformed(this.patient);
+                this.patientDataGridView.DataSource = this.labTestController.GetAllLabTestsForPatientPerformed(this.patient);
+                this.DisablePatientInfo(false);
             }
         }
 
@@ -81,7 +75,6 @@ namespace Group3_ClinicDB.UserControls
                 this.patientNameLabel.Text = this.patient.FirstName + " " + this.patient.LastName + "'s test results search";
                 this.visitIdRadioButton.Checked = true;
                 this.visitIdTextBox.ReadOnly = false;
-                this.visitIdErrorLabel.Visible = true;
                 this.visitIdButton.Enabled = true;
                 this.visitIdResetButton.Enabled = true;
             }
@@ -89,7 +82,21 @@ namespace Group3_ClinicDB.UserControls
 
         private void VisitIdTextBoxTextChanged(object sender, EventArgs e)
         {
+            this.visitIdErrorLabel.Visible = false;
+        }
 
+        private void VisitIdResetButtonClick(object sender, EventArgs e)
+        {
+            this.patientDataGridView.DataSource = this.labTestController.GetAllLabTestsForPatientPerformed(this.patient);
+        }
+
+        private void VisitIdButtonClick(object sender, EventArgs e)
+        {
+            //validations
+            //error
+            //DAL method
+            //success message
+            //failure message
         }
     }
 }

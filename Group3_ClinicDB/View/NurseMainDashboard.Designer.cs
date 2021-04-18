@@ -41,6 +41,7 @@ namespace Group3_ClinicDB.View
             this.EditVisitTab = new System.Windows.Forms.TabPage();
             this.OrderTestTab = new System.Windows.Forms.TabPage();
             this.enterTestResultsTab = new System.Windows.Forms.TabPage();
+            this.searchTestResults = new System.Windows.Forms.TabPage();
             this.LoggedInAsLabel = new System.Windows.Forms.Label();
             this.SelectedPatientIDLabel = new System.Windows.Forms.Label();
             this.LogoutLink = new System.Windows.Forms.LinkLabel();
@@ -60,7 +61,7 @@ namespace Group3_ClinicDB.View
             this.updateVisitUserControl1 = new Group3_ClinicDB.UserControls.UpdateVisitUserControl();
             this.orderTestsUserControl1 = new Group3_ClinicDB.UserControls.OrderTestsUserControl();
             this.enterTestResultsUserControl1 = new Group3_ClinicDB.UserControls.EnterTestResultsUserControl();
-            this.searchTestResults = new System.Windows.Forms.TabPage();
+            this.searchTestResultsUserControl1 = new Group3_ClinicDB.UserControls.SearchTestResultsUserControl();
             this.DashboardTabControl.SuspendLayout();
             this.SearchPatientTab.SuspendLayout();
             this.registerPatientTab.SuspendLayout();
@@ -72,6 +73,7 @@ namespace Group3_ClinicDB.View
             this.EditVisitTab.SuspendLayout();
             this.OrderTestTab.SuspendLayout();
             this.enterTestResultsTab.SuspendLayout();
+            this.searchTestResults.SuspendLayout();
             this.SuspendLayout();
             // 
             // DashboardTabControl
@@ -205,6 +207,16 @@ namespace Group3_ClinicDB.View
             this.enterTestResultsTab.TabIndex = 10;
             this.enterTestResultsTab.Text = "Enter Test Results";
             this.enterTestResultsTab.UseVisualStyleBackColor = true;
+            // 
+            // searchTestResults
+            // 
+            this.searchTestResults.Controls.Add(this.searchTestResultsUserControl1);
+            this.searchTestResults.Location = new System.Drawing.Point(4, 22);
+            this.searchTestResults.Name = "searchTestResults";
+            this.searchTestResults.Size = new System.Drawing.Size(1215, 615);
+            this.searchTestResults.TabIndex = 11;
+            this.searchTestResults.Text = "Search Test Results";
+            this.searchTestResults.UseVisualStyleBackColor = true;
             // 
             // LoggedInAsLabel
             // 
@@ -398,14 +410,15 @@ namespace Group3_ClinicDB.View
             this.enterTestResultsUserControl1.Size = new System.Drawing.Size(1215, 615);
             this.enterTestResultsUserControl1.TabIndex = 0;
             // 
-            // searchTestResults
+            // searchTestResultsUserControl1
             // 
-            this.searchTestResults.Location = new System.Drawing.Point(4, 22);
-            this.searchTestResults.Name = "searchTestResults";
-            this.searchTestResults.Size = new System.Drawing.Size(1215, 615);
-            this.searchTestResults.TabIndex = 11;
-            this.searchTestResults.Text = "Search Test Results";
-            this.searchTestResults.UseVisualStyleBackColor = true;
+            this.searchTestResultsUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchTestResultsUserControl1.Location = new System.Drawing.Point(0, 0);
+            this.searchTestResultsUserControl1.MaximumSize = new System.Drawing.Size(1215, 615);
+            this.searchTestResultsUserControl1.MinimumSize = new System.Drawing.Size(1215, 615);
+            this.searchTestResultsUserControl1.Name = "searchTestResultsUserControl1";
+            this.searchTestResultsUserControl1.Size = new System.Drawing.Size(1215, 615);
+            this.searchTestResultsUserControl1.TabIndex = 0;
             // 
             // NurseMainDashboard
             // 
@@ -439,6 +452,7 @@ namespace Group3_ClinicDB.View
             this.EditVisitTab.ResumeLayout(false);
             this.OrderTestTab.ResumeLayout(false);
             this.enterTestResultsTab.ResumeLayout(false);
+            this.searchTestResults.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -478,5 +492,6 @@ namespace Group3_ClinicDB.View
         private System.Windows.Forms.TabPage enterTestResultsTab;
         private UserControls.EnterTestResultsUserControl enterTestResultsUserControl1;
         private System.Windows.Forms.TabPage searchTestResults;
+        private UserControls.SearchTestResultsUserControl searchTestResultsUserControl1;
     }
 }

@@ -214,16 +214,19 @@ namespace Group3_ClinicDB.UserControls
                 //DAL with the view, we ask the controller to get the data for us 
                 //so that the view does not have to know where the data comes from
                 //(the line after the commented line)
+                if (this.patient != null)
+                {
 
-                visitsList = this.visitController.GetVisitsByPatient(this.patient.Id);
-                visitComboBox.Refresh();
-                //if (visitsList.Count > 0)
-                //{
+
+                    visitsList = this.visitController.GetVisitsByPatient(this.patient.Id);
+                    visitComboBox.Refresh();
+                    //if (visitsList.Count > 0)
+                    //{
 
                     visitComboBox.DisplayMember = "Id";
                     visitComboBox.ValueMember = "Id";
                     visitComboBox.DataSource = visitsList;
-
+                }
                // }
                
             }

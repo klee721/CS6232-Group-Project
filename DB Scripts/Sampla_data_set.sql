@@ -74,12 +74,14 @@ insert into persons
    
  -- Clinic admins  
   insert into clinicadmins (persons_id) values (1);
+  insert into clinicadmins (persons_id) values (3);
   
  -- nurses
  insert into nurses  (status , persons_id) values 
  ('A', 4),
- ('A', 6);
- 
+ ('A', 6),
+ ('A', 8);
+  
  -- patients
  
  insert into patients (persons_id) values 
@@ -97,7 +99,9 @@ insert into persons
 INSERT into login (   userName,   password,   admin_id,   nurse_id,   doctor_id,   patient_id) values
 ('Sam', 'test1234', 1, null, null, null),    
 ('Lauren', 'test123', null, 1, null, null),    
-('Laura', 'test4321', null, 2, null, null);
+('Laura', 'test4321', null, 2, null, null),
+('doe', 'test1234', 2, null, null, null),
+('jane', 'test1234', null, 3, null, null);
 
 
 -- doctorspecialities
@@ -123,11 +127,8 @@ INSERT into  tests (testCode,   Name,   description) values
 ('GLUCOSE','Glucose test', 'check sugar levels');
 
 -- labtests
-INSERT into  labtests (   patientId,   orderDateTime, performedDateTime, testCode,   results, normal) values
-(1,'10-APR-2021 14:15:00', null, 'CULTURES', NULL, 'Y'),
-(1,'10-APR-2021 14:15:00', null, 'CBC', NULL, 'Y'),
-(1,'10-APR-2021 14:15:00', null, 'GLUCOSE', NULL, 'Y'),
-(2,'10-APR-2021 14:15:00', null, 'CULTURES', NULL, 'Y'),
-(2,'10-APR-2021 14:15:00', null, 'CBC', NULL, 'Y'),
-(2,'10-APR-2021 14:15:00', null, 'GLUCOSE', NULL, 'Y');
+INSERT into  labtests (   patientId,   orderDateTime, performedDateTime, testCode,   results, normal,visit_id) values
+(1,'10-APR-2021 14:15:00', null, 'CULTURES', NULL, 'Y',1),
+(2,'10-APR-2021 14:15:00', null, 'GLUCOSE', NULL, 'Y',2);
+
 
