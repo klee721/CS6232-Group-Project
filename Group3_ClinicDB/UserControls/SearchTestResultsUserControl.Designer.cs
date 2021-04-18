@@ -83,6 +83,7 @@ namespace Group3_ClinicDB.UserControls
             this.visitIdButton.TabIndex = 3;
             this.visitIdButton.Text = "Search";
             this.visitIdButton.UseVisualStyleBackColor = true;
+            this.visitIdButton.Click += new System.EventHandler(this.VisitIdButtonClick);
             // 
             // visitIdResetButton
             // 
@@ -93,6 +94,7 @@ namespace Group3_ClinicDB.UserControls
             this.visitIdResetButton.TabIndex = 4;
             this.visitIdResetButton.Text = "Reset";
             this.visitIdResetButton.UseVisualStyleBackColor = true;
+            this.visitIdResetButton.Click += new System.EventHandler(this.VisitIdResetButtonClick);
             // 
             // visitIdLabel
             // 

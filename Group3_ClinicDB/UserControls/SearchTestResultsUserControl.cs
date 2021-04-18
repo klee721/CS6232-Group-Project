@@ -82,7 +82,21 @@ namespace Group3_ClinicDB.UserControls
 
         private void VisitIdTextBoxTextChanged(object sender, EventArgs e)
         {
+            this.visitIdErrorLabel.Visible = false;
+        }
 
+        private void VisitIdResetButtonClick(object sender, EventArgs e)
+        {
+            this.patientDataGridView.DataSource = this.labTestController.GetAllLabTestsForPatientPerformed(this.patient);
+        }
+
+        private void VisitIdButtonClick(object sender, EventArgs e)
+        {
+            //validations
+            //error
+            //DAL method
+            //success message
+            //failure message
         }
     }
 }
