@@ -38,6 +38,10 @@ namespace Group3_ClinicDB.UserControls
             this.visitIdTextBox = new System.Windows.Forms.TextBox();
             this.visitIdErrorLabel = new System.Windows.Forms.Label();
             this.patientNameLabel = new System.Windows.Forms.Label();
+            this.resultsLabel = new System.Windows.Forms.Label();
+            this.resultsTextBox = new System.Windows.Forms.TextBox();
+            this.performedLabel = new System.Windows.Forms.Label();
+            this.performedTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.patientDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,8 +63,9 @@ namespace Group3_ClinicDB.UserControls
             this.patientDataGridView.Location = new System.Drawing.Point(224, 263);
             this.patientDataGridView.Name = "patientDataGridView";
             this.patientDataGridView.ReadOnly = true;
-            this.patientDataGridView.Size = new System.Drawing.Size(717, 278);
+            this.patientDataGridView.Size = new System.Drawing.Size(717, 196);
             this.patientDataGridView.TabIndex = 1;
+            this.patientDataGridView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.PatientDataGridViewCellMouseClick);
             // 
             // visitIdRadioButton
             // 
@@ -134,10 +139,49 @@ namespace Group3_ClinicDB.UserControls
             this.patientNameLabel.TabIndex = 8;
             this.patientNameLabel.Text = "search";
             // 
+            // resultsLabel
+            // 
+            this.resultsLabel.AutoSize = true;
+            this.resultsLabel.Location = new System.Drawing.Point(224, 514);
+            this.resultsLabel.Name = "resultsLabel";
+            this.resultsLabel.Size = new System.Drawing.Size(45, 13);
+            this.resultsLabel.TabIndex = 9;
+            this.resultsLabel.Text = "Results:";
+            // 
+            // resultsTextBox
+            // 
+            this.resultsTextBox.Location = new System.Drawing.Point(307, 514);
+            this.resultsTextBox.Multiline = true;
+            this.resultsTextBox.Name = "resultsTextBox";
+            this.resultsTextBox.ReadOnly = true;
+            this.resultsTextBox.Size = new System.Drawing.Size(634, 68);
+            this.resultsTextBox.TabIndex = 10;
+            // 
+            // performedLabel
+            // 
+            this.performedLabel.AutoSize = true;
+            this.performedLabel.Location = new System.Drawing.Point(227, 476);
+            this.performedLabel.Name = "performedLabel";
+            this.performedLabel.Size = new System.Drawing.Size(58, 13);
+            this.performedLabel.TabIndex = 11;
+            this.performedLabel.Text = "Performed:";
+            // 
+            // performedTextBox
+            // 
+            this.performedTextBox.Location = new System.Drawing.Point(307, 476);
+            this.performedTextBox.Name = "performedTextBox";
+            this.performedTextBox.ReadOnly = true;
+            this.performedTextBox.Size = new System.Drawing.Size(188, 20);
+            this.performedTextBox.TabIndex = 12;
+            // 
             // SearchTestResultsUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.performedTextBox);
+            this.Controls.Add(this.performedLabel);
+            this.Controls.Add(this.resultsTextBox);
+            this.Controls.Add(this.resultsLabel);
             this.Controls.Add(this.patientNameLabel);
             this.Controls.Add(this.visitIdErrorLabel);
             this.Controls.Add(this.visitIdTextBox);
@@ -170,5 +214,9 @@ namespace Group3_ClinicDB.UserControls
         private System.Windows.Forms.TextBox visitIdTextBox;
         private System.Windows.Forms.Label visitIdErrorLabel;
         private System.Windows.Forms.Label patientNameLabel;
+        private System.Windows.Forms.Label resultsLabel;
+        private System.Windows.Forms.TextBox resultsTextBox;
+        private System.Windows.Forms.Label performedLabel;
+        private System.Windows.Forms.TextBox performedTextBox;
     }
 }
