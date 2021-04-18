@@ -205,6 +205,9 @@
     <EmbeddedResource Include="UserControls\OrderTestsUserControl.resx">
       <DependentUpon>OrderTestsUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\SearchTestResultsUserControl.resx">
+      <DependentUpon>SearchTestResultsUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\SearchUserControl.resx">
       <DependentUpon>SearchUserControl.cs</DependentUpon>
     </EmbeddedResource>
