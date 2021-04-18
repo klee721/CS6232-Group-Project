@@ -123,7 +123,7 @@ namespace Group3_ClinicDB.DAL
        ",vis.symptoms,vis.nurseId,vis.bloodPressureSystolic,vis.bloodPressureDiastolic " +
        ",vis.initialDiagnose,ISNULL(vis.finalDiagnose, ' ') finalDiagnose " +
        " FROM dbo.visits vis JOIN dbo.appointments app on(app.Id = vis.appointment_id) " +
-       " Where vis.ID = @ID and app.patientId = @patientID ";
+       " Where vis.ID = @ID and app.patientId = @patientID and vis.finalDiagnose is null ";
 
 
 
