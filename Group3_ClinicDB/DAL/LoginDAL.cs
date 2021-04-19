@@ -9,7 +9,8 @@ namespace Group3_ClinicDB.DAL
     class LoginDAL
     {
         /// <summary>
-        /// Method to retrieve a List of Users based on a Username and Password. If a match is found, a List is returned with 1 element
+        /// Method to retrieve a List of Users based on a Username and Password. Converts the string password into a ByteHash to match the DB encryption. 
+        /// If a match is found, a List is returned with 1 element
         /// </summary>
         /// <param name="name">Username of the employee</param>
         /// <param name="password">Password of the employee</param>
@@ -85,7 +86,13 @@ namespace Group3_ClinicDB.DAL
             return userList;
         }
 
-
+        /// <summary>
+        /// Method to create a new system user. Branches into an admin routine or a nurse routine based on the employee's role (ID number type)
+        /// </summary>
+        /// <param name="user">User object which holds the employees ID/role</param>
+        /// <param name="username">the employees chosen (unique) username</param>
+        /// <param name="password">the employees chosen password</param>
+        /// <returns>true if the process is successful</returns>
         public bool CreateNewUser(User user, string username, string password)
         {
             int idNumber;
@@ -260,6 +267,11 @@ namespace Group3_ClinicDB.DAL
 
         }
 
+        /// <summary>
+        /// Method to retrieve a nurse's system username by their employee ID
+        /// </summary>
+        /// <param name="nurseID">the nurse's employee ID</param>
+        /// <returns>a string username</returns>
         public string GetUsernameByNurseID(int nurseID)
         {
             string selectStatement = "SELECT userName FROM login WHERE nurse_id = @id";
@@ -294,6 +306,12 @@ namespace Group3_ClinicDB.DAL
             }
         }
 
+        /// <summary>
+        /// Method to change a User's username and password. Converts the password string into a bytehash to match the DBs encryption
+        /// </summary>
+        /// <param name="user">a Ueer object which contains the employees ID and new username</param>
+        /// <param name="password">the employees chosen password</param>
+        /// <returns>true when the process is successful</returns>
         public bool UpdateUser(User user, string password)
         {
             string updateStatement = "UPDATE login " +
