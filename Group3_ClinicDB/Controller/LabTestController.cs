@@ -9,11 +9,11 @@ namespace Group3_ClinicDB.Controller
     {
         LabTestDAL testSource;
 
-        LabTestReportDAL testReportSource;
+        //LabTestReportDAL testReportSource;
         public LabTestController()
         {
             this.testSource = new LabTestDAL();
-            this.testReportSource = new LabTestReportDAL();
+            //this.testReportSource = new LabTestReportDAL();
         }
 
         /// <summary>
@@ -30,11 +30,11 @@ namespace Group3_ClinicDB.Controller
         /// Controller method to call on DAL method to retrieve report List of all Tests in the DB
         /// </summary>
         /// <returns>a List of report Test objects </returns>
-        public List<LabTestReport> GetLabTestReport(DateTime fromDate, DateTime toDate)
-        {
-            return this.testReportSource.GetLabTestReport(fromDate, toDate);
+       // public List<LabTestReport> GetLabTestReport(DateTime fromDate, DateTime toDate)
+        //{
+            //return this.testReportSource.GetLabTestReport(fromDate, toDate);
 
-        }
+        //}
 
         /// <summary>
         /// Controller method to call on DAL method to retrieve List of non-performed LabTests in the DB for a patient

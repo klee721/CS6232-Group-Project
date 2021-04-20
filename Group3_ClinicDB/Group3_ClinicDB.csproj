@@ -89,6 +89,11 @@
     <Compile Include="DAL\StateDBDAL.cs" />
     <Compile Include="DAL\LabTestDAL.cs" />
     <Compile Include="DAL\VisitsDAL.cs" />
+    <Compile Include="DataSetStoredProcedure.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetStoredProcedure.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Model\LabTest.cs" />
     <Compile Include="Model\Appointment.cs" />
     <Compile Include="Model\Doctor.cs" />
@@ -99,7 +104,6 @@
     <Compile Include="Model\State.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\Visits.cs" />
-    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="UserControls\AddUserUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -215,6 +219,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_cs6232_g3DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="_cs6232_g3DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_cs6232_g3DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_cs6232_g3DataSetStoredProcedure.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_cs6232_g3DataSetStoredProcedure.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="LabReport.rdlc" />
     <EmbeddedResource Include="UserControls\AddUserUserControl.resx">
       <DependentUpon>AddUserUserControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -278,6 +293,17 @@
     <EmbeddedResource Include="View\NurseMainDashboard.resx">
       <DependentUpon>NurseMainDashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DataSetStoredProcedure.xsc">
+      <DependentUpon>DataSetStoredProcedure.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetStoredProcedure.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetStoredProcedure.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetStoredProcedure.xss">
+      <DependentUpon>DataSetStoredProcedure.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -299,6 +325,28 @@
     <None Include="_cs6232_g3DataSet.xss">
       <DependentUpon>_cs6232_g3DataSet.xsd</DependentUpon>
     </None>
+    <None Include="_cs6232_g3DataSet1.xsc">
+      <DependentUpon>_cs6232_g3DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="_cs6232_g3DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_cs6232_g3DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_cs6232_g3DataSet1.xss">
+      <DependentUpon>_cs6232_g3DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="_cs6232_g3DataSetStoredProcedure.xsc">
+      <DependentUpon>_cs6232_g3DataSetStoredProcedure.xsd</DependentUpon>
+    </None>
+    <None Include="_cs6232_g3DataSetStoredProcedure.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_cs6232_g3DataSetStoredProcedure.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_cs6232_g3DataSetStoredProcedure.xss">
+      <DependentUpon>_cs6232_g3DataSetStoredProcedure.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -308,19 +356,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ReadMe.txt" />
-    <Content Include="SqlServerTypes\readme.htm" />
-    <Content Include="SqlServerTypes\x64\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
