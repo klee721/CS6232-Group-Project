@@ -9,9 +9,11 @@ namespace Group3_ClinicDB.Controller
     {
         LabTestDAL testSource;
 
+        LabTestReportDAL testReportSource;
         public LabTestController()
         {
             this.testSource = new LabTestDAL();
+            this.testReportSource = new LabTestReportDAL();
         }
 
         /// <summary>
@@ -21,6 +23,16 @@ namespace Group3_ClinicDB.Controller
         public List<Test> GetAllTests()
         {
             return this.testSource.GetAllTests();
+
+        }
+
+        /// <summary>
+        /// Controller method to call on DAL method to retrieve report List of all Tests in the DB
+        /// </summary>
+        /// <returns>a List of report Test objects </returns>
+        public List<LabTestReport> GetLabTestReport(DateTime fromDate, DateTime toDate)
+        {
+            return this.testReportSource.GetLabTestReport(fromDate, toDate);
 
         }
 

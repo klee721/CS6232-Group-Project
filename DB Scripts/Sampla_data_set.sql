@@ -132,3 +132,36 @@ INSERT into  labtests (   patientId,   orderDateTime, performedDateTime, testCod
 (2,'10-APR-2021 14:15:00', null, 'GLUCOSE', NULL, 'Y',2);
 
 
+
+
+INSERT into  tests (testCode,   Name,   description) values 
+('CBCA', 'Complete Blood Count', 'Blood count'),
+('CULTURESA', 'Cultures test' ,'Cultures are used to test for diagnosis'),
+('GLUCOSEA','Glucose test', 'check sugar levels'),
+('ABC', 'Complete Blood Count', 'Blood count'),
+('CDE', 'Cultures test' ,'Cultures are used to test for diagnosis'),
+('EFG','Glucose test', 'check sugar levels'),
+('GHI', 'Complete Blood Count', 'Blood count'),
+('IJK', 'Cultures test' ,'Cultures are used to test for diagnosis'),
+('KLM','Glucose test', 'check sugar levels');
+
+-- labtests
+INSERT into  labtests (   patientId,   orderDateTime, performedDateTime, testCode,   results, normal,visit_id) values
+(1,'2-APR-2021 14:15:00', '11-APR-2021 14:15:00', 'CULTURES', NULL, 'Y',1),
+(2,'2-APR-2021 14:15:00', '11-APR-2021 14:15:00', 'GLUCOSE', NULL, 'Y',2),
+(1,'15-APR-2021 14:15:00', '20-APR-2021 14:15:00', 'CULTURESA', NULL, 'Y',1),
+(2,'15-APR-2021 14:15:00', '20-APR-2021 14:15:00', 'GLUCOSE', NULL, 'N',2),
+(1,'19-APR-2021 14:15:00', '30-APR-2021 14:15:00', 'CULTURESA', NULL, 'N',1),
+(2,'19-APR-2021 14:15:00', '30-APR-2021 14:15:00', 'GLUCOSE', NULL, 'N',2),
+(1,'11-APR-2021 14:15:00', '15-APR-2021 14:15:00', 'CULTURESA', NULL, 'N',1),
+(2,'11-APR-2021 14:15:00', '15-APR-2021 14:15:00', 'GLUCOSEA', NULL, 'N',2),
+(1,'1-APR-2021 14:15:00', '1-APR-2021 14:15:00', 'CULTURES', NULL, 'Y',1),
+(2,'1-APR-2021 14:15:00', '1-APR-2021 14:15:00', 'CBCA', NULL, 'Y',2),
+(1,'12-APR-2021 14:15:00', '20-APR-2021 14:15:00', 'GLUCOSEA', NULL, 'Y',1),
+(2,'12-APR-2021 14:15:00', '20-APR-2021 14:15:00', 'CBCA', NULL, 'N',2),
+(1,'13-APR-2021 14:15:00', '30-APR-2021 14:15:00', 'GLUCOSEA', NULL, 'N',1),
+(2,'13-APR-2021 14:15:00', '30-APR-2021 14:15:00', 'CBCA', NULL, 'N',2),
+(1,'14-APR-2021 14:15:00', '15-APR-2021 14:15:00', 'GLUCOSEA', NULL, 'N',1),
+(2,'14-APR-2021 14:15:00', '15-APR-2021 14:15:00', 'CBCA', NULL, 'N',2);
+
+update persons set dateOfBirth = '1996-08-15' where id =5;
