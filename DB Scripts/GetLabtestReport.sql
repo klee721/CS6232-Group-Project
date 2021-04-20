@@ -2,6 +2,7 @@ CREATE PROCEDURE GetLabtestReport
     @FromDate Datetime,   
     @ToDate Datetime   
 AS   
+BEGIn
 
     SET NOCOUNT ON;  
 	select 
@@ -37,5 +38,4 @@ AS
   group by testCode) t30 on (t30.testCode = t.testCode)) stat 
   join tests test on (test.testCode = stat.testCode)
   order by stat.qualified_test_counts desc, test.testCode desc;
- 
-END
+ END
