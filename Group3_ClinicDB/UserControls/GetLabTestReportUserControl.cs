@@ -18,6 +18,7 @@ namespace Group3_ClinicDB.UserControls
         {
             InitializeComponent();
             this.controller = new LabTestController();
+            Load_report();
         }
 
         /// <summary>
@@ -34,7 +35,11 @@ namespace Group3_ClinicDB.UserControls
                 //LabTestPerformedReportGrid.date = this.controller.GetLabTestReport(this.StartDatePicker.Value, this.EndDatePicker.Value);
                 
             }
-            
+            DateTime fromDate = new DateTime(2021, 04, 01);
+            DateTime toDate = new DateTime(2021, 04, 30);
+            this.getLabtestReportTableAdapter.Fill(this._cs6232_g3DataSetStoredProcedure.GetLabtestReport, fromDate, toDate);
+            this.reportViewer1.RefreshReport();
+
         }
 
         private void ReportViewer1Load(object sender, EventArgs e)
@@ -44,5 +49,7 @@ namespace Group3_ClinicDB.UserControls
             this.getLabtestReportTableAdapter.Fill(this._cs6232_g3DataSetStoredProcedure.GetLabtestReport, fromDate, toDate);
             this.reportViewer1.RefreshReport(); 
         }
+
+       
     }
 }
