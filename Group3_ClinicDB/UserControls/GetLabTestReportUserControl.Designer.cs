@@ -30,7 +30,9 @@ namespace Group3_ClinicDB.UserControls
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.getLabtestReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this._cs6232_g3DataSetStoredProcedure = new Group3_ClinicDB._cs6232_g3DataSetStoredProcedure();
             this.LabTestPerformedReportGrid = new Microsoft.Reporting.WinForms.ReportViewer();
             this.StartDatePicker = new System.Windows.Forms.DateTimePicker();
             this.EndDatePicker = new System.Windows.Forms.DateTimePicker();
@@ -39,13 +41,21 @@ namespace Group3_ClinicDB.UserControls
             this.DatePanel = new System.Windows.Forms.Panel();
             this.GetReportButton = new System.Windows.Forms.Button();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this._cs6232_g3DataSetStoredProcedure = new Group3_ClinicDB._cs6232_g3DataSetStoredProcedure();
-            this.getLabtestReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.getLabtestReportTableAdapter = new Group3_ClinicDB._cs6232_g3DataSetStoredProcedureTableAdapters.GetLabtestReportTableAdapter();
-            this.DatePanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._cs6232_g3DataSetStoredProcedure)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.getLabtestReportBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._cs6232_g3DataSetStoredProcedure)).BeginInit();
+            this.DatePanel.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // getLabtestReportBindingSource
+            // 
+            this.getLabtestReportBindingSource.DataMember = "GetLabtestReport";
+            this.getLabtestReportBindingSource.DataSource = this._cs6232_g3DataSetStoredProcedure;
+            // 
+            // _cs6232_g3DataSetStoredProcedure
+            // 
+            this._cs6232_g3DataSetStoredProcedure.DataSetName = "_cs6232_g3DataSetStoredProcedure";
+            this._cs6232_g3DataSetStoredProcedure.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // LabTestPerformedReportGrid
             // 
@@ -114,28 +124,19 @@ namespace Group3_ClinicDB.UserControls
             this.GetReportButton.TabIndex = 6;
             this.GetReportButton.Text = "Get Report";
             this.GetReportButton.UseVisualStyleBackColor = true;
+            this.GetReportButton.Click += new System.EventHandler(this.GetReportButtonClick);
             // 
             // reportViewer1
             // 
-            reportDataSource2.Name = "LabReportDataSet";
-            reportDataSource2.Value = this.getLabtestReportBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
+            reportDataSource1.Name = "LabReportDataSet";
+            reportDataSource1.Value = this.getLabtestReportBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "Group3_ClinicDB.LabReport.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(62, 241);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(972, 246);
             this.reportViewer1.TabIndex = 7;
-            // 
-            // _cs6232_g3DataSetStoredProcedure
-            // 
-            this._cs6232_g3DataSetStoredProcedure.DataSetName = "_cs6232_g3DataSetStoredProcedure";
-            this._cs6232_g3DataSetStoredProcedure.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // getLabtestReportBindingSource
-            // 
-            this.getLabtestReportBindingSource.DataMember = "GetLabtestReport";
-            this.getLabtestReportBindingSource.DataSource = this._cs6232_g3DataSetStoredProcedure;
             // 
             // getLabtestReportTableAdapter
             // 
@@ -153,10 +154,10 @@ namespace Group3_ClinicDB.UserControls
             this.MinimumSize = new System.Drawing.Size(1215, 615);
             this.Name = "GetLabTestReportUserControl";
             this.Size = new System.Drawing.Size(1215, 615);
+            ((System.ComponentModel.ISupportInitialize)(this.getLabtestReportBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._cs6232_g3DataSetStoredProcedure)).EndInit();
             this.DatePanel.ResumeLayout(false);
             this.DatePanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._cs6232_g3DataSetStoredProcedure)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.getLabtestReportBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

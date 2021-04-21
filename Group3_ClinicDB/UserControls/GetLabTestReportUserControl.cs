@@ -18,24 +18,27 @@ namespace Group3_ClinicDB.UserControls
         {
             InitializeComponent();
             this.controller = new LabTestController();
-            Load_report();
         }
 
         /// <summary>
         /// Method to load report
         /// </summary>
         /// 
-        public void Load_report()
+        public void LoadReport()
         {
             if ((this.StartDatePicker.Value != null) && (this.EndDatePicker.Value != null))
             {
                 //LabTestPerformedReportGrid.date = this.controller.GetLabTestReport(this.StartDatePicker.Value, this.EndDatePicker.Value);
-                
+                DateTime fromDate = new DateTime(this.StartDatePicker.Value.Year, this.StartDatePicker.Value.Month, this.StartDatePicker.Value.Day);
+                DateTime toDate = new DateTime(this.EndDatePicker.Value.Year, this.EndDatePicker.Value.Month, this.EndDatePicker.Value.Day);
+                this.getLabtestReportTableAdapter.Fill(this._cs6232_g3DataSetStoredProcedure.GetLabtestReport, fromDate, toDate);
+                this.reportViewer1.RefreshReport();
             }
-            DateTime fromDate = new DateTime(2021, 04, 01);
-            DateTime toDate = new DateTime(2021, 04, 30);
-            this.getLabtestReportTableAdapter.Fill(this._cs6232_g3DataSetStoredProcedure.GetLabtestReport, fromDate, toDate);
-            this.reportViewer1.RefreshReport();
+        }
+
+        private void GetReportButtonClick(object sender, EventArgs e)
+        {
+            this.LoadReport();
         }
     }
 }
