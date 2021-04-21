@@ -27,9 +27,6 @@ namespace Group3_ClinicDB.UserControls
         /// 
         public void Load_report()
         {
-
-           
-
             if ((this.StartDatePicker.Value != null) && (this.EndDatePicker.Value != null))
             {
                 //LabTestPerformedReportGrid.date = this.controller.GetLabTestReport(this.StartDatePicker.Value, this.EndDatePicker.Value);
@@ -39,17 +36,6 @@ namespace Group3_ClinicDB.UserControls
             DateTime toDate = new DateTime(2021, 04, 30);
             this.getLabtestReportTableAdapter.Fill(this._cs6232_g3DataSetStoredProcedure.GetLabtestReport, fromDate, toDate);
             this.reportViewer1.RefreshReport();
-
         }
-
-        private void ReportViewer1Load(object sender, EventArgs e)
-        {
-            DateTime fromDate = new DateTime(2021, 04, 01);
-            DateTime toDate = new DateTime(2021, 04, 30);
-            this.getLabtestReportTableAdapter.Fill(this._cs6232_g3DataSetStoredProcedure.GetLabtestReport, fromDate, toDate);
-            this.reportViewer1.RefreshReport(); 
-        }
-
-       
     }
 }
