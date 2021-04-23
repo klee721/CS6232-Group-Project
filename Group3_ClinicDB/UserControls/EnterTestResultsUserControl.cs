@@ -143,9 +143,9 @@ namespace Group3_ClinicDB.UserControls
                 this.newLabTest.PerformedDateTime = DateTime.Now;
                 this.newLabTest.TestCode = this.oldLabTest.TestCode;
                 this.newLabTest.Results = this.resultsTextBox.Text;
-                this.newLabTest.Normal = this.oldLabTest.Normal;
+                this.newLabTest.Normal = this.normalComboBox.SelectedItem.ToString();
                 this.newLabTest.visitId = this.oldLabTest.visitId;
-
+ 
                 if (this.labTestController.UpdateLabTest(this.oldLabTest, this.newLabTest))
                 {
                     this.DisablePatientInfo(true);
