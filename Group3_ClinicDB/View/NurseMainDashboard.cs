@@ -21,7 +21,7 @@ namespace Group3_ClinicDB.View
             this.user = user;
         }
 
-        private void SelectPatientButton_Click(object sender, EventArgs e)
+        private void SelectPatientButtonClick(object sender, EventArgs e)
         {
             if (this.searchUserControl2.GetPatient() != null)
             {
@@ -47,7 +47,7 @@ namespace Group3_ClinicDB.View
             }
         }
 
-        private void LogoutLink_Click(object sender, EventArgs e)
+        private void LogoutLinkClick(object sender, EventArgs e)
         {
             this.Hide();
             this.loginform.Show();
@@ -62,11 +62,12 @@ namespace Group3_ClinicDB.View
         {
             this.appointmentBookingUserControl2.Enabled = false;
             this.editAppointmentUserControl1.Enabled = false;
-            this.editPatientUserControl1.Enabled = false;
             this.addVisitUserControl1.Enabled = false;
             this.updateVisitUserControl1.Enabled = false;
             this.allVisitsUserControl1.Enabled = false;
             this.orderTestsUserControl1.Enabled = false;
+            //           this.editPatientUserControl1.Enabled = false;
+            this.editPatientUserControl1.NullifyPatients();
             this.enterTestResultsUserControl1.GetPatient(null);
             this.searchTestResultsUserControl1.GetPatient(null);
             //DISABLE YOUR MODULES ON LOGOUT HERE

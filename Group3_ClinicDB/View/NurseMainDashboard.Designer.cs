@@ -114,7 +114,7 @@ namespace Group3_ClinicDB.View
             this.SelectPatientButton.TabIndex = 9;
             this.SelectPatientButton.Text = "Select Patient";
             this.SelectPatientButton.UseVisualStyleBackColor = true;
-            this.SelectPatientButton.Click += new System.EventHandler(this.SelectPatientButton_Click);
+            this.SelectPatientButton.Click += new System.EventHandler(this.SelectPatientButtonClick);
             // 
             // registerPatientTab
             // 
@@ -245,7 +245,7 @@ namespace Group3_ClinicDB.View
             this.LogoutLink.TabIndex = 7;
             this.LogoutLink.TabStop = true;
             this.LogoutLink.Text = "Logout";
-            this.LogoutLink.Click += new System.EventHandler(this.LogoutLink_Click);
+            this.LogoutLink.Click += new System.EventHandler(this.LogoutLinkClick);
             // 
             // EmployeeNameLabel
             // 

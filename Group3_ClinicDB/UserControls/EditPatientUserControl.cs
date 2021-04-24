@@ -31,17 +31,28 @@ namespace Group3_ClinicDB.UserControls
         }
 
         /// <summary>
+        /// Sets the patients to null
+        /// Used on logout
+        /// </summary>
+        public void NullifyPatients()
+        {
+            this.oldPatient = null;
+            this.newPatient = null;
+        }
+
+        /// <summary>
         /// Retrieves the patient that has been searched
         /// </summary>
         /// <param name="searchedPatient">The patient that has been searched</param>
         /// <returns>The patient that has been searched</returns>
         public Patient GetPatient(Patient searchedPatient)
         {
-            this.oldPatient = new Patient(searchedPatient.Id, searchedPatient.PersonsId, searchedPatient.FirstName,
-                                            searchedPatient.LastName, searchedPatient.DateOfBirth, searchedPatient.Gender,
-                                            searchedPatient.SSN, searchedPatient.Address1, searchedPatient.Address2, 
-                                            searchedPatient.City, searchedPatient.State, searchedPatient.ZipCode, 
-                                            searchedPatient.PhoneNumber);
+             this.oldPatient = new Patient(searchedPatient.Id, searchedPatient.PersonsId, searchedPatient.FirstName,
+                                                searchedPatient.LastName, searchedPatient.DateOfBirth, searchedPatient.Gender,
+                                                searchedPatient.SSN, searchedPatient.Address1, searchedPatient.Address2,
+                                                searchedPatient.City, searchedPatient.State, searchedPatient.ZipCode,
+                                                searchedPatient.PhoneNumber);
+
             this.InitEditPatient();
 
             return this.oldPatient;
