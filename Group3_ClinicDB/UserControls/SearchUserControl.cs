@@ -16,7 +16,6 @@ namespace Group3_ClinicDB.UserControls
         private readonly PatientController patientController;
         private List<Patient> patients;
         private Patient patient;
-        //public static AllPatientUserControl patientUserControl;
 
         /// <summary>
         /// Loads the UserControl
@@ -124,14 +123,12 @@ namespace Group3_ClinicDB.UserControls
                 this.HideSearchDobErrorLabel(true, false);
                 this.HideSearchFnlnErrorLabel(true, false);
                 this.HideSearchDoblnErrorLabel(true, false);
-                //this.HideAllSsnSearch();
             } else
             {
                 this.DisableDobSearch(true);
                 this.HideSearchDobErrorLabel(true, false);
                 this.HideSearchFnlnErrorLabel(true, false);
                 this.HideSearchDoblnErrorLabel(true, false);
-                //this.HideAllSsnSearch();
             }
         }
 
@@ -147,7 +144,6 @@ namespace Group3_ClinicDB.UserControls
                 this.HideSearchDobErrorLabel(true, false);
                 this.HideSearchFnlnErrorLabel(true, false);
                 this.HideSearchDoblnErrorLabel(true, false);
-                //this.HideAllSsnSearch();
             }
             else
             {
@@ -155,7 +151,6 @@ namespace Group3_ClinicDB.UserControls
                 this.HideSearchDobErrorLabel(true, false);
                 this.HideSearchFnlnErrorLabel(true, false);
                 this.HideSearchDoblnErrorLabel(true, false);
-                //this.HideAllSsnSearch();
             }
         }
 
@@ -171,7 +166,6 @@ namespace Group3_ClinicDB.UserControls
                 this.HideSearchDobErrorLabel(true, false);
                 this.HideSearchFnlnErrorLabel(true, false);
                 this.HideSearchDoblnErrorLabel(true, false);
-                //this.HideAllSsnSearch();
             }
             else
             {
@@ -179,7 +173,6 @@ namespace Group3_ClinicDB.UserControls
                 this.HideSearchDobErrorLabel(true, false);
                 this.HideSearchFnlnErrorLabel(true, false);
                 this.HideSearchDoblnErrorLabel(true, false);
-                //this.HideAllSsnSearch();
             }
         }
 
@@ -288,75 +281,7 @@ namespace Group3_ClinicDB.UserControls
                 this.searchDoblnErrorLabel.ForeColor = Color.Red;
             }
         }
-        /*
-        private void HideSsnDobSearch(bool hide)
-        {
-            if (hide)
-            {
-                this.ssnDobSearchLabel.Visible = false;
-                this.ssnDobSearchTextBox.Visible = false;
-                this.ssnDobErrorLabel.Visible = false;
-            }
-            else
-            {
-                this.ssnDobSearchLabel.Visible = true;
-                this.ssnDobSearchTextBox.Visible = true;
-                this.ssnDobErrorLabel.Visible = true;
-                this.ssnDobErrorLabel.ForeColor = Color.Red;
-            }
-        }
-
-        private void HideSsnFnlnSearch(bool hide)
-        {
-            if (hide)
-            {
-                this.ssnFnlnSearchLabel.Visible = false;
-                this.ssnFnlnSearchTextBox.Visible = false;
-                this.ssnFnlnErrorLabel.Visible = false;
-                this.ssnFnlnErrorLabel.ForeColor = Color.Black;
-            }
-            else
-            {
-                this.ssnFnlnSearchLabel.Visible = true;
-                this.ssnFnlnSearchTextBox.Visible = true;
-                this.ssnFnlnErrorLabel.Visible = true;
-                this.ssnFnlnErrorLabel.ForeColor = Color.Red;
-            }
-        }
-
-        private void HideSsnDoblnSearch(bool hide)
-        {
-            if (hide)
-            {
-                this.ssnDoblnSearchLabel.Visible = false;
-                this.ssnDoblnSearchTextBox.Visible = false;
-                this.ssnDoblnErrorLabel.Visible = false;
-                this.ssnDoblnErrorLabel.ForeColor = Color.Black;
-            }
-            else
-            {
-                this.ssnDoblnSearchLabel.Visible = true;
-                this.ssnDoblnSearchTextBox.Visible = true;
-                this.ssnDoblnErrorLabel.Visible = true;
-                this.ssnDoblnErrorLabel.ForeColor = Color.Red;
-            }
-        }
-
-        private void HideAllSsnSearch()
-        {
-            this.HideSsnDobSearch(true);
-            this.HideSsnFnlnSearch(true);
-            this.HideSsnDoblnSearch(true);
-            this.HideAllMessageBox();
-        }
-
-        private void HideAllMessageBox()
-        {
-            this.dobMessageBoxPresent = false;
-            this.fnlnMessageBoxPresent = false;
-            this.doblnMessageBoxPresent = false;
-        }
-       */
+       
         private void DobSearchButtonClick(object sender, EventArgs e)
         {
             this.patients = this.patientController.GetPatientsByDob(this.dobSearchDateTimePicker.Value);
@@ -374,65 +299,11 @@ namespace Group3_ClinicDB.UserControls
                 this.patientDataGridView.DataSource = this.patients;
                 this.HideSearchDobErrorLabel(false, true);
             }  
-            /*
-            else if (this.patients.Count > 1)
-            {
-                if (!this.dobMessageBoxPresent) 
-                {
-                    if (MessageBox.Show("More than one patient found. Please find the specific patient by searching their Social Security Number.",
-                    "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
-                    {
-                        this.HideSsnDobSearch(false);
-                        this.ssnDobErrorLabel.Visible = false;
-                        this.dobMessageBoxPresent = true;
-                    }
-                }
-                else
-                {
-                    if (this.ssnDobSearchTextBox.Text.Length != 9)
-                    {
-                        this.ssnDobErrorLabel.Visible = true;
-                    }
-                    else
-                    {
-                        try
-                        {
-                            long ssnLong = Convert.ToInt64(this.ssnDobSearchTextBox.Text);
-
-                            this.patient = this.patientController.GetPatientByDobWithSsn(this.dobSearchDateTimePicker.Value, this.ssnDobSearchTextBox.Text);
-
-                            if (this.patient == null)
-                            {
-                                if (MessageBox.Show("No Patients match the date of birth.",
-                                    "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
-                                {
-                                    this.HideSearchDobErrorLabel(false, false);
-                                }
-                            } else
-                            {
-                                this.HideSearchDobErrorLabel(false, true);
-                            }
-                        }
-                        catch (Exception)
-                        {
-                            MessageBox.Show("Social security number can only contain whole numbers", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            this.ssnDobErrorLabel.Visible = true;
-                        }
-                    }
-                }
-            }
-            else
-            {
-                this.patient = this.patients[0];
-                this.HideSearchDobErrorLabel(false, true);
-            }
-            */
         }
 
         private void DobSearchDateTimePickerValueChanged(object sender, EventArgs e)
         {
             this.HideSearchDobErrorLabel(true, false);
-            //this.HideAllSsnSearch();
         }
 
         private void ValidateFnln()
@@ -462,60 +333,6 @@ namespace Group3_ClinicDB.UserControls
                     this.patientDataGridView.DataSource = this.patients;
                     this.HideSearchFnlnErrorLabel(false, true);
                 }
-                /*
-                else if (this.patients.Count > 1)
-                {
-                    if (!this.fnlnMessageBoxPresent)
-                    {
-                        if (MessageBox.Show("More than one patient found. Please find the specific patient by searching their Social Security Number.",
-                        "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
-                        {
-                            this.HideSsnFnlnSearch(false);
-                            this.ssnFnlnErrorLabel.Visible = false;
-                            this.fnlnMessageBoxPresent = true;
-                        }
-                    }
-                    else
-                    {
-                        if (this.ssnFnlnSearchTextBox.Text.Length != 9)
-                        {
-                            this.ssnFnlnErrorLabel.Visible = true;
-                        }
-                        else
-                        {
-                            try
-                            {
-                                long ssnLong = Convert.ToInt64(this.ssnFnlnSearchTextBox.Text);
-
-                                this.patient = this.patientController.GetPatientByFnlnWithSsn(this.firstNameFnlnSearchTextBox.Text, this.lastNameFnlnSearchTextBox.Text, this.ssnFnlnSearchTextBox.Text);
-
-                                if (this.patient == null)
-                                {
-                                    if (MessageBox.Show("No Patients match the date of birth.",
-                                        "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
-                                    {
-                                        this.HideSearchFnlnErrorLabel(false, false);
-                                    }
-                                }
-                                else
-                                {
-                                    this.HideSearchFnlnErrorLabel(false, true);
-                                }
-                            }
-                            catch (Exception)
-                            {
-                                MessageBox.Show("Social security number can only contain whole numbers", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                this.ssnFnlnErrorLabel.Visible = true;
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    this.patient = this.patients[0];
-                    this.HideSearchFnlnErrorLabel(false, true);
-                }
-                */
             }
         }
 
@@ -528,14 +345,12 @@ namespace Group3_ClinicDB.UserControls
         {
             this.HideFirstNameFnlnErrorLabel(true);
             this.HideSearchFnlnErrorLabel(true, false);
-            //this.HideAllSsnSearch();
         }
 
         private void LastNameFnlnSearchTextBoxTextChanged(object sender, EventArgs e)
         {
             this.HideLastNameFnlnErrorLabel(true);
             this.HideSearchFnlnErrorLabel(true, false);
-            //this.HideAllSsnSearch();
         }
 
         private void ValidateDobln()
@@ -561,60 +376,6 @@ namespace Group3_ClinicDB.UserControls
                     this.patientDataGridView.DataSource = this.patients;
                     this.HideSearchDoblnErrorLabel(false, true);
                 }
-                /*
-                else if (this.patients.Count > 1)
-                {
-                    if (!this.doblnMessageBoxPresent)
-                    {
-                        if (MessageBox.Show("More than one patient found. Please find the specific patient by searching their Social Security Number.",
-                        "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
-                        {
-                            this.HideSsnDoblnSearch(false);
-                            this.ssnDoblnErrorLabel.Visible = false;
-                            this.doblnMessageBoxPresent = true;
-                        }
-                    }
-                    else
-                    {
-                        if (this.ssnDoblnSearchTextBox.Text.Length != 9)
-                        {
-                            this.ssnDoblnErrorLabel.Visible = true;
-                        }
-                        else
-                        {
-                            try
-                            {
-                                long ssnLong = Convert.ToInt64(this.ssnDoblnSearchTextBox.Text);
-
-                                this.patient = this.patientController.GetPatientByDoblnWithSsn(this.dobDoblnSearchDateTimePicker.Value, this.lastNameDoblnSearchTextBox.Text, this.ssnDoblnSearchTextBox.Text);
-
-                                if (this.patient == null)
-                                {
-                                    if (MessageBox.Show("No Patients match the date of birth.",
-                                        "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
-                                    {
-                                        this.HideSearchDoblnErrorLabel(false, false);
-                                    }
-                                }
-                                else
-                                {
-                                    this.HideSearchDoblnErrorLabel(false, true);
-                                }
-                            }
-                            catch (Exception)
-                            {
-                                MessageBox.Show("Social security number can only contain whole numbers", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                this.ssnDoblnErrorLabel.Visible = true;
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    this.patient = this.patients[0];
-                    this.HideSearchDoblnErrorLabel(false, true);
-                }
-                */
             }
         }
 
@@ -627,30 +388,13 @@ namespace Group3_ClinicDB.UserControls
         {
             this.HideLastNameDoblnErrorLabel(true);
             this.HideSearchDoblnErrorLabel(true, false);
-            //this.HideAllSsnSearch();
         }
 
         private void DobDoblnSearchDateTimePickerValueChanged(object sender, EventArgs e)
         {
             this.HideSearchDoblnErrorLabel(true, false);
-            //this.HideAllSsnSearch();
-        }
-        /*
-        private void SsnDobSearchTextBoxTextChanged(object sender, EventArgs e)
-        {
-            this.ssnDobErrorLabel.Visible = false;
         }
 
-        private void SsnFnlnSearchTextBoxTextChanged(object sender, EventArgs e)
-        {
-            this.ssnFnlnErrorLabel.Visible = false;
-        }
-
-        private void SsnDoblnSearchTextBoxTextChanged(object sender, EventArgs e)
-        {
-            this.ssnDoblnErrorLabel.Visible = false;
-        }
-        */
         private void PatientDataGridViewCellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (patientDataGridView.SelectedCells.Count > 0)
