@@ -77,6 +77,7 @@ namespace Group3_ClinicDB.UserControls
                 this.updateButton.Enabled = false;
                 this.clearButton.Enabled = false;
                 this.deleteButton.Enabled = false;
+                this.editButton.Enabled = false;
             }
             else
             {
@@ -97,7 +98,10 @@ namespace Group3_ClinicDB.UserControls
 
                 if (this.oldPatient != null)
                 {
+                    this.deleteButton.Enabled = true;
+                    this.editButton.Enabled = true;
                     this.PopulateFields(this.oldPatient);
+                    this.DisableFields(true);
                     this.Enabled = true;
                 }
                 else
@@ -108,9 +112,6 @@ namespace Group3_ClinicDB.UserControls
             }
         }
 
-        /// <summary>
-        /// Disables all fields. Public for use on log out
-        /// </summary>
         private void PopulateFields(Patient patient)
         {
             this.genderIndex = genderComboBox.Items.IndexOf(patient.Gender);
@@ -129,7 +130,59 @@ namespace Group3_ClinicDB.UserControls
             this.phoneNumberTextBox.Text = patient.PhoneNumber;
         }
 
-        private void Validations()
+        private void DisableFields(bool disable)
+        {
+            if (disable)
+            {
+                this.lastNameTextBox.ReadOnly = true;
+                this.firstNameTextBox.ReadOnly = true;
+                this.dobDateTimePicker.Enabled = false;
+                this.genderComboBox.Enabled = false;
+                this.ssnTextBox.ReadOnly = true;
+                this.addressTextBox.ReadOnly = true;
+                this.address2TextBox.ReadOnly = true;
+                this.stateComboBox.Enabled = false;
+                this.cityTextBox.ReadOnly = true;
+                this.zipCodeTextBox.ReadOnly = true;
+                this.phoneNumberTextBox.ReadOnly = true;
+                this.updateButton.Enabled = false;
+                this.clearButton.Enabled = false;
+            }
+            else
+            {
+                this.lastNameTextBox.ReadOnly = false;
+                this.firstNameTextBox.ReadOnly = false;
+                this.dobDateTimePicker.Enabled = true;
+                this.genderComboBox.Enabled = true;
+                this.ssnTextBox.ReadOnly = false;
+                this.addressTextBox.ReadOnly = false;
+                this.address2TextBox.ReadOnly = false;
+                this.stateComboBox.Enabled = true;
+                this.cityTextBox.ReadOnly = false;
+                this.zipCodeTextBox.ReadOnly = false;
+                this.phoneNumberTextBox.ReadOnly = false;
+                this.updateButton.Enabled = true;
+                this.clearButton.Enabled = true;
+            }
+        }
+
+        private void EditButtonClick(object sender, EventArgs e)
+        {
+            this.deleteButton.Enabled = false;
+            this.DisableFields(false);
+        }
+
+        private void DeleteValidations()
+        {
+            Console.WriteLine("working");
+        }
+
+        private void DeleteButtonClick(object sender, EventArgs e)
+        {
+            this.DeleteValidations();
+        }
+
+        private void UpdateValidations()
         {
             if (this.lastNameTextBox.Text.Equals(""))
             {
@@ -282,13 +335,10 @@ namespace Group3_ClinicDB.UserControls
 
         private void UpdateButtonClick(object sender, EventArgs e)
         {
-            this.Validations();
+            this.UpdateValidations();
         }
 
-        /// <summary>
-        /// Clears patient edit on logout
-        /// </summary>
-        public void Clear()
+        private void Clear()
         {
             this.firstNameTextBox.Text = "";
             this.lastNameTextBox.Text = "";
