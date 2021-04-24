@@ -76,6 +76,7 @@ namespace Group3_ClinicDB.UserControls
                 this.stateErrorLabel.ForeColor = Color.Red;
                 this.updateButton.Enabled = false;
                 this.clearButton.Enabled = false;
+                this.deleteButton.Enabled = false;
             }
             else
             {
@@ -301,6 +302,7 @@ namespace Group3_ClinicDB.UserControls
             this.zipCodeTextBox.Text = "";
             this.phoneNumberTextBox.Text = "";
             this.updateSuccessMessage.Visible = false;
+            this.deleteSuccessMessage.Visible = false;
 
             this.ResetLastNameError();
             this.ResetFirstNameError();
@@ -329,6 +331,7 @@ namespace Group3_ClinicDB.UserControls
         private void GenderComboBoxSelectedIndexChanged(object sender, EventArgs e)
         {
             this.updateSuccessMessage.Visible = false;
+            this.deleteSuccessMessage.Visible = false;
         }
 
         private void SsnTextBoxTextChanged(object sender, EventArgs e)
@@ -344,6 +347,7 @@ namespace Group3_ClinicDB.UserControls
         private void Address2TextBoxTextChanged(object sender, EventArgs e)
         {
             this.updateSuccessMessage.Visible = false;
+            this.deleteSuccessMessage.Visible = false;
         }
 
         private void CityTextBoxTextChanged(object sender, EventArgs e)
@@ -354,6 +358,7 @@ namespace Group3_ClinicDB.UserControls
         private void StateComboBoxSelectedIndexChanged(object sender, EventArgs e)
         {
             this.updateSuccessMessage.Visible = false;
+            this.deleteSuccessMessage.Visible = false;
         }
 
         private void ZipCodeTextBoxTextChanged(object sender, EventArgs e)
@@ -371,6 +376,7 @@ namespace Group3_ClinicDB.UserControls
             this.lastNameErrorLabel.Visible = false;
             this.lastNameErrorLabel.ForeColor = Color.Black;
             this.updateSuccessMessage.Visible = false;
+            this.deleteSuccessMessage.Visible = false;
         }
 
         private void ResetFirstNameError()
@@ -378,6 +384,7 @@ namespace Group3_ClinicDB.UserControls
             this.firstNameErrorLabel.Visible = false;
             this.firstNameErrorLabel.ForeColor = Color.Black;
             this.updateSuccessMessage.Visible = false;
+            this.deleteSuccessMessage.Visible = false;
         }
 
         private void ResetSsnError()
@@ -385,6 +392,7 @@ namespace Group3_ClinicDB.UserControls
             this.ssnErrorLabel.Visible = false;
             this.ssnErrorLabel.ForeColor = Color.Black;
             this.updateSuccessMessage.Visible = false;
+            this.deleteSuccessMessage.Visible = false;
         }
 
         private void ResetAddress1Error()
@@ -392,6 +400,7 @@ namespace Group3_ClinicDB.UserControls
             this.address1ErrorLabel.Visible = false;
             this.address1ErrorLabel.ForeColor = Color.Black;
             this.updateSuccessMessage.Visible = false;
+            this.deleteSuccessMessage.Visible = false;
         }
 
         private void ResetCityError()
@@ -399,6 +408,7 @@ namespace Group3_ClinicDB.UserControls
             this.cityErrorLabel.Visible = false;
             this.cityErrorLabel.ForeColor = Color.Black;
             this.updateSuccessMessage.Visible = false;
+            this.deleteSuccessMessage.Visible = false;
         }
 
         private void ResetZipCodeError()
@@ -406,6 +416,7 @@ namespace Group3_ClinicDB.UserControls
             this.zipCodeErrorLabel.Visible = false;
             this.zipCodeErrorLabel.ForeColor = Color.Red;
             this.updateSuccessMessage.Visible = false;
+            this.deleteSuccessMessage.Visible = false;
         }
 
         private void ResetPhoneError()
@@ -413,6 +424,7 @@ namespace Group3_ClinicDB.UserControls
             this.phoneNumberErrorLabel.Visible = false;
             this.phoneNumberErrorLabel.ForeColor = Color.Red;
             this.updateSuccessMessage.Visible = false;
+            this.deleteSuccessMessage.Visible = false;
         }
     }
 }

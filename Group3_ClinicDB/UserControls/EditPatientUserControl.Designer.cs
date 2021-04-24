@@ -408,6 +408,7 @@ namespace Group3_ClinicDB.UserControls
             this.deleteSuccessMessage.Size = new System.Drawing.Size(96, 13);
             this.deleteSuccessMessage.TabIndex = 38;
             this.deleteSuccessMessage.Text = "Delete Successful!";
+            this.deleteSuccessMessage.Visible = false;
             // 
             // EditPatientUserControl
             // 
