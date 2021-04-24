@@ -16,12 +16,7 @@ namespace Group3_ClinicDB.UserControls
         private readonly PatientController patientController;
         private List<Patient> patients;
         private Patient patient;
-        /*
-        private bool dobMessageBoxPresent;
-        private bool fnlnMessageBoxPresent;
-        private bool doblnMessageBoxPresent;
-        */
-        public static AllPatientUserControl patientUserControl;
+        //public static AllPatientUserControl patientUserControl;
 
         /// <summary>
         /// Loads the UserControl
@@ -32,11 +27,6 @@ namespace Group3_ClinicDB.UserControls
             this.patientController = new PatientController();
             this.patients = new List<Patient>();
             this.patient = null;
-            /*
-            this.dobMessageBoxPresent = false;
-            this.fnlnMessageBoxPresent = false;
-            this.doblnMessageBoxPresent = false;
-            */
         }
 
         private void InitSearches()
@@ -47,6 +37,7 @@ namespace Group3_ClinicDB.UserControls
             this.dobSearchDateTimePicker.MinDate = DateTime.Now.Date.AddYears(-150);
             this.dobDoblnSearchDateTimePicker.MaxDate = DateTime.Now.Date.AddDays(-1);
             this.dobDoblnSearchDateTimePicker.MinDate = DateTime.Now.Date.AddYears(-150);
+            this.patientLoadedMessage.Visible = false;
         }
 
         private void SearchUserControlLoad(object sender, EventArgs e)
