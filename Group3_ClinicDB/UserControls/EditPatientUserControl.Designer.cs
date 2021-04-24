@@ -63,6 +63,8 @@ namespace Group3_ClinicDB.UserControls
             this.cityErrorLabel = new System.Windows.Forms.Label();
             this.zipCodeErrorLabel = new System.Windows.Forms.Label();
             this.phoneNumberErrorLabel = new System.Windows.Forms.Label();
+            this.deleteButton = new System.Windows.Forms.Button();
+            this.deleteSuccessMessage = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // firstNameLabel
@@ -388,10 +390,31 @@ namespace Group3_ClinicDB.UserControls
             this.phoneNumberErrorLabel.Text = "Phone number must contain exactly ten digits";
             this.phoneNumberErrorLabel.Visible = false;
             // 
+            // deleteButton
+            // 
+            this.deleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteButton.Location = new System.Drawing.Point(73, 455);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(180, 32);
+            this.deleteButton.TabIndex = 37;
+            this.deleteButton.Text = "Delete";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            // 
+            // deleteSuccessMessage
+            // 
+            this.deleteSuccessMessage.AutoSize = true;
+            this.deleteSuccessMessage.Location = new System.Drawing.Point(74, 439);
+            this.deleteSuccessMessage.Name = "deleteSuccessMessage";
+            this.deleteSuccessMessage.Size = new System.Drawing.Size(96, 13);
+            this.deleteSuccessMessage.TabIndex = 38;
+            this.deleteSuccessMessage.Text = "Delete Successful!";
+            // 
             // EditPatientUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.deleteSuccessMessage);
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.phoneNumberErrorLabel);
             this.Controls.Add(this.zipCodeErrorLabel);
             this.Controls.Add(this.cityErrorLabel);
@@ -473,5 +496,7 @@ namespace Group3_ClinicDB.UserControls
         private System.Windows.Forms.Label cityErrorLabel;
         private System.Windows.Forms.Label zipCodeErrorLabel;
         private System.Windows.Forms.Label phoneNumberErrorLabel;
+        private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.Label deleteSuccessMessage;
     }
 }
