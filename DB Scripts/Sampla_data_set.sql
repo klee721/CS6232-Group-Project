@@ -165,3 +165,21 @@ INSERT into  labtests (   patientId,   orderDateTime, performedDateTime, testCod
 (2,'14-APR-2021 14:15:00', '15-APR-2021 14:15:00', 'CBCA', NULL, 'N',2);
 
 update persons set dateOfBirth = '1996-08-15' where id =5;
+
+INSERT into  labtests (   patientId,   orderDateTime, performedDateTime, testCode,   results, normal,visit_id) values
+(1,' 2-APR-2020 14:15:00', NULL, 'CULTURES', NULL, 'Y',1),
+(2,' 2-APR-2020 14:15:00', NULL, 'GLUCOSE', NULL, 'Y',2),
+(1,'15-APR-2020 14:15:00',NULL, 'CULTURESA', NULL, 'Y',1),
+(2,'15-APR-2020 14:15:00',NULL, 'GLUCOSE', NULL, 'N',2),
+(1,'19-APR-2020 14:15:00',NULL, 'CULTURESA', NULL, 'N',1),
+(2,'19-APR-2020 14:15:00',NULL, 'GLUCOSE', NULL, 'N',2),
+(1,'11-APR-2020 14:15:00',NULL, 'CULTURESA', NULL, 'N',1),
+(2,'11-APR-2020 14:15:00',NULL, 'GLUCOSEA', NULL, 'N',2),
+(1,' 1-APR-2020 14:15:00', NULL, 'CULTURES', NULL, 'Y',1),
+(2,' 1-APR-2020 14:15:00', NULL, 'CBCA', NULL, 'Y',2),
+(1,'12-APR-2020 14:15:00',NULL, 'GLUCOSEA', NULL, 'Y',1),
+(2,'12-APR-2020 14:15:00',NULL, 'CBCA', NULL, 'N',2),
+(1,'13-APR-2020 14:15:00',NULL, 'GLUCOSEA', NULL, 'N',1),
+(2,'13-APR-2020 14:15:00',NULL, 'CBCA', NULL, 'N',2),
+(1,'14-APR-2020 14:15:00',NULL, 'GLUCOSEA', NULL, 'N',1),
+(2,'14-APR-2020 14:15:00',NULL, 'CBCA', NULL, 'N',2);
