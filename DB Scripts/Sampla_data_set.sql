@@ -183,3 +183,5 @@ INSERT into  labtests (   patientId,   orderDateTime, performedDateTime, testCod
 (2,'13-APR-2020 14:15:00',NULL, 'CBCA', NULL, 'N',2),
 (1,'14-APR-2020 14:15:00',NULL, 'GLUCOSEA', NULL, 'N',1),
 (2,'14-APR-2020 14:15:00',NULL, 'CBCA', NULL, 'N',2);
+
+update labtests set results = 'Normal' where results is null and performedDateTime is not null;
