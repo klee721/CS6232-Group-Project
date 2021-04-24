@@ -183,7 +183,7 @@ namespace Group3_ClinicDB.UserControls
             this.firstNameTextBox.Location = new System.Drawing.Point(161, 145);
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(210, 20);
-            this.firstNameTextBox.TabIndex = 1;
+            this.firstNameTextBox.TabIndex = 0;
             this.firstNameTextBox.TextChanged += new System.EventHandler(this.FirstNameTextBoxTextChanged);
             // 
             // lastNameTextBox
@@ -191,7 +191,7 @@ namespace Group3_ClinicDB.UserControls
             this.lastNameTextBox.Location = new System.Drawing.Point(162, 204);
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(210, 20);
-            this.lastNameTextBox.TabIndex = 0;
+            this.lastNameTextBox.TabIndex = 1;
             this.lastNameTextBox.TextChanged += new System.EventHandler(this.LastNameTextBoxTextChanged);
             // 
             // ssnTextBox

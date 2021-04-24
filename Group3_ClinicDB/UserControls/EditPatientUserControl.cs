@@ -13,6 +13,8 @@ namespace Group3_ClinicDB.UserControls
     {
         private readonly StateController stateController;
         private readonly PersonController personController;
+        private readonly AppointmentController appointmentController;
+        private readonly PatientController patientController;
         private Patient oldPatient;
         private Patient newPatient;
         private int genderIndex;
@@ -26,6 +28,7 @@ namespace Group3_ClinicDB.UserControls
             InitializeComponent();
             this.stateController = new StateController();
             this.personController = new PersonController();
+            this.appointmentController = new AppointmentController();
             this.oldPatient = null;
             this.newPatient = null;
         }
@@ -168,20 +171,40 @@ namespace Group3_ClinicDB.UserControls
 
         private void EditButtonClick(object sender, EventArgs e)
         {
+            this.deleteSuccessMessage.Visible = false;
             this.deleteButton.Enabled = false;
             this.DisableFields(false);
-        }
-
-        private void DeleteValidations()
-        {
-            //check if patient exists
-            //check if patient has appointments
-            //delete from db
+            this.editButton.Enabled = false;
         }
 
         private void DeleteButtonClick(object sender, EventArgs e)
         {
-            this.DeleteValidations();
+            if (this.appointmentController.GetAllAppointmentsByPatient(this.oldPatient.Id).Count == 0)
+            {
+                if (MessageBox.Show(this.oldPatient.FirstName + " " + this.oldPatient.LastName + " will be removed as a patient." +
+                                        " (Will still remain in the database as a person should you need to re-register) Is this OK?",
+                                        "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    //this.patientController.DeletePatient(this.oldPatient);
+
+                    this.Clear();
+
+                    this.deleteSuccessMessage.Text = "Delete Successful!";
+                    this.deleteSuccessMessage.Visible = true;
+                    this.deleteSuccessMessage.ForeColor = Color.Black;
+
+                    this.DisableFields(true);
+                    this.deleteButton.Enabled = false;
+                    this.editButton.Enabled = false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Delete Failed. Patients with appointment history cannot be deleted", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.deleteSuccessMessage.Text = "Patients with appointment history cannot be deleted";
+                this.deleteSuccessMessage.Visible = true;
+                this.deleteSuccessMessage.ForeColor = Color.Red;
+            }
         }
 
         private void UpdateValidations()
@@ -326,12 +349,18 @@ namespace Group3_ClinicDB.UserControls
                 this.updateSuccessMessage.Text = "Patient Updated!";
                 this.updateSuccessMessage.Visible = true;
                 this.updateSuccessMessage.ForeColor = Color.Black;
+
+                this.DisableFields(true);
+                this.editButton.Enabled = false;
             }
             else
             {
                 this.updateSuccessMessage.Text = "Patient update not changed. Someone has changed the patient before you";
                 this.updateSuccessMessage.Visible = true;
                 this.updateSuccessMessage.ForeColor = Color.Red;
+
+                this.DisableFields(true);
+                this.editButton.Enabled = false;
             }
         }
 

@@ -138,16 +138,11 @@ namespace Group3_ClinicDB.UserControls
                             {
                                 this.patientController.AddPatientExistingPerson(person);
                                 this.Clear();
-                                //int personId = this.personController.GetPersonId(person);
-                                //this.patientController.AddPatient(personId);
                                 this.registrationSuccessMessage.Visible = true;
                             } else
                             {
                                 if (!this.personController.SsnExists(person))
                                 {
-                                    //this.personController.AddPerson(person);
-                                    //int personId = this.personController.GetPersonId(person);
-                                    //this.patientController.AddPatient(personId);
                                     this.patientController.AddPatientNewPerson(person);
                                     this.Clear();
                                     this.registrationSuccessMessage.Visible = true;
