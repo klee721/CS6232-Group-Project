@@ -66,7 +66,6 @@ namespace Group3_ClinicDB.View
             this.updateVisitUserControl1.Enabled = false;
             this.allVisitsUserControl1.Enabled = false;
             this.orderTestsUserControl1.Enabled = false;
-            //           this.editPatientUserControl1.Enabled = false;
             this.editPatientUserControl1.NullifyPatients();
             this.enterTestResultsUserControl1.GetPatient(null);
             this.searchTestResultsUserControl1.GetPatient(null);

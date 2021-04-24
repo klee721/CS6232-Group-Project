@@ -128,35 +128,6 @@ namespace Group3_ClinicDB.UserControls
             this.phoneNumberTextBox.Text = patient.PhoneNumber;
         }
 
-        public void DisableAll(bool disable)
-        {
-            if (disable)
-            {
-                this.lastNameTextBox.ReadOnly = true;
-                this.firstNameTextBox.ReadOnly = true;
-                this.ssnTextBox.ReadOnly = true;
-                this.addressTextBox.ReadOnly = true;
-                this.address2TextBox.ReadOnly = true;
-                this.cityTextBox.ReadOnly = true;
-                this.zipCodeTextBox.ReadOnly = true;
-                this.phoneNumberTextBox.ReadOnly = true;
-                this.updateButton.Enabled = false;
-                this.clearButton.Enabled = false;
-            } else
-            {
-                this.lastNameTextBox.ReadOnly = false;
-                this.firstNameTextBox.ReadOnly = false;
-                this.ssnTextBox.ReadOnly = false;
-                this.addressTextBox.ReadOnly = false;
-                this.address2TextBox.ReadOnly = false;
-                this.cityTextBox.ReadOnly = false;
-                this.zipCodeTextBox.ReadOnly = false;
-                this.phoneNumberTextBox.ReadOnly = false;
-                this.updateButton.Enabled = true;
-                this.clearButton.Enabled = true;
-            }
-        }
-
         private void Validations()
         {
             if (this.lastNameTextBox.Text.Equals(""))

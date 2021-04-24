@@ -32,16 +32,27 @@ namespace Group3_ClinicDB.View
             this.DashboardTabControl = new System.Windows.Forms.TabControl();
             this.SearchPatientTab = new System.Windows.Forms.TabPage();
             this.SelectPatientButton = new System.Windows.Forms.Button();
+            this.searchUserControl2 = new Group3_ClinicDB.UserControls.SearchUserControl();
             this.registerPatientTab = new System.Windows.Forms.TabPage();
+            this.registerPatientUserControl1 = new Group3_ClinicDB.UserControls.RegisterPatientUserControl();
             this.editPatientTab = new System.Windows.Forms.TabPage();
+            this.editPatientUserControl1 = new Group3_ClinicDB.UserControls.EditPatientUserControl();
             this.ScheduleApptTab = new System.Windows.Forms.TabPage();
+            this.appointmentBookingUserControl2 = new Group3_ClinicDB.UserControls.AppointmentBookingUserControl();
             this.EditApptTab = new System.Windows.Forms.TabPage();
+            this.editAppointmentUserControl1 = new Group3_ClinicDB.UserControls.EditAppointmentUserControl();
             this.visitsTabPage = new System.Windows.Forms.TabPage();
+            this.allVisitsUserControl1 = new Group3_ClinicDB.UserControls.AllVisitsUserControl();
             this.addVisitTabPage = new System.Windows.Forms.TabPage();
+            this.addVisitUserControl1 = new Group3_ClinicDB.UserControls.AddVisitUserControl();
             this.EditVisitTab = new System.Windows.Forms.TabPage();
+            this.updateVisitUserControl1 = new Group3_ClinicDB.UserControls.UpdateVisitUserControl();
             this.OrderTestTab = new System.Windows.Forms.TabPage();
+            this.orderTestsUserControl1 = new Group3_ClinicDB.UserControls.OrderTestsUserControl();
             this.enterTestResultsTab = new System.Windows.Forms.TabPage();
+            this.enterTestResultsUserControl1 = new Group3_ClinicDB.UserControls.EnterTestResultsUserControl();
             this.searchTestResults = new System.Windows.Forms.TabPage();
+            this.searchTestResultsUserControl1 = new Group3_ClinicDB.UserControls.SearchTestResultsUserControl();
             this.LoggedInAsLabel = new System.Windows.Forms.Label();
             this.SelectedPatientIDLabel = new System.Windows.Forms.Label();
             this.LogoutLink = new System.Windows.Forms.LinkLabel();
@@ -51,17 +62,6 @@ namespace Group3_ClinicDB.View
             this.PatientNameLabel = new System.Windows.Forms.Label();
             this.UserFullNameLabel = new System.Windows.Forms.Label();
             this.UserNameLabel = new System.Windows.Forms.Label();
-            this.searchUserControl2 = new Group3_ClinicDB.UserControls.SearchUserControl();
-            this.registerPatientUserControl1 = new Group3_ClinicDB.UserControls.RegisterPatientUserControl();
-            this.editPatientUserControl1 = new Group3_ClinicDB.UserControls.EditPatientUserControl();
-            this.appointmentBookingUserControl2 = new Group3_ClinicDB.UserControls.AppointmentBookingUserControl();
-            this.editAppointmentUserControl1 = new Group3_ClinicDB.UserControls.EditAppointmentUserControl();
-            this.allVisitsUserControl1 = new Group3_ClinicDB.UserControls.AllVisitsUserControl();
-            this.addVisitUserControl1 = new Group3_ClinicDB.UserControls.AddVisitUserControl();
-            this.updateVisitUserControl1 = new Group3_ClinicDB.UserControls.UpdateVisitUserControl();
-            this.orderTestsUserControl1 = new Group3_ClinicDB.UserControls.OrderTestsUserControl();
-            this.enterTestResultsUserControl1 = new Group3_ClinicDB.UserControls.EnterTestResultsUserControl();
-            this.searchTestResultsUserControl1 = new Group3_ClinicDB.UserControls.SearchTestResultsUserControl();
             this.DashboardTabControl.SuspendLayout();
             this.SearchPatientTab.SuspendLayout();
             this.registerPatientTab.SuspendLayout();
@@ -116,6 +116,15 @@ namespace Group3_ClinicDB.View
             this.SelectPatientButton.UseVisualStyleBackColor = true;
             this.SelectPatientButton.Click += new System.EventHandler(this.SelectPatientButtonClick);
             // 
+            // searchUserControl2
+            // 
+            this.searchUserControl2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.searchUserControl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchUserControl2.Location = new System.Drawing.Point(0, 0);
+            this.searchUserControl2.Name = "searchUserControl2";
+            this.searchUserControl2.Size = new System.Drawing.Size(1215, 744);
+            this.searchUserControl2.TabIndex = 8;
+            // 
             // registerPatientTab
             // 
             this.registerPatientTab.Controls.Add(this.registerPatientUserControl1);
@@ -127,6 +136,17 @@ namespace Group3_ClinicDB.View
             this.registerPatientTab.Text = "Register Patient";
             this.registerPatientTab.UseVisualStyleBackColor = true;
             // 
+            // registerPatientUserControl1
+            // 
+            this.registerPatientUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.registerPatientUserControl1.Location = new System.Drawing.Point(3, 3);
+            this.registerPatientUserControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.registerPatientUserControl1.MaximumSize = new System.Drawing.Size(1215, 615);
+            this.registerPatientUserControl1.MinimumSize = new System.Drawing.Size(1215, 615);
+            this.registerPatientUserControl1.Name = "registerPatientUserControl1";
+            this.registerPatientUserControl1.Size = new System.Drawing.Size(1215, 615);
+            this.registerPatientUserControl1.TabIndex = 0;
+            // 
             // editPatientTab
             // 
             this.editPatientTab.Controls.Add(this.editPatientUserControl1);
@@ -136,6 +156,16 @@ namespace Group3_ClinicDB.View
             this.editPatientTab.TabIndex = 7;
             this.editPatientTab.Text = "Edit Patient";
             this.editPatientTab.UseVisualStyleBackColor = true;
+            // 
+            // editPatientUserControl1
+            // 
+            this.editPatientUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.editPatientUserControl1.Location = new System.Drawing.Point(0, 0);
+            this.editPatientUserControl1.MaximumSize = new System.Drawing.Size(1215, 615);
+            this.editPatientUserControl1.MinimumSize = new System.Drawing.Size(1215, 615);
+            this.editPatientUserControl1.Name = "editPatientUserControl1";
+            this.editPatientUserControl1.Size = new System.Drawing.Size(1215, 615);
+            this.editPatientUserControl1.TabIndex = 0;
             // 
             // ScheduleApptTab
             // 
@@ -148,6 +178,17 @@ namespace Group3_ClinicDB.View
             this.ScheduleApptTab.Text = "Schedule Appointment";
             this.ScheduleApptTab.UseVisualStyleBackColor = true;
             // 
+            // appointmentBookingUserControl2
+            // 
+            this.appointmentBookingUserControl2.Enabled = false;
+            this.appointmentBookingUserControl2.Location = new System.Drawing.Point(0, 0);
+            this.appointmentBookingUserControl2.Margin = new System.Windows.Forms.Padding(4);
+            this.appointmentBookingUserControl2.MaximumSize = new System.Drawing.Size(1215, 615);
+            this.appointmentBookingUserControl2.MinimumSize = new System.Drawing.Size(1215, 615);
+            this.appointmentBookingUserControl2.Name = "appointmentBookingUserControl2";
+            this.appointmentBookingUserControl2.Size = new System.Drawing.Size(1215, 615);
+            this.appointmentBookingUserControl2.TabIndex = 0;
+            // 
             // EditApptTab
             // 
             this.EditApptTab.Controls.Add(this.editAppointmentUserControl1);
@@ -157,6 +198,17 @@ namespace Group3_ClinicDB.View
             this.EditApptTab.TabIndex = 2;
             this.EditApptTab.Text = "Edit Appointment";
             this.EditApptTab.UseVisualStyleBackColor = true;
+            // 
+            // editAppointmentUserControl1
+            // 
+            this.editAppointmentUserControl1.Enabled = false;
+            this.editAppointmentUserControl1.Location = new System.Drawing.Point(0, 0);
+            this.editAppointmentUserControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.editAppointmentUserControl1.MaximumSize = new System.Drawing.Size(1215, 615);
+            this.editAppointmentUserControl1.MinimumSize = new System.Drawing.Size(1215, 615);
+            this.editAppointmentUserControl1.Name = "editAppointmentUserControl1";
+            this.editAppointmentUserControl1.Size = new System.Drawing.Size(1215, 615);
+            this.editAppointmentUserControl1.TabIndex = 0;
             // 
             // visitsTabPage
             // 
@@ -168,6 +220,15 @@ namespace Group3_ClinicDB.View
             this.visitsTabPage.Text = "Visits";
             this.visitsTabPage.UseVisualStyleBackColor = true;
             // 
+            // allVisitsUserControl1
+            // 
+            this.allVisitsUserControl1.Enabled = false;
+            this.allVisitsUserControl1.Location = new System.Drawing.Point(18, 24);
+            this.allVisitsUserControl1.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
+            this.allVisitsUserControl1.Name = "allVisitsUserControl1";
+            this.allVisitsUserControl1.Size = new System.Drawing.Size(643, 291);
+            this.allVisitsUserControl1.TabIndex = 0;
+            // 
             // addVisitTabPage
             // 
             this.addVisitTabPage.Controls.Add(this.addVisitUserControl1);
@@ -177,6 +238,15 @@ namespace Group3_ClinicDB.View
             this.addVisitTabPage.TabIndex = 4;
             this.addVisitTabPage.Text = "Add Visit";
             this.addVisitTabPage.UseVisualStyleBackColor = true;
+            // 
+            // addVisitUserControl1
+            // 
+            this.addVisitUserControl1.Enabled = false;
+            this.addVisitUserControl1.Location = new System.Drawing.Point(54, 15);
+            this.addVisitUserControl1.Margin = new System.Windows.Forms.Padding(1);
+            this.addVisitUserControl1.Name = "addVisitUserControl1";
+            this.addVisitUserControl1.Size = new System.Drawing.Size(694, 482);
+            this.addVisitUserControl1.TabIndex = 0;
             // 
             // EditVisitTab
             // 
@@ -188,6 +258,15 @@ namespace Group3_ClinicDB.View
             this.EditVisitTab.Text = "Edit Visit";
             this.EditVisitTab.UseVisualStyleBackColor = true;
             // 
+            // updateVisitUserControl1
+            // 
+            this.updateVisitUserControl1.Enabled = false;
+            this.updateVisitUserControl1.Location = new System.Drawing.Point(30, 62);
+            this.updateVisitUserControl1.Margin = new System.Windows.Forms.Padding(1);
+            this.updateVisitUserControl1.Name = "updateVisitUserControl1";
+            this.updateVisitUserControl1.Size = new System.Drawing.Size(496, 471);
+            this.updateVisitUserControl1.TabIndex = 0;
+            // 
             // OrderTestTab
             // 
             this.OrderTestTab.Controls.Add(this.orderTestsUserControl1);
@@ -197,6 +276,14 @@ namespace Group3_ClinicDB.View
             this.OrderTestTab.TabIndex = 9;
             this.OrderTestTab.Text = "Order Tests";
             this.OrderTestTab.UseVisualStyleBackColor = true;
+            // 
+            // orderTestsUserControl1
+            // 
+            this.orderTestsUserControl1.Enabled = false;
+            this.orderTestsUserControl1.Location = new System.Drawing.Point(20, 34);
+            this.orderTestsUserControl1.Name = "orderTestsUserControl1";
+            this.orderTestsUserControl1.Size = new System.Drawing.Size(720, 481);
+            this.orderTestsUserControl1.TabIndex = 0;
             // 
             // enterTestResultsTab
             // 
@@ -208,6 +295,16 @@ namespace Group3_ClinicDB.View
             this.enterTestResultsTab.Text = "Enter Test Results";
             this.enterTestResultsTab.UseVisualStyleBackColor = true;
             // 
+            // enterTestResultsUserControl1
+            // 
+            this.enterTestResultsUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.enterTestResultsUserControl1.Location = new System.Drawing.Point(0, 0);
+            this.enterTestResultsUserControl1.MaximumSize = new System.Drawing.Size(1215, 615);
+            this.enterTestResultsUserControl1.MinimumSize = new System.Drawing.Size(1215, 615);
+            this.enterTestResultsUserControl1.Name = "enterTestResultsUserControl1";
+            this.enterTestResultsUserControl1.Size = new System.Drawing.Size(1215, 615);
+            this.enterTestResultsUserControl1.TabIndex = 0;
+            // 
             // searchTestResults
             // 
             this.searchTestResults.Controls.Add(this.searchTestResultsUserControl1);
@@ -217,6 +314,16 @@ namespace Group3_ClinicDB.View
             this.searchTestResults.TabIndex = 11;
             this.searchTestResults.Text = "Search Test Results";
             this.searchTestResults.UseVisualStyleBackColor = true;
+            // 
+            // searchTestResultsUserControl1
+            // 
+            this.searchTestResultsUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchTestResultsUserControl1.Location = new System.Drawing.Point(0, 0);
+            this.searchTestResultsUserControl1.MaximumSize = new System.Drawing.Size(1215, 615);
+            this.searchTestResultsUserControl1.MinimumSize = new System.Drawing.Size(1215, 615);
+            this.searchTestResultsUserControl1.Name = "searchTestResultsUserControl1";
+            this.searchTestResultsUserControl1.Size = new System.Drawing.Size(1215, 615);
+            this.searchTestResultsUserControl1.TabIndex = 0;
             // 
             // LoggedInAsLabel
             // 
@@ -312,113 +419,6 @@ namespace Group3_ClinicDB.View
             this.UserNameLabel.Size = new System.Drawing.Size(120, 20);
             this.UserNameLabel.TabIndex = 17;
             this.UserNameLabel.Text = "USERNAME";
-            // 
-            // searchUserControl2
-            // 
-            this.searchUserControl2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.searchUserControl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchUserControl2.Location = new System.Drawing.Point(0, 0);
-            this.searchUserControl2.Name = "searchUserControl2";
-            this.searchUserControl2.Size = new System.Drawing.Size(1215, 744);
-            this.searchUserControl2.TabIndex = 8;
-            // 
-            // registerPatientUserControl1
-            // 
-            this.registerPatientUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.registerPatientUserControl1.Location = new System.Drawing.Point(3, 3);
-            this.registerPatientUserControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.registerPatientUserControl1.MaximumSize = new System.Drawing.Size(1215, 615);
-            this.registerPatientUserControl1.MinimumSize = new System.Drawing.Size(1215, 615);
-            this.registerPatientUserControl1.Name = "registerPatientUserControl1";
-            this.registerPatientUserControl1.Size = new System.Drawing.Size(1215, 615);
-            this.registerPatientUserControl1.TabIndex = 0;
-            // 
-            // editPatientUserControl1
-            // 
-            this.editPatientUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.editPatientUserControl1.Location = new System.Drawing.Point(0, 0);
-            this.editPatientUserControl1.MaximumSize = new System.Drawing.Size(1215, 615);
-            this.editPatientUserControl1.MinimumSize = new System.Drawing.Size(1215, 615);
-            this.editPatientUserControl1.Name = "editPatientUserControl1";
-            this.editPatientUserControl1.Size = new System.Drawing.Size(1215, 615);
-            this.editPatientUserControl1.TabIndex = 0;
-            // 
-            // appointmentBookingUserControl2
-            // 
-            this.appointmentBookingUserControl2.Enabled = false;
-            this.appointmentBookingUserControl2.Location = new System.Drawing.Point(0, 0);
-            this.appointmentBookingUserControl2.Margin = new System.Windows.Forms.Padding(4);
-            this.appointmentBookingUserControl2.MaximumSize = new System.Drawing.Size(1215, 615);
-            this.appointmentBookingUserControl2.MinimumSize = new System.Drawing.Size(1215, 615);
-            this.appointmentBookingUserControl2.Name = "appointmentBookingUserControl2";
-            this.appointmentBookingUserControl2.Size = new System.Drawing.Size(1215, 615);
-            this.appointmentBookingUserControl2.TabIndex = 0;
-            // 
-            // editAppointmentUserControl1
-            // 
-            this.editAppointmentUserControl1.Enabled = false;
-            this.editAppointmentUserControl1.Location = new System.Drawing.Point(0, 0);
-            this.editAppointmentUserControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.editAppointmentUserControl1.MaximumSize = new System.Drawing.Size(1215, 615);
-            this.editAppointmentUserControl1.MinimumSize = new System.Drawing.Size(1215, 615);
-            this.editAppointmentUserControl1.Name = "editAppointmentUserControl1";
-            this.editAppointmentUserControl1.Size = new System.Drawing.Size(1215, 615);
-            this.editAppointmentUserControl1.TabIndex = 0;
-            // 
-            // allVisitsUserControl1
-            // 
-            this.allVisitsUserControl1.Enabled = false;
-            this.allVisitsUserControl1.Location = new System.Drawing.Point(18, 24);
-            this.allVisitsUserControl1.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
-            this.allVisitsUserControl1.Name = "allVisitsUserControl1";
-            this.allVisitsUserControl1.Size = new System.Drawing.Size(643, 291);
-            this.allVisitsUserControl1.TabIndex = 0;
-            // 
-            // addVisitUserControl1
-            // 
-            this.addVisitUserControl1.Enabled = false;
-            this.addVisitUserControl1.Location = new System.Drawing.Point(54, 15);
-            this.addVisitUserControl1.Margin = new System.Windows.Forms.Padding(1);
-            this.addVisitUserControl1.Name = "addVisitUserControl1";
-            this.addVisitUserControl1.Size = new System.Drawing.Size(694, 482);
-            this.addVisitUserControl1.TabIndex = 0;
-            // 
-            // updateVisitUserControl1
-            // 
-            this.updateVisitUserControl1.Enabled = false;
-            this.updateVisitUserControl1.Location = new System.Drawing.Point(30, 62);
-            this.updateVisitUserControl1.Margin = new System.Windows.Forms.Padding(1);
-            this.updateVisitUserControl1.Name = "updateVisitUserControl1";
-            this.updateVisitUserControl1.Size = new System.Drawing.Size(496, 471);
-            this.updateVisitUserControl1.TabIndex = 0;
-            // 
-            // orderTestsUserControl1
-            // 
-            this.orderTestsUserControl1.Enabled = false;
-            this.orderTestsUserControl1.Location = new System.Drawing.Point(20, 34);
-            this.orderTestsUserControl1.Name = "orderTestsUserControl1";
-            this.orderTestsUserControl1.Size = new System.Drawing.Size(720, 481);
-            this.orderTestsUserControl1.TabIndex = 0;
-            // 
-            // enterTestResultsUserControl1
-            // 
-            this.enterTestResultsUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.enterTestResultsUserControl1.Location = new System.Drawing.Point(0, 0);
-            this.enterTestResultsUserControl1.MaximumSize = new System.Drawing.Size(1215, 615);
-            this.enterTestResultsUserControl1.MinimumSize = new System.Drawing.Size(1215, 615);
-            this.enterTestResultsUserControl1.Name = "enterTestResultsUserControl1";
-            this.enterTestResultsUserControl1.Size = new System.Drawing.Size(1215, 615);
-            this.enterTestResultsUserControl1.TabIndex = 0;
-            // 
-            // searchTestResultsUserControl1
-            // 
-            this.searchTestResultsUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.searchTestResultsUserControl1.Location = new System.Drawing.Point(0, 0);
-            this.searchTestResultsUserControl1.MaximumSize = new System.Drawing.Size(1215, 615);
-            this.searchTestResultsUserControl1.MinimumSize = new System.Drawing.Size(1215, 615);
-            this.searchTestResultsUserControl1.Name = "searchTestResultsUserControl1";
-            this.searchTestResultsUserControl1.Size = new System.Drawing.Size(1215, 615);
-            this.searchTestResultsUserControl1.TabIndex = 0;
             // 
             // NurseMainDashboard
             // 
