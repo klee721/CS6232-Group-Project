@@ -29,6 +29,7 @@ namespace Group3_ClinicDB.UserControls
             this.stateController = new StateController();
             this.personController = new PersonController();
             this.appointmentController = new AppointmentController();
+            this.patientController = new PatientController();
             this.oldPatient = null;
             this.newPatient = null;
         }
@@ -185,17 +186,29 @@ namespace Group3_ClinicDB.UserControls
                                         " (Will still remain in the database as a person should you need to re-register) Is this OK?",
                                         "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    //this.patientController.DeletePatient(this.oldPatient);
 
-                    this.Clear();
+                    if (this.patientController.DeletePatient(this.oldPatient))
+                    {
+                        this.Clear();
 
-                    this.deleteSuccessMessage.Text = "Delete Successful!";
-                    this.deleteSuccessMessage.Visible = true;
-                    this.deleteSuccessMessage.ForeColor = Color.Black;
+                        this.deleteSuccessMessage.Text = "Delete Successful!";
+                        this.deleteSuccessMessage.Visible = true;
+                        this.deleteSuccessMessage.ForeColor = Color.Black;
 
-                    this.DisableFields(true);
-                    this.deleteButton.Enabled = false;
-                    this.editButton.Enabled = false;
+                        this.DisableFields(true);
+                        this.deleteButton.Enabled = false;
+                        this.editButton.Enabled = false;
+                    }
+                    else
+                    {
+                        this.deleteSuccessMessage.Text = "Delete Unsuccessful. Someone has deleted the patient before you";
+                        this.deleteSuccessMessage.Visible = true;
+                        this.deleteSuccessMessage.ForeColor = Color.Red;
+
+                        this.DisableFields(true);
+                        this.deleteButton.Enabled = false;
+                        this.editButton.Enabled = false;
+                    }
                 }
             }
             else

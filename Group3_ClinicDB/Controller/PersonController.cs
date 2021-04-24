@@ -37,7 +37,7 @@ namespace Group3_ClinicDB.Controller
         /// Uses Clinic DB to check if a ssn already exists
         /// </summary>
         /// <param name="person">The person whose ssn will be retrieved from the DB</param>
-        /// <returns>Where a ssn exists in the DB or not</returns>
+        /// <returns>Whether a ssn exists in the DB or not</returns>
         public bool SsnExists(Person person)
         {
             if (person == null)
@@ -46,25 +46,13 @@ namespace Group3_ClinicDB.Controller
             }
             return this.personsDBSource.SsnExists(person);
         }
-        /*
-        /// <summary>
-        /// Adds a Persons object to the DB
-        /// </summary>
-        public void AddPerson(Person person)
-        {
-            if (person == null)
-            {
-                throw new ArgumentException("person cannot be null");
-            }
-            this.personsDBSource.AddPerson(person);
-        }
-        */
 
         /// <summary>
         /// Updates personal info portion of an already existing patient
         /// </summary>
         /// <param name="oldPatient">The old patient</param>
         /// <param name="newPatient">The new patient</param>
+        /// <returns>If a patient was updated or not</returns>
         public bool UpdatePerson(Patient oldPatient, Patient newPatient)
         {
             if (oldPatient == null || newPatient == null)

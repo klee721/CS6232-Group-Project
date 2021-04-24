@@ -101,9 +101,9 @@ namespace Group3_ClinicDB.Controller
         }
 
         /// <summary>
-        /// Adds a Patient to the table based on the Id
+        /// Adds a Patient to the table that does not exist as a person
         /// </summary>
-        /// <param name="personId"></param>
+        /// <param name="person">The person the nurse has entered</param>
         public void AddPatientNewPerson(Person person)
         {
             if (person == null)
@@ -112,6 +112,21 @@ namespace Group3_ClinicDB.Controller
             }
 
             this.patientDBSource.AddPatientNewPerson(person);
+        }
+
+        /// <summary>
+        /// Deletes a Patient from the table
+        /// </summary>
+        /// <param name="patient">The patient the nurse wants to delete</param>
+        /// <returns>If a patient was deleted or not</returns>
+        public bool DeletePatient(Patient patient)
+        {
+            if (patient == null)
+            {
+                throw new ArgumentException("Person cannot be null");
+            }
+
+            return this.patientDBSource.DeletePatient(patient);
         }
     }
 }

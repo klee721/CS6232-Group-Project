@@ -335,5 +335,35 @@ namespace Group3_ClinicDB.DAL
                 }
             }
         }
+
+        /// <summary>
+        /// Deletes a Patient from the table
+        /// </summary>
+        /// <param name="patient">The patient the nurse wants to delete</param>
+        /// <returns>If a patient was deleted or not</returns>
+        public bool DeletePatient(Patient patient)
+        {
+            string deleteStatement = "DELETE FROM patients WHERE patients.id = @patientID";
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand deleteCommand = new SqlCommand(deleteStatement, connection))
+                {
+                    deleteCommand.Parameters.AddWithValue("@patientID", patient.Id);
+
+                    int count = deleteCommand.ExecuteNonQuery();
+                    if (count > 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
     }
 }
