@@ -400,7 +400,7 @@ namespace Group3_ClinicDB.UserControls
             this.deleteButton.TabIndex = 37;
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = true;
-            this.deleteButton.Click += new System.EventHandler(this.DeleteButtonClick);
+            //this.deleteButton.Click += new System.EventHandler(this.DeleteButtonClick);
             // 
             // deleteSuccessMessage
             // 

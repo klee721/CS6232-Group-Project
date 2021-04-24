@@ -13,8 +13,7 @@ namespace Group3_ClinicDB.UserControls
     {
         private readonly StateController stateController;
         private readonly PersonController personController;
-        private readonly AppointmentController appointmentController;
-        private readonly PatientController patientController;
+
         private Patient oldPatient;
         private Patient newPatient;
         private int genderIndex;
@@ -28,8 +27,7 @@ namespace Group3_ClinicDB.UserControls
             InitializeComponent();
             this.stateController = new StateController();
             this.personController = new PersonController();
-            this.appointmentController = new AppointmentController();
-            this.patientController = new PatientController();
+            
             this.oldPatient = null;
             this.newPatient = null;
         }
@@ -72,7 +70,10 @@ namespace Group3_ClinicDB.UserControls
             this.InitEditPatient();
         }
 
-        private void InitEditPatient()
+        /// <summary>
+        /// Resets the Edit Patient Page in real time
+        /// </summary>
+        public void InitEditPatient()
         {
             if (this.stateController.GetStates().Count == 0)
             {
@@ -177,7 +178,7 @@ namespace Group3_ClinicDB.UserControls
             this.DisableFields(false);
             this.editButton.Enabled = false;
         }
-
+        /*
         private void DeleteButtonClick(object sender, EventArgs e)
         {
             if (this.appointmentController.GetAllAppointmentsByPatient(this.oldPatient.Id).Count == 0)
@@ -219,7 +220,7 @@ namespace Group3_ClinicDB.UserControls
                 this.deleteSuccessMessage.ForeColor = Color.Red;
             }
         }
-
+        */
         private void UpdateValidations()
         {
             if (this.lastNameTextBox.Text.Equals(""))
