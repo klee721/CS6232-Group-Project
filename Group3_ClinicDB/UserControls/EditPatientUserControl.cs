@@ -174,7 +174,9 @@ namespace Group3_ClinicDB.UserControls
 
         private void DeleteValidations()
         {
-            Console.WriteLine("working");
+            //check if patient exists
+            //check if patient has appointments
+            //delete from db
         }
 
         private void DeleteButtonClick(object sender, EventArgs e)
