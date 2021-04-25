@@ -93,6 +93,7 @@ namespace Group3_ClinicDB
             this.Controls.Add(this.PasswordLabel);
             this.Controls.Add(this.UsernameLabel);
             this.Name = "LoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Exit);
             this.ResumeLayout(false);

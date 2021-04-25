@@ -33,6 +33,15 @@ namespace Group3_ClinicDB.Controller
             return this.personsDBSource.GetPersonId(person);
         }
 
+        public Person GetPersonDataById(int id)
+        {
+            return this.personsDBSource.GetPersonDataById(id);
+
+        }
+
+
+
+
         /// <summary>
         /// Uses Clinic DB to check if a ssn already exists
         /// </summary>
@@ -61,6 +70,16 @@ namespace Group3_ClinicDB.Controller
             }
 
             return this.personsDBSource.UpdatePerson(oldPatient, newPatient);
+        }
+
+        public bool UpdateNurse(int personId, Person updatedNurse)
+        {
+            if (updatedNurse == null)
+            {
+                throw new ArgumentException("a nurse cannot be null");
+            }
+
+            return this.personsDBSource.UpdateNurse(personId,updatedNurse);
         }
 
         public User GetUserFullName(User user)

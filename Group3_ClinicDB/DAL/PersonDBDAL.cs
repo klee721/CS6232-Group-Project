@@ -64,6 +64,41 @@ namespace Group3_ClinicDB.DAL
             return personID;
         }
 
+        public Person GetPersonDataById(int id)
+        {
+            string selectStatement =
+                 "SELECT * " +
+                   "FROM persons " +
+                   "WHERE id = @id";
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@id", id);
+
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Person newPerson = new Person(reader["firstName"].ToString(),
+                                                        reader["lastName"].ToString(), (DateTime)reader["dateOfBirth"], reader["gender"].ToString(),
+                                                        reader["SSN"].ToString(), reader["Address1"].ToString(), reader["Address2"].ToString(),
+                                                        reader["city"].ToString(), reader["state"].ToString(), reader["zipcode"].ToString(), reader["phoneNumber"].ToString());
+                            return newPerson;
+                        }
+                        
+                    }
+
+                }
+            }
+            return null;
+            
+        }
+
+
         /// <summary>
         /// Uses Clinic DB to check if a ssn already exists
         /// </summary>
@@ -177,12 +212,60 @@ namespace Group3_ClinicDB.DAL
             }
         }
 
-        /// <summary>
-        /// Public method to retrieve a User's first and last name and store it in a User object
-        /// </summary>
-        /// <param name="user">a User object that may only contain a nurseID or an adminID</param>
-        /// <returns>the same user object with the first and last name updated </returns>
-        public User GetUserFullName(User user)
+        public bool UpdateNurse(int personId, Person updatedNurse)
+        {
+            string updateStatement = "UPDATE Persons " +
+                   "SET firstName = @newFirstName, lastName = @newLastName, dateOfBirth = @newDateOfBirth, " +
+                   "gender = @newGender, ssn = @newSsn, address1 = @newAddress1, address2 = @newAddress2, " +
+                   "city = @newCity, state = @newState, zipcode = @newZipCode, phoneNumber = @newPhoneNumber " +
+                   "WHERE id = @Id ";
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand updateCommand = new SqlCommand(updateStatement, connection))
+                {
+                    updateCommand.Parameters.AddWithValue("@Id", personId);
+                    updateCommand.Parameters.AddWithValue("@newFirstName", updatedNurse.FirstName);
+                    updateCommand.Parameters.AddWithValue("@newLastName", updatedNurse.LastName);
+                    updateCommand.Parameters.AddWithValue("@newDateOfBirth", updatedNurse.DateOfBirth.ToShortDateString());
+                    updateCommand.Parameters.AddWithValue("@newGender", updatedNurse.Gender);
+                    updateCommand.Parameters.AddWithValue("@newSsn", updatedNurse.Ssn);
+                    updateCommand.Parameters.AddWithValue("@newAddress1", updatedNurse.Address1);
+                    if (updatedNurse.Address2.Equals(""))
+                    {
+                        updateCommand.Parameters.AddWithValue("@newAddress2", DBNull.Value);
+                    }
+                    else
+                    {
+                        updateCommand.Parameters.AddWithValue("@newAddress2", updatedNurse.Address2);
+                    }
+                    updateCommand.Parameters.AddWithValue("@newCity", updatedNurse.City);
+                    updateCommand.Parameters.AddWithValue("@newState", updatedNurse.State);
+                    updateCommand.Parameters.AddWithValue("@newZipCode", updatedNurse.ZipCode);
+                    updateCommand.Parameters.AddWithValue("@newPhoneNumber", updatedNurse.PhoneNumber);
+
+                    int count = updateCommand.ExecuteNonQuery();
+                    if (count > 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
+                }
+            }
+
+        }
+                /// <summary>
+                /// Public method to retrieve a User's first and last name and store it in a User object
+                /// </summary>
+                /// <param name="user">a User object that may only contain a nurseID or an adminID</param>
+                /// <returns>the same user object with the first and last name updated </returns>
+                public User GetUserFullName(User user)
         {
             User updatedUser = user;
 

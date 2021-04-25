@@ -122,11 +122,17 @@
     <Compile Include="UserControls\AllPatientUserControl.Designer.cs">
       <DependentUpon>AllPatientUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\EditNurseUserControl.cs">
+    <Compile Include="UserControls\EditNurseUsercontrol.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\EditNurseUserControl.Designer.cs">
-      <DependentUpon>EditNurseUserControl.cs</DependentUpon>
+    <Compile Include="UserControls\EditNurseUsercontrol.Designer.cs">
+      <DependentUpon>EditNurseUsercontrol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\EditUserUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\EditUserUserControl.Designer.cs">
+      <DependentUpon>EditUserUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\EnterTestResultsUserControl.cs">
       <SubType>UserControl</SubType>
@@ -240,8 +246,11 @@
     <EmbeddedResource Include="UserControls\AllPatientUserControl.resx">
       <DependentUpon>AllPatientUserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\EditNurseUserControl.resx">
-      <DependentUpon>EditNurseUserControl.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\EditNurseUsercontrol.resx">
+      <DependentUpon>EditNurseUsercontrol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\EditUserUserControl.resx">
+      <DependentUpon>EditUserUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\EnterTestResultsUserControl.resx">
       <DependentUpon>EnterTestResultsUserControl.cs</DependentUpon>

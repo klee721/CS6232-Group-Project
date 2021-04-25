@@ -31,20 +31,23 @@ namespace Group3_ClinicDB.View
         {
             this.AdminTabControl = new System.Windows.Forms.TabControl();
             this.AddUserTab = new System.Windows.Forms.TabPage();
+            this.addUserUserControl1 = new Group3_ClinicDB.UserControls.AddUserUserControl();
+            this.EditUserTab = new System.Windows.Forms.TabPage();
+            this.editUserUserControl1 = new Group3_ClinicDB.UserControls.EditUserUserControl();
             this.AddNurseTab = new System.Windows.Forms.TabPage();
+            this.addNurseUserControl1 = new Group3_ClinicDB.UserControls.AddNurseUserControl();
             this.EditNurseTab = new System.Windows.Forms.TabPage();
             this.ReportingTab = new System.Windows.Forms.TabPage();
+            this.getLabTestReportUserControl1 = new Group3_ClinicDB.UserControls.GetLabTestReportUserControl();
             this.UserNameLabel = new System.Windows.Forms.Label();
             this.UserFullNameLabel = new System.Windows.Forms.Label();
             this.EmployeeNameLabel = new System.Windows.Forms.Label();
             this.LogoutLink = new System.Windows.Forms.LinkLabel();
             this.LoggedInAsLabel = new System.Windows.Forms.Label();
-            this.addUserUserControl1 = new Group3_ClinicDB.UserControls.AddUserUserControl();
-            this.editNurseUserControl1 = new Group3_ClinicDB.UserControls.EditNurseUserControl();
-            this.getLabTestReportUserControl1 = new Group3_ClinicDB.UserControls.GetLabTestReportUserControl();
-            this.addNurseUserControl1 = new Group3_ClinicDB.UserControls.AddNurseUserControl();
+            this.editNurseUsercontrol2 = new Group3_ClinicDB.UserControls.EditNurseUsercontrol();
             this.AdminTabControl.SuspendLayout();
             this.AddUserTab.SuspendLayout();
+            this.EditUserTab.SuspendLayout();
             this.AddNurseTab.SuspendLayout();
             this.EditNurseTab.SuspendLayout();
             this.ReportingTab.SuspendLayout();
@@ -53,6 +56,7 @@ namespace Group3_ClinicDB.View
             // AdminTabControl
             // 
             this.AdminTabControl.Controls.Add(this.AddUserTab);
+            this.AdminTabControl.Controls.Add(this.EditUserTab);
             this.AdminTabControl.Controls.Add(this.AddNurseTab);
             this.AdminTabControl.Controls.Add(this.EditNurseTab);
             this.AdminTabControl.Controls.Add(this.ReportingTab);
@@ -72,6 +76,34 @@ namespace Group3_ClinicDB.View
             this.AddUserTab.Text = "Add User";
             this.AddUserTab.UseVisualStyleBackColor = true;
             // 
+            // addUserUserControl1
+            // 
+            this.addUserUserControl1.Location = new System.Drawing.Point(0, 0);
+            this.addUserUserControl1.MaximumSize = new System.Drawing.Size(1215, 615);
+            this.addUserUserControl1.MinimumSize = new System.Drawing.Size(1215, 615);
+            this.addUserUserControl1.Name = "addUserUserControl1";
+            this.addUserUserControl1.Size = new System.Drawing.Size(1215, 615);
+            this.addUserUserControl1.TabIndex = 0;
+            // 
+            // EditUserTab
+            // 
+            this.EditUserTab.Controls.Add(this.editUserUserControl1);
+            this.EditUserTab.Location = new System.Drawing.Point(4, 22);
+            this.EditUserTab.Name = "EditUserTab";
+            this.EditUserTab.Size = new System.Drawing.Size(1215, 615);
+            this.EditUserTab.TabIndex = 9;
+            this.EditUserTab.Text = "Edit User";
+            this.EditUserTab.UseVisualStyleBackColor = true;
+            // 
+            // editUserUserControl1
+            // 
+            this.editUserUserControl1.Location = new System.Drawing.Point(0, 0);
+            this.editUserUserControl1.MaximumSize = new System.Drawing.Size(1215, 615);
+            this.editUserUserControl1.MinimumSize = new System.Drawing.Size(1215, 615);
+            this.editUserUserControl1.Name = "editUserUserControl1";
+            this.editUserUserControl1.Size = new System.Drawing.Size(1215, 615);
+            this.editUserUserControl1.TabIndex = 0;
+            // 
             // AddNurseTab
             // 
             this.AddNurseTab.Controls.Add(this.addNurseUserControl1);
@@ -79,16 +111,25 @@ namespace Group3_ClinicDB.View
             this.AddNurseTab.Name = "AddNurseTab";
             this.AddNurseTab.Size = new System.Drawing.Size(1215, 615);
             this.AddNurseTab.TabIndex = 11;
-            this.AddNurseTab.Text = "AddNurse";
+            this.AddNurseTab.Text = "Add Nurse";
             this.AddNurseTab.UseVisualStyleBackColor = true;
+            // 
+            // addNurseUserControl1
+            // 
+            this.addNurseUserControl1.Location = new System.Drawing.Point(0, 0);
+            this.addNurseUserControl1.MaximumSize = new System.Drawing.Size(1215, 615);
+            this.addNurseUserControl1.MinimumSize = new System.Drawing.Size(1215, 615);
+            this.addNurseUserControl1.Name = "addNurseUserControl1";
+            this.addNurseUserControl1.Size = new System.Drawing.Size(1215, 615);
+            this.addNurseUserControl1.TabIndex = 0;
             // 
             // EditNurseTab
             // 
-            this.EditNurseTab.Controls.Add(this.editNurseUserControl1);
+            this.EditNurseTab.Controls.Add(this.editNurseUsercontrol2);
             this.EditNurseTab.Location = new System.Drawing.Point(4, 22);
             this.EditNurseTab.Name = "EditNurseTab";
             this.EditNurseTab.Size = new System.Drawing.Size(1215, 615);
-            this.EditNurseTab.TabIndex = 9;
+            this.EditNurseTab.TabIndex = 12;
             this.EditNurseTab.Text = "Edit Nurse";
             this.EditNurseTab.UseVisualStyleBackColor = true;
             // 
@@ -101,6 +142,15 @@ namespace Group3_ClinicDB.View
             this.ReportingTab.TabIndex = 10;
             this.ReportingTab.Text = "Reporting";
             this.ReportingTab.UseVisualStyleBackColor = true;
+            // 
+            // getLabTestReportUserControl1
+            // 
+            this.getLabTestReportUserControl1.Location = new System.Drawing.Point(0, 0);
+            this.getLabTestReportUserControl1.MaximumSize = new System.Drawing.Size(1215, 615);
+            this.getLabTestReportUserControl1.MinimumSize = new System.Drawing.Size(1215, 615);
+            this.getLabTestReportUserControl1.Name = "getLabTestReportUserControl1";
+            this.getLabTestReportUserControl1.Size = new System.Drawing.Size(1215, 615);
+            this.getLabTestReportUserControl1.TabIndex = 0;
             // 
             // UserNameLabel
             // 
@@ -155,41 +205,14 @@ namespace Group3_ClinicDB.View
             this.LoggedInAsLabel.TabIndex = 18;
             this.LoggedInAsLabel.Text = "Username: ";
             // 
-            // addUserUserControl1
+            // editNurseUsercontrol2
             // 
-            this.addUserUserControl1.Location = new System.Drawing.Point(0, 0);
-            this.addUserUserControl1.MaximumSize = new System.Drawing.Size(1215, 615);
-            this.addUserUserControl1.MinimumSize = new System.Drawing.Size(1215, 615);
-            this.addUserUserControl1.Name = "addUserUserControl1";
-            this.addUserUserControl1.Size = new System.Drawing.Size(1215, 615);
-            this.addUserUserControl1.TabIndex = 0;
-            // 
-            // editNurseUserControl1
-            // 
-            this.editNurseUserControl1.Location = new System.Drawing.Point(0, 0);
-            this.editNurseUserControl1.MaximumSize = new System.Drawing.Size(1215, 615);
-            this.editNurseUserControl1.MinimumSize = new System.Drawing.Size(1215, 615);
-            this.editNurseUserControl1.Name = "editNurseUserControl1";
-            this.editNurseUserControl1.Size = new System.Drawing.Size(1215, 615);
-            this.editNurseUserControl1.TabIndex = 0;
-            // 
-            // getLabTestReportUserControl1
-            // 
-            this.getLabTestReportUserControl1.Location = new System.Drawing.Point(0, 0);
-            this.getLabTestReportUserControl1.MaximumSize = new System.Drawing.Size(1215, 615);
-            this.getLabTestReportUserControl1.MinimumSize = new System.Drawing.Size(1215, 615);
-            this.getLabTestReportUserControl1.Name = "getLabTestReportUserControl1";
-            this.getLabTestReportUserControl1.Size = new System.Drawing.Size(1215, 615);
-            this.getLabTestReportUserControl1.TabIndex = 0;
-            // 
-            // addNurseUserControl1
-            // 
-            this.addNurseUserControl1.Location = new System.Drawing.Point(0, 0);
-            this.addNurseUserControl1.MaximumSize = new System.Drawing.Size(1215, 615);
-            this.addNurseUserControl1.MinimumSize = new System.Drawing.Size(1215, 615);
-            this.addNurseUserControl1.Name = "addNurseUserControl1";
-            this.addNurseUserControl1.Size = new System.Drawing.Size(1215, 615);
-            this.addNurseUserControl1.TabIndex = 0;
+            this.editNurseUsercontrol2.Location = new System.Drawing.Point(0, 0);
+            this.editNurseUsercontrol2.MaximumSize = new System.Drawing.Size(1215, 615);
+            this.editNurseUsercontrol2.MinimumSize = new System.Drawing.Size(1215, 615);
+            this.editNurseUsercontrol2.Name = "editNurseUsercontrol2";
+            this.editNurseUsercontrol2.Size = new System.Drawing.Size(1215, 615);
+            this.editNurseUsercontrol2.TabIndex = 0;
             // 
             // AdminMainDashboard
             // 
@@ -209,6 +232,7 @@ namespace Group3_ClinicDB.View
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Exit);
             this.AdminTabControl.ResumeLayout(false);
             this.AddUserTab.ResumeLayout(false);
+            this.EditUserTab.ResumeLayout(false);
             this.AddNurseTab.ResumeLayout(false);
             this.EditNurseTab.ResumeLayout(false);
             this.ReportingTab.ResumeLayout(false);
@@ -221,7 +245,6 @@ namespace Group3_ClinicDB.View
 
         private System.Windows.Forms.TabControl AdminTabControl;
         private System.Windows.Forms.TabPage AddUserTab;
-        private System.Windows.Forms.TabPage EditNurseTab;
         private System.Windows.Forms.TabPage ReportingTab;
         private System.Windows.Forms.Label UserNameLabel;
         private System.Windows.Forms.Label UserFullNameLabel;
@@ -229,9 +252,13 @@ namespace Group3_ClinicDB.View
         private System.Windows.Forms.LinkLabel LogoutLink;
         private System.Windows.Forms.Label LoggedInAsLabel;
         private UserControls.AddUserUserControl addUserUserControl1;
-        private UserControls.EditNurseUserControl editNurseUserControl1;
+        private UserControls.EditUserUserControl editNurseUserControl1;
         private UserControls.GetLabTestReportUserControl getLabTestReportUserControl1;
         private System.Windows.Forms.TabPage AddNurseTab;
         private UserControls.AddNurseUserControl addNurseUserControl1;
+        private System.Windows.Forms.TabPage EditNurseTab;
+        private System.Windows.Forms.TabPage EditUserTab;
+        private UserControls.EditUserUserControl editUserUserControl1;
+        private UserControls.EditNurseUsercontrol editNurseUsercontrol2;
     }
 }

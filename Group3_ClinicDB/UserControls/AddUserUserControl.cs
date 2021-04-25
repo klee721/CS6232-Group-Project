@@ -70,7 +70,7 @@ namespace Group3_ClinicDB.UserControls
                         }
                         else
                         {
-                            MessageBox.Show("Employeee " + newUser.firstName + " " + newUser.lastName + " is already a registered user");
+                            MessageBox.Show("Employee " + newUser.firstName + " " + newUser.lastName + " is already a registered user");
                         }
 
                     }
@@ -94,7 +94,7 @@ namespace Group3_ClinicDB.UserControls
                         }
                         else
                         {
-                            MessageBox.Show("Employeee " + newUser.firstName + " " + newUser.lastName + " is already a registered user");
+                            MessageBox.Show("Employee " + newUser.firstName + " " + newUser.lastName + " is already a registered user");
                         }
 
                     }
