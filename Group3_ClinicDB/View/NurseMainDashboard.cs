@@ -1,6 +1,8 @@
 ﻿using System;
 using Group3_ClinicDB.Model;
 using System.Windows.Forms;
+using Group3_ClinicDB.Controller;
+using System.Drawing;
 
 namespace Group3_ClinicDB.View
 {
@@ -9,6 +11,8 @@ namespace Group3_ClinicDB.View
         public User user;
         public Patient patient;
         private LoginForm loginform;
+        private readonly PatientController patientController;
+        private readonly AppointmentController appointmentController;
 
         public NurseMainDashboard(User user, LoginForm loginform)
         {
@@ -19,6 +23,8 @@ namespace Group3_ClinicDB.View
             this.PatientIDLabel.Text = "";
             this.PatientNameLabel.Text = "";
             this.user = user;
+            this.patientController = new PatientController();
+            this.appointmentController = new AppointmentController();
         }
 
         private void SelectPatientButtonClick(object sender, EventArgs e)
@@ -39,6 +45,8 @@ namespace Group3_ClinicDB.View
                 this.enterTestResultsUserControl1.GetPatient(this.patient);
                 this.searchTestResultsUserControl1.GetPatient(this.patient);
                 this.addVisitUserControl1.GetNurse(this.user);
+
+                this.deleteButton.Enabled = true;
                 //PUT ANY UC PATIENT GETS HERE
             }
             else
@@ -67,9 +75,45 @@ namespace Group3_ClinicDB.View
             this.allVisitsUserControl1.Enabled = false;
             this.orderTestsUserControl1.Enabled = false;
             this.editPatientUserControl1.NullifyPatients();
+            this.editPatientUserControl1.InitEditPatient();
             this.enterTestResultsUserControl1.GetPatient(null);
             this.searchTestResultsUserControl1.GetPatient(null);
+
+            this.deleteButton.Enabled = false;
             //DISABLE YOUR MODULES ON LOGOUT HERE
+        }
+
+        private void DeleteButtonClick(object sender, EventArgs e)
+        {
+            if (this.appointmentController.GetAllAppointmentsByPatient(this.searchUserControl2.GetPatient().Id).Count == 0)
+            {
+                if (MessageBox.Show(this.searchUserControl2.GetPatient().FirstName + " " + this.searchUserControl2.GetPatient().LastName + " will be removed as a patient." +
+                                        " (Will still remain in the database as a person should you need to re-register) Is this OK?",
+                                        "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    if (this.patientController.DeletePatient(this.searchUserControl2.GetPatient()))
+                    {
+                        this.deleteSuccessMessage.Text = "Delete Successful!";
+                        this.deleteSuccessMessage.Visible = true;
+                        this.deleteSuccessMessage.ForeColor = Color.Black;
+
+                        this.DisableModules();
+                    }
+                    else
+                    {
+                        this.deleteSuccessMessage.Text = "Delete Unsuccessful. Someone has deleted the patient before you";
+                        this.deleteSuccessMessage.Visible = true;
+                        this.deleteSuccessMessage.ForeColor = Color.Red;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Delete Failed. Patients with appointment history cannot be deleted", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.deleteSuccessMessage.Text = "Patients with appointment history cannot be deleted";
+                this.deleteSuccessMessage.Visible = true;
+                this.deleteSuccessMessage.ForeColor = Color.Red;
+            }
         }
 
         /// <summary>
@@ -86,6 +130,11 @@ namespace Group3_ClinicDB.View
         private void Exit(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void DashboardTabControlClick(object sender, EventArgs e)
+        {
+            this.deleteSuccessMessage.Visible = false;
         }
     }
 }

@@ -62,6 +62,8 @@ namespace Group3_ClinicDB.View
             this.PatientNameLabel = new System.Windows.Forms.Label();
             this.UserFullNameLabel = new System.Windows.Forms.Label();
             this.UserNameLabel = new System.Windows.Forms.Label();
+            this.deleteButton = new System.Windows.Forms.Button();
+            this.deleteSuccessMessage = new System.Windows.Forms.Label();
             this.DashboardTabControl.SuspendLayout();
             this.SearchPatientTab.SuspendLayout();
             this.registerPatientTab.SuspendLayout();
@@ -94,6 +96,7 @@ namespace Group3_ClinicDB.View
             this.DashboardTabControl.SelectedIndex = 0;
             this.DashboardTabControl.Size = new System.Drawing.Size(1223, 641);
             this.DashboardTabControl.TabIndex = 0;
+            this.DashboardTabControl.Click += new System.EventHandler(this.DashboardTabControlClick);
             // 
             // SearchPatientTab
             // 
@@ -420,11 +423,35 @@ namespace Group3_ClinicDB.View
             this.UserNameLabel.TabIndex = 17;
             this.UserNameLabel.Text = "USERNAME";
             // 
+            // deleteButton
+            // 
+            this.deleteButton.Enabled = false;
+            this.deleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteButton.Location = new System.Drawing.Point(35, 13);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(180, 32);
+            this.deleteButton.TabIndex = 18;
+            this.deleteButton.Text = "Delete Patient";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.DeleteButtonClick);
+            // 
+            // deleteSuccessMessage
+            // 
+            this.deleteSuccessMessage.AutoSize = true;
+            this.deleteSuccessMessage.Location = new System.Drawing.Point(35, 52);
+            this.deleteSuccessMessage.Name = "deleteSuccessMessage";
+            this.deleteSuccessMessage.Size = new System.Drawing.Size(96, 13);
+            this.deleteSuccessMessage.TabIndex = 19;
+            this.deleteSuccessMessage.Text = "Delete Successful!";
+            this.deleteSuccessMessage.Visible = false;
+            // 
             // NurseMainDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1223, 733);
+            this.Controls.Add(this.deleteSuccessMessage);
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.UserNameLabel);
             this.Controls.Add(this.UserFullNameLabel);
             this.Controls.Add(this.PatientNameLabel);
@@ -493,5 +520,7 @@ namespace Group3_ClinicDB.View
         private UserControls.EnterTestResultsUserControl enterTestResultsUserControl1;
         private System.Windows.Forms.TabPage searchTestResults;
         private UserControls.SearchTestResultsUserControl searchTestResultsUserControl1;
+        private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.Label deleteSuccessMessage;
     }
 }
