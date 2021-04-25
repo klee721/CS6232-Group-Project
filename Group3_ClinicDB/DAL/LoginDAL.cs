@@ -19,8 +19,13 @@ namespace Group3_ClinicDB.DAL
         {
             List<User> userList = new List<User>();
 
-            string selectStatement = "SELECT userName, passwordHash, admin_id, nurse_id, doctor_id, patient_id from login " +
-                "WHERE userName = @name AND passwordHash = @password";
+            string selectStatement = "SELECT userName, passwordHash, admin_id, nurse_id, doctor_id, patient_id, status from login AS l " +
+                "LEFT JOIN nurses AS n " +
+                "ON n.Id = l.nurse_id " +
+                "WHERE userName = @name " +
+                "AND passwordHash = @password " +
+                "AND (status = 'A' OR status IS NULL)";
+            
 
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
@@ -133,7 +138,7 @@ namespace Group3_ClinicDB.DAL
 
                 string insertStatement =
                 "INSERT INTO login " +
-                    "(userName, password, nurse_id) " +
+                    "(userName, passwordHash, nurse_id) " +
                 "VALUES (@username, @password, @nurseID)";
 
                 using (SqlConnection connection = ClinicDBConnection.GetConnection())

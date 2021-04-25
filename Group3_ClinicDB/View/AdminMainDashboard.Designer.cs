@@ -31,6 +31,7 @@ namespace Group3_ClinicDB.View
         {
             this.AdminTabControl = new System.Windows.Forms.TabControl();
             this.AddUserTab = new System.Windows.Forms.TabPage();
+            this.AddNurseTab = new System.Windows.Forms.TabPage();
             this.EditNurseTab = new System.Windows.Forms.TabPage();
             this.ReportingTab = new System.Windows.Forms.TabPage();
             this.UserNameLabel = new System.Windows.Forms.Label();
@@ -41,8 +42,10 @@ namespace Group3_ClinicDB.View
             this.addUserUserControl1 = new Group3_ClinicDB.UserControls.AddUserUserControl();
             this.editNurseUserControl1 = new Group3_ClinicDB.UserControls.EditNurseUserControl();
             this.getLabTestReportUserControl1 = new Group3_ClinicDB.UserControls.GetLabTestReportUserControl();
+            this.addNurseUserControl1 = new Group3_ClinicDB.UserControls.AddNurseUserControl();
             this.AdminTabControl.SuspendLayout();
             this.AddUserTab.SuspendLayout();
+            this.AddNurseTab.SuspendLayout();
             this.EditNurseTab.SuspendLayout();
             this.ReportingTab.SuspendLayout();
             this.SuspendLayout();
@@ -50,6 +53,7 @@ namespace Group3_ClinicDB.View
             // AdminTabControl
             // 
             this.AdminTabControl.Controls.Add(this.AddUserTab);
+            this.AdminTabControl.Controls.Add(this.AddNurseTab);
             this.AdminTabControl.Controls.Add(this.EditNurseTab);
             this.AdminTabControl.Controls.Add(this.ReportingTab);
             this.AdminTabControl.Location = new System.Drawing.Point(-2, 87);
@@ -67,6 +71,16 @@ namespace Group3_ClinicDB.View
             this.AddUserTab.TabIndex = 8;
             this.AddUserTab.Text = "Add User";
             this.AddUserTab.UseVisualStyleBackColor = true;
+            // 
+            // AddNurseTab
+            // 
+            this.AddNurseTab.Controls.Add(this.addNurseUserControl1);
+            this.AddNurseTab.Location = new System.Drawing.Point(4, 22);
+            this.AddNurseTab.Name = "AddNurseTab";
+            this.AddNurseTab.Size = new System.Drawing.Size(1215, 615);
+            this.AddNurseTab.TabIndex = 11;
+            this.AddNurseTab.Text = "AddNurse";
+            this.AddNurseTab.UseVisualStyleBackColor = true;
             // 
             // EditNurseTab
             // 
@@ -168,6 +182,15 @@ namespace Group3_ClinicDB.View
             this.getLabTestReportUserControl1.Size = new System.Drawing.Size(1215, 615);
             this.getLabTestReportUserControl1.TabIndex = 0;
             // 
+            // addNurseUserControl1
+            // 
+            this.addNurseUserControl1.Location = new System.Drawing.Point(0, 0);
+            this.addNurseUserControl1.MaximumSize = new System.Drawing.Size(1215, 615);
+            this.addNurseUserControl1.MinimumSize = new System.Drawing.Size(1215, 615);
+            this.addNurseUserControl1.Name = "addNurseUserControl1";
+            this.addNurseUserControl1.Size = new System.Drawing.Size(1215, 615);
+            this.addNurseUserControl1.TabIndex = 0;
+            // 
             // AdminMainDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -186,6 +209,7 @@ namespace Group3_ClinicDB.View
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Exit);
             this.AdminTabControl.ResumeLayout(false);
             this.AddUserTab.ResumeLayout(false);
+            this.AddNurseTab.ResumeLayout(false);
             this.EditNurseTab.ResumeLayout(false);
             this.ReportingTab.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -207,5 +231,7 @@ namespace Group3_ClinicDB.View
         private UserControls.AddUserUserControl addUserUserControl1;
         private UserControls.EditNurseUserControl editNurseUserControl1;
         private UserControls.GetLabTestReportUserControl getLabTestReportUserControl1;
+        private System.Windows.Forms.TabPage AddNurseTab;
+        private UserControls.AddNurseUserControl addNurseUserControl1;
     }
 }

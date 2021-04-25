@@ -104,6 +104,12 @@
     <Compile Include="Model\State.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\Visits.cs" />
+    <Compile Include="UserControls\AddNurseUsercontrol.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AddNurseUserControl.Designer.cs">
+      <DependentUpon>AddNurseUsercontrol.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\AddUserUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -225,6 +231,9 @@
       <DependentUpon>_cs6232_g3DataSetStoredProcedure.xsd</DependentUpon>
     </Compile>
     <EmbeddedResource Include="LabReport.rdlc" />
+    <EmbeddedResource Include="UserControls\AddNurseUsercontrol.resx">
+      <DependentUpon>AddNurseUsercontrol.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AddUserUserControl.resx">
       <DependentUpon>AddUserUserControl.cs</DependentUpon>
     </EmbeddedResource>

@@ -43,7 +43,37 @@ namespace Group3_ClinicDB.Controller
         {
             return this.NurseSource.UpdateNurseStatus(nurse, status);
         }
-        
+
+        /// <summary>
+        /// Adds a Nurse to the table that already exists as a person
+        /// </summary>
+        /// <param name="person">The person the admin has entered</param>
+        public void AddNurseExistingPerson(Person person)
+        {
+            if (person == null)
+            {
+                throw new ArgumentException("Person cannot be null");
+            }
+
+            this.NurseSource.AddNurseExistingPerson(person);
+        }
+
+
+        /// <summary>
+        /// Adds a Nurse to the table that does not exist as a person
+        /// </summary>
+        /// <param name="person">The person the admin has entered</param>
+        public void AddNurseNewPerson(Person person)
+        {
+            if (person == null)
+            {
+                throw new ArgumentException("Person cannot be null");
+            }
+
+            this.NurseSource.AddNurseNewPerson(person);
+        }
+
+
 
     }
 }
