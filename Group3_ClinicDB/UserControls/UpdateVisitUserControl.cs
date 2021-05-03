@@ -77,7 +77,7 @@ namespace Group3_ClinicDB.UserControls
                     {
 
                         this.confirmLabel.Text = "Visit updated successfully";
-                    this.clearFields();
+                    this.ClearFields();
                     }
                     else
                     {
@@ -168,13 +168,13 @@ namespace Group3_ClinicDB.UserControls
         /// 
         private void ClearButton_Click(object sender, EventArgs e)
         {
-            this.clearFields();
+            this.ClearFields();
             this.confirmLabel.Text = "";
 
         }
         
         
-        private void clearFields()
+        private void ClearFields()
         {
             this.visit = new Visits();
             this.weightTextBox.Text = "";
