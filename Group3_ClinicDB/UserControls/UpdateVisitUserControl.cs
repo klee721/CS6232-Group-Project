@@ -77,6 +77,7 @@ namespace Group3_ClinicDB.UserControls
                     {
 
                         this.confirmLabel.Text = "Visit updated successfully";
+                    this.clearFields();
                     }
                     else
                     {
@@ -131,7 +132,12 @@ namespace Group3_ClinicDB.UserControls
                     return;
                 }
 
-                this.weightTextBox.Text = visit.weight.ToString();
+                if (!string.IsNullOrWhiteSpace(this.visit.finalDiagnose)) {
+                    MessageBox.Show("You cannot edit the visit after entering the final diagnose.");
+                    return;
+                }
+
+                    this.weightTextBox.Text = visit.weight.ToString();
                 this.heightTextBox.Text = visit.height.ToString();
                 this.bodyTemparatureTextBox.Text = visit.bodyTemparature.ToString();
                 this.pulseTextBox.Text = visit.pulse.ToString();
@@ -162,6 +168,14 @@ namespace Group3_ClinicDB.UserControls
         /// 
         private void ClearButton_Click(object sender, EventArgs e)
         {
+            this.clearFields();
+            this.confirmLabel.Text = "";
+
+        }
+        
+        
+        private void clearFields()
+        {
             this.visit = new Visits();
             this.weightTextBox.Text = "";
             this.heightTextBox.Text = "";
@@ -178,8 +192,6 @@ namespace Group3_ClinicDB.UserControls
             this.clearButton.Enabled = false;
             this.getVisitButton.Enabled = true;
             this.visitTextBox.Enabled = true;
-            this.confirmLabel.Text = "";
-
         }
     }
 }
