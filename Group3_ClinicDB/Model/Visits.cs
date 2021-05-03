@@ -17,7 +17,7 @@ namespace Group3_ClinicDB.Model
         public int appointment_id { get; set; }
         public Decimal weight { get; set; }
         public Decimal height { get; set; }
-        public int bodyTemparature { get; set; }
+        public Decimal bodyTemparature { get; set; }
 
         public int pulse { get; set; }
 
@@ -26,9 +26,9 @@ namespace Group3_ClinicDB.Model
         public int nurseId { get; set; }
 
         
-        public int bloodPressureSystolic { get; set; }
+        public Decimal bloodPressureSystolic { get; set; }
 
-        public int bloodPressureDiastolic { get; set; }
+        public Decimal bloodPressureDiastolic { get; set; }
         public string initialDiagnose { get; set; }
         public string finalDiagnose { get; set; }
 

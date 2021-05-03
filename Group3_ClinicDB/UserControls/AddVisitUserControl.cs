@@ -320,7 +320,7 @@ namespace Group3_ClinicDB.UserControls
             
             try
             {
-                i = int.Parse(this.bloodPressureSystolicTextBox.Text.ToString());
+                d = decimal.Parse(this.bloodPressureSystolicTextBox.Text.ToString());
             }
             catch (Exception)
             {
@@ -331,12 +331,12 @@ namespace Group3_ClinicDB.UserControls
 
             }
 
-            var bloodPressureSystolic = int.Parse(this.bloodPressureSystolicTextBox.Text.ToString());
+            var bloodPressureSystolic = decimal.Parse(this.bloodPressureSystolicTextBox.Text.ToString());
 
             
             try
             {
-                i = int.Parse(this.bloodPressureDiastolicTextBox.Text.ToString());
+                d = decimal.Parse(this.bloodPressureDiastolicTextBox.Text.ToString());
             }
             catch (Exception)
             {
@@ -345,7 +345,7 @@ namespace Group3_ClinicDB.UserControls
                 return;
 
             }
-            var bloodPressureDiastolic = int.Parse(this.bloodPressureDiastolicTextBox.Text.ToString());
+            var bloodPressureDiastolic = decimal.Parse(this.bloodPressureDiastolicTextBox.Text.ToString());
 
             
 
@@ -367,7 +367,7 @@ namespace Group3_ClinicDB.UserControls
             
             try
             {
-                i = int.Parse(this.bodyTemparatureTextBox.Text.ToString());
+                d = decimal.Parse(this.bodyTemparatureTextBox.Text.ToString());
             }
             catch (Exception)
             {
@@ -377,7 +377,7 @@ namespace Group3_ClinicDB.UserControls
 
             }
 
-            var bodyTemparature = int.Parse(this.bodyTemparatureTextBox.Text.ToString());
+            var bodyTemparature = decimal.Parse(this.bodyTemparatureTextBox.Text.ToString());
             
 
             
@@ -407,6 +407,7 @@ namespace Group3_ClinicDB.UserControls
 
                         this.confirmLabel.Text = "Visit added successfully";
                         this.Reset();
+                    
                 }
                     else
                     {
@@ -473,7 +474,7 @@ namespace Group3_ClinicDB.UserControls
             weightErrorLabel.Visible = false;
             nurseErrorLabel.Visible = false;
             symptomsErrorlabel.Visible = false;
-            
+            this.RefreshAppointments();
         }
 
         /// <summary>
