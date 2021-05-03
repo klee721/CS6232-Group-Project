@@ -201,7 +201,7 @@ namespace Group3_ClinicDB.UserControls
             }
         }
 
-        private void testCodecomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void TestCodecomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             string code = testCodecomboBox.SelectedValue.ToString();
             this.test = labTestController.GetTestByCode(code);
@@ -301,7 +301,7 @@ namespace Group3_ClinicDB.UserControls
 
         }
 
-        private void labTestsDataGridView_MouseClick(object sender, MouseEventArgs e)
+        private void LabTestsDataGridView_MouseClick(object sender, MouseEventArgs e)
         {
             
             if (labTestsDataGridView.SelectedCells.Count > 0)

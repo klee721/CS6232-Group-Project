@@ -53,7 +53,7 @@ namespace Group3_ClinicDB.UserControls
             this.testCodecomboBox.Name = "testCodecomboBox";
             this.testCodecomboBox.Size = new System.Drawing.Size(322, 28);
             this.testCodecomboBox.TabIndex = 1;
-            this.testCodecomboBox.SelectedIndexChanged += new System.EventHandler(this.testCodecomboBox_SelectedIndexChanged);
+            this.testCodecomboBox.SelectedIndexChanged += new System.EventHandler(this.TestCodecomboBox_SelectedIndexChanged);
             // 
             // testNameLabel
             // 
@@ -145,7 +145,7 @@ namespace Group3_ClinicDB.UserControls
             this.labTestsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.labTestsDataGridView.Size = new System.Drawing.Size(1067, 250);
             this.labTestsDataGridView.TabIndex = 11;
-            this.labTestsDataGridView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.labTestsDataGridView_MouseClick);
+            this.labTestsDataGridView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LabTestsDataGridView_MouseClick);
             // 
             // visitComboBox
             // 
