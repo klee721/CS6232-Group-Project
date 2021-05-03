@@ -143,7 +143,12 @@ INSERT into  tests (testCode,   Name,   description) values
 ('EFG','Glucose test', 'check sugar levels'),
 ('GHI', 'Complete Blood Count', 'Blood count'),
 ('IJK', 'Cultures test' ,'Cultures are used to test for diagnosis'),
-('KLM','Glucose test', 'check sugar levels');
+('KLM','Glucose test', 'check sugar levels'),
+('LDL','Low-Density Lipoproteins', 'Low-Density Lipoproteins'),
+('WBC','white blood cell ', 'white blood cell count'),
+('HEPA','hepatitis A test', 'hepatitis A test'),
+('HEPB','hepatitis B test', 'hepatitis B test')
+;
 
 -- labtests
 INSERT into  labtests (   patientId,   orderDateTime, performedDateTime, testCode,   results, normal,visit_id) values
