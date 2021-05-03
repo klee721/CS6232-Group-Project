@@ -21,7 +21,9 @@ namespace Group3_ClinicDB.UserControls
         private int genderIndex;
         private int stateIndex;
 
-
+        /// <summary>
+        /// User control for editing an existing employee (nurse) in the system
+        /// </summary>
         public EditNurseUsercontrol()
         {
             InitializeComponent();
@@ -63,6 +65,9 @@ namespace Group3_ClinicDB.UserControls
 
         }
 
+        /// <summary>
+        /// Method for clearing out the module of its stored data, for use in logging out/switching users
+        /// </summary>
         public void ClearModule()
         {
             this.storedNurseID = 0;

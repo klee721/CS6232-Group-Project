@@ -17,7 +17,5 @@ doe test1234
 
 KNOWN ISSUES:
 
-* There is no patient delete/deactivate functionality
-* Edit patient does not completely clear upon logging out/in as a new nurse
-* Visit doctor does not currently display when editing/adding Visit notes
+No known issues at this time
 

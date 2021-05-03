@@ -149,5 +149,14 @@ namespace Group3_ClinicDB.UserControls
             this.PatientApptList.DataSource = null;
            
         }
+
+        /// <summary>
+        /// Clears out the UserControls saved patient on dashboard logout
+        /// </summary>
+        public void ClearSavedPatient()
+        {
+            this.patient = null;
+        }
+
     }
 }

@@ -13,6 +13,9 @@ namespace Group3_ClinicDB.UserControls
         private readonly PersonController personController;
         private readonly NurseController nurseController;
 
+        /// <summary>
+        /// User Control for adding a new Nurse employee to the system
+        /// </summary>
         public AddNurseUserControl()
         {
             InitializeComponent();
