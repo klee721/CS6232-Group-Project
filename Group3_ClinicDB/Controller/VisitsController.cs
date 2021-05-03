@@ -45,6 +45,14 @@ namespace Group3_ClinicDB.Controller
         }
 
         /// <summary>
+        /// GetOpenVisitsByPatient method to list the open visits of a patient
+        /// </summary>
+        public List<Visits> GetOpenVisitsByPatient(int patient_id)
+        {
+            return this.visitsSource.GetOpenVisitsByPatient(patient_id);
+        }
+
+        /// <summary>
         /// GetVisitsByID method to get the visit 
         /// </summary>
         public Visits GetVisitsByID(int visitID)

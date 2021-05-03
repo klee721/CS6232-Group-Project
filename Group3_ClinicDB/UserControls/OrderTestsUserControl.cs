@@ -218,7 +218,7 @@ namespace Group3_ClinicDB.UserControls
                 {
 
 
-                    visitsList = this.visitController.GetVisitsByPatient(this.patient.Id);
+                    visitsList = this.visitController.GetOpenVisitsByPatient(this.patient.Id);
                     visitComboBox.Refresh();
                     //if (visitsList.Count > 0)
                     //{
