@@ -37,12 +37,12 @@ namespace Group3_ClinicDB.DAL
             int appointment_id;
             decimal weight;
             decimal height;
-            int bodyTemparature;
+            decimal bodyTemparature;
             int pulse;
             string symptoms;
             int nurseId;
-            int bloodPressureSystolic;
-            int bloodPressureDiastolic;
+            decimal bloodPressureSystolic;
+            decimal bloodPressureDiastolic;
             string initialDiagnose;
             string finalDiagnose;
 
@@ -75,12 +75,12 @@ namespace Group3_ClinicDB.DAL
                             appointment_id = reader.GetInt32(appointmentIdOrd);
                             weight = reader.GetDecimal(weightOrd);
                             height = reader.GetDecimal(heightOrd);
-                            bodyTemparature = reader.GetInt32(bodyTemparatureOrd);
+                            bodyTemparature = reader.GetDecimal(bodyTemparatureOrd);
                             pulse = reader.GetInt32(pulseOrd);
                             symptoms = reader.GetString(symptomsOrd);
                             nurseId = reader.GetInt32(nurseIdOrd);
-                            bloodPressureSystolic = reader.GetInt32(bloodPressureSystolicOrd);
-                            bloodPressureDiastolic = reader.GetInt32(bloodPressureDiastolicOrd);
+                            bloodPressureSystolic = reader.GetDecimal(bloodPressureSystolicOrd);
+                            bloodPressureDiastolic = reader.GetDecimal(bloodPressureDiastolicOrd);
                             initialDiagnose = reader.GetString(initialDiagnoseOrd);
                             finalDiagnose = reader.GetString(finalDiagnoseOrd);
 
@@ -131,12 +131,12 @@ namespace Group3_ClinicDB.DAL
             int appointment_id;
             decimal weight;
             decimal height;
-            int bodyTemparature;
+            decimal bodyTemparature;
             int pulse;
             string symptoms;
             int nurseId;
-            int bloodPressureSystolic;
-            int bloodPressureDiastolic;
+            decimal bloodPressureSystolic;
+            decimal bloodPressureDiastolic;
             string initialDiagnose;
             string finalDiagnose;
 
@@ -170,12 +170,12 @@ namespace Group3_ClinicDB.DAL
                             appointment_id = reader.GetInt32(appointmentIdOrd);
                             weight = reader.GetDecimal(weightOrd);
                             height = reader.GetDecimal(heightOrd);
-                            bodyTemparature = reader.GetInt32(bodyTemparatureOrd);
+                            bodyTemparature = reader.GetDecimal(bodyTemparatureOrd);
                             pulse = reader.GetInt32(pulseOrd);
                             symptoms = reader.GetString(symptomsOrd);
                             nurseId = reader.GetInt32(nurseIdOrd);
-                            bloodPressureSystolic = reader.GetInt32(bloodPressureSystolicOrd);
-                            bloodPressureDiastolic = reader.GetInt32(bloodPressureDiastolicOrd);
+                            bloodPressureSystolic = reader.GetDecimal(bloodPressureSystolicOrd);
+                            bloodPressureDiastolic = reader.GetDecimal(bloodPressureDiastolicOrd);
                             initialDiagnose = reader.GetString(initialDiagnoseOrd);
                             finalDiagnose = reader.GetString(finalDiagnoseOrd);
 
@@ -225,12 +225,12 @@ namespace Group3_ClinicDB.DAL
             int appointment_id;
             decimal weight;
             decimal height;
-            int bodyTemparature;
+            decimal bodyTemparature;
             int pulse;
             string symptoms;
             int nurseId;
-            int bloodPressureSystolic;
-            int bloodPressureDiastolic;
+            decimal bloodPressureSystolic;
+            decimal bloodPressureDiastolic;
             string initialDiagnose;
             string finalDiagnose;
 
@@ -262,12 +262,12 @@ namespace Group3_ClinicDB.DAL
                             appointment_id = reader.GetInt32(appointmentIdOrd);
                             weight = reader.GetDecimal(weightOrd);
                             height = reader.GetDecimal(heightOrd);
-                            bodyTemparature = reader.GetInt32(bodyTemparatureOrd);
+                            bodyTemparature = reader.GetDecimal(bodyTemparatureOrd);
                             pulse = reader.GetInt32(pulseOrd);
                             symptoms = reader.GetString(symptomsOrd);
                             nurseId = reader.GetInt32(nurseIdOrd);
-                            bloodPressureSystolic = reader.GetInt32(bloodPressureSystolicOrd);
-                            bloodPressureDiastolic = reader.GetInt32(bloodPressureDiastolicOrd);
+                            bloodPressureSystolic = reader.GetDecimal(bloodPressureSystolicOrd);
+                            bloodPressureDiastolic = reader.GetDecimal(bloodPressureDiastolicOrd);
                             initialDiagnose = reader.GetString(initialDiagnoseOrd);
                             finalDiagnose = reader.GetString(finalDiagnoseOrd);
 
