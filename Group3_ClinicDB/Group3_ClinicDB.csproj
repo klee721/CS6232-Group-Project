@@ -116,12 +116,6 @@
     <Compile Include="UserControls\AddUserUserControl.Designer.cs">
       <DependentUpon>AddUserUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\AllPatientUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\AllPatientUserControl.Designer.cs">
-      <DependentUpon>AllPatientUserControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\EditNurseUsercontrol.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -242,9 +236,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AddUserUserControl.resx">
       <DependentUpon>AddUserUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\AllPatientUserControl.resx">
-      <DependentUpon>AllPatientUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\EditNurseUsercontrol.resx">
       <DependentUpon>EditNurseUsercontrol.cs</DependentUpon>
