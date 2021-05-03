@@ -113,6 +113,21 @@ namespace Group3_ClinicDB.Controller
         }
 
         /// <summary>
+        /// Deletes a Patient from the table
+        /// </summary>
+        /// <param name="patient">The patient the nurse wants to delete</param>
+        /// <returns>If a patient was deleted or not</returns>
+        public bool DeleteLabtest(LabTest labTest)
+        {
+            if (labTest == null)
+            {
+                throw new ArgumentException("labTest cannot be null");
+            }
+
+            return this.testSource.DeleteLabTest(labTest);
+        }
+
+        /// <summary>
         /// GetLabsByPatient method to list the labs of a patient
         /// </summary>
         public bool GetOpenLabTestByPatient(int patient_id, string testCode)

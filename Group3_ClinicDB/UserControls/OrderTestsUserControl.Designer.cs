@@ -41,6 +41,7 @@ namespace Group3_ClinicDB.UserControls
             this.labTestsDataGridView = new System.Windows.Forms.DataGridView();
             this.visitComboBox = new System.Windows.Forms.ComboBox();
             this.lable3 = new System.Windows.Forms.Label();
+            this.deleteButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.labTestsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,7 +71,7 @@ namespace Group3_ClinicDB.UserControls
             this.submitLabTestButton.Name = "submitLabTestButton";
             this.submitLabTestButton.Size = new System.Drawing.Size(112, 35);
             this.submitLabTestButton.TabIndex = 3;
-            this.submitLabTestButton.Text = "Submit";
+            this.submitLabTestButton.Text = "Add";
             this.submitLabTestButton.UseVisualStyleBackColor = true;
             this.submitLabTestButton.Click += new System.EventHandler(this.LabTestButton_Click);
             // 
@@ -137,11 +138,14 @@ namespace Group3_ClinicDB.UserControls
             // 
             this.labTestsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.labTestsDataGridView.Location = new System.Drawing.Point(25, 387);
+            this.labTestsDataGridView.MultiSelect = false;
             this.labTestsDataGridView.Name = "labTestsDataGridView";
             this.labTestsDataGridView.RowHeadersWidth = 62;
             this.labTestsDataGridView.RowTemplate.Height = 28;
-            this.labTestsDataGridView.Size = new System.Drawing.Size(870, 250);
+            this.labTestsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.labTestsDataGridView.Size = new System.Drawing.Size(1067, 250);
             this.labTestsDataGridView.TabIndex = 11;
+            this.labTestsDataGridView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.labTestsDataGridView_MouseClick);
             // 
             // visitComboBox
             // 
@@ -160,10 +164,22 @@ namespace Group3_ClinicDB.UserControls
             this.lable3.TabIndex = 14;
             this.lable3.Text = "Visit Id";
             // 
+            // deleteButton
+            // 
+            this.deleteButton.Location = new System.Drawing.Point(665, 300);
+            this.deleteButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(112, 35);
+            this.deleteButton.TabIndex = 15;
+            this.deleteButton.Text = "Delete";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.DeleteButton_click);
+            // 
             // OrderTestsUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.lable3);
             this.Controls.Add(this.visitComboBox);
             this.Controls.Add(this.labTestsDataGridView);
@@ -178,7 +194,7 @@ namespace Group3_ClinicDB.UserControls
             this.Controls.Add(this.testCodecomboBox);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "OrderTestsUserControl";
-            this.Size = new System.Drawing.Size(953, 678);
+            this.Size = new System.Drawing.Size(1116, 678);
             this.Load += new System.EventHandler(this.OrderTestsUserControl_Load);
             this.Enter += new System.EventHandler(this.OrderTestsUserControl_Enter);
             ((System.ComponentModel.ISupportInitialize)(this.labTestsDataGridView)).EndInit();
@@ -200,5 +216,6 @@ namespace Group3_ClinicDB.UserControls
         private System.Windows.Forms.DataGridView labTestsDataGridView;
         private System.Windows.Forms.ComboBox visitComboBox;
         private System.Windows.Forms.Label lable3;
+        private System.Windows.Forms.Button deleteButton;
     }
 }

@@ -19,6 +19,8 @@ namespace Group3_ClinicDB.UserControls
 
         private Test test;
         public Patient patient;
+        string testPerformed;
+        LabTest labtest;
 
         /// <summary>
         /// The constructor
@@ -32,6 +34,9 @@ namespace Group3_ClinicDB.UserControls
             this.visitController = new VisitsController();
             this.test = new Test();
             //this.Enabled = false;
+            testPerformed = " ";
+            
+            this.labtest = new LabTest();
         }
 
         /// <summary>
@@ -67,17 +72,37 @@ namespace Group3_ClinicDB.UserControls
                 return;
             }
 
-            if (string.IsNullOrEmpty(this.testCodecomboBox.SelectedValue.ToString()))
+            try
+            {
+
+            
+                if (string.IsNullOrEmpty(this.testCodecomboBox.SelectedValue.ToString()))
+                {
+                    MessageBox.Show("Test code is required.", "Error!");
+                    return;
+                }
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Test code is required.", "Error!");
                 return;
             }
-
-            if (string.IsNullOrEmpty(this.visitComboBox.SelectedValue.ToString()))
+            try
             {
-                MessageBox.Show("Visit is required.", "Error!");
-                return;
-            }
+
+                if (string.IsNullOrEmpty(this.visitComboBox.SelectedValue.ToString()))
+                {
+                    MessageBox.Show("Visit is required.", "Error!");
+                    return;
+                }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Visit is required.", "Error!");
+                    return;
+                }
+
             if (!this.labTestController.GetOpenLabTestByPatient(this.patient.Id, this.test.TestCode))
             {
                 MessageBox.Show("An open lab order exists for the same test. Please order different test", "Error!");
@@ -120,7 +145,8 @@ namespace Group3_ClinicDB.UserControls
             //this.RefreshTests();
             this.Load_LabTests();
             this.RefreshVisits();
-
+            testPerformed = " ";
+            this.labtest = new LabTest();
 
         }
 
@@ -245,6 +271,75 @@ namespace Group3_ClinicDB.UserControls
         private void OrderTestsUserControl_Enter(object sender, EventArgs e)
         {
             this.RefreshVisits();
+        }
+
+        private void DeleteButton_click(object sender, EventArgs e)
+        {
+            
+            if (string.IsNullOrWhiteSpace(labtest.TestCode))
+            {
+                MessageBox.Show("Please select a row to delete the test order", "Test Required");
+                return;
+            }
+            if (testPerformed == "Y")
+                            {
+                MessageBox.Show("You cannot delete a test after its performed", "Error");
+                return;
+            }
+
+            if (this.labTestController.DeleteLabtest(labtest))
+            {
+
+                //this.confirmLabel.Text = "Lab test ordered successfully";
+                this.Reset();
+            }
+            else
+            {
+                MessageBox.Show("Lab test is not ordered");
+            }
+
+
+        }
+
+        private void labTestsDataGridView_MouseClick(object sender, MouseEventArgs e)
+        {
+            
+            if (labTestsDataGridView.SelectedCells.Count > 0)
+            {
+                int selectedrowindex = labTestsDataGridView.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = labTestsDataGridView.Rows[selectedrowindex];
+                string cellValue = Convert.ToString(selectedRow.Cells["visitId"].Value);
+                //visitId = int.Parse(cellValue.ToString());
+                //string cellPatientValue = Convert.ToString(selectedRow.Cells["patientId"].Value);
+                //patientId = int.Parse(cellPatientValue.ToString());
+                //testCode = Convert.ToString(selectedRow.Cells["testCode"].Value);
+                //MessageBox.Show(cellValue.ToString());
+                //MessageBox.Show(cellPatientValue.ToString());
+                //MessageBox.Show(testCode.ToString());
+                Nullable<DateTime> dateValue = Convert.ToDateTime(selectedRow.Cells["performedDateTime"].Value);
+               
+                labtest.visitId = Convert.ToInt32(selectedRow.Cells["visitId"].Value);
+                labtest.TestCode = Convert.ToString(selectedRow.Cells["testCode"].Value);
+                labtest.PatientID = Convert.ToInt32(selectedRow.Cells["patientId"].Value);
+                labtest.PerformedDateTime = Convert.ToDateTime(selectedRow.Cells["performedDateTime"].Value);
+                labtest.Results = Convert.ToString(selectedRow.Cells["results"].Value);
+                labtest.Normal = Convert.ToString(selectedRow.Cells["normal"].Value);
+                labtest.OrderDateTime = Convert.ToDateTime(selectedRow.Cells["orderDateTime"].Value);
+
+                if (labtest.PerformedDateTime == DateTime.MinValue)
+                {
+                    //unassigned
+                    //MessageBox.Show("dateValue" + dateValue.ToString());
+                    testPerformed = "N";
+
+                } else
+                {
+                    testPerformed = "Y";
+                    
+                }
+                
+
+            }
         }
     }
 }

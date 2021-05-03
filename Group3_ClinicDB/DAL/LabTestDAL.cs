@@ -258,17 +258,10 @@ namespace Group3_ClinicDB.DAL
             List<LabTest> labList = new List<LabTest>();
 
             string selectStatement =
-                " SELECT lab.patientId,lab.orderDateTime,lab.performedDateTime,lab.testCode,lab.results,lab.normal,lab.visit_id " +
-                "FROM labtests lab, tests tes where tes.testCode = lab.testCode and patientId = @patient_Id";
+                " SELECT lab.patientId,lab.visit_id,lab.testCode,lab.orderDateTime,lab.performedDateTime,lab.results,lab.normal " +
+                "FROM labtests lab, tests tes where tes.testCode = lab.testCode and patientId = @patient_Id order by lab.patientId,lab.visit_id,lab.performedDateTime";
             
-            int patientId;
-            DateTime orderDateTime;
-            DateTime performedDateTime;
-            string testCode;
-            string results;
-            string normal;
-            string name;
-            int visitId;
+           
 
             using (SqlConnection connection = ClinicDBConnection.GetConnection())
             {
@@ -351,6 +344,37 @@ namespace Group3_ClinicDB.DAL
             }
         }
 
+        /// <summary>
+        /// Deletes a labTest from the table
+        /// </summary>
+        /// <param name="labTest">The labTest the nurse wants to delete</param>
+        /// <returns>If a labTest was deleted or not</returns>
+        public bool DeleteLabTest(LabTest labTest)
+        {
+            string deleteStatement = "DELETE FROM labTests WHERE performedDatetime is null and patientId = @patientID and visit_Id= @visitId and testcode = @testCode ";
+
+            using (SqlConnection connection = ClinicDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand deleteCommand = new SqlCommand(deleteStatement, connection))
+                {
+                    deleteCommand.Parameters.AddWithValue("@patientID", labTest.PatientID);
+                    deleteCommand.Parameters.AddWithValue("@visitId", labTest.visitId);
+                    deleteCommand.Parameters.AddWithValue("@testCode", labTest.TestCode);
+
+                    int count = deleteCommand.ExecuteNonQuery();
+                    if (count > 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
         /// <summary>
         /// Updates the lab test entered in the UC to the DB
         /// </summary>

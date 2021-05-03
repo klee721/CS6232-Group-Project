@@ -20,8 +20,7 @@ namespace Group3_ClinicDB.UserControls
 
         private readonly NurseController nurseController;
 
-        private List<Nurse> nurses;
-
+       
         public Patient patient;
 
         public User loginUser;
