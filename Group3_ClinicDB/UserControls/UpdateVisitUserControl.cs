@@ -174,7 +174,7 @@ namespace Group3_ClinicDB.UserControls
         }
         
         
-        private void ClearFieldsClearFields()
+        private void ClearFields()
         {
             this.visit = new Visits();
             this.weightTextBox.Text = "";
