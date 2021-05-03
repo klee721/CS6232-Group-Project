@@ -78,6 +78,7 @@ namespace Group3_ClinicDB.View
             this.editPatientUserControl1.InitEditPatient();
             this.enterTestResultsUserControl1.GetPatient(null);
             this.searchTestResultsUserControl1.GetPatient(null);
+            this.appointmentBookingUserControl2.ClearSavedPatient();
 
             this.deleteButton.Enabled = false;
             //DISABLE YOUR MODULES ON LOGOUT HERE
