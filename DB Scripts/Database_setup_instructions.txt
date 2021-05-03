@@ -2,3 +2,4 @@ Follow these steps to create thedatabase with the tables and data
 
 1) Execute the script "Database_sql_server_generated_script.sql".
 2) Execute the script "Sampla_data_set.sql".
+3) Execute the procedure script "GetLabtestReport.sql"
