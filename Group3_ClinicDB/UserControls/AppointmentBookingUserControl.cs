@@ -86,9 +86,15 @@ namespace Group3_ClinicDB.UserControls
             return newDateTime;
         }
 
-        private void RefreshUI()
+        /// <summary>
+        /// Public helper to reset the appointment list. This will capture edits made in other tabs
+        /// </summary>
+        public void RefreshUI()
         {
-            this.PatientApptList.DataSource = this.apptController.GetAllAppointmentsByPatient(this.patient.Id);
+            if (this.patient != null)
+            {
+                this.PatientApptList.DataSource = this.apptController.GetAllAppointmentsByPatient(this.patient.Id);
+            }
             this.ReasonRichText.Text = "";
            
         }

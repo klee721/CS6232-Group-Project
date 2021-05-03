@@ -136,5 +136,13 @@ namespace Group3_ClinicDB.View
         {
             this.deleteSuccessMessage.Visible = false;
         }
+
+        private void DashboardTabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DashboardTabControl.SelectedIndex == 3)
+            {
+                this.appointmentBookingUserControl2.RefreshUI();
+            }
+        }
     }
 }
